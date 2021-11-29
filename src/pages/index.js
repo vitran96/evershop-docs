@@ -16,7 +16,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
+            to="https://demo.nodejscart.com">
             Demo
           </Link>
         </div>
@@ -29,8 +29,8 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`NodeJsCart | ${siteConfig.title}`}
+      description="An Ecommerce platform using ReactJs and ExpressJs">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
