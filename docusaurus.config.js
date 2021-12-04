@@ -6,9 +6,9 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'An Ecommerce platform using ReactJs and ExpressJs',
+  title: 'An E-commerce platform using ReactJs, ExpressJs, and MySQL',
   tagline: '',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://nodejscart.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -43,17 +43,22 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'My Site',
+        title: 'NodeJS Cart',
         logo: {
-          alt: 'An Ecommerce platform using ReactJs and ExpressJs',
+          alt: 'An E-commerce platform using ReactJs, ExpressJs, and MySQL',
           src: 'img/logo.svg',
         },
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'getting-started',
             position: 'left',
             label: 'Docs',
+          },
+          {
+            href: 'https://github.com/nodeonline/nodejscart',
+            label: 'GitHub',
+            position: 'right',
           }
         ],
       },
@@ -70,10 +75,10 @@ const config = {
             ],
           }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} NodeJsCart Project.`,
+        copyright: `Copyright © ${new Date().getFullYear()} NodeJs Cart Project.`,
       },
       prism: {
-        theme: lightCodeTheme,
+        theme: require('prism-react-renderer/themes/dracula'),
         darkTheme: darkCodeTheme,
       },
     }),
