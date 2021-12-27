@@ -83,6 +83,11 @@ const config = {
       },
       colorMode: {
         disableSwitch: true
+      },
+      googleAnalytics: {
+        trackingID: 'UA-215998623-1',
+        // Optional fields.
+        anonymizeIP: true, // Should IPs be anonymized?
       }
     }),
 };
