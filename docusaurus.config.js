@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'An E-commerce platform using ReactJs, ExpressJs, and MySQL',
-  tagline: '',
+  title: 'The React ecommerce platform',
+  tagline: 'NodeJs Cart is an open-source eCommerce platform. Built using ReactJS and fully customizable.',
   url: 'https://nodejscart.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -63,7 +63,7 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: 'light',
         links: [
           {
             title: 'Docs',
@@ -81,6 +81,9 @@ const config = {
         theme: require('prism-react-renderer/themes/dracula'),
         darkTheme: darkCodeTheme,
       },
+      colorMode: {
+        disableSwitch: true
+      }
     }),
 };
 
