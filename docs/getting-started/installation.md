@@ -1,18 +1,16 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
+keywords:
+- installation
+- NodeJsCart install
+- Install NodeJsCart
+- NodeJsCart installation guide
+description: NodeJsCart installation guide.
 ---
 
-# Getting started
+# Installation
 
-Welcome to NodeJS Cart. An open-source e-commerce project using ExpressJS, ReactJS, and MySQL.
-
-## System Requirements
-
-
-- [Node.js 12.0](https://nodejs.org/en/) or later.
-- [MySQL 5.7](https://www.mysql.com/) or later.
-
-## Setup
+The following installation guides will guide you step-by-step to create a new NodeJsCart project and get it started.
 
 ### Step 1: Clone the template
 We have created a template with some pre-configured items to help you can start using NodeJS Cart quickly.
@@ -32,9 +30,9 @@ npm install
 ```
 ### Step 3: Install database
 
-NodeJS Cart uses MySQL. You will need to create a database named `nodejscart`, username is `admin` and password is `123456` (Yeah I know, this will be a part of configuration later one)
+NodeJS Cart uses MySQL. You will need to create a database named `nodejscart`, username is `admin` and password is `123456` (Yeah I know, this will be a part of configuration later)
 
-Navigate to the root folder and you will se a file named `db.sql`. Import this file to your database.
+Navigate to the root folder and you will see a file named `db.sql`. Import this file to your database.
 
 ```shell
 cd nodejscart

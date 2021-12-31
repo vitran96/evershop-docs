@@ -13,7 +13,7 @@ function HomepageHeader() {
         <h1 className="text-3xl md:text-6xl tracking-wide capitalize">{siteConfig.title}</h1>
         <p className="text-xl">{siteConfig.tagline}</p>
         <div className="mt-10">
-          <div className="flex justify-center space-x-3">
+          <div className="home-buttons flex justify-center space-x-3">
             <div className="bg-primary hover:bg-btnHover py-2 px-5 rounded-md text-white hover:text-white font-semibold">
               <Link
                 to="/docs/getting-started">

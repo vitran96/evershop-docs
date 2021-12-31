@@ -59,6 +59,27 @@ h6,
   --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-code-font-size: 95%;
 }
+a {
+  color: var(--ifm-link-color);
+}
+
+ul,
+ol {
+  list-style: inherit;
+  padding-left: var(--ifm-list-left-padding);
+  margin: 0 0 var(--ifm-list-margin);
+}
+
+.home-buttons .bg-primary a,
+.home-buttons .bg-primary a:hover {
+  color: white;
+}
+.navbar__items--right span {
+  display: flex;
+}
+.navbar__items--right span svg {
+  align-self: center;
+}
 
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);

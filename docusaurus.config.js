@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'The React ecommerce platform',
-  tagline: 'NodeJs Cart is an open-source eCommerce platform. Built using ReactJS and fully customizable.',
+  tagline: 'NodeJsCart is an open-source eCommerce platform. Built using ReactJS and fully customizable.',
   url: 'https://nodejscart.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -24,13 +24,12 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+          //editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/main/website/blog/',
+          //editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -43,7 +42,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'NodeJS Cart',
+        title: 'NodeJsCart',
         logo: {
           alt: 'An E-commerce platform using ReactJs, ExpressJs, and MySQL',
           src: 'img/logo.svg',
@@ -51,7 +50,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'getting-started',
+            docId: 'getting-started/introduction',
             position: 'left',
             label: 'Docs',
           },
@@ -70,12 +69,12 @@ const config = {
             items: [
               {
                 label: 'Docs',
-                to: '/docs/getting-started',
+                to: '/docs/getting-started/introduction',
               },
             ],
           }
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} NodeJs Cart Project.`,
+        copyright: `Copyright © ${new Date().getFullYear()} NodeJsCart Project.`,
       },
       prism: {
         theme: require('prism-react-renderer/themes/dracula'),
