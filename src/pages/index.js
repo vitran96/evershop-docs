@@ -16,7 +16,7 @@ function HomepageHeader() {
           <div className="home-buttons flex justify-center space-x-3">
             <div className="bg-primary hover:bg-btnHover py-2 px-5 rounded-md text-white hover:text-white font-semibold">
               <Link
-                to="/docs/getting-started">
+                to="/docs/getting-started/introduction">
                 Get started
               </Link>
             </div>

@@ -10,17 +10,17 @@ const ResourceList = [
         Learn how to install NodeJS Cart and basic commands available.
       </>
     ),
-    link: "/docs/getting-started"
+    link: "/docs/getting-started/introduction"
   },
   {
-    title: 'Extension development',
+    title: 'Module development',
     Svg: require('../../static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Learn how to write your own extension to extend the feature for your ecommerce project.
+        Learn how to write your own module to extend the feature for your ecommerce project.
       </>
     ),
-    link: "/docs/getting-started"
+    link: "/docs/module-development/module-structure"
   },
   {
     title: 'Theme development',
@@ -30,7 +30,7 @@ const ResourceList = [
         Extend or customize your website layout by developing your own theme.
       </>
     ),
-    link: "/docs/getting-started"
+    link: "/docs/theme-development/theme-structure"
   }
 ];
 

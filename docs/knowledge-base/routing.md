@@ -27,12 +27,12 @@ registerSiteRoute("productView", ["GET"], "/product/:url_key");
 
 Above functions takes 3 arguments:
 
-* `productNew`. This is the route id, It as to be unique. We will base on this to manage [middleware(s)](/knowledge-base/middleware) for this route.
+* `productNew`. This is the route id, It as to be unique. We will base on this to manage [middleware(s)](/docs/knowledge-base/middleware) for this route.
 * `["GET"]`. This is the list of accepted HTTP methods.
 * `/products/new`. This is the URL path of the route.
 
 You may be noticed that we did not provide any middleware to this route. It is because we designed a 'file-based' middleware system to make it more flexible and customizable.
-You can find more information about how to work with middleware(s) in [this document](/knowledge-base/middleware).
+You can find more information about how to work with middleware(s) in [this document](/docs/knowledge-base/middleware).
 
 We organize all routes of a module in a file named `routes.js`. This file is located in each module folder.
 

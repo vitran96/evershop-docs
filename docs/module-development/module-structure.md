@@ -54,12 +54,12 @@ The default structure of a NodeJsCart module looks like the following:
 
 :::info
 
-For the project folder structure. Check [this document](/knowledge-base/project-structure).
+For the project folder structure. Check [this document](/docs/knowledge-base/project-structure).
 
 :::
 
 :::info
 
-For the theme folder structure. Check [this document](/theme-development/theme-structure).
+For the theme folder structure. Check [this document](/docs/theme-development/theme-structure).
 
 :::

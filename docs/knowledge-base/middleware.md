@@ -20,7 +20,7 @@ When the server receives a request, a list of middleware functions will be execu
 
 :::info
 
-For the project folder structure. Check [this document](/module-development/module-structure).
+For the project folder structure. Check [this document](/docs/module-development/module-structure).
 
 :::
 
@@ -119,7 +119,7 @@ Those middleware functions are executed on the request that matches the route.
 
 ### Middleware function and route
 
-Remember the "routeId" argument when we register a route in [this document](/knowledge-base/routing)?
+Remember the "routeId" argument when we register a route in [this document](/docs/knowledge-base/routing)?
 
 ```javascript
 registerSiteRoute("productView", ["GET"], "/product/:url_key");
