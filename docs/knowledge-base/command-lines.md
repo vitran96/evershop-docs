@@ -4,12 +4,21 @@ keywords:
 - command line
 - NodeJsCart commands
 - NodeJsCart command line
+- NodeJsCart install command line
+- NodeJsCart build command line
 description: NodeJsCart command lines.
 ---
 
 # Command lines
 
 Below is the list of available commands
+
+### nodejscart install
+
+This command install your store.
+```javascript
+nodejscart install
+```
 
 ### nodejscart dev
 

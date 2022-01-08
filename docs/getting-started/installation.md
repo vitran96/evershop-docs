@@ -12,39 +12,81 @@ description: NodeJsCart installation guide.
 
 The following installation guides will guide you step-by-step to create a new NodeJsCart project and get it started.
 
-### Step 1: Clone the template
-We have created a template with some pre-configured items to help you can start using NodeJS Cart quickly.
+### Step 1: Install the `@nodejscart/core` npm package
+`@nodejscart/core` is the core of the project. It contains all of the core modules.
 
 ```shell
-git clone https://github.com/nodeonline/create-nodejscart.git nodejscart
+npm init;
+npm install @nodejscart/core;
 ```
 
-### Step 2: Install dependency
+### Step 2: Install some scripts
 
-Navigate to the root folder and install the dependencies.
+Open package.json and add the following scripts:
+
 
 ```shell
-cd nodejscart
-
-npm install
+"scripts": {
+    "install": "nodejscart install",
+    "build": "nodejscart build",
+    "start": "nodejscart start"
+}
 ```
-### Step 3: Install database
+### Step 3: Run the installation script
 
-NodeJS Cart uses MySQL. You will need to create a database named `nodejscart`, username is `admin` and password is `123456` (Yeah I know, this will be a part of configuration later)
+This installation script will do the following tasks:
+- Create a default configuration file.
+- Create a MySQL database.
+- Create your administrator user.
 
-Navigate to the root folder and you will see a file named `db.sql`. Import this file to your database.
+During the installation process, you will be asked for some information like database connection, your shop information...
 
 ```shell
-cd nodejscart
-
-mysql -u <root> -p nodejscart < db.sql
+npm run install
 ```
+
+Once this step is done, your store is ready to go.
+
 ### Step 4: Run the app in production mode
 ```shell
-cd nodejscart
-
 npm run build
 npm run start
 ```
 
 Your site starts at `http://localhost:3000`.
+
+## For developer
+
+If you want to start the project in the development mode. There are some extra steps to do
+
+### Install the Babel dependency
+
+```shell
+npm install @babel/cli, @babel/core, @babel/node -d
+```
+### Create babel configuration file
+
+Create a file at the project root folder level and name it "babel.config.js" with the following content. 
+
+```shell
+module.exports = {
+    babelrcRoots: [__dirname],
+    parserOpts: { allowReturnOutsideFunction: true },
+    presets: [
+        "@babel/preset-env",
+        "@babel/preset-react"
+    ]
+};
+```
+
+### Add the `dev` script
+
+Open package.json and add the following script:
+
+```shell
+"scripts": {
+    "dev": "nodejscart dev"
+}
+```
+
+Now you can run `npm run dev` to start development.
