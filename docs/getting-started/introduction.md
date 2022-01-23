@@ -4,6 +4,7 @@ sidebar_label: Introduction
 keywords:
 - Introduction about NodeJsCart
 - NodeJsCart
+- NodeJs ecommerce platform
 description: NodeJsCart is an open-source ecommerce platform that helps developers developing their ecommerce store
 ---
 

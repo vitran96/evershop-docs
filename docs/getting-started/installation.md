@@ -62,7 +62,7 @@ If you want to start the project in the development mode. There are some extra s
 ### Install the Babel dependency
 
 ```shell
-npm install @babel/cli, @babel/core, @babel/node -d
+npm install @babel/cli @babel/core @babel/node -d
 ```
 ### Create babel configuration file
 
