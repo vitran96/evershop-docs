@@ -21,10 +21,7 @@ function HomepageHeader() {
               </Link>
             </div>
             <div className="bg-white py-2 px-5 rounded-md font-semibold">
-              <Link
-                to="https://demo.nodejscart.com">
-                Try the live demo
-              </Link>
+              <a href="https://demo.nodejscart.com" target="_blank" rel="noopener noreferrer nofollow">Try the live demo</a>
             </div>
           </div>
           <div className="flex justify-center mt-5">
