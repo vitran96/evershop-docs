@@ -1,15 +1,14 @@
 ---
 sidebar_position: 2
 keywords:
-- command line
 - NodeJsCart commands
-- NodeJsCart command line
 - NodeJsCart install command line
 - NodeJsCart build command line
-description: NodeJsCart command lines.
+title: List of NodeJsCart's available command lines
+description: All of the available commands that you should know when working with NodeJsCart ecommerce. To help you install, run, and quickly perform your tasks.
 ---
 
-# Command lines
+# NodeJsCart's available command lines
 
 Below is the list of available commands
 

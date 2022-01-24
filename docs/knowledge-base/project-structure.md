@@ -1,12 +1,12 @@
 ---
 sidebar_position: 1
 keywords:
-- Folder structure
-- NodeJsCart
-description: The folder structure of the NodeJsCart project
+- NodeJsCart folder structure
+title: The folder structure of a NodeJsCart project.
+description: The detailed list of the folders of a NodeJsCart project with a detailed explanation. Help you understand more about the NodeJsCart platform system design.
 ---
 
-# Project structure
+# NodeJsCart's folder structure
 
 The default structure of a NodeJsCart project looks like the following:
 

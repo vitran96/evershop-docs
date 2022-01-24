@@ -4,10 +4,11 @@ keywords:
 - Routing
 - NodeJsCart routing
 - NodeJsCart module route
-description: NodeJsCart routing system. How to register a route in NodeJsCart module.
+title: The NodeJsCart's route sytem design
+description: The routing system is a very important part of the NodeJsCart ecommerce platform. It was designed to make the system fully customizable by supporting adding or customizing any page or API. 
 ---
 
-# Routing
+# NodeJsCart's routing system
 
 Routing refers to determining how an application responds to a client request to a particular endpoint, which is a URI (or path) and a specific HTTP request method (GET, POST, and so on).
 

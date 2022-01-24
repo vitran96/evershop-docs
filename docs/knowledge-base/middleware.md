@@ -2,13 +2,13 @@
 sidebar_position: 5
 sidebar_label: Middleware
 keywords:
-- middleware
 - NodeJsCart middleware
 - NodeJsCart middleware functions
-description: NodeJsCart middleware functions system.
+title: The middleware function system design of NodeJsCart
+description: The middleware system is the most important part of the NodeJsCart platform. It was designed to make the system fully customizable by supporting adding or removing any middleware function. 
 ---
 
-# Middleware functions
+# NodeJsCart middleware function system
 
 In NodeJsCart, middleware functions are functions that have access to the request object (request), the response object (response), and the next middleware function in the application’s request-response cycle.
 When the server receives a request, a list of middleware functions will be executed. There are 4 types of middleware functions:

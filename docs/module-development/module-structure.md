@@ -5,7 +5,8 @@ keywords:
 - NodeJsCart module
 - NodeJsCart module development
 - NodeJsCart custom module
-description: The folder structure of the NodeJsCart module
+title: NodeJsCart module folder structure
+description: This document explains the folder structure of the NodeJsCart module. It is helpful for you to start developing your own module.
 ---
 
 # Module structure
@@ -13,7 +14,39 @@ description: The folder structure of the NodeJsCart module
 The default structure of a NodeJsCart module looks like the following:
 
 ``` javascript
-├── components /* This folder contains the list of template file (React components) and css */
+├── apiControllers /* This folder contains the list of api controllers */
+│   ├── [context]config.js
+│   ├── admin /* We organize middleware in 2 folders: This `admin` folder contains middleware(s) for the admin panel */
+│   │   ├── productEdit
+│   │   │   ├── [loadProductEdit]loadVariants.js
+│   │   │   ├── loadImages.js
+│   │   │   ├── loadOptions.js
+│   │   │   ├── loadProductAttribute.js
+│   │   │   └── route /* This file contains the route definition */
+│   └── site /* We organize middleware in 2 folders: This `site` folder contains middleware(s) for the front store */
+│       └── productView
+│           ├── [detectVariant]loadImages.js
+│           ├── [detectVariant]loadVariants.js
+│           ├── [loadProduct]detectVariant.js
+│           ├── loadProduct.js
+│           └── route /* This file contains the route definition */
+├── controllers /* This folder contains the list of page controllers */
+│   ├── [context]config.js
+│   ├── admin /* We organize middleware in 2 folders: This `admin` folder contains middleware(s) for the admin panel */
+│   │   ├── productEdit
+│   │   │   ├── [loadProductEdit]loadVariants.js
+│   │   │   ├── loadImages.js
+│   │   │   ├── loadOptions.js
+│   │   │   ├── loadProductAttribute.js
+│   │   │   ├── loadProductEdit.js
+│   │   │   └── route /* This file contains the route definition */
+│   └── site /* We organize middleware in 2 folders: This `site` folder contains middleware(s) for the front store */
+│       └── productView
+│           ├── [detectVariant]loadImages.js
+│           ├── [detectVariant]loadVariants.js
+│           ├── [loadProduct]detectVariant.js
+│           └── route /* This file contains the route definition */
+├── views /* This folder contains the list of template file (React components) and css */
 │   ├── admin /* We organize components in 2 folders: This `admin` folder contains components for the admin panel */
 │   │   ├── components.js /* This file is where we register our components for our pages */
 │   │   └── product
@@ -33,22 +66,6 @@ The default structure of a NodeJsCart module looks like the following:
 │           └── view
 │               ├── Variants.js
 │               └── Variants.scss
-├── middlewares /* This folder contains the list of middleware */
-│   ├── [context]config.js
-│   ├── admin /* We organize middleware in 2 folders: This `admin` folder contains middleware(s) for the admin panel */
-│   │   ├── productEdit
-│   │   │   ├── [loadProductEdit]loadVariants.js
-│   │   │   ├── loadImages.js
-│   │   │   ├── loadOptions.js
-│   │   │   ├── loadProductAttribute.js
-│   │   │   └── loadProductEdit.js
-│   └── site /* We organize middleware in 2 folders: This `site` folder contains middleware(s) for the front store */
-│       └── productView
-│           ├── [detectVariant]loadImages.js
-│           ├── [detectVariant]loadVariants.js
-│           ├── [loadProduct]detectVariant.js
-│           └── loadProduct.js
-└── routes.js /* This file contains list of our route(s). Both admin and front route(s) */
 └── package.json
 ```
 

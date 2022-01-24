@@ -5,7 +5,8 @@ keywords:
 - NodeJsCart install
 - Install NodeJsCart
 - NodeJsCart installation guide
-description: NodeJsCart installation guide.
+title: NodeJsCart installation guide.
+description: A guide that helps you to install, run, and get started to customize your NodeJsCart platform. Cover all installation options.
 ---
 
 # Installation

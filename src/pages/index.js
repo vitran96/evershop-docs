@@ -37,8 +37,8 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`NodeJs Cart | ${siteConfig.title}`}
-      description="An Ecommerce platform using React">
+      title={`A NodeJS ecommerce platform. Built with ReactJs and MySQL, fast and fully customizable`}
+      description="A NodeJS ecommerce platform with essential commerce features available free of charge. Built with ReactJs and MySQL, fast and fully customizable.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
