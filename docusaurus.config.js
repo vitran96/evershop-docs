@@ -6,34 +6,57 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'The React ecommerce platform',
-  tagline: 'NodeJsCart is an open-source eCommerce platform. Built using ReactJS and fully customizable.',
-  url: 'https://nodejscart.com',
+  title: 'An Open-Source Ecommerce Framework With NodeJS',
+  tagline: 'A NodeJS ecommerce platform with essential commerce features available free of charge. Built with ReactJs and MySQL, fast and fully customizable.',
+  url: 'https://evershop.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
   trailingSlash: false,
+  // GitHub pages deployment config.
+  // If you aren't using GitHub pages, you don't need these.
+  organizationName: 'evershopcommerce', // Usually your GitHub org/user name.
+  projectName: 'evershop', // Usually your repo name.
+
+  // Even if you don't use internalization, you can use this field to set useful
+  // metadata like html lang. For example, if your site is Chinese, you may want
+  // to replace "en" with "zh-Hans".
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
+
   presets: [
     [
-      '@docusaurus/preset-classic',
+      'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          //editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/',
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          //editUrl: 'https://github.com/facebook/docusaurus/edit/main/website/blog/',
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        googleAnalytics: {
+          trackingID: 'G-NL5DS5R8SM',
+          // Optional fields.
+          anonymizeIP: true, // Should IPs be anonymized?
+        },
+        gtag: {
+          trackingID: 'G-NL5DS5R8SM',
+        }
       }),
     ],
   ],
@@ -42,52 +65,80 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'NodeJsCart',
+        title: '',
         logo: {
-          alt: 'An E-commerce platform using ReactJs, ExpressJs, and MySQL',
+          alt: 'My Site Logo',
           src: 'img/logo.svg',
         },
         items: [
           {
             type: 'doc',
-            docId: 'getting-started/introduction',
-            position: 'left',
-            label: 'Docs',
+            docId: 'introduction',
+            position: 'right',
+            label: 'Documentation',
           },
           {
-            href: 'https://github.com/nodeonline/nodejscart',
+            type: 'doc',
+            docId: 'introduction',
+            position: 'right',
+            label: 'User Guide',
+          },
+          {
+            href: 'https://github.com/evershopcommerce/evershop',
             label: 'GitHub',
             position: 'right',
-          }
+          },
         ],
       },
       footer: {
-        style: 'light',
+        style: 'dark',
         links: [
           {
             title: 'Docs',
             items: [
               {
-                label: 'Docs',
-                to: '/docs/getting-started/introduction',
+                label: 'Documentation',
+                to: '/docs/introduction',
+              },
+              {
+                label: 'User Guide',
+                to: '/docs/introduction',
+              }
+            ],
+          },
+          {
+            title: 'Community',
+            items: [
+              {
+                label: 'Discord',
+                href: 'https://discordapp.com/invite/docusaurus',
+              },
+              {
+                label: 'Facebook',
+                href: 'https://twitter.com/docusaurus',
               },
             ],
-          }
+          },
+          {
+            title: 'More',
+            items: [
+              {
+                label: 'Blog',
+                to: '/blog',
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/evershopcommerce/evershop',
+              },
+            ],
+          },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} NodeJsCart Project.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Evershop.`,
       },
       prism: {
-        theme: require('prism-react-renderer/themes/dracula'),
+        theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
-      colorMode: {
-        disableSwitch: true
-      },
-      googleAnalytics: {
-        trackingID: 'UA-215998623-1',
-        // Optional fields.
-        anonymizeIP: true, // Should IPs be anonymized?
-      }
     }),
 };
 
