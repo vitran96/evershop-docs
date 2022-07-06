@@ -1,12 +1,8 @@
 import React from 'react';
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
-
-import styles from './index.module.css';
-import HomepageResources from '../components/HomepageResources';
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -19,12 +15,12 @@ function HomepageHeader() {
         <div className="flex gap-5 justify-center mt-6">
           <Link
             className="button button--primary button--lg"
-            to="/docs/intro">
+            to="/docs/development/getting-started/introduction">
             Getting started
           </Link>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
+            to="https://demo.evershop.io/">
             Explore our demo
           </Link>
         </div>
@@ -47,7 +43,6 @@ export default function Home() {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-        <HomepageResources />
       </main>
     </Layout>
   );

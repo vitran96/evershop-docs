@@ -73,15 +73,9 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'introduction',
+            docId: 'development/getting-started/introduction',
             position: 'right',
             label: 'Documentation',
-          },
-          {
-            type: 'doc',
-            docId: 'introduction',
-            position: 'right',
-            label: 'User Guide',
           },
           {
             href: 'https://github.com/evershopcommerce/evershop',
@@ -98,11 +92,11 @@ const config = {
             items: [
               {
                 label: 'Documentation',
-                to: '/docs/introduction',
+                to: '/docs/development/getting-started/introduction',
               },
               {
                 label: 'User Guide',
-                to: '/docs/introduction',
+                to: '/docs/development/getting-started/introduction',
               }
             ],
           },
@@ -111,21 +105,17 @@ const config = {
             items: [
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: 'https://discord.com/invite/GSzt7dt7RM',
               },
               {
                 label: 'Facebook',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://www.facebook.com/evershopcommerce',
               },
             ],
           },
           {
             title: 'More',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
               {
                 label: 'GitHub',
                 href: 'https://github.com/evershopcommerce/evershop',
@@ -139,6 +129,29 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      algolia: {
+        // The application ID provided by Algolia
+        appId: 'ORMX830CVG',
+
+        // Public API key: it is safe to commit it
+        apiKey: 'c0d71a3064445f1a5035b1c0c638ddaf',
+
+        indexName: 'nodejscart',
+
+        // Optional: see doc section below
+        contextualSearch: true,
+
+        // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+        //externalUrlRegex: 'external\\.com|domain\\.com',
+
+        // Optional: Algolia search parameters
+        searchParameters: {},
+
+        // Optional: path for search page that enabled by default (`false` to disable it)
+        searchPagePath: 'search',
+
+        //... other Algolia params
+      }
     }),
 };
 
