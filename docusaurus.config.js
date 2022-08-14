@@ -136,7 +136,7 @@ const config = {
         // Public API key: it is safe to commit it
         apiKey: 'c0d71a3064445f1a5035b1c0c638ddaf',
 
-        indexName: 'nodejscart',
+        indexName: 'evershop',
 
         // Optional: see doc section below
         contextualSearch: true,
