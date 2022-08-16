@@ -12,7 +12,7 @@ function HomepageHeader() {
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className="flex gap-5 justify-center mt-6">
+        <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4 justify-center mt-6">
           <Link
             className="button button--primary button--lg"
             to="/docs/development/getting-started/introduction">
