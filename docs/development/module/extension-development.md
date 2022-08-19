@@ -59,24 +59,37 @@ Just like a module, below is the folder structure of an extension:
 extensions
 └── Vendor_ExtensionName
     ├── apiControllers
-    │   └── createPost
-    │       └── validatePostMiddleware.js
-    │       └── [validatePostMiddleware]savePostMiddleware.js
+    │   ├── site
+    │   └── admin
+    │       └── postCreate
+    │           ├── route
+    │           ├── validatePostMiddleware.js
+    │           └── [validatePostMiddleware]savePostMiddleware.js
     ├── controllers
-    │   ├── postView
-    │   │   └── loadPostMiddleware.js
-    ├── migrations
-    │   ├── Version_1.0.0.js
-    ├── views
     │   ├── admin
     │   │   └── postCreate
-    │   │       └── indexMiddleware.js
+    │   │       ├── route
+    │   │       └── loadPostMiddleware.js
     │   └── site
     │       └── postView
-    │           ├── TitleComponent.js
-    │           ├── PriceComponent.js
-    │           └── VariantsComponent.js
-    └── bootstrap.js
+    │           ├── route
+    │           ├── loadPostMiddleware.js
+    │           └── [loadPostMiddleware]loadVariantMiddleware.js
+    ├── migration
+    │   └── Version_1.0.0.js
+    ├── views
+    │   ├── admin
+    │   │   ├── postCreate
+    │   │   │   ├── GeneralComponent.js
+    │   │   │   └── FormComponent.js
+    │   │   └── components.js   
+    │   └── site
+    │       ├── postView
+    │       │   ├── TitleComponent.js
+    │       │   ├── PriceComponent.js
+    │       │   └── VariantsComponent.js
+    │       └── components.js   
+    ├── bootstrap.js
     └── packages.json
 ```
 
