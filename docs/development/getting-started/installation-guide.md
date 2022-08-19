@@ -34,7 +34,7 @@ Open the package.json file and add the following scripts:
 
 ```js title="Add the core npm scripts"
 "scripts": {
-    "install": "evershop install",
+    "setup": "evershop install",
     "build": "evershop build",
     "start": "evershop start"
 }
@@ -43,7 +43,11 @@ Open the package.json file and add the following scripts:
 ### Step 3: Run the installation script
 
 Before running this script, make sure that you have an empty database ready for EverShop.
+:::info
 
+Please check [this document](/docs/development/getting-started/system-requirements) for the system requirement list.
+
+:::
 This installation script will do the following tasks:
 
 - Create a default configuration file.
@@ -51,7 +55,7 @@ This installation script will do the following tasks:
 - Create your administrator user.
 
 ```js title="Installation script"
-npm run install
+npm run setup
 ```
 
 :::caution
@@ -78,42 +82,21 @@ Your site will start at `http://localhost:3000`.
 
 If you are developer and want to start the project in the development mode. There are some extra steps
 
-### Install Babel dependencies
-
-```bash
-npm install @babel/cli @babel/core @babel/node -d
-```
-### Create Babel Configuration file
-
-Create a file at the project root folder level and name it “babel.config.js” with the following content.
-
-```bash
-module.exports = {
-    babelrcRoots: [__dirname],
-    parserOpts: { allowReturnOutsideFunction: true },
-    presets: [
-        [
-            "@babel/preset-env",
-            {
-                "exclude": ["@babel/plugin-transform-regenerator", "@babel/plugin-transform-async-to-generator"]
-            }
-        ],
-        "@babel/preset-react"
-    ]
-};
-```
-### Add The Development script
+### Adding the `dev` script
 
 Open the package.json and add the following script:
 
-```bash
+```js title="Add the core dev script"
 "scripts": {
+    "setup": "evershop install",
+    "build": "evershop build",
+    "start": "evershop start",
     "dev": "evershop dev"
 }
 ```
 
-Now you can run `npm run dev` to start your store in development mode.
+### Start the project in development mode
 
-```bash
+```js title="Start the site in development mode"
 npm run dev
 ```

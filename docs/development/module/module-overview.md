@@ -2,12 +2,12 @@
 sidebar_position: 5
 keywords:
 - module overview
-sidebar_label: Module overview
-title: Module overview
+sidebar_label: Module Overview
+title: Module Overview
 description: The quick and overview about EverShop's module system. What is the EverShop's module and how does it work.
 ---
 
-# Module overview
+# Module Overview
 
 EverShop is a modular application and it supports modularity. It means that all functionality is implemented and delivered in components that are known as Modules.
 
@@ -26,7 +26,7 @@ A module is a directory that contains 5 parts:
 1. `Controller`: The `controllers` or `apiControllers` contains a list of the controller and its middleware functions and route definition. Check this document for more information.
 2. `Migration`: The `migration` folder contains the database migration files used for module installation and upgrade.
 3. `Services`: The `services` folder contains Javascript class/function that provides some functionality.
-4. `View`: The `view` folder contains the ReactJS components for UI/UX implementation. 
+4. `View`: The `views` folder contains the ReactJS components for UI/UX implementation. 
 5. `bootstrap.js` file. This file will be executed once the application is starting.
 
 ## Module locations

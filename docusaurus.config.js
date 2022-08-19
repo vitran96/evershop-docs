@@ -1,13 +1,13 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
+const lightCodeTheme = require('prism-react-renderer/themes/palenight');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'An Open-Source Ecommerce Platform With Node and React',
-  tagline: 'A Node ecommerce platform with essential commerce features available free of charge. Built with ReactJs and MySQL, fast and fully customizable.',
+  title: 'An Open-Source E-commerce Platform With Node and React',
+  tagline: 'A Node ecommerce platform with essential commerce features available free of charge. Built with React and MySQL, fast and fully customizable.',
   url: 'https://evershop.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',

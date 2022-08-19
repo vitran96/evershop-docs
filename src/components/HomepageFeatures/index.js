@@ -1,38 +1,42 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import Link from '@docusaurus/Link';
 
 const FeatureList = [
   {
-    title: 'Free. Open Source',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        EverShop is an open-source project. The entire codebase is available on GitHub and maintained by many of contributors.
-      </>
-    ),
-  },
-  {
-    title: 'Feature-Rich',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-        EverShop offers rich functionality. Enabling merchants to develop a web store meets the business requirements.
-      </>
-    ),
-  },
-  {
     title: 'Fully Customizable',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
         Easily customize the admin panel as well as the front-store. Extend your e-commerce feature with custom extension and theme.
       </>
     ),
+    readMore: '/docs/development/module/extension-development'
   },
+  {
+    title: 'Fast Refresh',
+    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    description: (
+      <>
+        Evershop Fast Refresh provides fast, reliable live-editing experience.
+      </>
+    ),
+    readMore: '/docs/development/knowledge-base/fast-refresh'
+  },
+  {
+    title: 'File-system Middleware',
+    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    description: (
+      <>
+        Powerful middleware system that allows you to customize the behavior of your app easily.
+      </>
+    ),
+    readMore: '/docs/development/knowledge-base/middleware'
+  }
 ];
 
-function Feature({ Svg, title, description }) {
+function Feature({ Svg, title, description, readMore }) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
@@ -41,6 +45,10 @@ function Feature({ Svg, title, description }) {
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
         <p>{description}</p>
+        <Link
+          to={readMore}>
+          Read more
+        </Link>
       </div>
     </div>
   );

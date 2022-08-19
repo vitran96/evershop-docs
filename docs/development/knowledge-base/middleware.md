@@ -108,7 +108,7 @@ module.exports = (request, response, delegate, next) => {
 }
 ```
 
-This middleware function has the next argument. Besides of doing it’s own business, it takes care of call `next()` based on it’s own logic. In this case, if you do not call `next()` the request will be left hanging forever.
+This middleware function has the next argument. Besides of doing it’s own business, it takes care of calling `next()` based on it’s own logic. In this case, if you do not call `next()` the request will be left hanging forever.
 
 ### Asynchronous middleware function
 
