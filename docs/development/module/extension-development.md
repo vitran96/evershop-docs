@@ -4,18 +4,14 @@ keywords:
 - extension development
 sidebar_label: Extension Development
 title: Extension Development
-description: The quick and overview about EverShop's module system. What is the EverShop's module and how does it work.
+description: Understand the Need for a Evershop extension development and how to develop a Evershop extension.
 ---
 
 ![EverShop extension development](./img/evershop-extension-development.jpg "EverShop extension development")
 
-# Extension Development
-
 :::info
 Before you start writing code for your Evershop module, we recommend reading [EverShop’s module overview documentation](./module-overview) to understand the basic of EverShop module.
 :::
-
-
 
 This document will guide you through the process of enabling the extension feature of EverShop. After that, you will be able to create your own extension and install it to your EverShop project.
 

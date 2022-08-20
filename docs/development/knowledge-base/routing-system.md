@@ -7,6 +7,8 @@ title: Routing system
 description: The document explains how does EverShop routing system work, how to define a route and generate a URL base on route ID.
 ---
 
+![Routing system](./img/routing.jpg "Routing system")
+
 # Routing system
 
 Routing refers to determining how an application responds to a client request to a particular endpoint, which is a URI (or path) and a specific HTTP request method (GET, POST, and so on).
