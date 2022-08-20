@@ -23,6 +23,8 @@ Let's start!
 
 In the root folder of your EverShop project, you will find a folder named `extensions`. If it doesn't exist, you can create it manually. This folder contains all of the extensions that you have installed to your project. You can create your own extension and install it to this folder.
 
+You can check [this document](../knowledge-base/project-folder-structure) to learn more about the project folder structure.
+
 ## The NPM Workspace
 
 An extension can be a NPM package. It means that you can have a `packages.json` file in your extension with some dependency. To do that, you need to create a NPM workspace. A NPM workspace is a NPM package that contains multiple NPM packages. You can read more about NPM workspace [here](https://docs.npmjs.com/cli/v7/using-npm/workspaces).
@@ -88,6 +90,7 @@ extensions
     ├── bootstrap.js
     └── packages.json
 ```
+You can check [this document](./module-overview) to learn more about the module folder structure.
 
 ## Active/Deactive Your Extension
 

@@ -19,21 +19,65 @@ The purpose of a module is to provide specific product features by implementing 
 
 ![EverShop modular pattern](./img/modular.png "EverShop modular pattern")
 
-## Module components
+## Module Folder Structure
+
+Below is the folder structure of a module:
+
+```bash
+modules
+└── catalog
+    ├── apiControllers
+    │   ├── site
+    │   └── admin
+    │       └── postCreate
+    │           ├── route
+    │           ├── validatePostMiddleware.js
+    │           └── [validatePostMiddleware]savePostMiddleware.js
+    ├── controllers
+    │   ├── admin
+    │   │   └── postCreate
+    │   │       ├── route
+    │   │       └── loadPostMiddleware.js
+    │   └── site
+    │       └── postView
+    │           ├── route
+    │           ├── loadPostMiddleware.js
+    │           └── [loadPostMiddleware]loadVariantMiddleware.js
+    ├── migration
+    │   └── Version_1.0.0.js
+    ├── services
+    │   └── ProductValidator.js
+    ├── views
+    │   ├── admin
+    │   │   ├── postCreate
+    │   │   │   ├── GeneralComponent.js
+    │   │   │   └── FormComponent.js
+    │   │   └── components.js   
+    │   └── site
+    │       ├── postView
+    │       │   ├── TitleComponent.js
+    │       │   ├── PriceComponent.js
+    │       │   └── VariantsComponent.js
+    │       └── components.js   
+    ├── bootstrap.js
+    └── packages.json
+```
+
 
 A module is a directory that contains 5 parts:
 
 1. `Controller`: The `controllers` or `apiControllers` contains a list of the controller and its middleware functions and route definition. Check this document for more information.
-2. `Migration`: The `migration` folder contains the database migration files used for module installation and upgrade.
+2. `Migration`: The `migration` folder contains the database migration files used for module installation and upgrade. Normally, we need this when our module needs to create a new table or add a new column to an existing table.
 3. `Services`: The `services` folder contains Javascript class/function that provides some functionality.
 4. `View`: The `views` folder contains the ReactJS components for UI/UX implementation. 
 5. `bootstrap.js` file. This file will be executed once the application is starting.
+6. `packages.js` file. An extension can have its own dependencies. We will use the NPM workspace to manage the dependencies of the extension. We will describe this in more detail in [this document](./extension-development).
 
-## Module locations
+## Module Locations
 
 ![EverShop module location](./img/modules-location.png "EverShop module location")
 
 There are two types of modules:
 
 1. Core module: Those modules are developed and maintained by the EverShop team. They are located in @evershop/core/src/modules
-2. Extension: Those modules developed by a third party/developer. They are located in the ‘extensions’ folder at the root level.
+2. Extension: Those modules developed by a third party/developer. They are located in the ‘extensions’ folder at the root level. We will learn more about the extension in the next sections.
