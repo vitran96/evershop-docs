@@ -17,6 +17,14 @@ Evershop provides both REST API and [GraphQL API](https://graphql.org/) for the 
 
 ![Architecture Overview](./img/evershop-architecture-overview.svg "Architecture Overview")
 
+## Module System
+
+EverShop is a modular application and it supports modularity. It means that all functionality is implemented and delivered in components that are known as Modules.
+
+A module is a logical group – a directory containing controllers, services, views – that are related to a specific business feature. In keeping with EverShop’s commitment to optimal modularity, a module encapsulates one feature and has minimal dependencies on other modules.
+
+![Module Architecture Overview](./img/evershop-module-architecture.png "Module Architecture Overview")
+
 ## Project Folder Structure
 
 A EverShop project contains node_modules, caching files, configuration files, media and extension. Let’s take a look to the directory structure:
