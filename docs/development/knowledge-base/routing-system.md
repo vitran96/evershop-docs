@@ -3,7 +3,7 @@ sidebar_position: 25
 keywords:
 - Routing system
 sidebar_label: Routing system
-title: Routing system
+title: Evershop routing system
 description: The document explains how does EverShop routing system work, how to define a route and generate a URL base on route ID.
 ---
 
@@ -23,20 +23,72 @@ Check [this document](/docs/development/knowledge-base/project-folder-structure)
 
 ## The fundamental
 
-Let’s take a look a core module structure
+Let’s take a look a module structure
 
-![EverShop Catalog Module](./img/evershop-routing-system.jpg "Evershop Catalog Module")
+```bash
+./
+├── api
+│   ├── admin
+│   │   ├── productSavePost
+│   │   │   └── route
+│   │   ├── productDelete
+│   │   │   └── route
+│   │   ├── categorySavePost
+│   │   │   └── route
+│   │   └── categoryDelete
+│   │       └── route
+│   └── site
+│       ├── categoryView
+│       │   └── route
+│       └── productView
+│           ├── route
+├── graphql
+├── migration
+├── pages
+│   ├── admin
+│   │   ├── attributeEdit
+│   │   │   └── route
+│   │   ├── attributeGrid
+│   │   │   └── route
+│   │   ├── attributeNew
+│   │   │   └── route
+│   │   ├── categoryEdit
+│   │   │   └── route
+│   │   ├── categoryEdit+categoryNew
+│   │   │   └── route
+│   │   ├── categoryGrid
+│   │   │   └── route
+│   │   ├── categoryNew
+│   │   │   └── route
+│   │   ├── components.js
+│   │   ├── productEdit
+│   │   │   └── route
+│   │   ├── productGrid
+│   │   │   └── route
+│   │   └── productNew
+│   │       └── route
+│   └── site
+│       ├── categoryView
+│       │   └── route
+│       └── productView
+│           └── route
+├── services
+└── tests
+```
 
 In the picture above, there are 3 important things that we need to understand:
 
-### 1: The controller folders
+### 1: The `api` folder
 
-You can see there are 2 folders named “controllers” and “apiControllers” located under the “catalog” folder. They are where we organize our controller.
+You can see there is a folder named “api” in the above example. This folder is where we organize our RESTful api controller.
 
-There 2 folders are identical. There are only 2 differences:
+Each of sub-folder in the “api” folder is a RESTful api controller. For example, the “productSavePost” folder is a RESTful api controller that handles the “POST” request to the “/api/catalog/product/save” endpoint. This folder contains a file named “route” that defines the detail (HTTP method, path) for this RESTful api controller.
 
-1. The ‘api controller’ route will only return a JSON response
-2. The ‘api controller’ route URL will be prefixed by ‘v1’ automatically
+### 2: The `pages` folders
+
+You can see there is a folder named “pages” in the above example. This folder is where we organize our pages.
+
+Each of sub-folder in the “pages” folder is a page controller. Those folders contain a file named “route” that defines the detail (HTTP method, path) for this RESTful api controller.
 
 ### 2: The ‘admin’ and ‘site’ folders
 
@@ -52,14 +104,11 @@ Basically, they contain 2 important things
 
 The middleware functions will be executed when the route is triggered. You can learn more about how does middleware system works in [this document](/docs/development/knowledge-base/middleware)
 The declaration of the route
-And the folder name will be used as a ‘route ID’.
+And the folder name will be used as a ‘route ID’. Typically, the route folder name has to be unique and we do not accept white space in the route ID.
 
 :::info
-
 Since the route folder name will be used as a ‘route ID’.So it has to be unique and basically, we do not accept special characters or whitespace.
-
 :::
-
 
 ## The declaration of the route
 

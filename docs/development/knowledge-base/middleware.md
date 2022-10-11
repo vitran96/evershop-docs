@@ -3,7 +3,7 @@ sidebar_position: 30
 keywords:
 - Middleware
 sidebar_label: Middleware
-title: Middleware
+title: Evershop middleware system overview
 description: Learn about the middleware system in EverShop. How do they work and how to create, add and remove a middleware function from a route.
 ---
 
@@ -58,21 +58,25 @@ Application-level middleware is a middleware function that will be executed on a
 
 For example, a logging middleware that takes care of writing some log information is an application-level middleware.
 
+In a module, you can create a middleware function by creating a file in the `api/global` or `pages/global` folder. For example, if you create a file named `logMiddleware.js` in the `api/global` folder, this middleware will be executed on all API requests.
+
 ### 2: Admin-level middleware
 
 Admin level middleware is a middleware function that will be executed on all requests to the admin panel.
 
 For example, an admin user authentication middleware that takes care of admin authentication is an admin level middleware.
 
+In a module, you can create a middleware function by creating a file in the `api/admin/all` or `pages/admin/all` folder. For example, if you create a file named `authMiddleware.js` in the `pages/admin/all` folder, this middleware will be executed on all pages in the admin panel.
+
 ### 3: Site-level middleware
 
-Site-level middleware is a middleware function that will be executed on all requests to the front store.
+Similiar to the admin-level middleware, site-level middleware is a middleware function that will be executed on all requests to the front store.
 
 For example, a customer authentication middleware that takes care of customer authentication is a site-level middleware.
 
-### 4: Route-level middleware
+### 4: Routed-level middleware
 
-Route level middleware is a middleware function that will only be executed on a specific route.
+Routed level middleware is a middleware function that will only be executed on a specific route.
 
 For example, a load product middleware will only be executed when a user visits the product view route.
 

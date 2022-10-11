@@ -3,8 +3,9 @@ sidebar_position: 10
 keywords:
 - EverShop installation
 sidebar_label: Installation guide
-title: Quick installation guide.
-description: EverShop system requirements. The full list of requirements that you need to check your system before installing EverShop.
+title: Evershop installation guide.
+ # Wite a good SEO description here.
+description: EverShop is a free and open-source eCommerce platform. This guide will help you to install EverShop on your local machine.
 ---
 
 # Installation guide
@@ -34,7 +35,7 @@ Open the package.json file and add the following scripts:
 
 ```js title="Add the core npm scripts"
 "scripts": {
-    "setup": "evershop install",
+    "setup": "evershop setup",
     "build": "evershop build",
     "start": "evershop start"
 }
@@ -88,7 +89,7 @@ Open the package.json and add the following script:
 
 ```js title="Add the core dev script"
 "scripts": {
-    "setup": "evershop install",
+    "setup": "evershop setup",
     "build": "evershop build",
     "start": "evershop start",
     "dev": "evershop dev"

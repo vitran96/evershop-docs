@@ -1,9 +1,9 @@
 ---
 sidebar_position: 30
 keywords:
-- the view
+- the page system
 sidebar_label: The View System
-title: The View System
+title: Evershop view system
 description: Evershop makes use of React to render the view. The page will be rendered on the server side and then sent to the client side. The client side do the Hydration process and make the page interactive.
 ---
 
@@ -25,6 +25,10 @@ The EverShop is a multi page application. Each page has its own layout and compo
 
 The EverShop follows the server-side-rendering approach. The page will be rendered on the server side and sent to the client along with some JavaScript code. The client side will do the Hydration process to make the page fully interactive.
 
+### Dynamic layout
+
+Evershop layout was designed to be flexible and easy to extend. Third party developers can insert their own React components into the layout without having to modify the core code. Check the [bellow section](#the-area-component) to understand more about how to extend the layout.
+
 **Compared to a client-side Single-Page Application (SPA), the advantage of SSR primarily lies in**:
 
 - **Faster time-to-content**: this is more prominent on slow internet or slow devices. Server-rendered markup doesn't need to wait until all JavaScript has been downloaded and executed to be displayed, so your user will see a fully-rendered page sooner. In addition, data fetching is done on the server-side for the initial visit, which likely has a faster connection to your database than the client. This generally results in improved Core Web Vitals metrics, better user experience, and can be critical for applications where time-to-content is directly associated with conversion rate.
@@ -36,6 +40,86 @@ The EverShop follows the server-side-rendering approach. The page will be render
 ### Fast Refresh
 
 The EverShop implements [Fast Refresh](../knowledge-base/fast-refresh). This feature helps to improve the developer experience and performance. This feature is only available in the development mode.
+
+## The Module View
+
+:::info
+Please check [this document](../module/module-overview) to understand the structure of EverShop module.
+:::
+
+Every module in EverShop has a `pages` folder. This folder contains all of the React components that are used to render a page. The `pages` folder has the following structure:
+
+Let's take an example of the `catalog` module:
+
+```bash
+catalog
+├── api
+├── pages
+    ├── admin
+    │   └── productEdit
+    │       ├── route
+    │       ├── index.js
+    │       ├── General.js
+    │       ├── Images.js
+    │       ├── Price.js
+    └── site
+        └── productView
+            ├── route
+            ├── index.js
+            ├── ProductImages.js
+            ├── ProductInfo.js
+            ├── ProductOptions.js
+```
+
+The `pages` folder has 3 sub-folders: `admin`, `site` and `global`. The `admin` folder contains all of admin panel pages. The `site` folder contains pages for your store front. The `global` folder contains *middleware function* that are used in both admin panel and store front.
+
+### Component and Page
+
+Let's take a look again the `catalog` module:
+
+```bash
+catalog
+├── api
+├── pages
+    ├── admin
+    │   └── productEdit
+    │       ├── route
+    │       ├── index.js
+    │       ├── General.js
+    │       ├── Images.js
+    │       └── Price.js
+    └── site
+        ├── categoryView
+        │   ├── route
+        │   ├── index.js
+        │   ├── CategoryInfo.js
+        │   └── CategoryProducts.js
+        └── productView
+            ├── route
+            ├── index.js
+            ├── ProductImages.js
+            ├── ProductInfo.js
+            └── ProductOptions.js
+            
+```
+In the above example, there are 3 pages: `productEdit`, `categoryView` and `productView`.
+The `productEdit` is a admin panel page used to edit a product. The `categoryView` and `productView` are store front pages.
+
+:::info
+`productEdit`, `categoryView` and `productView` are route Id of the corresponding pages. The detail of the route(HTTP method, path) is defined in the `route` file. Check [this document](./routing-system) for more information.
+:::
+
+The `index.js` file is the entry point of the page. It is actually a middleware function that will be called when the page is requested. You can add how many middleware functions you want to the page folder. The middleware functions will be executed in the order they are defined. Check [this document](./middleware) for more information. 
+
+To distinguish between a component and a middleware, the component file name must start with a capital letter. For example, `General.js` is a component and the middleware file name muse start with a lower case. `index.js` is a middleware.
+
+:::warning
+Each of component must be provided as a default export.
+:::
+
+### Shared components
+
+Sometime, you may want to share a component between multiple pages. Let's say you have a `ProductInfo` component that is used in both `productNew` and `productEdit` pages. You can create a folder named `productNew + productEdit` in the `admin` folder and put the `ProductInfo` component in it. The `productNew + productEdit` folder is a shared folder. The `ProductInfo` component will be available in both `productNew` and `productEdit` pages.
 
 ## The `Area` Component
 
@@ -52,7 +136,9 @@ The `Area` is a React Higher-Order component(HOC) that takes components as its c
 
 If a block is rendered by an Area component, third party developers can insert their own React components into the block without modifying the core code. That make the view system flexible and easy to extend.
 
-#### Using Area component:
+### Using Area component:
+
+Let's take a look at the following code:
 
 ```js title="src/components/Layout.js"
 import React from 'react';
@@ -67,7 +153,9 @@ export default function Layout() {
 }
 ```
 
-You can provide a list of pre-defined components to the `Area` component:
+In the above code, we declare a `Area` with the ID# `blockId`. The `Area` will render all of the child components that have the areaId = `blockId`.
+
+You can also provide a list of pre-defined components to the `Area` component:
 
 ```js title="src/components/Layout.js"
 import React from 'react';
@@ -83,14 +171,14 @@ export default function Layout() {
       coreComponents={
         [
           {
-            component: () => <Top />,
+            component: { default: () => <Top />},
             props: {
               title: 'Top',
             },
             sortOrder: 1
           },
           {
-            component: () => Bottom,
+            component: { default: () => Bottom },
             props: {
               title: 'Bottom',
             },
@@ -106,248 +194,44 @@ export default function Layout() {
 
 The `Area` component will render its child components in order of `sortOrder`.
 
-In the below section, we will learn how to insert a React component into the `Area` component.
+### Injecting components into an `Area`
 
-## The Module View
+Let's say we have a page 'productView' with the bellow layout component:
+  
+```js title="src/modules/catalog/pages/productView/Layout.js"
+import React from 'react';
+import Area from '@evershop/core/src/lib/components/Area';
 
-:::info
-Please check [this document](../module/module-overview) to understand the structure of EverShop module.
-:::
-
-Every module in EverShop has a `views` folder. This folder contains all of the React components that are used in the module. The `views` folder has the following structure:
-
-Let's take an example of the `catalog` module:
-
-```bash
-catalog
-├── controllers
-├── views
-    ├── admin
-    │   ├── components.js
-    │   └── productEdit
-    │       ├── General.js
-    │       ├── Images.js
-    │       ├── Price.js
-    └── site
-        ├── components.js
-        └── productView
-            ├── ProductImages.js
-            ├── ProductInfo.js
-            ├── ProductOptions.js
-```
-
-The `views` folder has two sub-folders: `admin` and `site`. The `admin` folder contains all of the React components that are used in the admin panel. The `site` folder contains all of the React components that are used in the front-end.
-
-### The `components.js` File
-
-The `components.js` file is used to register React component to the route. There are 2 `components.js` files, one in the `admin` folder and one in the `site` folder.
-
-This is the `components.js` file in the `admin` folder:
-
-```js title="admin/components.js"
-const { buildUrl } = require('../../../../lib/router/buildUrl');
-const { useComponent } = require('../../../../lib/componee/useComponent');
-
-// eslint-disable-next-line no-multi-assign
-exports = module.exports = {
-  '*': [
-    {
-      id: 'catalog.group',
-      areaId: 'admin.menu',
-      source: useComponent('NavigationItemGroup.js', 'cms'),
-      props: {
-        id: 'catalog.group',
-        name: 'Catalog'
-      },
-      sortOrder: 10
-    }
-  ],
-  categoryGrid: [
-    {
-      id: 'categoryGrid',
-      areaId: 'content',
-      source: useComponent('category/grid/Grid.js'),
-      props: {
-        limit: 20
-      },
-      sortOrder: 20
-    }
-  ],
-  /** PRODUCT */
-  productEdit: [
-    {
-      id: 'metaTitle',
-      areaId: 'head',
-      source: useComponent('Title.js'),
-      props: {
-        title: 'Edit product'
-      },
-      sortOrder: 10
-    }
-  ],
-  productNew: [
-    {
-      id: 'metaTitle',
-      areaId: 'head',
-      source: useComponent('Title.js'),
-      props: {
-        title: 'Create a new product'
-      },
-      sortOrder: 10
-    }
-  ],
-  'productNew+productEdit': [
-    {
-      id: 'pageHeading',
-      areaId: 'content',
-      source: useComponent('PageHeading.js', 'cms'),
-      props: {
-        backUrl: buildUrl('productGrid')
-      },
-      sortOrder: 10
-    }
-  ],
-  productGrid: [
-    {
-      id: 'productGrid',
-      areaId: 'content',
-      source: useComponent('product/grid/Grid.js'),
-      props: {
-        limit: 20
-      },
-      sortOrder: 20
-    }
-  ],
-  categoryEdit: [
-    {
-      id: 'metaTitle',
-      areaId: 'head',
-      source: useComponent('Title.js'),
-      props: {
-        title: 'Edit category'
-      },
-      sortOrder: 10
-    }
-  ],
-  categoryNew: [
-    {
-      id: 'metaTitle',
-      areaId: 'head',
-      source: useComponent('Title.js'),
-      props: {
-        title: 'Create a new category'
-      },
-      sortOrder: 10
-    }
-  ],
-  'categoryNew+categoryEdit': [
-    {
-      id: 'pageHeading',
-      areaId: 'content',
-      source: useComponent('PageHeading.js', 'cms'),
-      props: {
-        backUrl: buildUrl('categoryGrid')
-      },
-      sortOrder: 10
-    }
-  ],
-  /* Attributes */
-  attributeGrid: [
-    {
-      id: 'attributeGrid',
-      areaId: 'content',
-      source: useComponent('attribute/grid/Grid.js'),
-      props: {
-        limit: 20
-      },
-      sortOrder: 20
-    }
-  ],
-  attributeEdit: [
-    {
-      id: 'metaTitle',
-      areaId: 'head',
-      source: useComponent('Title.js'),
-      props: {
-        title: 'Edit attribute'
-      },
-      sortOrder: 10
-    }
-  ],
-  attributeNew: [
-    {
-      id: 'metaTitle',
-      areaId: 'head',
-      source: useComponent('Title.js'),
-      props: {
-        title: 'Create a new attribute'
-      },
-      sortOrder: 10
-    }
-  ],
-  'attributeNew+attributeEdit': [
-    {
-      id: 'pageHeading',
-      areaId: 'content',
-      source: useComponent('PageHeading.js', 'cms'),
-      props: {
-        backUrl: buildUrl('attributeGrid')
-      },
-      sortOrder: 10
-    }
-  ]
-};
-```
-
-### Components and Routes
-
-The `components.js` file is a Javascript file that provide an object as a default export. The object has the following structure:
-
-```js
-{
-  [routeId]: [
-    // List of components
-  ]
+export default function Layout() {
+  return (
+    <div className="just-a-block">
+      <Area id="productViewLeft" />
+      <Area id="productViewRight" />
+    </div>
+  );
 }
 ```
 
-A `roundId` is a string that is used to identify a [route](./routing-system). For example, the `productEdit` is the route for the `productEdit` page. All components under the `productEdit` route will be rendered in the `productEdit` page.
+Now we want to insert a component into the left side of the product view page to show the product rating. We can create a new component named `ProductRating.js`:
 
-If you have a component that is used in multiple routes, you can use the `+` sign to separate the routeIds. For example, the `attributeNew+attributeEdit` routeId is used for both the `attributeNew` and `attributeEdit` pages.
+```js title="src/modules/catalog/pages/productView/ProductRating.js"
+import React from 'react';
+import Area from '@evershop/core/src/lib/components/Area';
 
-'*' is a special routeId that is used to render components in all routes.
+export default function ProductRating({stars}) {
+  return (
+    <div className="just-a-block">
+      <Star stars = {stars} />
+    </div>
+  );
+}
 
-### Component Object Definition
-
-Let's take a look at this example:
-```js title="admin/components.js"
-const { buildUrl } = require('../../../../lib/router/buildUrl');
-const { useComponent } = require('../../../../lib/componee/useComponent');
-
-// eslint-disable-next-line no-multi-assign
-exports = module.exports = {
-  '*': [
-    {
-      id: 'catalog.group',
-      areaId: 'admin.menu',
-      source: useComponent('NavigationItemGroup.js', 'cms'),
-      props: {
-        id: 'catalog.group',
-        name: 'Catalog'
-      },
-      sortOrder: 10
-    }
-  ]
-};
+export const layout = {
+  areaId: 'productViewLeft',
+  sortOrder: 1
+}
 ```
-When we declare a component object, we need to provide the following properties:
 
-- `id`: A string that is used to identify the component. This is used to prevent duplicate components from being rendered.
-- `areaId`: A string that is used to identify the area where the component will be rendered. This is used to render the component in the correct area.
-- `source`: A function that returns the component. This is used to render the component.
-- `props`: An object that contains the props that will be passed to the component. This is used to pass data to the component.
-- `sortOrder`: A number that is used to sort the components. This is used to render the components in the correct order.
+In above code, we export a `layout` object with the `areaId` and `sortOrder` properties. The `areaId` is the ID of the `Area` component that we want to insert the component into. The `sortOrder` is the order of the component in the `Area` component.
 
-:::warning
-Each of component must be provided as a default export.
-:::
+That's it. Now we can insert the `ProductRating` component into the `productView` page.

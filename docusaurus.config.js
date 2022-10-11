@@ -67,7 +67,7 @@ const config = {
       navbar: {
         title: '',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Evershop ecommerce platform',
           src: 'img/logo.svg',
         },
         items: [
@@ -131,12 +131,12 @@ const config = {
       },
       algolia: {
         // The application ID provided by Algolia
-        appId: 'ORMX830CVG',
+        appId: '5AT3M16QZM',
 
         // Public API key: it is safe to commit it
-        apiKey: 'c0d71a3064445f1a5035b1c0c638ddaf',
+        apiKey: 'f0f496e0686bd42b837e4f84a5d16fcf',
 
-        indexName: 'evershop',
+        indexName: 'evershopDocument',
 
         // Optional: see doc section below
         contextualSearch: true,
