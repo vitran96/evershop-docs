@@ -23,7 +23,7 @@ Let's start!
 
 In the root folder of your EverShop project, you will find a folder named `extensions`. If it doesn't exist, you can create it manually. This folder contains all of the extensions that you have installed to your project. You can create your own extension and install it to this folder.
 
-You can check [this document](../knowledge-base/project-folder-structure) to learn more about the project folder structure.
+You can check [this document](../knowledge-base/architecture-overview) to learn more about the project folder structure.
 
 ## The NPM Workspace
 

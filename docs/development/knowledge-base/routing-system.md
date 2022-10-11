@@ -2,7 +2,7 @@
 sidebar_position: 25
 keywords:
 - Routing system
-sidebar_label: Routing system
+sidebar_label: The routing system
 title: Evershop routing system
 description: The document explains how does EverShop routing system work, how to define a route and generate a URL base on route ID.
 ---
@@ -18,7 +18,7 @@ In EverShop we make use of [ExpressJs](https://expressjs.com/) for routing.
 Before we dive into the routing system, we suggest you checkout the module structure document to understand more about the way a module is organized.
 
 :::info
-Check [this document](/docs/development/knowledge-base/project-folder-structure) to understand more about EverShop project folder structure.
+Check [this document](/docs/development/knowledge-base/architecture-overview) to understand more about EverShop project folder structure.
 :::
 
 ## The fundamental
@@ -94,7 +94,7 @@ Each of sub-folder in the “pages” folder is a page controller. Those folders
 
 Those folders are used for scoping. All routes located under the ‘site’ folder are used for front-page routing.
 
-And all routes located under the ‘admin’ folder will be used for the admin panel and therefore several authentication [middleware functions](/docs/development/knowledge-base/middleware) will be added to those routes.
+And all routes located under the ‘admin’ folder will be used for the admin panel and therefore several authentication [middleware functions](/docs/development/knowledge-base/middleware-system) will be added to those routes.
 
 ### 3: The route folders
 
@@ -102,7 +102,7 @@ They are folders located under either the ‘site’ or ‘admin’ folder.
 
 Basically, they contain 2 important things
 
-The middleware functions will be executed when the route is triggered. You can learn more about how does middleware system works in [this document](/docs/development/knowledge-base/middleware)
+The middleware functions will be executed when the route is triggered. You can learn more about how does middleware system works in [this document](/docs/development/knowledge-base/middleware-system)
 The declaration of the route
 And the folder name will be used as a ‘route ID’. Typically, the route folder name has to be unique and we do not accept white space in the route ID.
 

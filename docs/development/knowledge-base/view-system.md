@@ -109,7 +109,7 @@ The `productEdit` is a admin panel page used to edit a product. The `categoryVie
 `productEdit`, `categoryView` and `productView` are route Id of the corresponding pages. The detail of the route(HTTP method, path) is defined in the `route` file. Check [this document](./routing-system) for more information.
 :::
 
-The `index.js` file is the entry point of the page. It is actually a middleware function that will be called when the page is requested. You can add how many middleware functions you want to the page folder. The middleware functions will be executed in the order they are defined. Check [this document](./middleware) for more information. 
+The `index.js` file is the entry point of the page. It is actually a middleware function that will be called when the page is requested. You can add how many middleware functions you want to the page folder. The middleware functions will be executed in the order they are defined. Check [this document](./middleware-system) for more information. 
 
 To distinguish between a component and a middleware, the component file name must start with a capital letter. For example, `General.js` is a component and the middleware file name muse start with a lower case. `index.js` is a middleware.
 

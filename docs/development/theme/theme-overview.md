@@ -29,7 +29,7 @@ It means that every single module has its own `view` part to take care of the UI
 
 ### The vendor themes
 
-Themes that provided by vendors/developers are located in the folder named ‘themes’. This folder is located at the [root level of your project](/docs/development/knowledge-base/project-folder-structure).
+Themes that provided by vendors/developers are located in the folder named ‘themes’. This folder is located at the [root level of your project](/docs/development/knowledge-base/architecture-overview).
 
 Each theme must be stored in a separate directory
 

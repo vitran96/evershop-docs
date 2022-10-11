@@ -63,7 +63,7 @@ modules
 
 A module is a directory that contains 5 parts:
 
-1. `Api`: The `api` contains a list of the RESTful api and its middleware functions and route definition. Check [this document](./../knowledge-base/middleware) to learn more about the middleware functions.
+1. `Api`: The `api` contains a list of the RESTful api and its middleware functions and route definition. Check [this document](./../knowledge-base/middleware-system) to learn more about the middleware functions.
 2. `Page`: The `pages` folder contains list of pages. This folder contains the route definition, middleware function and the React components for UI rendering.
 3. `Migration`: The `migration` folder contains the database migration files used for module installation and upgrade. Normally, we need this when our module needs to create a new table or add a new column to an existing table.
 4. `Services`: The `services` folder contains Javascript class/function that provides some functionality.

@@ -32,7 +32,7 @@ const FeatureList = [
         Powerful middleware system that allows you to customize the behavior of your app easily.
       </>
     ),
-    readMore: '/docs/development/knowledge-base/middleware'
+    readMore: '/docs/development/knowledge-base/middleware-system'
   }
 ];
 
