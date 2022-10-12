@@ -38,7 +38,7 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title="Free ecommerce framework with NodeJs"
+      title="EverShop | An Open-Source React Ecommerce Platform"
       description="EverShop provides the best developer experience and rich e-commerce features that help build and start selling online.">
       <HomepageHeader />
       <main>

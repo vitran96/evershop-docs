@@ -6,7 +6,7 @@
   "link": {
     "type": "generated-index",
     "slug": "development/theme",
-    "title": "Theme development",
-    "description": "Learn about the most important Docusaurus concepts!"
+    "title": "EverShop theme development documentation",
+    "description": "Learn about them theme structure of EverShop and how to build your own theme to customize the look and feel of your store."
   }
 }
