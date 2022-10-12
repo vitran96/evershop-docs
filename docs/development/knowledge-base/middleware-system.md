@@ -1,8 +1,8 @@
 ---
-sidebar_position: 30
+sidebar_position: 20
 keywords:
 - Middleware
-sidebar_label: The middleware system
+sidebar_label: The Middleware System
 title: Evershop middleware system overview
 description: Learn about the middleware system in EverShop. How do they work and how to create, add and remove a middleware function from a route.
 ---

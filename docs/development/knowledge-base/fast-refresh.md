@@ -1,5 +1,5 @@
 ---
-sidebar_position: 16
+sidebar_position: 50
 keywords:
 - Evershop fast refresh
 sidebar_label: Fast Refresh

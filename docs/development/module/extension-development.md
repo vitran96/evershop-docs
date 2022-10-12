@@ -56,7 +56,7 @@ Just like a module, below is the folder structure of an extension:
 ```bash
 extensions
 └── Vendor_ExtensionName
-    ├── apiControllers
+    ├── api
     │   ├── site
     │   └── admin
     │       └── postCreate
@@ -73,20 +73,22 @@ extensions
     │           ├── route
     │           ├── loadPostMiddleware.js
     │           └── [loadPostMiddleware]loadVariantMiddleware.js
+    ├── graphql
+    │   └── types
     ├── migration
     │   └── Version_1.0.0.js
-    ├── views
+    ├── pages
     │   ├── admin
-    │   │   ├── postCreate
-    │   │   │   ├── GeneralComponent.js
-    │   │   │   └── FormComponent.js
-    │   │   └── components.js   
+    │   │   └── postCreate
+    │   │       ├── route
+    │   │       ├── GeneralComponent.js
+    │   │       └── FormComponent.js
     │   └── site
-    │       ├── postView
-    │       │   ├── TitleComponent.js
-    │       │   ├── PriceComponent.js
-    │       │   └── VariantsComponent.js
-    │       └── components.js   
+    │       └── postView
+    │           ├── route
+    │           ├── TitleComponent.js
+    │           ├── PriceComponent.js
+    │           └── VariantsComponent.js
     ├── bootstrap.js
     └── packages.json
 ```

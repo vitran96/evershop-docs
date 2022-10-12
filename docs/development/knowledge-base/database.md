@@ -2,7 +2,7 @@
 sidebar_position: 35
 keywords:
 - Evershop database
-sidebar_label: The database
+sidebar_label: The Database
 title: Database
 description: Learn what a database is and how to work with database in EverShop. Create and modify MySQL database by following this tutorial.
 ---

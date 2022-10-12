@@ -1,5 +1,5 @@
 ---
-sidebar_position: 30
+sidebar_position: 25
 keywords:
 - the page system
 sidebar_label: The View System
@@ -235,3 +235,9 @@ export const layout = {
 In above code, we export a `layout` object with the `areaId` and `sortOrder` properties. The `areaId` is the ID of the `Area` component that we want to insert the component into. The `sortOrder` is the order of the component in the `Area` component.
 
 That's it. Now we can insert the `ProductRating` component into the `productView` page.
+
+## The component data fetching
+
+:::info
+  Check [this document](./data-fetching) for more information about how to fetch data in the component.
+:::

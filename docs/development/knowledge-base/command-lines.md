@@ -1,8 +1,8 @@
 ---
-sidebar_position: 15
+sidebar_position: 40
 keywords:
 - Evershop command lines
-sidebar_label: Command lines
+sidebar_label: Command Lines
 title: Command lines
 description: List of EverShop command lines which help you to build and launch your online store with detail explain.
 ---

@@ -1,8 +1,8 @@
 ---
-sidebar_position: 25
+sidebar_position: 15
 keywords:
 - Routing system
-sidebar_label: The routing system
+sidebar_label: The Routing System
 title: Evershop routing system
 description: The document explains how does EverShop routing system work, how to define a route and generate a URL base on route ID.
 ---

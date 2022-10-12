@@ -1,5 +1,5 @@
 ---
-sidebar_position: 20
+sidebar_position: 45
 keywords:
 - Configuration
 sidebar_label: Configuration
