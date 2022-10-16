@@ -3,6 +3,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import CodeBlock from '@theme/CodeBlock';
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -34,6 +35,19 @@ function HomepageHeader() {
   );
 }
 
+function QuickStart() {
+  return <div className='flex flex-col  md:flex-row md:space-y-0  justify-center '>
+    <div>
+      <h2 className='justify-center text-center'>Get started in minutes</h2>
+      <CodeBlock
+        language="bash"
+      >
+        {`npx create-evershop-app my-app --playAround`}
+      </CodeBlock>
+    </div>
+  </div>
+}
+
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -41,6 +55,7 @@ export default function Home() {
       title="An Open-Source React Ecommerce Platform"
       description="EverShop provides the best developer experience and rich e-commerce features that help build and start selling online.">
       <HomepageHeader />
+      <QuickStart />
       <main>
         <HomepageFeatures />
       </main>

@@ -17,7 +17,27 @@ The following installation guides will guide you step-by-step to create a new Ev
 Please check [this document](/docs/development/getting-started/system-requirements) for the system requirement list.
 
 :::
-## Install EverShop
+## Using `create-evershop-app` command
+### Without MySQL database(The `playAround` mode) 
+You can get started with EverShop in minutes by running the following command:
+    
+```bash
+npx create-evershop-app my-app --playAround
+```
+With the `--playAround` flag, you don't need to install MySQL database. A MySQL database will be provided to you in our cloud server. So you can get started with EverShop quickly.
+
+:::warning
+This database is only for testing purpose. It will be permanently deleted after 7 days. No backup is available. Please DO NOT insert any important data into this database. After 7 days, you will have to install your own MySQL database to continue using EverShop.
+:::
+
+### With MySQL database
+If you already have a MySQL database, you can run the following command to get started with EverShop:
+    
+```bash
+npx create-evershop-app my-app
+``` 
+
+## Install manually
 
 ### Step 1: Install The @evershop/core Npm Package
 
@@ -35,7 +55,7 @@ Open the package.json file and add the following scripts:
 
 ```js title="Add the core npm scripts"
 "scripts": {
-    "setup": "evershop setup",
+    "setup": "evershop install",
     "build": "evershop build",
     "start": "evershop start"
 }
