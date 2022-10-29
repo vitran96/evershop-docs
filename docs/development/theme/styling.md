@@ -28,7 +28,7 @@ Note that the file extension must be `.scss` (NOT `.css`).
 
 EverShop supports [TailwindCss](https://tailwindcss.com/) out of the box. The default EverShop theme uses TailwindCss for styling. 
 
-If you do not want to use TailwindCss, you create a Layout template from the CMS module and remove the `tailwind.scss` file.
+If you do not want to use TailwindCss, you create a Layout template to override the default one from the CMS module and remove the `tailwind.scss` file.
 
 :::info
 Check out the [templating document](./templating) to learn more about customizing the layout template.
