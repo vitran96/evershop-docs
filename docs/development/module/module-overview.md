@@ -27,7 +27,7 @@ Below is the folder structure of a module:
 modules
 └── catalog
     ├── api
-    │   ├── site
+    │   ├── frontStore
     │   ├── global
     │   │   └── authMiddleware.js
     │   └── admin
@@ -45,7 +45,7 @@ modules
     │   │       └── index.js
     │   ├── global
     │   │   └── authMiddleware.js
-    │   └── site
+    │   └── frontStore
     │       └── postView
     │           ├── route
     │           ├── GeneralInformation.js

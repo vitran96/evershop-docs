@@ -47,7 +47,7 @@ function Resource({ title, description, image, link, linkText, index }) {
   );
 }
 
-export default function HomepageResources() {
+export default function HomepageWebDevFeatures() {
   return (
     <section className="resource mt-6">
       <div className="text-center hero__subtitle"><h2>Resources</h2></div>

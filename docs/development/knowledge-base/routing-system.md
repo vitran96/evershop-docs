@@ -37,7 +37,7 @@ Let’s take a look a module structure
 │   │   │   └── route
 │   │   └── categoryDelete
 │   │       └── route
-│   └── site
+│   └── frontStore
 │       ├── categoryView
 │       │   └── route
 │       └── productView
@@ -67,7 +67,7 @@ Let’s take a look a module structure
 │   │   │   └── route
 │   │   └── productNew
 │   │       └── route
-│   └── site
+│   └── frontStore
 │       ├── categoryView
 │       │   └── route
 │       └── productView
@@ -80,39 +80,39 @@ In the picture above, there are 3 important things that we need to understand:
 
 ### 1: The `api` folder
 
-You can see there is a folder named “api” in the above example. This folder is where we organize our RESTful api controller.
+You can see there is a folder named `api` in the above example. This folder is where we organize our RESTful api controller.
 
-Each of sub-folder in the “api” folder is a RESTful api controller. For example, the “productSavePost” folder is a RESTful api controller that handles the “POST” request to the “/api/catalog/product/save” endpoint. This folder contains a file named “route” that defines the detail (HTTP method, path) for this RESTful api controller.
+Each of sub-folder in the `api` folder is a RESTful api controller. For example, the `productSavePost` folder is a RESTful api controller that handles the `POST` request to the `/api/catalog/product/save` endpoint. This folder contains a file named “route” that defines the detail (HTTP method, path) for this RESTful api controller.
 
 ### 2: The `pages` folders
 
-You can see there is a folder named “pages” in the above example. This folder is where we organize our pages.
+You can see there is a folder named `pages` in the above example. This folder is where we organize our pages.
 
-Each of sub-folder in the “pages” folder is a page controller. Those folders contain a file named “route” that defines the detail (HTTP method, path) for this RESTful api controller.
+Each of sub-folder in the `pages` folder is a page controller. Those folders contain a file named `route` that defines the detail (HTTP method, path) for this RESTful api controller.
 
-### 2: The ‘admin’ and ‘site’ folders
+### 2: The `admin` and `frontStore` folders
 
-Those folders are used for scoping. All routes located under the ‘site’ folder are used for front-page routing.
+Those folders are used for scoping. All routes located under the `frontStore` folder are used for front-page routing.
 
-And all routes located under the ‘admin’ folder will be used for the admin panel and therefore several authentication [middleware functions](/docs/development/knowledge-base/middleware-system) will be added to those routes.
+And all routes located under the `admin` folder will be used for the admin panel and therefore several authentication [middleware functions](/docs/development/knowledge-base/middleware-system) will be added to those routes.
 
 ### 3: The route folders
 
-They are folders located under either the ‘site’ or ‘admin’ folder.
+They are folders located under either the `admin` or `frontStore` folder.
 
 Basically, they contain 2 important things
 
 The middleware functions will be executed when the route is triggered. You can learn more about how does middleware system works in [this document](/docs/development/knowledge-base/middleware-system)
 The declaration of the route
-And the folder name will be used as a ‘route ID’. Typically, the route folder name has to be unique and we do not accept white space in the route ID.
+And the folder name will be used as a `route ID`. Typically, the route folder name has to be unique and we do not accept white space in the route ID.
 
 :::info
-Since the route folder name will be used as a ‘route ID’.So it has to be unique and basically, we do not accept special characters or whitespace.
+Since the route folder name will be used as a `route ID`.So it has to be unique and basically, we do not accept special characters or whitespace.
 :::
 
 ## The declaration of the route
 
-In the above picture, in each route folder, there is a file named ‘route’. It is where we define our route specification.
+In the above picture, in each route folder, there is a file named `route`. It is where we define our route specification.
 
 Let’s take a look at one example:
 

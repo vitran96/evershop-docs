@@ -62,7 +62,7 @@ catalog
     │       ├── General.js
     │       ├── Images.js
     │       ├── Price.js
-    └── site
+    └── frontStore
         └── productView
             ├── route
             ├── index.js
@@ -71,7 +71,7 @@ catalog
             ├── ProductOptions.js
 ```
 
-The `pages` folder has 3 sub-folders: `admin`, `site` and `global`. The `admin` folder contains all of admin panel pages. The `site` folder contains pages for your store front. The `global` folder contains *middleware function* that are used in both admin panel and store front.
+The `pages` folder has 3 sub-folders: `admin`, `frontStore` and `global`. The `admin` folder contains all of admin panel pages. The `frontStore` folder contains pages for your store front. The `global` folder contains *middleware function* that are used in both admin panel and store front.
 
 ### Component and Page
 
@@ -88,7 +88,7 @@ catalog
     │       ├── General.js
     │       ├── Images.js
     │       └── Price.js
-    └── site
+    └── frontStore
         ├── categoryView
         │   ├── route
         │   ├── index.js
@@ -198,7 +198,7 @@ The `Area` component will render its child components in order of `sortOrder`.
 
 Let's say we have a page 'productView' with the bellow layout component:
   
-```js title="src/modules/catalog/pages/productView/Layout.js"
+```js title="src/modules/catalog/pages/frontStore/productView/Layout.js"
 import React from 'react';
 import Area from '@evershop/core/src/lib/components/Area';
 
@@ -214,7 +214,7 @@ export default function Layout() {
 
 Now we want to insert a component into the left side of the product view page to show the product rating. We can create a new component named `ProductRating.js`:
 
-```js title="src/modules/catalog/pages/productView/ProductRating.js"
+```js title="src/modules/catalog/pages/frontStore/productView/ProductRating.js"
 import React from 'react';
 import Area from '@evershop/core/src/lib/components/Area';
 

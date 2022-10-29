@@ -68,11 +68,13 @@ For example, an admin user authentication middleware that takes care of admin au
 
 In a module, you can create a middleware function by creating a file in the `api/admin/all` or `pages/admin/all` folder. For example, if you create a file named `authMiddleware.js` in the `pages/admin/all` folder, this middleware will be executed on all pages in the admin panel.
 
-### 3: Site-level middleware
+### 3: FrontStore-level middleware
 
-Similiar to the admin-level middleware, site-level middleware is a middleware function that will be executed on all requests to the front store.
+Similiar to the admin-level middleware, frontStore-level middleware is a middleware function that will be executed on all requests to the front store.
 
-For example, a customer authentication middleware that takes care of customer authentication is a site-level middleware.
+For example, a customer authentication middleware that takes care of customer authentication is a frontStore-level middleware.
+
+To add a frontStore-level middleware, you can create a file in the `api/frontStore/all` or `pages/frontStore/all` folder. For example, if you create a file named `authMiddleware.js` in the `pages/frontStore/all` folder, this middleware will be executed on all pages in the front store.
 
 ### 4: Routed-level middleware
 
@@ -142,11 +144,11 @@ Let’s take a look at the directory structure of a module:
 
 EverShop has a file-system based middleware. It bases on the directory structure to identify, load and build middleware functions for each routes.
 
-In the above picture, the middleware functions that located in the yellow box are ‘Application-level’ middleware. They are direct child of either ‘controllers’ or ‘apiControllers’ directory. So if you want to have a middleware function that execute on all incoming request, you know where to put them, right?
+In the above picture, the middleware functions that located in the yellow box are ‘Application-level’ middleware. They are direct child of either `api` or `pages` directory. So if you want to have a middleware function that execute on all incoming request, you know where to put them, right?
 
-The middleware functions that located in the blue box are ‘Site-level’ middleware. They will be executed on all request to the front store. They located in a folder named ‘all‘, this folder is a direct child of either ‘controllers’ or ‘apiControllers’ directory. This is applied for ‘Admin-level’ middleware too.
+The middleware functions that located in the blue box are ‘Site-level’ middleware. They will be executed on all request to the front store. They located in a folder named ‘all‘, this folder is a direct child of either `api` or `pages` directory. This is applied for ‘Admin-level’ middleware too.
 
-The middleware functions that located in the purple box are ‘Route-level’ middleware. They will only be executed when the route with ID ‘cmsPageView‘ is triggered.
+The middleware functions that located in the purple box are ‘Route-level’ middleware. They will only be executed when the route with ID `cmsPageView` is triggered.
 
 ## Middleware naming rules and dependency management
 
@@ -169,9 +171,9 @@ Let’s take a look an example of module structure:
 
 ```bash
 ├── components
-├── controllers
+├── pages
 │   ├── admin
-│   └── site
+│   └── frontStore
 │       └── productView
 │           ├── a.js
 │           ├── [a]b.js

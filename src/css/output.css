@@ -36,12 +36,8 @@
   visibility: visible
 }
 
-.col-span-2 {
-  grid-column: span 2 / span 2
-}
-
-.col-span-8 {
-  grid-column: span 8 / span 8
+.static {
+  position: static
 }
 
 .col-span-3 {
@@ -73,6 +69,18 @@
   margin-top: 4rem
 }
 
+.mt-12 {
+  margin-top: 3rem
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem
+}
+
 .block {
   display: block
 }
@@ -89,16 +97,8 @@
   display: grid
 }
 
-.h-96 {
-  height: 24rem
-}
-
 .h-full {
   height: 100%
-}
-
-.h-52 {
-  height: 13rem
 }
 
 .h-28 {
@@ -107,14 +107,6 @@
 
 .h-60 {
   height: 15rem
-}
-
-.grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr))
-}
-
-.grid-cols-8 {
-  grid-template-columns: repeat(8, minmax(0, 1fr))
 }
 
 .grid-cols-12 {
@@ -137,10 +129,6 @@
   flex-direction: column
 }
 
-.content-center {
-  align-content: center
-}
-
 .items-center {
   align-items: center
 }
@@ -149,16 +137,20 @@
   justify-content: center
 }
 
+.justify-between {
+  justify-content: space-between
+}
+
 .justify-items-center {
   justify-items: center
 }
 
-.gap-5 {
-  gap: 1.25rem
-}
-
 .gap-2 {
   gap: 0.5rem
+}
+
+.gap-5 {
+  gap: 1.25rem
 }
 
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
@@ -167,12 +159,18 @@
   margin-bottom: calc(1rem * var(--tw-space-y-reverse))
 }
 
+.space-x-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.25rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)))
+}
+
 .self-center {
   align-self: center
 }
 
-.justify-self-center {
-  justify-self: center
+.rounded-sm {
+  border-radius: 0.125rem
 }
 
 .border {
@@ -188,13 +186,21 @@
   text-align: center
 }
 
-.align-middle {
-  vertical-align: middle
+.lowercase {
+  text-transform: lowercase
 }
 
 @media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+  }
+
   .md\:flex-row {
     flex-direction: row
+  }
+
+  .md\:justify-start {
+    justify-content: flex-start
   }
 
   .md\:space-y-0 > :not([hidden]) ~ :not([hidden]) {
@@ -212,5 +218,9 @@
   .md\:px-40 {
     padding-left: 10rem;
     padding-right: 10rem
+  }
+
+  .md\:text-right {
+    text-align: right
   }
 }

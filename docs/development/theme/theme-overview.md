@@ -27,6 +27,38 @@ If you already see the [module overview document](../module/module-overview), yo
 
 It means that every single module has its own `view` part to take care of the UI/UX. And this `view` part is designed to be easily customized without modifying the core files.
 
+In each module, you can find a `pages` folder which contains all the files related to the UI/UX of the module. This folder contains the following sub-folders:
+
+- `admin` folder: contains all pages related to the admin panel.
+- `storefront` folder: contains all pages related to the storefront.
+- `global` folder: This special folder contains middlewares that are used in both admin and storefront.
+
+```bash
+├── global
+├── admin
+│   ├── all
+│   ├── attributeEdit
+│   ├── attributeEdit+attributeNew
+│   ├── attributeGrid
+│   ├── attributeNew
+│   ├── categoryEdit
+│   ├── categoryEdit+categoryNew
+│   ├── categoryGrid
+│   ├── categoryNew
+│   ├── productEdit
+│   ├── productEdit+productNew
+│   ├── productGrid
+│   └── productNew
+└── frontStore
+    ├── categoryView
+    ├── homepage
+    └── productView
+```
+
+:::info
+You can learn more about the `view` part of the module in the [module view system](../knowledge-base/view-system.md).
+:::
+
 ### The vendor themes
 
 Themes that provided by vendors/developers are located in the folder named ‘themes’. This folder is located at the [root level of your project](/docs/development/knowledge-base/architecture-overview).
@@ -50,39 +82,54 @@ A theme folder will be used as the theme name. So make sure you don’t have any
 The structure of a EverShop theme directory typically would be like following
 
 ```bash
-<theme_dir>/
-├── components
-│   ├── catalog/
-│   ├── cms/
-│   ├── checkout/
-├── css/
-├── js/
-├── images/
+/themes/
+    <justatheme>/
+    ├── catalog
+    │   └── pages
+    │       ├── all
+    │       │   ├── FeaturedCategories.js
+    │       │   └── homepage copy
+    │       │       └── FeaturedCategories.js
+    │       ├── categoryView
+    │       │   └── FeaturedCategories.js
+    │       ├── homepage
+    │       │   └── FeaturedCategories.js
+    │       └── productView
+    │           └── FeaturedCategories.js
+    ├── checkout
+    │   └── pages
+    │       ├── cart
+    │       │   └── FeaturedCategories.js
+    │       └── checkout
+    │           └── FeaturedCategories.js
+    ├── cms
+    │   └── pages
+    │       ├── all
+    │       │   └── Layout.js
+    │       └── homepage
+    │           └── MainSlideShow.js
+    └── pages
+        ├── categoryView
+        │   └── FreeShippingBanner.js
+        ├── checkout
+        │   └── CheckoutOnly.js
+        └── homepage
+            └── HomepageOnly.js
 ```
 
-#### ‘components’ folder
+#### module folders
 
-The ‘components’ folder contains the Javascript template files.
+In the above example, we have 4 module folders, which are `catalog`, `checkout`, `cms` and `pages`. These folders are used to override the default view of the modules.
 
-Those Javascript files are actually [ReactJS components](https://reactjs.org/) of EverShop modules. We will learn more about how to develop your own component and overwrite the default one in next section.
+#### The 'pages' folder
 
-#### ‘css’ folder
+The `pages` folder is used to add new components to the existing pages. For example, if you want to add a new component to the homepage, you can create a new file in the `pages/homepage` folder.
 
-This folder contains css files for your theme styling.
+In the above example, we have a file named `HomepageOnly.js` in the `pages/homepage` folder. This file will be used to add a new component to the homepage only.
 
-#### ‘js’ folder
+## Theme configuration
 
-This folder contains external Javascript libraries like [jQuery](https://jquery.com/).
-
-#### ‘image’ folder
-
-This folder contains others assets files like images, icons.
-
-### Theme installation
-
-Theme can be configured from [configuration file](/docs/development/knowledge-base/configuration-guide). From here you can define the theme that you want to use.
-
-Changing the theme configuration requires to run [build command](/docs/development/knowledge-base/command-lines) again to load new template and styling.
+You can configure your theme in the `config/default.js` file located in the root directory of your project.
 
 ```json
 {
@@ -92,7 +139,7 @@ Changing the theme configuration requires to run [build command](/docs/developme
     "currency": "usd",
     "language": "en",
     "timezone": "",
-    "frontTheme": "your theme name"
+    "theme": "justatheme"
   }
 }
 ```
