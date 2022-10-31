@@ -776,3 +776,5 @@ Now your extension can be installed just like any other NPM package. However, th
     }
 }
 ```
+
+The final source code of this tutorial can be found [here](https://github.com/evershopcommerce/evershop/tree/main/extensions/productComment).
