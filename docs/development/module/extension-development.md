@@ -124,3 +124,39 @@ To disable it, you need to change the `enabled` property to `false`.
 :::info
 Enabling or disabling an extension requires building your project again.
 :::
+
+## Publish your extension as a NPM package
+
+By default, extension is located in the `extensions` folder of your EverShop project. However, you can publish your extension as a NPM package and install it to your EverShop project just like any other NPM package.
+
+```bash 
+npm install @evershop/productcomment
+```
+
+and then hook it up to your EverShop project:
+
+```js title="./config/production.config.json"
+{
+  ...
+  "system": {
+        "database": {
+            "host": "localhost",
+            "port": 3306,
+            "database": "evershop",
+            "user": "root",
+            "password": ""
+        },
+        "extensions": [
+            {
+                "name": "productcomment",
+                "resolve": "node_modules/@evershop/productcomment",
+                "enabled": true
+            }
+        ]
+    }
+}
+```
+
+:::info
+Check out the [create your first extension](./create-your-first-extension) document to learn how to create your first extension.
+:::
