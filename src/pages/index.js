@@ -4,6 +4,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageWebDevFeatures from '@site/src/components/HomepageWebDevFeatures';
 import CodeBlock from '@theme/CodeBlock';
+import HomepageEcommerceFeatures from '../components/HomepageEcommerceFeatures';
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -60,6 +61,7 @@ export default function Home() {
       <QuickStart />
       <main>
         <HomepageWebDevFeatures />
+        <HomepageEcommerceFeatures />
       </main>
     </Layout>
   );

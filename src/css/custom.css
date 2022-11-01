@@ -56,4 +56,8 @@
 .theme-doc-sidebar-menu > .theme-doc-sidebar-item-category:not(:first-child){
   margin-top: 1.25rem
 }
+.hero--primary {
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
 @import "./output.css";
