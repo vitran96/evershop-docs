@@ -11,7 +11,7 @@ function HomepageHeader() {
   return (
     <header className='hero hero--primary px-24 text-center'>
       <div className="container">
-        <h1 className="hero__title">{'A Full Stack React Ecommerce Template'}</h1>
+        <h1 className="hero__title">{'A GraphQL Based and React ecommerce template'}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4 justify-center mt-6">
           <Link
@@ -54,7 +54,7 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title="A Free React Ecommerce Template"
+      title="A GraphQL Based and React ecommerce template"
       description="EverShop provides the best developer experience and rich e-commerce features that help build and start selling online.">
       <HomepageHeader />
       <QuickStart />
