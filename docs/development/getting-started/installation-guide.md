@@ -5,7 +5,7 @@ keywords:
 sidebar_label: Installation guide
 title: Evershop installation guide.
  # Wite a good SEO description here.
-description: EverShop is a free and open-source eCommerce platform. This guide will help you to install EverShop on your local machine.
+description: This document will guide you through the installation process of EverShop. The quick installation guide is also available to help you install EverShop template quickly.
 ---
 
 # Installation guide

@@ -4,16 +4,18 @@ keywords:
 - EverShop introduction
 sidebar_label: Introduction
 title: Free open-source React Ecommerce Platform
-description: EverShop is a React Ecommerce Platform that helps developing an e-commerce store. EverShop is a flexible with both admin panel and front store are extensible.
+description: EverShop is a full stack React Ecommerce template that helps developing an e-commerce store. EverShop is a flexible with both admin panel and front store are extensible.
 ---
 
-# EverShop – React Ecommerce Platform Introduction
+# EverShop – React Ecommerce Template Introduction
 
-Welcome to the EverShop. A React Ecommerce Platform!
+Welcome to the EverShop. A Full Stack React Ecommerce Template!
 
-EverShop is an open-source [React ecommerce platform](/) that helps developers developing their e-commerce store. Based on a module system, EverShop is a flexible platform with both admin panel and front store are extensible.
+EverShop is an open-source [React ecommerce template](/) that helps developers developing their e-commerce store. Based on a module system, EverShop is a flexible with both admin panel and front store are extensible.
 
 EverShop also offers rich functionality. Enabling merchants to develop a web store meets the business requirements.
+
+EverShop is free and open-source. The source code is available on [GitHub](https://github.com/evershopcommerce/evershop)
 
 ## Technology stack
 

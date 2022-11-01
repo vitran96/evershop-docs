@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'EverShop',
-  tagline: 'A React ecommerce platform with essential commerce features available free of charge. Built with React and MySQL, fast and fully customizable.',
+  tagline: 'EverShop is a full stack React ecommerce template with essential commerce features available free of charge. Built with React and MySQL, fast and fully customizable.',
   url: 'https://evershop.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -67,7 +67,7 @@ const config = {
       navbar: {
         title: '',
         logo: {
-          alt: 'EverShop ecommerce platform',
+          alt: 'A free react ecommerce template',
           src: 'img/logo.svg',
         },
         items: [
