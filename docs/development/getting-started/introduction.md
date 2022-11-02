@@ -3,11 +3,11 @@ sidebar_position: 1
 keywords:
 - EverShop introduction
 sidebar_label: Introduction
-title: Free open-source React Ecommerce Platform
+title: Free open-source React Ecommerce Template
 description: EverShop is a full stack React Ecommerce template that helps developing an e-commerce store. EverShop is a flexible with both admin panel and front store are extensible.
 ---
 
-# EverShop – React Ecommerce Template Introduction
+# EverShop – A Free React Ecommerce Template Introduction
 
 Welcome to the EverShop. A Full Stack React Ecommerce Template!
 
@@ -29,24 +29,28 @@ EverShop's highly modular structure is a result of several open source technolog
 
 [MySQL](https://www.mysql.com/) is a mature and widely used relational database management system (RDBMS) that uses structured query language (SQL). There are both free community versions and commercial versions of MySQL. EverShop requires at least the of MySQL Community Edition version 5.7.
 
-### ReactJS
+### React
 
 [React](https://reactjs.org/) is a free and open-source front-end JavaScript library for building user interfaces based on UI components. EverShop implements server-side rendering of React components with hidration to provide a fast, performant experience and SEO optimization.
+
+### GraphQL
+
+[GraphQL](https://graphql.org/) is a query language for APIs and a runtime for fulfilling those queries with your existing data. EverShop uses GraphQL and React to build a flexible and extensible front-end.
 
 :::info
 
 Check [this document](/docs/development/getting-started/system-requirements) for more detail about system requirement of EverShop.
 :::
 
-## Backend view
+## Backend - React Ecommerce Dashboard
 
 ![EverShop admin panel](./img/backend.png "EverShop admin panel")
 
-Heavy inspired by Shopify, we have a fully-featured admin panel that allows you to manage your store.
+Heavy inspired by Shopify, we have a fully-featured admin panel using React that allows you to manage your store.
 
 The admin panel is also designed to be extensible and customizable. Developers can easily add new features to the admin panel without modifying the core source code.
 
-## Front store view
+## Front store view - React Graphql Ecommerce 
 
 ![EverShop front store](./img/evershop-product-detail.png "EverShop front store")
 

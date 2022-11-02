@@ -100,8 +100,12 @@ const config = {
                 to: '/docs/development/getting-started/introduction',
               },
               {
-                label: 'User Guide',
-                to: '/docs/development/getting-started/introduction',
+                label: 'Extension Development',
+                to: '/docs/development/module/create-your-first-extension',
+              },
+              {
+                label: 'Theme Development',
+                to: '/docs/development/theme/theme-overview',
               }
             ],
           },

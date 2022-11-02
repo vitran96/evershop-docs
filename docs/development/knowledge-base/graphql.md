@@ -3,8 +3,8 @@ sidebar_position: 30
 keywords:
 - graphql, evershop graphql
 sidebar_label: The Graphql
-title: Evershop Graphql System
-description: The document explains how does EverShop graphql system work, how to create a graphql type and extend the existing graphql type.
+title: Graphql System
+description: The document explains how does EverShop GraphQL system work, how to create a GraphQL type and extend the existing GraphQL type.
 ---
 
 ![Evershop graphql system](./img/evershop-graphql.jpg "Evershop graphql system")
