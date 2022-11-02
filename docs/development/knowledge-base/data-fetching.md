@@ -3,7 +3,7 @@ sidebar_position: 31
 keywords:
 - evershop data loading, evershop data fetching, evershop graphql
 sidebar_label: Data Fetching
-title: Data Fetching In EverShop
+title: Data Fetching
 description: EverShop allows you to fetch data from the server using the GraphQL query language. This document explains how to fetch data from the server using GraphQL.
 ---
 
@@ -19,7 +19,7 @@ Check this [GraphQL document](/docs/development/knowledge-base/graphql) to learn
 
 EverShop allows you to fetch data for your [React](https://reactjs.org/) components using the GraphQL query language. This document explains how to fetch data from the server using GraphQL.
 
-## Server Side Data Fetching
+## GraphQL Query In React
 
 When you create a React component that needs some data for SSR(Server Side Rendering), you need to fetch the data from the server during the request time. To do this, all you need to do is export a GraphQL query in your component file. The query will be executed on the server and the result will be passed to your component as a prop.
 
@@ -61,10 +61,7 @@ export default function GeneralInfo({ product }) {
   );
 }
 
-export const layout = {
-  areaId: "productPageMiddleRight",
-  sortOrder: 10
-};
+// highlight-start
 
 export const query = `
   query Query {
@@ -83,10 +80,11 @@ export const query = `
       }
     }
   }`;
+
+  // highlight-end
 ```
 
-In the above example, we have exported a GraphQL query in the `GeneralInformation.js` component file. During the request time, EverShop will consolidate all the queries from all the components and execute them in a single request. The result of the query will be passed to the component as a prop.
-
+In the above example, we have exported a GraphQL query in the `GeneralInformation.js` component file. During the request time, EverShop will consolidate all the queries from all the components and execute them in a single request. The result of the GraphQL query will be passed to the React component as a prop.
 
 ### When the GraphQL query is executed?
 
