@@ -15,9 +15,10 @@ This document will inform entire [EverShop System Requirements](/docs/developmen
 ## Operating systems​
 
 EverShop can run on Window, Linux or Mac-OS.
+
 ## Node.js
 
-To install EverShop, you must have [Node.js](https://nodejs.org/en/) version 12 or above.
+To install EverShop, you must have [Node.js](https://nodejs.org/en/) version 14 or above.
 
 ## NPM
 
@@ -25,4 +26,4 @@ To install EverShop, you must have [Node.js](https://nodejs.org/en/) version 12 
 
 ## Database
 
-[MySQL 5.7](https://www.mysql.com/) or higher.
+[MySQL 8.0.13](https://www.mysql.com/) or higher.
