@@ -172,7 +172,7 @@ You also can use the below method to get the configuration and provide a default
 ```bash
 const {
   getConfig
-} = require('@evershop/core/lib/util/getConfig');
+} = require('@evershop/evershop/lib/util/getConfig');
 
 let shopTitle = getConfig('shop.title', 'EverShop'),
 ```

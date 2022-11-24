@@ -142,7 +142,7 @@ Let's take a look at the following code:
 
 ```js title="src/components/Layout.js"
 import React from 'react';
-import Area from '@evershop/core/src/lib/components/Area';
+import Area from '@evershop/evershop/src/lib/components/Area';
 
 export default function Layout() {
   return (
@@ -159,7 +159,7 @@ You can also provide a list of pre-defined components to the `Area` component:
 
 ```js title="src/components/Layout.js"
 import React from 'react';
-import Area from '@evershop/core/src/lib/components/Area';
+import Area from '@evershop/evershop/src/lib/components/Area';
 import Top from './Top';
 import Bottom from './Bottom';
 
@@ -200,7 +200,7 @@ Let's say we have a page 'productView' with the bellow layout component:
   
 ```js title="src/modules/catalog/pages/frontStore/productView/Layout.js"
 import React from 'react';
-import Area from '@evershop/core/src/lib/components/Area';
+import Area from '@evershop/evershop/src/lib/components/Area';
 
 export default function Layout() {
   return (
@@ -216,7 +216,7 @@ Now we want to insert a component into the left side of the product view page to
 
 ```js title="src/modules/catalog/pages/frontStore/productView/ProductRating.js"
 import React from 'react';
-import Area from '@evershop/core/src/lib/components/Area';
+import Area from '@evershop/evershop/src/lib/components/Area';
 
 export default function ProductRating({stars}) {
   return (

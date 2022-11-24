@@ -39,14 +39,14 @@ npx create-evershop-app my-app
 
 ## Install manually
 
-### Step 1: Install The @evershop/core Npm Package
+### Step 1: Install The @evershop/evershop Npm Package
 
-`@evershop/core` is the core of the EverShop platform. It contains all of the core modules like `catalog`, `checkout`, `order`.
+`@evershop/evershop` is the core of the EverShop platform. It contains all of the core modules like `catalog`, `checkout`, `order`.
 
 
-```js title="Install the @evershop/core Npm package"
+```js title="Install the @evershop/evershop Npm package"
 npm init;
-npm install @evershop/core;
+npm install @evershop/evershop;
 ```
 
 ### Step 2: Install The Core Npm Scripts

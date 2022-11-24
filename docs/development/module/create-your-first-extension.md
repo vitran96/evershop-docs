@@ -65,7 +65,7 @@ To do this, add a subfolder named `pages`:
         └── pages
 ```
 
-We will add the comment form to the product page only. Which has the route id `productView`. You can check it by navigating to the catalog module at `@evershop/core/src/modules/catalog/pages/frontStore`
+We will add the comment form to the product page only. Which has the route id `productView`. You can check it by navigating to the catalog module at `@evershop/evershop/src/modules/catalog/pages/frontStore`
 
 So to add a Component to this page, we will create a subfolder named `frontStore` and then its subfolder named `productView`:
 
@@ -81,8 +81,8 @@ Now let's create a [React component](https://reactjs.org/) named `CommentForm.js
 
 ```js title="CommentForm.js"
 import React from 'react';
-import { Form } from '@evershop/core/src/lib/components/form/Form';
-import { Field } from '@evershop/core/src/lib/components/form/Field';
+import { Form } from '@evershop/evershop/src/lib/components/form/Form';
+import { Field } from '@evershop/evershop/src/lib/components/form/Field';
 
 export default function ComponentForm() {
   return (
@@ -120,8 +120,8 @@ We want to display the form to the left column of the product page. To do that, 
 
 ```js title="CommentForm.js"
 import React from 'react';
-import { Form } from '@evershop/core/src/lib/components/form/Form';
-import { Field } from '@evershop/core/src/lib/components/form/Field';
+import { Form } from '@evershop/evershop/src/lib/components/form/Form';
+import { Field } from '@evershop/evershop/src/lib/components/form/Field';
 
 export default function ComponentForm() {
   return (
@@ -161,7 +161,7 @@ export const layout = {
 ```
 
 :::info
-To see list of available areas, please check the file `@evershop/core/src/modules/catalog/pages/frontStore/productView/Layout.js`
+To see list of available areas, please check the file `@evershop/evershop/src/modules/catalog/pages/frontStore/productView/Layout.js`
 :::
 
 The product page will be look like this:
@@ -187,7 +187,7 @@ In the `migration` folder, we will create a new file named `Version-1.0.0.js`:
 
 ```js title="migration/Version-1.0.0.js"
 const { execute } = require('@evershop/mysql-query-builder');
-const { pool } = require('@evershop/core/src/lib/mysql/connection');
+const { pool } = require('@evershop/evershop/src/lib/mysql/connection');
 
 // eslint-disable-next-line no-multi-assign
 module.exports = exports = async () => {
@@ -297,7 +297,7 @@ In real case, you may want to do more like validating the customer info and only
 The last middleware that we need is a middleware to save the comment. This middleware will be executed after the `validateComment` middleware. To do that, we will create a new file named `[validateComment]saveComment.js`:
 
 ```js title="api/frontStore/productComment/[validateComment]saveComment.js"
-const { pool } = require('@evershop/core/src/lib/mysql/connection');
+const { pool } = require('@evershop/evershop/src/lib/mysql/connection');
 const { insert } = require('@evershop/mysql-query-builder');
 
 module.exports = async function graphql(request, response, delegate, next) {
@@ -343,8 +343,8 @@ Now let's go back to the `CommentForm` component and add this API endpoint to th
 
 ```js title="src/components/CommentForm.js"
 import React from 'react';
-import { Form } from '@evershop/core/src/lib/components/form/Form';
-import { Field } from '@evershop/core/src/lib/components/form/Field';
+import { Form } from '@evershop/evershop/src/lib/components/form/Form';
+import { Field } from '@evershop/evershop/src/lib/components/form/Field';
 
 export default function ComponentForm({ action }) {
   const [error, setError] = React.useState(null);
@@ -412,8 +412,8 @@ The final code of the `CommentForm` component is:
 
 ```js title="src/components/CommentForm.js"
 import React from 'react';
-import { Form } from '@evershop/core/src/lib/components/form/Form';
-import { Field } from '@evershop/core/src/lib/components/form/Field';
+import { Form } from '@evershop/evershop/src/lib/components/form/Form';
+import { Field } from '@evershop/evershop/src/lib/components/form/Field';
 
 export default function ComponentForm({ action, product }) {
   const [error, setError] = React.useState(null);
@@ -557,7 +557,7 @@ Now let's create the GraphQL resolver for the comments. To do that, we will add 
 The code of the `Comment.resolvers.js` file is:
 
 ```js title="graphql/types/Comment/Comment.resolvers.js"
-const { camelCase } = require('@evershop/core/src/lib/util/camelCase');
+const { camelCase } = require('@evershop/evershop/src/lib/util/camelCase');
 const { select } = require('@evershop/mysql-query-builder');
 
 module.exports = {
