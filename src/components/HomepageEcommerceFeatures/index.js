@@ -79,9 +79,9 @@ export default function HomepageEcommerceFeatures() {
   return (
     <section className={styles.features}>
       <div className="container">
-        <h2 className='text-center'>The React Ecommerce Template Features</h2>
+        <h2 className='text-center'>The React Ecommerce Platforms Features</h2>
         <div className='text-center'>
-          EverShop provides rich e-commerce features that help you build online stores faster.
+          EverShop eCommerce platforms provides rich e-commerce features that help you build online stores faster.
         </div>
         <div className="row mt-12">
           {FeatureList.map((props, idx) => (
