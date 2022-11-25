@@ -26,8 +26,9 @@ function HomepageHeader() {
             Explore our demo
           </Link>
         </div>
-        <div className="flex gap-5 justify-center mt-3">
-          <a href="https://github.com/evershopcommerce/evershop" target="_blank">
+        <div className="flex gap-5 justify-center items-center mt-3">
+          <span className='current-version text-white rounded font-semibold'>1.0.0-beta</span>
+          <a className='flex' href="https://github.com/evershopcommerce/evershop" target="_blank">
             <Github role={'img'} />
           </a>
         </div>

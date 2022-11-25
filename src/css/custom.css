@@ -61,3 +61,8 @@
   padding-bottom: 5rem;
 }
 @import "./output.css";
+
+.current-version {
+  background-color: #292d3e;
+  padding: 0px 8px;
+}
