@@ -21,3 +21,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.imageFeature {
+  max-width: 100% !important;
+  height: auto;
+}

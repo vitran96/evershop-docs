@@ -81,7 +81,7 @@ function Feature({ image, title, description, readMore, readMoreText = 'Read mor
     <div className='p-20 border-[#E3E6E9]'>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <img className='shadow-xl rounded-full' src={image} alt={title} />
+          <img width={220} height={220} className='shadow-xl rounded-full' src={image} alt={title} style={{ maxWidth: '100% !important', height: 'auto' }} />
         </div>
         <div>
           <h3 className='mb-3'>{title}</h3>
