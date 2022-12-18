@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'EverShop',
-  tagline: 'EverShop is a GraphQL Based and React ecommerce platform with essential commerce features. Built with React, modular and fully customizable.',
+  tagline: 'React ecommerce platform with essential commerce features. Built with React, modular and fully customizable',
   url: 'https://evershop.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -26,7 +26,7 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
+  plugins: ['docusaurus-plugin-sass'],
   presets: [
     [
       'classic',
@@ -47,7 +47,7 @@ const config = {
             'https://github.com/evershopcommerce/docs/tree/main/',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.scss'),
         },
         googleAnalytics: {
           trackingID: 'G-NL5DS5R8SM',
@@ -73,14 +73,19 @@ const config = {
         title: '',
         logo: {
           alt: 'A GraphQL Based and React ecommerce template',
-          src: 'img/logo.svg',
+          src: 'img/logo.png',
         },
         items: [
           {
             type: 'doc',
             docId: 'development/getting-started/introduction',
             position: 'right',
-            label: 'Documentation',
+            label: 'Developers',
+          },
+          {
+            href: '/contact-us',
+            position: 'right',
+            label: 'Contact Us',
           },
           {
             href: 'https://github.com/evershopcommerce/evershop',
@@ -90,76 +95,30 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: 'light',
         links: [
           {
-            title: 'Docs',
             items: [
               {
-                label: 'Documentation',
-                to: '/docs/development/getting-started/introduction',
+                label: 'License',
+                to: 'https://github.com/evershopcommerce/evershop/blob/main/LICENSE',
               },
               {
-                label: 'Extension Development',
-                to: '/docs/development/module/create-your-first-extension',
+                label: 'Code of Conduct',
+                to: '/code-of-conduct',
               },
-              {
-                label: 'Theme Development',
-                to: '/docs/development/theme/theme-overview',
-              }
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
               {
                 label: 'Discord',
                 href: 'https://discord.com/invite/GSzt7dt7RM',
-              },
-              {
-                label: 'Facebook',
-                href: 'https://www.facebook.com/evershopcommerce',
-              },
+              }
             ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/evershopcommerce/evershop',
-              },
-            ],
-          },
+          }
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Evershop.`,
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-      },
-      algolia: {
-        // The application ID provided by Algolia
-        appId: '5AT3M16QZM',
-
-        // Public API key: it is safe to commit it
-        apiKey: 'f0f496e0686bd42b837e4f84a5d16fcf',
-
-        indexName: 'evershopDocument',
-
-        // Optional: see doc section below
-        contextualSearch: true,
-
-        // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
-        //externalUrlRegex: 'external\\.com|domain\\.com',
-
-        // Optional: Algolia search parameters
-        searchParameters: {},
-
-        // Optional: path for search page that enabled by default (`false` to disable it)
-        searchPagePath: 'search',
-
-        //... other Algolia params
       }
     }),
 };

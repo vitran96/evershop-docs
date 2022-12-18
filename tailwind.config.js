@@ -1,15 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: {
-    enabled: true,
-    content: [
-      './src/**/*.js',
-      './docs/**/*.md'
-    ]
-  },
-  content: [],
+  content: [
+    './src/**/*.js',
+    './docs/**/*.md'
+  ],
   theme: {
     extend: {},
+    container: {
+      padding: {
+        DEFAULT: '20px',
+        sm: '30px',
+        lg: '60px',
+        xl: '80px',
+        '2xl': '90px',
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
