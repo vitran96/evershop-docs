@@ -76,11 +76,12 @@ const FeatureList = [
   ]
 ];
 
-function Feature({ image, title, description, readMore, readMoreText = 'Read more ->' }) {
+function Feature({ image, title, description, readMore, readMoreText = 'Read more ->', index }) {
+  const className = index === 0 ? 'p-5 lg:p-20 lg:pl-0 border-[#E3E6E9]' : 'p-5 lg:p-20 lg:pr-0 border-[#E3E6E9]';
   return (
-    <div className='p-20 border-[#E3E6E9]'>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
+    <div className={className}>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div className='text-center'>
           <img width={220} height={220} className='shadow-xl rounded-full' src={image} alt={title} style={{ maxWidth: '100% !important', height: 'auto' }} />
         </div>
         <div>
@@ -106,9 +107,9 @@ export default function HomepageEcommerceFeatures() {
       <div className='grid grid-cols-1 divide-y border-y-[#E3E6E9] border-y'>
         {FeatureList.map((list, idx) => (
           <div className='border-[#E3E6E9]'>
-            <div className="container grid grid-cols-1 md:grid-cols-2 divide-x">
-              {list.map((props, idx) => (
-                <Feature key={idx} {...props} />
+            <div className="container grid grid-cols-1 md:grid-cols-2 md:divide-x">
+              {list.map((props, index) => (
+                <Feature index={index} key={index} {...props} />
               ))}
             </div>
           </div>
