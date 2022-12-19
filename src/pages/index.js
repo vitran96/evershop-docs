@@ -76,7 +76,7 @@ function GraphQLAndReact() {
 
 function Discord() {
   return <div className='container mt-20'>
-    <div className='flex flex-col  md:flex-row md:space-y-0  justify-center bg-[#3f39a7] p-[80px] rounded-lg relative'>
+    <div className='flex flex-col  md:flex-row md:space-y-0  justify-center bg-[#3f39a7] p-[30px] md:p-[80px] rounded-lg relative'>
       <div className='text-center'>
         <h3 className='largest justify-center text-center text-white'>Let's build together. Work together!</h3>
         <p className='text-white'>Join our young and creative team on Discord</p>
@@ -167,8 +167,8 @@ function Discord() {
 
 function Developer() {
   return <div className='container mt-10 mb-10'>
-    <div className='grid grid-cols-1 md:grid-cols-5 gap-3 p-[80px] bg-[#eaf2fd] items-center rounded-lg relative'>
-      <div className='text-center col-span-1'>
+    <div className='grid grid-cols-1 md:grid-cols-5 gap-y-3 md:gap-3 p-[20px] md:p-[80px] bg-[#eaf2fd] items-center rounded-lg relative'>
+      <div className='text-left md:text-center col-span-1'>
         <img alt='EverShop - React ecommerce platform' src='/img/logo.png' height={92} width={80} />
       </div>
       <div className='text-left col-span-3'>
@@ -191,6 +191,24 @@ function Developer() {
   </div>
 }
 
+function TechStack() {
+  return <section className='py-10 md:py-20'>
+    <div className='container'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
+        <div className='flex justify-center items-center'>
+          <img src="/img/stack-bg.webp" alt='Evershop tech stack' width={878} height={592} />
+        </div>
+        <div>
+          <h1 className='text-center md:text-left largest font-bold'>Build with stack <br /> that you love!</h1>
+          <div className='flex justify-center md:justify-left mt-10'>
+            <img width={686} height={465} style={{ maxWidth: '300px', height: 'auto' }} alt='EverShop Tech Stack' src='/img/tech-stack.webp' />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+}
+
 
 export default function Home() {
   const { siteConfig } = useDocusaurusContext();
@@ -202,6 +220,7 @@ export default function Home() {
       <GraphQLAndReact />
       <main>
         <HomepageWebDevFeatures />
+        <TechStack />
         <Developer />
         <HomepageEcommerceFeatures />
         <Discord />

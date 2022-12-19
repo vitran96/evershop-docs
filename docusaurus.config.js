@@ -7,6 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'EverShop',
+  titleDelimiter: ' - ',
   tagline: 'React ecommerce platform with essential commerce features. Built with React, modular and fully customizable',
   url: 'https://evershop.io',
   baseUrl: '/',

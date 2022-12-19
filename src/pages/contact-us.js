@@ -38,7 +38,7 @@ function ContactForm() {
 
   return (
     <header className='hero--primary text-center'>
-      <div className='mb-10'><h1>Contact Us</h1></div>
+      <div className='mb-20'><h1>Contact Us</h1></div>
       <div className="container text-left">
         <div className='grid grid-cols-1 md:grid-cols-2 rounded-lg'>
           <div className='md:p-10'>
@@ -96,7 +96,7 @@ function ContactForm() {
                       />
                       {errors.email && touched.email && (<span className='text-[#ff7474]'>{errors.email}</span>)}
                     </div>
-                    <div className='mt-3'>
+                    <div className='mt-5'>
                       <label htmlFor="email">Your Name</label>
                       <br />
                       <input
@@ -110,7 +110,7 @@ function ContactForm() {
                       />
                       {errors.name && touched.name && (<span className='text-[#ff7474]'>{errors.name}</span>)}
                     </div>
-                    <div className='mt-3'>
+                    <div className='mt-5'>
                       <label htmlFor="email">Your Message</label>
                       <br />
                       <textarea
@@ -125,7 +125,7 @@ function ContactForm() {
                     </div>
                     {success && (<div className='text-white my-2'>Thank you! We will get back to you soon.</div>)}
                     {error && (<div className='text-[#ff7474] my-2'>Sorry! There was an error.</div>)}
-                    <div className='mt-3'>
+                    <div className='mt-5'>
                       <button className='button button--primary w-full' type="submit" disabled={isSubmitting}>
                         Send
                       </button>
