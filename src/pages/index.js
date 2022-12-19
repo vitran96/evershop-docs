@@ -200,7 +200,7 @@ function TechStack() {
         </div>
         <div>
           <h1 className='text-center md:text-left largest font-bold'>Build with stack <br /> that you love!</h1>
-          <div className='flex justify-center md:justify-left mt-10'>
+          <div className='flex justify-center md:justify-start mt-10'>
             <img width={686} height={465} style={{ maxWidth: '300px', height: 'auto' }} alt='EverShop Tech Stack' src='/img/tech-stack.webp' />
           </div>
         </div>
