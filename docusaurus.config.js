@@ -87,12 +87,7 @@ const config = {
             href: '/contact-us',
             position: 'right',
             label: 'Contact Us',
-          },
-          {
-            href: 'https://github.com/evershopcommerce/evershop',
-            label: 'GitHub',
-            position: 'right',
-          },
+          }
         ],
       },
       footer: {

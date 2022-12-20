@@ -35,11 +35,11 @@ function HomepageHeader() {
             </Link>
           </div>
         </div>
-        <div className="flex gap-5 justify-center items-center mt-3">
+        {/* <div className="flex gap-5 justify-center items-center mt-3">
           <a aria-label="EverShop GitHub" className='flex' href="https://github.com/evershopcommerce/evershop" target="_blank">
             <Github role={'img'} />
           </a>
-        </div>
+        </div> */}
       </div>
     </header >
   );
