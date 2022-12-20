@@ -84,9 +84,26 @@ const config = {
             label: 'Developers',
           },
           {
+            href: 'https://demo.evershop.io/',
+            label: 'Demo Store',
+            position: 'right',
+          },
+          {
+            href: 'https://discord.com/invite/GSzt7dt7RM',
+            label: 'Community',
+            position: 'right',
+          },
+          {
             href: '/contact-us',
             position: 'right',
             label: 'Contact Us',
+          },
+          {
+            type: 'doc',
+            docId: 'development/getting-started/installation-guide',
+            position: 'right',
+            label: 'Get Started',
+            className: 'button button--primary'
           }
         ],
       },

@@ -256,3 +256,22 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.navbar__item.navbar__link svg, .menu__link svg {
+  display: none;
+}
+
+.navbar__item.navbar__link.button, .menu__link.button {
+  padding:  0.5rem 1rem;
+  margin-left: 0.5rem;
+}
+
+.navbar__item.navbar__link.button:hover {
+  color: #fff;
+}
+
+@media (max-width: 996px) {
+  .navbar__item.navbar__link.button {
+      display: none;
+    }
+}
