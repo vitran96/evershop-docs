@@ -12,10 +12,10 @@ function HomepageHeader() {
   return (
     <header className='hero hero--primary text-center'>
       <div className="container text-center">
-        <h1 className="hero__title mb-4">{'Open-Source React Ecommerce Platform'}</h1>
+        <h1 className="hero__title mb-4">{'Open-Source Node Ecommerce Platform'}</h1>
         <div className='flex items-center justify-center'>
           <p className="text-lg text-center text-slate-500">
-            <p>React ecommerce platform with essential commerce features
+            <p>Node ecommerce platform with essential commerce features
               <br />Built with React, modular and fully customizable</p>
           </p>
         </div>
@@ -214,7 +214,7 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title="Open source React ecommerce platform"
+      title="Open source Node ecommerce platform"
       description="EverShop ecommerce platform provides the best developer experience and rich ecommerce features that help build online stores and start selling online.">
       <HomepageHeader />
       <GraphQLAndReact />
