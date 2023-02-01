@@ -225,7 +225,7 @@ To create an API endpoint, we will create a new folder named `api` in our extens
         └── api
 ```
 
-Since this API is public, we will create a folder named `frontStore`. In the `frontStore` folder, we will create a subfolder named `productComment`:
+We will create a folder named `addComment` in the `api` folder:
 
 ```bash
 ./extensions
@@ -235,20 +235,24 @@ Since this API is public, we will create a folder named `frontStore`. In the `fr
         │       └── productView
         │── migration
         └── api
-            └── frontStore
-                └── productComment
+            └── addComment
 ```
 
 ### API route definition
 
-In the `productComment` folder, we will create a new file named `route` with the following content:
+In the `addComment` folder, we will create a new file named `route.json` with the following content:
 
-```js title="api/frontStore/productComment/route.js"
-POST
-/productComments
+```js title="api/frontStore/productComment/route.json"
+{
+  "methods": [
+    "POST"
+  ],
+  "path": "/comments",
+  "access": "public"
+}
 ```
 
-Above code means that we will create a new API endpoint with the URL `/productComments` and the HTTP method is `POST`.
+Above code means that we will create a new API endpoint with the URL `/api/comments` and the HTTP method is `POST`. This API endpoint is accessible for everyone.
 
 ### API middleware functions
 
@@ -259,10 +263,8 @@ The first middleware that we need is a middleware to parse the request body. To 
 ```js title="api/frontStore/productComment/bodyParser.js"
 const bodyParser = require('body-parser');
 
-module.exports = (request, response, stack, next) => {
-  bodyParser.json({ inflate: false })(request, response, () => {
-    bodyParser.urlencoded({ extended: true })(request, response, next);
-  });
+module.exports = (request, response, delegate, next) => {
+  bodyParser.json({ inflate: false })(request, response, next);
 }
 ```
 

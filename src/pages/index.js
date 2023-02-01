@@ -12,10 +12,10 @@ function HomepageHeader() {
   return (
     <header className='hero hero--primary text-center'>
       <div className="container text-center">
-        <h1 className="hero__title mb-4">{'Open-Source Node Ecommerce Platform'}</h1>
+        <h1 className="hero__title mb-4">{'Open-Source NodeJS Ecommerce Platform'}</h1>
         <div className='flex items-center justify-center'>
           <p className="text-lg text-center text-slate-500">
-            <p>Node ecommerce platform with essential commerce features
+            <p>NodeJS ecommerce platform with essential commerce features
               <br />Built with React, modular and fully customizable</p>
           </p>
         </div>
@@ -35,7 +35,8 @@ function HomepageHeader() {
             </Link>
           </div>
         </div>
-        <div className="flex gap-5 justify-center items-center mt-3">
+        <div className="flex gap-2 justify-center items-center mt-3">
+          <span>Star us on</span>
           <a aria-label="EverShop GitHub" className='flex' href="https://github.com/evershopcommerce/evershop" target="_blank">
             <Github role={'img'} />
           </a>
@@ -214,7 +215,7 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title="Open source Node ecommerce platform"
+      title="Open source NodeJS ecommerce platform"
       description="EverShop ecommerce platform provides the best developer experience and rich ecommerce features that help build online stores and start selling online.">
       <HomepageHeader />
       <GraphQLAndReact />

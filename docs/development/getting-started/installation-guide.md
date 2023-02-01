@@ -99,6 +99,8 @@ npm run start
 
 Your site will start at `http://localhost:3000`.
 
+Admin panel can be accessed at `http://localhost:3000/admin`.
+
 ## For developer
 
 If you are developer and want to start the project in the development mode. There are some extra steps

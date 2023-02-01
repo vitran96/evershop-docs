@@ -183,7 +183,7 @@ Let’s take a look an example of module structure:
 └──         └── route
 ```
 
-In the above example, the middleware `[a]b.js` will be executed after the middleware a.js. You can see we do it by having `[a]` at the beginning of `[a]b.js`. This example shows you the basics of middleware ordering based on file name.
+In the above example, the middleware `[a]b.js` will be executed after the middleware `a.js`. You can see we do it by having `[a]` at the beginning of `[a]b.js`. This example shows you the basics of middleware ordering based on file name.
 
 Middleware `[a,b]c[e].js` shows us a more complex case, this middleware will be executed after both `a.js` and `b.js` AND before the middleware `e.js`.
 

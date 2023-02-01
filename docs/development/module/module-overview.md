@@ -27,18 +27,16 @@ Below is the folder structure of a module:
 modules
 └── catalog
     ├── api
-    │   ├── frontStore
     │   ├── global
     │   │   └── authMiddleware.js
-    │   └── admin
-    │       └── postCreate
-    │           ├── route
-    │           ├── validatePostMiddleware.js
-    │           └── [validatePostMiddleware]savePostMiddleware.js
+    │   └── createProduct
+    │           ├── route.json
+    │           ├── validateProductMiddleware.js
+    │           └── [validateProductMiddleware]saveProductMiddleware.js
     ├── pages
     │   ├── admin
     │   │   └── postCreate
-    │   │       ├── route
+    │   │       ├── route.json
     │   │       ├── Form.js
     │   │       ├── General.js
     │   │       ├── Variants.js
@@ -47,7 +45,7 @@ modules
     │   │   └── authMiddleware.js
     │   └── frontStore
     │       └── postView
-    │           ├── route
+    │           ├── route.json
     │           ├── GeneralInformation.js
     │           ├── Price.js
     │           ├── Media.js

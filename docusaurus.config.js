@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'EverShop',
   titleDelimiter: ' - ',
-  tagline: 'Node ecommerce platform with essential commerce features. Built with React, modular and fully customizable',
+  tagline: 'NodeJS ecommerce platform with essential commerce features. Built with React, modular and fully customizable',
   url: 'https://evershop.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -73,7 +73,7 @@ const config = {
       navbar: {
         title: '',
         logo: {
-          alt: 'A GraphQL Based and Node ecommerce platform',
+          alt: 'A GraphQL Based and NodeJS ecommerce platform',
           src: 'img/logo.png',
         },
         items: [

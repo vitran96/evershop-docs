@@ -28,50 +28,42 @@ Let’s take a look a module structure
 ```bash
 ./
 ├── api
-│   ├── admin
-│   │   ├── productSavePost
-│   │   │   └── route
-│   │   ├── productDelete
-│   │   │   └── route
-│   │   ├── categorySavePost
-│   │   │   └── route
-│   │   └── categoryDelete
-│   │       └── route
-│   └── frontStore
-│       ├── categoryView
-│       │   └── route
-│       └── productView
-│           ├── route
+│   ├── createProduct
+│   │   ├── route.json
+│   ├── updateProduct
+│   │   ├── route.json
+│   ├── deleteProduct
+│   │   ├── route.json
 ├── graphql
 ├── migration
 ├── pages
 │   ├── admin
 │   │   ├── attributeEdit
-│   │   │   └── route
+│   │   │   └── route.json
 │   │   ├── attributeGrid
-│   │   │   └── route
+│   │   │   └── route.json
 │   │   ├── attributeNew
-│   │   │   └── route
+│   │   │   └── route.json
 │   │   ├── categoryEdit
-│   │   │   └── route
+│   │   │   └── route.json
 │   │   ├── categoryEdit+categoryNew
-│   │   │   └── route
+│   │   │   └── route.json
 │   │   ├── categoryGrid
-│   │   │   └── route
+│   │   │   └── route.json
 │   │   ├── categoryNew
-│   │   │   └── route
+│   │   │   └── route.json
 │   │   ├── components.js
 │   │   ├── productEdit
-│   │   │   └── route
+│   │   │   └── route.json
 │   │   ├── productGrid
-│   │   │   └── route
+│   │   │   └── route.json
 │   │   └── productNew
-│   │       └── route
+│   │       └── route.json
 │   └── frontStore
 │       ├── categoryView
-│       │   └── route
+│       │   └── route.json
 │       └── productView
-│           └── route
+│           └── route.json
 ├── services
 └── tests
 ```
@@ -82,13 +74,17 @@ In the picture above, there are 3 important things that we need to understand:
 
 You can see there is a folder named `api` in the above example. This folder is where we organize our RESTful api controller.
 
-Each of sub-folder in the `api` folder is a RESTful api controller. For example, the `productSavePost` folder is a RESTful api controller that handles the `POST` request to the `/api/catalog/product/save` endpoint. This folder contains a file named “route” that defines the detail (HTTP method, path) for this RESTful api controller.
+Each of sub-folder in the `api` folder is a RESTful api controller. For example, the `createProduct` folder is a RESTful api controller that handles the `POST` request to the `/api/products` endpoint. This folder contains a file named “route.json” that defines the detail (HTTP method, path) for this RESTful api controller.
+
+:::info
+  Check this [document](/docs/development/knowledge-base/api-routes) to understand more about a RESTful api.
+:::
 
 ### 2: The `pages` folders
 
 You can see there is a folder named `pages` in the above example. This folder is where we organize our pages.
 
-Each of sub-folder in the `pages` folder is a page controller. Those folders contain a file named `route` that defines the detail (HTTP method, path) for this RESTful api controller.
+Each of sub-folder in the `pages` folder is a page controller. Those folders contain a file named `route.json` that defines the detail (HTTP method, path) for this RESTful api controller.
 
 ### 2: The `admin` and `frontStore` folders
 
@@ -112,19 +108,23 @@ Since the route folder name will be used as a `route ID`.So it has to be unique 
 
 ## The declaration of the route
 
-In the above picture, in each route folder, there is a file named `route`. It is where we define our route specification.
+In the above picture, in each route folder, there is a file named `route.json`. It is where we define our route specification.
 
 Let’s take a look at one example:
 
 ```bash
-GET,POST
-/category/:url_key
+{
+  "methods": [
+    "GET"
+  ],
+  "path": "/category/:url_key"
+}
 ```
 
 In the above example, the route file has 2 lines:
 
-1. `GET,POST`: This is the list of accepted HTTP methods for the route. In case of multiple methods, you can use commas to separate them
-2. `/category/:url_key`: This is the URL path of the route. We make use of Path-to-RegExp for route path. You can find more information route path [here](https://www.npmjs.com/package/path-to-regexp).
+1. `methods`: This is the list of accepted HTTP methods for the route.
+2. `path`: This is the URL path of the route. We make use of Path-to-RegExp for route path. You can find more information route path [here](https://www.npmjs.com/package/path-to-regexp).
 
 That is how we define our route specification.
 

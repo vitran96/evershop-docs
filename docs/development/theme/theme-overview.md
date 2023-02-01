@@ -133,12 +133,8 @@ You can configure your theme in the `config/default.js` file located in the root
 
 ```json
 {
-  "shop": {
-    "title": "",
-    "description": "",
-    "currency": "usd",
-    "language": "en",
-    "timezone": "",
+  "system": {
+    ..., // other configurations
     "theme": "justatheme"
   }
 }
