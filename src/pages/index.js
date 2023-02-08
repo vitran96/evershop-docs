@@ -36,7 +36,6 @@ function HomepageHeader() {
           </div>
         </div>
         <div className="flex gap-2 justify-center items-center mt-3">
-          <span>Star us on</span>
           <a aria-label="EverShop GitHub" className='flex' href="https://github.com/evershopcommerce/evershop" target="_blank">
             <Github role={'img'} />
           </a>

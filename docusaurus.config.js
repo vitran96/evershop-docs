@@ -81,16 +81,17 @@ const config = {
             type: 'doc',
             docId: 'development/getting-started/introduction',
             position: 'right',
-            label: 'Developers',
+            label: 'Docs',
           },
           {
-            href: 'https://demo.evershop.io/',
-            label: 'Demo Store',
+            type: 'doc',
+            docId: 'api/overview',
             position: 'right',
+            label: 'API',
           },
           {
             href: 'https://discord.com/invite/GSzt7dt7RM',
-            label: 'Community',
+            label: 'Discord',
             position: 'right',
           },
           {

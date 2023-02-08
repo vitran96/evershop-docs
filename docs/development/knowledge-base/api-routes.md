@@ -60,7 +60,7 @@ Below is an example of an api folder:
 │   └── route.json
 ```
 
-### The API route defination
+## The API route defination
 
 In each api folder, there is a `route.json` file. This file contains the route defination for the API endpoint. For example, the `route.json` file of the `deleteProduct` API is:
 
@@ -313,7 +313,7 @@ The request data will be validated based on this schema. If the validation was f
 EverShop makes use of [Ajv JSON schema validator](https://ajv.js.org/) for request payload validation.
 :::
 
-### The api middleware functions
+## The api middleware functions
 
 EverShop allows you to create middleware functions for each API. You can create many middleware functions as you need.
 
