@@ -1,0 +1,19 @@
+span.method {
+  border-radius: 10px;
+  padding: 0 10px;
+  color: white;
+  font-size: 11px;
+  justify-self: center;
+  &.DELETE {
+    background-color: #ff0000;
+  }
+  &.GET {
+    background-color: #278527;
+  }
+  &.POST {
+    background-color: #0000ff;
+  }
+  &.PATCH {
+    background-color: #e0620d;
+  }
+}
