@@ -9,7 +9,7 @@ description: Learn what a database is and how to work with database in EverShop.
 
 # Database
 
-EverShop uses [MySQL](https://www.mysql.com/) as a database storage. EverShop supports MySQL 5.7 or higher.
+EverShop uses [MySQL](https://www.mysql.com/) as a database storage. EverShop supports MySQL 8.0.13 or higher.
 
 It is recommended to use MySQL 8 which is up to twice as fast as the previously supported version 5.7.
 
