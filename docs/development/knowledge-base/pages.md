@@ -13,7 +13,7 @@ description: EverShop pages are located in the `pages` folder of each module. Le
 Check the [module structure](/docs/development/module/module-overview) to learn more about the structure of EverShop modules.
 :::
 
-EverShop pages are located in the `pages` folder of each module. Bellow is an example of a page in the `pages` folder of the `catalog` module:
+EverShop pages are located in the `pages` folder of each module. Below is an example of a page in the `pages` folder of the `catalog` module:
 
 ```bash
 catalog
@@ -57,13 +57,13 @@ The `admin` and `frontStore` folders contain the following subfolders:
 
 ## The single page folder
 
-Each page folder contains the middleware functions, React components and the route defination for the page.
+Each page folder contains the middleware functions, React components and the route definition for the page.
 
 Below is an example of a page folder:
 
 ```bash
 productEdit
-├── route #This is route defination for the page
+├── route #This is route definition for the page
 ├── index.js #This is a middleware function
 ├── General.js #This is a React component 
 ├── Images.js #This is a React component
@@ -72,7 +72,7 @@ productEdit
 
 ### The page route
 
-In each page folder, there is a `route` file. This file contains the route defination for the page. For example, the `route` file of the `productEdit` page is:
+In each page folder, there is a `route` file. This file contains the route definition for the page. For example, the `route` file of the `productEdit` page is:
 
 ```bash
 GET
