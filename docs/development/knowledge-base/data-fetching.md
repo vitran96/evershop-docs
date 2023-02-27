@@ -86,7 +86,7 @@ export const query = `
 
 In the above example, we have exported a GraphQL query in the `GeneralInformation.js` component file. During the request time, EverShop will consolidate all the queries from all the components and execute them in a single request. The result of the GraphQL query will be passed to the React component as a prop.
 
-### When the GraphQL query is executed?
+### When is the GraphQL query executed?
 
 The query will be executed on the server during the request time. The query will be executed only if the component is rendered on the server.
 
