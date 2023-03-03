@@ -101,6 +101,20 @@ Your site will start at `http://localhost:3000`.
 
 Admin panel can be accessed at `http://localhost:3000/admin`.
 
+## Update EverShop
+
+To update EverShop, you can run the following command:
+
+```js title="Update EverShop"
+npm install @evershop/evershop@latest
+```
+
+EverShop will take care of the database migration for you.
+
+:::note
+Updating EverShop requires running the `build` command again.
+:::
+
 ## For developer
 
 If you are developer and want to start the project in the development mode. There are some extra steps
@@ -122,4 +136,28 @@ Open the package.json and add the following script:
 
 ```js title="Start the site in development mode"
 npm run dev
+```
+
+### Adding `jsconfig.json` file
+
+Open the `jsconfig.json` file and add the following content:
+
+```js title="Add the jsconfig.json file"
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "./themes/<Your Theme Folder>/components/*",
+        "./node_modules/@evershop/evershop/src/components/*"
+      ],
+      "@components-origin/*": [
+        "./node_modules/@evershop/evershop/src/components/*"
+      ],
+      "@default-theme/*" : [
+        "./node_modules/@evershop/evershop/src/modules/*/pages/*"
+      ]
+    }
+  }
+}
 ```

@@ -22,14 +22,14 @@ catalog
     │   └── auth.js
     ├── admin
     │   └── productEdit
-    │       ├── route
+    │       ├── route.json
     │       ├── index.js
     │       ├── General.js
     │       ├── Images.js
     │       ├── Price.js
     └── frontStore
         └── productView
-            ├── route
+            ├── route.json
             ├── index.js
             ├── ProductImages.js
             ├── ProductInfo.js
@@ -63,7 +63,7 @@ Below is an example of a page folder:
 
 ```bash
 productEdit
-├── route #This is route defination for the page
+├── route.json #This is route defination for the page
 ├── index.js #This is a middleware function
 ├── General.js #This is a React component 
 ├── Images.js #This is a React component
@@ -72,11 +72,15 @@ productEdit
 
 ### The page route
 
-In each page folder, there is a `route` file. This file contains the route defination for the page. For example, the `route` file of the `productEdit` page is:
+In each page folder, there is a `route.json` file. This file contains the route defination for the page. For example, the `route.json` file of the `productEdit` page is:
 
 ```bash
-GET
-/product/:url_key
+{
+  "path": "/admin/product/:productId",
+  "methods": [
+    "GET"
+  ]
+}
 ```
 
 :::warning
@@ -107,9 +111,9 @@ If you have a middleware function that required for all pages (both frontStore a
 
 If you have a middleware function that required for all pages in the admin panel, you can put it in the `pages/admin/all`. The same for the front store.
 
-### The page React components
+### The page template (Master components)
 
-The page React components are located in the page folder. For example, the `General.js`, `Images.js` and `Price.js` files are React components for the `productEdit` page.
+The Master components are located in the page folder. For example, the `General.js`, `Images.js` and `Price.js` files are React components for the `productEdit` page.
 
 You must provide a default export for each React component. For example, the `General.js` file is:
 
@@ -139,6 +143,10 @@ Check the [view system document](/docs/development/knowledge-base/view-system) t
 
 :::info
 Check the [data loading document](/docs/development/knowledge-base/data-fetching) to learn how to load data in a React component.
+:::
+
+:::warning
+A page folder can contain both middlewares and React components. To help EverShop to identify the React Component and middleware, you must name the React component with the first letter in uppercase. For example, `General.js` is a React component while `general.js` is a middleware.
 :::
 
 ### Shared React components

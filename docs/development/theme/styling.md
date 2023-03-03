@@ -1,5 +1,5 @@
 ---
-sidebar_position: 10
+sidebar_position: 20
 keywords:
 - Styling
 sidebar_label: Styling
@@ -11,9 +11,9 @@ description: EverShop supports including CSS files as Global CSS or TailwindCss.
 
 EverShop supports including importing CSS files. It also support Sass or TailwindCss out of the box. This document will guide you through the process of styling your component and page.
 
-## Css file
+## Scss file
 
-By default, EverShop supports importing CSS files. You can import CSS files from any component or page in your application.
+By default, EverShop supports importing SCSS files. You can import SCSS files from any component or page in your application.
 
 ```js
 import React from 'react';
@@ -44,7 +44,7 @@ If you override the default layout template from the cms core module, and keep u
 
 and then import the `tailwind.scss` file in your component.
 
-```js title="cms/pages/all/Layout.js"
+```js title="<yourtheme>/pages/all/Layout.js"
 import React from 'react';
 import './tailwind.scss';
 ```
@@ -53,9 +53,9 @@ That is all. Now you can use TailwindCss in your components.
 
 ### Overwrite TailwindCss configuration
 
-You can overwrite the default TailwindCss configuration by creating a `tailwind.storeFront.config.js` file in the root of your project.
+You can overwrite the default TailwindCss configuration by creating a `tailwind.frontStore.config.js` file in the root of your project.
 
-```js title="tailwind.storeFront.config.js"
+```js title="tailwind.frontStore.config.js"
 module.exports = {
   corePlugins: {
     // ...

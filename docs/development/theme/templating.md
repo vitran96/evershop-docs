@@ -1,5 +1,5 @@
 ---
-sidebar_position: 15
+sidebar_position: 25
 keywords:
 - Templating
 sidebar_label: Templating
@@ -19,14 +19,81 @@ We also suggest you to check out the [theme overview](/docs/development/theme/th
 
 EverShop uses React component to render the pages. Every single page in EverShop is a set of React component. Those components are designed to work independently so you can slit your page to small components instead of having only one component for everything. You can override the existing component or add your own component to provide a unique look and feel to your store.
 
-## Overwriting the existing components
+### Master level components
 
-Let's take a look the default Layout.js component from the `cms` core module:
+Let's take a look at the catalog module. The catalog module has a `pages` folder that contains the React components for each page.
 
-```js title="modules/cms/pages/frontStore/all/Layout.js"
+```bash
+catalog
+└── pages
+    ├── admin
+    │   ├── categoryEdit
+    │   ├── productEdit
+    │   └── attributeEdit
+    ├── frontStore
+    │   ├── productView
+    │   │   ├── General.js
+    │   │   └── Media.js
+    │   ├── categoryView
+    │   │   ├── General.js
+    │   │   └── Products.js
+```
+In the above example, the `General.js`, `Media.js` and `Products.js` are the master level components. They are located directly in the page folder. There is no limitation on the number of master level components in a page. You can have as many as you want.
+
+:::warning
+Since the master level components will be loaded automatically, you must provide the `export default` statement in the master level components.
+:::
+
+### Shared components
+
+Shared components are the components that are used in multiple pages. Those components will not be used unless you import them in the master level components. By default, EverShop has a `components` folder in the `src` folder.
+
+```bash
+@evershop/evershop
+└── src
+    └── components
+        ├── admin
+        ├── common
+        │   ├── Area.js
+        │   └── form
+        │       ├── Form.js
+        └── frontStore
+```
+
+### Component path alias
+
+There are 3 path alias that you should know:
+
+- `@components` - This path alias will point to the `components` folder in the `src` folder. Use this path alias to import the shared components.
+
+```js
+import Area from '@components/common/Area';
+```
+
+- `@components-origin` - This path alias will also point to the `components` folder in the `src` folder just like the `@components` path alias. Use this path alias when you want to overwrite the existing shared components.
+
+```js title="themes/your-theme-folder/components/common/Area.js"
+import Area from '@components-origin/common/Area';
+```
+
+- `@default-theme` -  This path alias will point to `pages` folder in each module. Use this path when you want to overwrite the existing master level components.
+
+```js title="themes/your-theme-folder/pages/productView/General.js"
+import General from '@default-theme/catalog/frontStore/productView/General';
+```
+
+## Overwriting the existing blocks
+
+When you want to overwrite the existing component, first thing you need to do is to identify the component that you want to overwrite. It can be a master level component or a shared component.
+
+### Overwriting the existing master level component
+
+Let's take a look the default `Layout.js` component from the `cms` core module:
+
+```js title="modules/pages/all/Layout.js"
 
 import React from 'react';
-import Area from '../../../../../lib/components/Area';
+import Area from '@components/common/Area';
 import './Layout.scss';
 import './tailwind.scss';
 
@@ -58,16 +125,16 @@ export const layout = {
 };
 ```
 
-This file is located in the `modules/cms/pages/frontStore/all` folder. In order to overwrite this component, you need to create a new file with the same name and location in your theme folder. (You should remove the `frontStore` from the path)
+This master component is located in the `modules/cms/pages/frontStore/all` folder. In order to overwrite this component, you need to create a new file at `themes/your-theme-folder/pages/all/Layout.js`.
 
-```js title="themes/your-theme-folder/cms/pages/all/Layout.js"
+```js title="themes/your-theme-folder/pages/all/Layout.js"
 
 import React from 'react';
-import Area from '../../../../../lib/components/Area';
+import Area from '@components/common/Area';
 import './Layout.scss';
 import './tailwind.scss';
 
-...
+// Your component code goes here
 
 export const layout = {
   areaId: "body",
@@ -78,52 +145,148 @@ export const layout = {
 
 Now, EverShop will use your component instead of the default one.
 
+### Overwriting the existing shared component
+
+Let's take a look the default `Area.js` component from the `common` folder:
+
+```js title="src/components/common/Area.js"
+import React from 'react';
+import PropTypes from 'prop-types';
+
+// component code
+
+export default Area;
+```
+
+This shared component is located in the `src/components/common` folder. In order to overwrite this component, you need to create a new file at `themes/your-theme-folder/components/common/Area.js`.
+
+```js title="themes/your-theme-folder/components/common/Area.js"
+import React from 'react';
+import PropTypes from 'prop-types';
+
+// Your component code goes here
+
+export default Area;
+```
+
+Now, EverShop will use your component instead of the default one.
+
+:::note
+In case you want to use the default component, you can import the component from the `@components-origin` path alias.
+:::
+
 ## Adding new components
 
-To add a new component to the page, first thing you need to do is creating a new folder named `pages` in your theme folder. 
+### Adding a new master level component
 
+To add a new master level component to the page, first thing you need to do is to identify the page that you want to add the component. In the following example, we will add a new component to the `productView` page.
 
-```bash title = "themes/pages"
-├── catalog
-│   └── pages
-│       ├── all
-│       ├── homepage
-│       │   └── FeaturedCategories.js
-│       └── productView
-│           └── General.js
-├── checkout
-│   └── pages
-│       ├── cart
-│       │   └── FeaturedCategories.js
-│       └── checkout
-│           └── FeaturedCategories.js
-├── cms
-│   └── pages
-│       ├── all
-│       │   └── Layout.js
-│       └── homepage
-│           └── MainSlideShow.js
+**Single page**
+
+```bash
+<your-theme-folder>
 └── pages
-    ├── categoryView
-    │   └── FreeShippingBanner.js
-    ├── checkout
-    │   └── CheckoutOnly.js
-    └── homepage
-        └── HomepageOnly.js
+    └── productView
+        └── NewComponent.js
+```
+The `NewComponent.js` file will be automatically loaded when the `productView` page is rendered.
+
+**All pages**
+
+If you want to add a new master level component that will be used in all pages, you can create a new file in the `all` folder.
+
+```bash
+<your-theme-folder>
+└── pages
+    └── all
+        └── NewComponent.js
 ```
 
-In this `pages` folder, you can create a subfolder to represent the page that you want to add new component to. For example, if you want to add a new component to the `homepage` page, you need to create a new folder named `homepage` in the `pages` folder. Then, you can create a new file named `FeaturedCategories.js` in the `homepage` folder.
+The `NewComponent.js` file will be automatically loaded when any page is rendered.
 
-```js title="themes/<yourthemefolder>/pages/homepage/FeaturedCategories.js"
+**Multiple pages**
+
+And, if you have a component that will be used in multiple pages, you can create a new folder with special name `pageA+pageB+pageC` and put the component in that folder.
+
+```bash
+<your-theme-folder>
+└── pages
+    └── productView+categoryView
+        └── NewComponent.js
+```
+
+The `NewComponent.js` file will be automatically loaded when the `productView` and `categoryView` page is rendered.
+
+### Adding a new shared component
+
+To add a new shared component, you can create a new file in the `components` folder.
+
+```bash
+<your-theme-folder>
+└── components
+    └── common
+        └── NewComponent.js
+```
+
+Now you can import the new component in any master level component.
+
+```js
+import NewComponent from '@components/common/NewComponent';
+```
+
+## The `jsconfig.json` file for path alias
+
+In order to make the import path shorter, you can create a `jsconfig.json` file in the root folder of your theme. The content of the file should be like this:
+
+```json title="jsconfig.json"
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "./themes/<yourtheme>/components/*",
+        "./node_modules/@evershop/evershop/src/components/*"
+      ],
+      "@components-origin/*": [
+        "./node_modules/@evershop/evershop/src/components/*"
+      ],
+      "@default-theme/*" : [
+        "./node_modules/@evershop/evershop/src/modules/*/pages/*"
+      ]
+    }
+  }
+}
+```
+
+## Make your theme translatable
+
+In order to make your theme translatable, every string that you want to translate should be wrapped with the `_` function.
+
+```js
 import React from 'react';
+import { _ } from '@evershop/evershop/src/lib/locale/translate';
 
-...
-
-export const layout = {
-  areaId: "content",
-  sortOrder: 1
-};
-
+export default function Component() {
+  return (
+    <div>
+      <h1>{_('Hello World')}</h1>
+    </div>
+  );
+}
 ```
 
-In case you want to add a component to all pages, add it in a subfolder named `all`.
+In case your text is dynamic, you can use a second argument to pass the variables.
+
+```js
+import React from 'react';
+import { _ } from '@evershop/evershop/src/lib/locale/translate';
+
+export default function Component() {
+  const name = 'John';
+  return (
+    <div>
+      <h1>{_('Hello ${name}', {name})}</h1>
+    </div>
+  );
+}
+```

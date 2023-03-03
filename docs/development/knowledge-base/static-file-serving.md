@@ -26,3 +26,20 @@ After the fresh installation of EverShop, you will have to create the public fol
 :::info
 The folder name must be `public`, not `publics` or anything else.
 :::
+
+## Serving Static Files From Your Theme
+
+If you have a theme, you can also serve static files from the theme's public folder. For example, if you have a theme called my-theme, you can add a public folder to it and put your static files in there. Then, you can access them from the base URL of your theme:
+
+```bash
+themes
+└── my-theme
+    ├── public
+    │   └── banner.png
+```
+
+And you can access the image from the following URL:
+
+```js
+<img src="/banner.png" />
+```

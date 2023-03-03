@@ -1,5 +1,5 @@
 ---
-sidebar_position: 25
+sidebar_position: 15
 keywords:
 - the page system
 sidebar_label: The View System
@@ -57,14 +57,14 @@ catalog
 ├── pages
     ├── admin
     │   └── productEdit
-    │       ├── route
+    │       ├── route.json
     │       ├── index.js
     │       ├── General.js
     │       ├── Images.js
     │       ├── Price.js
     └── frontStore
         └── productView
-            ├── route
+            ├── route.json
             ├── index.js
             ├── ProductImages.js
             ├── ProductInfo.js
@@ -73,7 +73,7 @@ catalog
 
 The `pages` folder has 3 sub-folders: `admin`, `frontStore` and `global`. The `admin` folder contains all of admin panel pages. The `frontStore` folder contains pages for your store front. The `global` folder contains *middleware function* that are used in both admin panel and store front.
 
-### Component and Page
+### Master components and page
 
 Let's take a look again the `catalog` module:
 
@@ -83,19 +83,19 @@ catalog
 ├── pages
     ├── admin
     │   └── productEdit
-    │       ├── route
+    │       ├── route.json
     │       ├── index.js
     │       ├── General.js
     │       ├── Images.js
     │       └── Price.js
     └── frontStore
         ├── categoryView
-        │   ├── route
+        │   ├── route.json
         │   ├── index.js
         │   ├── CategoryInfo.js
         │   └── CategoryProducts.js
         └── productView
-            ├── route
+            ├── route.json
             ├── index.js
             ├── ProductImages.js
             ├── ProductInfo.js
@@ -106,20 +106,29 @@ In the above example, there are 3 pages: `productEdit`, `categoryView` and `prod
 The `productEdit` is a admin panel page used to edit a product. The `categoryView` and `productView` are store front pages.
 
 :::info
-`productEdit`, `categoryView` and `productView` are route Id of the corresponding pages. The detail of the route(HTTP method, path) is defined in the `route` file. Check [this document](./routing-system) for more information.
+`productEdit`, `categoryView` and `productView` are route Id of the corresponding pages. The detail of the route(HTTP method, path) is defined in the `route.json` file. Check [this document](./routing-system) for more information.
 :::
 
-The `index.js` file is the entry point of the page. It is actually a middleware function that will be called when the page is requested. You can add how many middleware functions you want to the page folder. The middleware functions will be executed in the order they are defined. Check [this document](./middleware-system) for more information. 
+The `index.js` file is a middleware function that will be called when the page is requested. You can add how many middleware functions you want to the page folder. The middleware functions will be executed in the order they are defined. Check [this document](./middleware-system) for more information. 
 
 To distinguish between a component and a middleware, the component file name must start with a capital letter. For example, `General.js` is a component and the middleware file name muse start with a lower case. `index.js` is a middleware.
 
 :::warning
-Each of component must be provided as a default export.
+Each of master component must be provided as a default export.
 :::
 
-### Shared components
+### Shared master components
 
-Sometime, you may want to share a component between multiple pages. Let's say you have a `ProductInfo` component that is used in both `productNew` and `productEdit` pages. You can create a folder named `productNew + productEdit` in the `admin` folder and put the `ProductInfo` component in it. The `productNew + productEdit` folder is a shared folder. The `ProductInfo` component will be available in both `productNew` and `productEdit` pages.
+Sometime, you may want to share a component between multiple pages. Let's say you have a `ProductInfo` component that is used in both `productNew` and `productEdit` pages. You can create a folder named `productNew + productEdit` in the `admin` folder and put the `ProductInfo.js` component in it. The `productNew + productEdit` folder is a shared folder. The `ProductInfo.js` component will be available in both `productNew` and `productEdit` pages.
+
+```bash
+catalog
+├── pages
+    ├── admin
+    │   └── productNew+productEdit
+    │       └── ProductInfo.js
+    └── frontStore
+```
 
 ## The `Area` Component
 
@@ -225,12 +234,17 @@ export default function ProductRating({stars}) {
     </div>
   );
 }
+// highlight-start 
 
 export const layout = {
   areaId: 'productViewLeft',
   sortOrder: 1
 }
+
+// highlight-end
 ```
+
+Then we need to export the `layout` object from the `ProductRating.js` component. The `layout` object is used to tell the system where to insert the component into the page.
 
 In above code, we export a `layout` object with the `areaId` and `sortOrder` properties. The `areaId` is the ID of the `Area` component that we want to insert the component into. The `sortOrder` is the order of the component in the `Area` component.
 

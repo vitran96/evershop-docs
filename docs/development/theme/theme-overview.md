@@ -34,25 +34,27 @@ In each module, you can find a `pages` folder which contains all the files relat
 - `global` folder: This special folder contains middlewares that are used in both admin and storefront.
 
 ```bash
-├── global
-├── admin
-│   ├── all
-│   ├── attributeEdit
-│   ├── attributeEdit+attributeNew
-│   ├── attributeGrid
-│   ├── attributeNew
-│   ├── categoryEdit
-│   ├── categoryEdit+categoryNew
-│   ├── categoryGrid
-│   ├── categoryNew
-│   ├── productEdit
-│   ├── productEdit+productNew
-│   ├── productGrid
-│   └── productNew
-└── frontStore
-    ├── categoryView
-    ├── homepage
-    └── productView
+catalog
+├── pages
+    ├── global
+    ├── admin
+    │   ├── all
+    │   ├── attributeEdit
+    │   ├── attributeEdit+attributeNew
+    │   ├── attributeGrid
+    │   ├── attributeNew
+    │   ├── categoryEdit
+    │   ├── categoryEdit+categoryNew
+    │   ├── categoryGrid
+    │   ├── categoryNew
+    │   ├── productEdit
+    │   ├── productEdit+productNew
+    │   ├── productGrid
+    │   └── productNew
+    └── frontStore
+        ├── categoryView
+        ├── homepage
+        └── productView
 ```
 
 :::info
@@ -84,48 +86,41 @@ The structure of a EverShop theme directory typically would be like following
 ```bash
 /themes/
     <justatheme>/
-    ├── catalog
-    │   └── pages
-    │       ├── all
-    │       │   ├── FeaturedCategories.js
-    │       │   └── homepage copy
-    │       │       └── FeaturedCategories.js
-    │       ├── categoryView
-    │       │   └── FeaturedCategories.js
-    │       ├── homepage
-    │       │   └── FeaturedCategories.js
-    │       └── productView
-    │           └── FeaturedCategories.js
-    ├── checkout
-    │   └── pages
-    │       ├── cart
-    │       │   └── FeaturedCategories.js
-    │       └── checkout
-    │           └── FeaturedCategories.js
-    ├── cms
-    │   └── pages
-    │       ├── all
-    │       │   └── Layout.js
-    │       └── homepage
-    │           └── MainSlideShow.js
-    └── pages
+    ├── public # public assets, can be used to store images, fonts, etc.
+    ├── components # React components. Contains shared components that can be used in multiple pages.
+    |   ├── common
+    |   ├── catalog
+    |   ├── checkout
+    └── pages # Every sub-folder represents a page.
+        ├── all # Components located in this folder will be used in all pages.
+        │   ├── All.js #Master level components.
         ├── categoryView
-        │   └── FreeShippingBanner.js
+        │   └── FreeShippingBanner.js #Master level components.
         ├── checkout
-        │   └── CheckoutOnly.js
+        │   └── CheckoutOnly.js #Master level components.
         └── homepage
-            └── HomepageOnly.js
+            └── HomepageOnly.js #Master level components.
 ```
 
-#### module folders
+#### The `public` folder
 
-In the above example, we have 4 module folders, which are `catalog`, `checkout`, `cms` and `pages`. These folders are used to override the default view of the modules.
+The `public` folder is used to store public assets such as images, fonts, css etc. You can use these assets in your theme by using the `public` folder as the base path.
+
+You can access to the file `public/images/logo.png` by using the following code:
+
+```jsx
+<img src="/images/logo.png" />
+```
 
 #### The 'pages' folder
 
 The `pages` folder is used to add new components to the existing pages. For example, if you want to add a new component to the homepage, you can create a new file in the `pages/homepage` folder.
 
 In the above example, we have a file named `HomepageOnly.js` in the `pages/homepage` folder. This file will be used to add a new component to the homepage only.
+
+### The `components` folder
+
+The `components` folder is used store shared components that can be used in multiple pages. For example, if you want to add a new component to the homepage and the category page, you can create a new file in the `components/common` folder.
 
 ## Theme configuration
 
@@ -139,4 +134,8 @@ You can configure your theme in the `config/default.js` file located in the root
   }
 }
 ```
+
+:::warning
+Changing a theme requires running the `build` command again.
+:::
 

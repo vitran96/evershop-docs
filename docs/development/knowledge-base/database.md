@@ -11,8 +11,6 @@ description: Learn what a database is and how to work with database in EverShop.
 
 EverShop uses [MySQL](https://www.mysql.com/) as a database storage. EverShop supports MySQL 8.0.13 or higher.
 
-It is recommended to use MySQL 8 which is up to twice as fast as the previously supported version 5.7.
-
 ## What is MySQL?
 
 MySQL is an open-source relational database management system developed, distributed, and supported by Oracle Corporation. It uses [structured query language](https://en.wikipedia.org/wiki/SQL) for accessing, adding, and managing content in a database.
@@ -24,6 +22,10 @@ MySQL provides high-performance databases that are ideal for heavy-load producti
 ## Working with MySQL in EverShop
 
 ### Database connection setup
+
+:::info
+For now, EverShop requires your database to support native password authentication. If you are using MySQL 8.0.4 or higher, you can use the `mysql_native_password` plugin.
+:::
 
 By accessing in the EverShop installation DIR we can edit the `config/default.json` file using any of the best text editor. Here you can see the codes that connect MySQL DB with live EverShop site. For example, the codes looks like following:
 
