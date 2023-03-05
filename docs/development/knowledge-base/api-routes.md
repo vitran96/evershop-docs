@@ -49,7 +49,7 @@ The `api` folder contains the following subfolders:
 
 ## The single api folder
 
-Each api folder contains the middleware functions and the route defination for the API endpoint.
+Each api folder contains the middleware functions and the route definition for the API endpoint.
 
 Below is an example of an api folder:
 
@@ -60,9 +60,9 @@ Below is an example of an api folder:
 │   └── route.json
 ```
 
-## The API route defination
+## The API route definition 
 
-In each api folder, there is a `route.json` file. This file contains the route defination for the API endpoint. For example, the `route.json` file of the `deleteProduct` API is:
+In each api folder, there is a `route.json` file. This file contains the route definition for the API endpoint. For example, the `route.json` file of the `deleteProduct` API is:
 
 ```bash
 {

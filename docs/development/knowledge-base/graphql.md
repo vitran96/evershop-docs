@@ -65,7 +65,7 @@ The graphql type definition is written in the [GraphQL Schema Definition Languag
 
 In EverShop, to create a new graphql type, we need to create a new folder with the name of the type in the `graphql/types` folder. The folder name should be in PascalCase. The folder should contain two files, one for the type definition and one for the resolvers.
 
-The type defination file must have the `.graphql` extension.
+The type definition file must have the `.graphql` extension.
 
 ```graphql title="Product.graphql"
 type Product {
@@ -91,7 +91,7 @@ type Product {
 
 ### Extend an existing type
 
-During start-up, EverShop will consolidates the type definitions and resolvers from many local schema instances into a single executable schema. This is useful for building a single local service schema from many individually-managed parts.
+During start-up, EverShop will consolidate the type definitions and resolvers from many local schema instances into a single executable schema. This is useful for building a single local service schema from many individually-managed parts.
 
 To extend an existing type, we use the `extend` keyword.
 

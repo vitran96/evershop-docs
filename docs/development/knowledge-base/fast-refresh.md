@@ -11,7 +11,7 @@ description: Fast Refresh is a Evershop feature that gives you instantaneous upd
 
 Fast Refresh is a Evershop feature that allows you to get near-instant feedback on edits made to your code. With Evershop Fast Refresh enabled, most edits should be visible within a second, without losing component state.
 
-## How It Work?
+## How Does It Work?
 
 - If you edit a module that only exports React component(s), Fast Refresh will update the code only for that module, and re-render your component. You can edit anything in that file, including styles, rendering logic, event handlers, or effects.
 - If you edit a file with exports that aren't React components, Fast Refresh will re-run both that file, and the other files importing it. So if both Button.js and `Modal.js` import `theme.js`, editing `theme.js` will update both components.
