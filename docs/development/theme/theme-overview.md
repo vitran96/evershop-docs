@@ -58,7 +58,7 @@ catalog
 ```
 
 :::info
-You can learn more about the `view` part of the module in the [module view system](../knowledge-base/view-system.md).
+You can learn more about the `view` part of the module in the [module view system](../theme/view-system.md).
 :::
 
 ### The vendor themes

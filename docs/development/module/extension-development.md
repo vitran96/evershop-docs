@@ -57,22 +57,10 @@ Just like a module, below is the folder structure of an extension:
 extensions
 └── Vendor_ExtensionName
     ├── api
-    │   ├── site
-    │   └── admin
-    │       └── postCreate
-    │           ├── route
-    │           ├── validatePostMiddleware.js
-    │           └── [validatePostMiddleware]savePostMiddleware.js
-    ├── controllers
-    │   ├── admin
-    │   │   └── postCreate
-    │   │       ├── route
-    │   │       └── loadPostMiddleware.js
-    │   └── site
-    │       └── postView
-    │           ├── route
-    │           ├── loadPostMiddleware.js
-    │           └── [loadPostMiddleware]loadVariantMiddleware.js
+    │   └── postCreate
+    │       ├── route.json
+    │       ├── validatePostMiddleware.js
+    │       └── [validatePostMiddleware]savePostMiddleware.js
     ├── graphql
     │   └── types
     ├── migration
@@ -80,12 +68,14 @@ extensions
     ├── pages
     │   ├── admin
     │   │   └── postCreate
-    │   │       ├── route
+    │   │       ├── route.json
+    │   │       ├── index.js
     │   │       ├── GeneralComponent.js
     │   │       └── FormComponent.js
     │   └── site
     │       └── postView
-    │           ├── route
+    │           ├── route.json
+    │           ├── index.js
     │           ├── TitleComponent.js
     │           ├── PriceComponent.js
     │           └── VariantsComponent.js
@@ -113,7 +103,8 @@ Let's assume that you have created an extension named `myExtension`. To enable i
             {
                 "name": "myExtension",
                 "resolve": "extensions/myExtension",
-                "enabled": true
+                "enabled": true,
+                "priority": 10 // Smaller number means higher priority
             }
         ]
     }
@@ -150,7 +141,8 @@ and then hook it up to your EverShop project:
             {
                 "name": "productcomment",
                 "resolve": "node_modules/@evershop/productcomment",
-                "enabled": true
+                "enabled": true,
+                "priority": 10 // Smaller number means higher priority
             }
         ]
     }

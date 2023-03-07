@@ -37,6 +37,27 @@ If you already have a MySQL database, you can run the following command to get s
 npx create-evershop-app my-app
 ``` 
 
+#### Connect to MySQL server using SSL
+
+By defaul EverShop supports password authentication (caching_sha2_password or native_mysql_native_password). If you want to connect to the MySQL server using SSL, you can add the following properties to the `config/default.json` file after the installation process:
+
+```json
+  "system": {
+    "database": {
+      "host": "localhost",
+      "port": "3306",
+      "database": "evershop",
+      "user": "root",
+      "password": "123456",
+      "ssl": {
+        "ca": "path/to/ca.pem",
+        "cert": "path/to/client-cert.pem",
+        "key": "path/to/client-key.pem"
+      }
+    }
+  }
+```
+
 ## Install manually
 
 ### Step 1: Install The @evershop/evershop Npm Package
@@ -85,13 +106,22 @@ During the installation process, you will be asked for some information like dat
 
 :::
 
-### Step 4: Run the `build` command to build the site
+### Step 4: Folder permision
+
+EverShop needs to write some files to the disk. So you need to make sure that the following folders have the write permission:
+
+- `public/`
+- `.evershop`
+- `.log`
+- `media`
+
+### Step 5: Run the `build` command to build the site
 
 ```js title="Build the site"
 npm run build
 ```
 
-### Step 5: Run the `start` command to start your store in production mode
+### Step 6: Run the `start` command to start your store in production mode
 
 ```js title="Start the site"
 npm run start

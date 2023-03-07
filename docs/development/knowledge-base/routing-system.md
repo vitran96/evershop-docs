@@ -138,7 +138,7 @@ Let’s take a look at an example
 
 ```js
 const { commit, rollback } = require('@evershop/mysql-query-builder');
-const { buildUrl } = require('../../../../../lib/router/buildUrl');
+const { buildUrl } = require('@evershop/evershop/src/lib/router/buildUrl');
 
 // eslint-disable-next-line no-unused-vars
 module.exports = async (request, response, stack, next) => {

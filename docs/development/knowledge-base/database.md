@@ -21,7 +21,7 @@ MySQL provides high-performance databases that are ideal for heavy-load producti
 
 ## Working with MySQL in EverShop
 
-### Database connection setup
+## Database connection setup
 
 :::info
 For now, EverShop requires your database to support native password authentication. If you are using MySQL 8.0.4 or higher, you can use the `mysql_native_password` plugin.
@@ -37,6 +37,27 @@ By accessing in the EverShop installation DIR we can edit the `config/default.js
       "database": "evershop",
       "user": "root",
       "password": "123456"
+    }
+  }
+```
+
+### Connect to MySQL server using SSL
+
+If you want to connect to the MySQL server using SSL, you can add the following properties to the `config/default.json` file:
+
+```json
+  "system": {
+    "database": {
+      "host": "localhost",
+      "port": "3306",
+      "database": "evershop",
+      "user": "root",
+      "password": "123456",
+      "ssl": {
+        "ca": "path/to/ca.pem",
+        "cert": "path/to/client-cert.pem",
+        "key": "path/to/client-key.pem"
+      }
     }
   }
 ```
@@ -60,7 +81,7 @@ You let the pool object manage the connection for you rather than creating and m
 ```js
 const {
   pool
-} = require('../../../../../lib/mysql/connection');
+} = require('@evershop/evershop/src/lib/mysql/connection');
 
 const {
   select
@@ -92,7 +113,7 @@ const {
 
 const {
   getConnection
-} = require('../../../../../lib/mysql/connection');
+} = require('@evershop/evershop/src/lib/mysql/connection');
 
 const connection = await getConnection();
 await startTransaction(connection);
@@ -112,7 +133,7 @@ try {
 ```js
 const {
   pool
-} = require('../../../../../lib/mysql/connection');
+} = require('@evershop/evershop/src/lib/mysql/connection');
 
 const {
   select
@@ -129,7 +150,7 @@ It is also possible to perform a complex query by using a query builder.
 ```js
 const {
   pool
-} = require('../../../../../lib/mysql/connection');
+} = require('@evershop/evershop/src/lib/mysql/connection');
 
 const {
   select
@@ -157,7 +178,7 @@ const {
 
 const {
   getConnection
-} = require('../../../../../lib/mysql/connection');
+} = require('@evershop/evershop/src/lib/mysql/connection');
 
 module.exports = async (request, response, stack, next) => {
   const connection = await getConnection();
@@ -192,7 +213,7 @@ const {
 
 const {
   getConnection
-} = require('../../../../../lib/mysql/connection');
+} = require('@evershop/evershop/src/lib/mysql/connection');
 
 module.exports = async (request, response, stack, next) => {
   const connection = await getConnection();
@@ -225,7 +246,7 @@ const {
 
 const {
   getConnection
-} = require('../../../../../lib/mysql/connection');
+} = require('@evershop/evershop/src/lib/mysql/connection');
 
 module.exports = async (request, response, stack, next) => {
   const connection = await getConnection();

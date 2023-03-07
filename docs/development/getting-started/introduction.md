@@ -27,7 +27,7 @@ EverShop's highly modular structure is a result of several open source technolog
 
 ### MySQL
 
-[MySQL](https://www.mysql.com/) is a mature and widely used relational database management system (RDBMS) that uses structured query language (SQL). There are both free community versions and commercial versions of MySQL. EverShop requires at least the of MySQL Community Edition version 5.7.
+[MySQL](https://www.mysql.com/) is a mature and widely used relational database management system (RDBMS) that uses structured query language (SQL). There are both free community versions and commercial versions of MySQL. EverShop requires at least the of MySQL Community Edition version 8.0.
 
 ### React
 

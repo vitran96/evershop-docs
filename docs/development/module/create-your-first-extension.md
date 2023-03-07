@@ -187,11 +187,10 @@ In the `migration` folder, we will create a new file named `Version-1.0.0.js`:
 
 ```js title="migration/Version-1.0.0.js"
 const { execute } = require('@evershop/mysql-query-builder');
-const { pool } = require('@evershop/evershop/src/lib/mysql/connection');
 
 // eslint-disable-next-line no-multi-assign
-module.exports = exports = async () => {
-  await execute(pool, `CREATE TABLE \`product_comment\` (
+module.exports = exports = async (connection) => {
+  await execute(connection, `CREATE TABLE \`product_comment\` (
   \`comment_id\` int(10) unsigned NOT NULL AUTO_INCREMENT,
   \`product_id\` int(10) unsigned NOT NULL,
   \`user_name\` varchar(255) NOT NULL,
@@ -203,6 +202,9 @@ module.exports = exports = async () => {
 `);
 };
 ```
+
+In the above example, a migration file provides a function that accepts a MySQL connection as a parameter. This parameter is provided by the EverShop core.
+
 That's it. A new MySQL table named `product_comment` will be created automatically when you start the project later.
 
 For now, let's make it simple with 4 columns only: `comment_id`, `product_id`, `user_name` and `comment`.

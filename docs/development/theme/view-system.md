@@ -4,14 +4,14 @@ keywords:
 - the page system
 sidebar_label: The View System
 title: Evershop view system
-description: Evershop makes use of React to render the view. The page will be rendered on the server side and then sent to the client side. The client side do the Hydration process and make the page interactive.
+description: Evershop makes use of React to render the view. The page will be rendered on the server side and then sent to the client side. The client side does the Hydration process and makes the page interactive.
 ---
 
 ![EverShop view system](./img/the-view-system.jpg "EverShop view system")
 
 The view is one of the most important parts of a web application. It is the part that the user interacts with.
 
-Evershop makes use of [React](https://reactjs.org/) to render the view. The page will be rendered on the server side and then sent to the client side. The client side do the Hydration process and make the page interactive.
+Evershop makes use of [React](https://reactjs.org/) to render the view. The page will be rendered on the server side and then sent to the client side. The client side does the Hydration process and make the page interactive.
 
 The EverShop view system was designed to be flexible and easy to extend. Third party developers can insert their own React components into the view system without having to modify the core code.
 
@@ -106,15 +106,15 @@ In the above example, there are 3 pages: `productEdit`, `categoryView` and `prod
 The `productEdit` is a admin panel page used to edit a product. The `categoryView` and `productView` are store front pages.
 
 :::info
-`productEdit`, `categoryView` and `productView` are route Id of the corresponding pages. The detail of the route(HTTP method, path) is defined in the `route.json` file. Check [this document](./routing-system) for more information.
+`productEdit`, `categoryView` and `productView` are route Id of the corresponding pages. The detail of the route(HTTP method, path) is defined in the `route.json` file. Check [this document](../knowledge-base/routing-system) for more information.
 :::
 
-The `index.js` file is a middleware function that will be called when the page is requested. You can add how many middleware functions you want to the page folder. The middleware functions will be executed in the order they are defined. Check [this document](./middleware-system) for more information. 
+The `index.js` file is a middleware function that will be called when the page is requested. You can add however many middleware functions you want to the page folder. The middleware functions will be executed in the order they are defined. Check [this document](../knowledge-base/middleware-system) for more information. 
 
 To distinguish between a component and a middleware, the component file name must start with a capital letter. For example, `General.js` is a component and the middleware file name muse start with a lower case. `index.js` is a middleware.
 
 :::warning
-Each of master component must be provided as a default export.
+Every of master component must be provided as a default export.
 :::
 
 ### Shared master components
@@ -139,7 +139,7 @@ import Layout from '@site/src/components/Layout';
 <Layout/>
 <br/>
 
-Each of the block at the above layout is an `Area` and it has an unique ID.
+Each of the block at the above layout is an `Area` and it has a unique ID.
 
 The `Area` is a React Higher-Order component(HOC) that takes components as its child. It will render the child components and pass the `Area`'s props to the child components.
 
@@ -253,5 +253,5 @@ That's it. Now we can insert the `ProductRating` component into the `productView
 ## The component data fetching
 
 :::info
-  Check [this document](./data-fetching) for more information about how to fetch data in the component.
+  Check [this document](../knowledge-base/data-fetching) for more information about how to fetch data in the component.
 :::

@@ -28,7 +28,7 @@ const {
 
 const {
   pool
-} = require('../../../../../lib/mysql/connection');
+} = require('@evershop/evershop/src/lib/mysql/connection');
 
 module.exports = async (request, response, stack, next) => {
   try {

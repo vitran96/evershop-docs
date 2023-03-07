@@ -9,9 +9,9 @@ description: This page will help you to understand how to translate your Eversho
 
 # Translation
 
-By default Evershop is translated into English. You can translate your front store into any language you want.
-
 ## How to translate your front store?
+
+By default Evershop is translated into English. You can translate your front store into any language you want. You can also provide your own translations for your store.
 
 ### 1. Set the language of your front store
 

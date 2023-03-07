@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 5
 keywords:
 - EverShop Stripe payment gateway integration
 sidebar_label: Stripe Payment Integration
@@ -38,8 +38,8 @@ Looking to the name of the middleware, our middleware will be executing after th
 Now let's complete our middleware. It will look like this:
 
 ```js
-const { getConfig } = require('../../../../../lib/util/getConfig');
-const { getSetting } = require('../../../../setting/services/setting');
+const { getConfig } = require('@evershop/evershop/src/lib/util/getConfig');
+const { getSetting } = require('@evershop/evershop/src/modules/setting/services/setting');
 
 module.exports = async (request, response) => {
   // Check if Stripe is enabled
@@ -86,22 +86,21 @@ Let's create an API to create a payment intent. We will create a new folder `pay
 ```bash
 stripe
 ├── api
-│   └── frontStore
-│       ├── paymentIntent
-│       │   └── [context]bodyParser[auth].js
-│       │   └── createPaymentIntent.js
-│       │   └── route
+    └── paymentIntent
+          └── [context]bodyParser[auth].js
+          └── createPaymentIntent.js
+          └── route.json
 ```
 
 The `createPaymentIntent.js` will look like this:
 
 ```js
 const { select } = require('@evershop/mysql-query-builder');
-const { pool } = require('../../../../../lib/mysql/connection');
+const { pool } = require('@evershop/evershop/src/lib/mysql/connection');
 const smallestUnit = require("zero-decimal-currencies");
-const { getSetting } = require('../../../../setting/services/setting');
+const { getSetting } = require('@evershop/evershop/src/modules/setting/services/setting');
 const stripePayment = require('stripe');
-const { getConfig } = require('../../../../../lib/util/getConfig');
+const { getConfig } = require('@evershop/evershop/src/lib/util/getConfig');
 
 // eslint-disable-next-line no-unused-vars
 module.exports = async (request, response, stack, next) => {
@@ -144,11 +143,14 @@ module.exports = async (request, response, stack, next) => {
 };
 ```
 
-And here is our route file:
+And here is our `route.json` file:
 
 ```js
-POST
-/stripe/paymentIntent
+{
+  "methods: ["POST"],
+  "path": "/stripe/paymentIntent",
+  "access": "public"
+}
 ```
 
 When the customer clicks the `Place Order` button, EverShop will call the `paymentIntent` API. This API will create a payment intent and return the payment intent id to the frontend. The frontend will use this payment intent id to do the payment process.
@@ -228,9 +230,9 @@ import {
   useStripe,
   useElements
 } from '@stripe/react-stripe-js';
-import { useCheckout } from '../../../../../lib/context/checkout';
-import Button from '../../../../../lib/components/form/Button';
-import { get } from '../../../../../lib/util/get';
+import { useCheckout } from '@evershop/evershop/src/lib/context/checkout';
+import Button from '@evershop/evershop/src/lib/components/form/Button';
+import { get } from '@evershop/evershop/src/lib/util/get';
 import './CheckoutForm.scss';
 import { useQuery } from 'urql';
 
@@ -497,12 +499,21 @@ Lets create our webhook endpoint. We will create a folder `stripeWebHook` in the
 
 ```bash
 stripe
-├── api
-│   ├── frontStore
-│   │   ├── stripeWebHook
-│   │   │   ├── route
-│   │   │   └── bodyJson.js
-│   │   │   └── [bodyJson]webhook.js
+└── api
+    └── stripeWebHook
+          ├── route.json
+          └── bodyJson.js
+          └── [bodyJson]webhook.js
+```
+
+This is our `route.json` file:
+
+```js
+{
+  "methods: ["POST"],
+  "path": "/stripe/webhook",
+  "access": "public"
+}
 ```
 
 The webhook endpoint will receive the webhook from Stripe and update the order payment status to `paid`.
@@ -512,9 +523,9 @@ The webhook endpoint will receive the webhook from Stripe and update the order p
 const {
   insert, startTransaction, update, commit, rollback, select
 } = require('@evershop/mysql-query-builder');
-const { getConnection } = require('../../../../../lib/mysql/connection');
-const { getConfig } = require('../../../../../lib/util/getConfig');
-const { getSetting } = require('../../../../setting/services/setting');
+const { getConnection } = require('@evershop/evershop/src/lib/mysql/connection');
+const { getConfig } = require('@evershop/evershop/src/lib/util/getConfig');
+const { getSetting } = require('@evershop/evershop/src/modules/setting/services/setting');
 
 // eslint-disable-next-line no-unused-vars
 module.exports = async (request, response, stack, next) => {
@@ -604,7 +615,9 @@ The above middleware will receive the webhook from Stripe and update the order p
 
 ### Configure webhook in Stripe dashboard
 
-Now we need to configure the webhook in Stripe dashboard. Go to the Stripe dashboard and click `Developers` -> `Webhooks` -> `Add endpoint` to add a new webhook endpoint.
+Now we need to configure the webhook in Stripe dashboard. Go to the Stripe dashboard and click `Developers` -> `Webhooks` -> `Add endpoint` to add a new webhook endpoint. The webhook endpoint should look like this:
+
+`https://<your-domain>/api/stripe/webhook`
 
 ## Stripe setting from admin panel
 

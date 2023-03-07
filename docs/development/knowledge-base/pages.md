@@ -138,7 +138,7 @@ export const layout = {
 ```
 
 :::info
-Check the [view system document](/docs/development/knowledge-base/view-system) to learn more about the layout and block system.
+Check the [view system document](/docs/development/theme/view-system) to learn more about the layout and block system.
 :::
 
 :::info
