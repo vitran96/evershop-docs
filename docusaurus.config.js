@@ -146,7 +146,7 @@ const config = {
         // Public API key: it is safe to commit it
         apiKey: "425f7db8f417cc2c6db911e1e1bf192d",
 
-        indexName: "prod_DOCS",
+        indexName: "netlify_d4eac805-177a-4f1e-90cf-4c82e9080356_main_all",
 
         // Optional: see doc section below
         contextualSearch: true,
