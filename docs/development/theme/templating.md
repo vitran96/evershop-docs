@@ -64,22 +64,43 @@ Shared components are the components that are used in multiple pages. Those comp
 
 There are 3 path alias that you should know:
 
-- `@components` - This path alias will point to the `components` folder in the `src` folder. Use this path alias to import the shared components.
+- `@components` - This path alias will point to the `components` folder in the `src` folder. The below screenshot shows how does EverShop resolve the `@components` path alias.
 
-```js
-import Area from '@components/common/Area';
-```
+![@components/*](./img/components-alias.png "EverShop component alias").
 
-- `@components-origin` - This path alias will also point to the `components` folder in the `src` folder just like the `@components` path alias. Use this path alias when you want to overwrite the existing shared components.
+So, if you want to overwrite the 'Area' component using your theme. You can create a component with same name `Area.js` in `<your-theme>/components/common`.
+
+
+- `@components-origin` - This path alias will also point to the `components` folder in the `src` folder just like the `@components` path alias. The only different is this alias always resolve to "@evershop/evershop/src/components/". It is useful when you want to overwrite some component for adding something instead of rewrite the entire original one.
+
 
 ```js title="themes/your-theme-folder/components/common/Area.js"
 import Area from '@components-origin/common/Area';
+
+export default NewArea(props) {
+  return (
+    <div>
+      <Area {...props} />
+      <div>My extra code</div>
+    </div>
+  );
+}
 ```
 
-- `@default-theme` -  This path alias will point to `pages` folder in each module. Use this path when you want to overwrite the existing master level components.
+- `@default-theme` -  This path alias will point to `pages` folder in each module. Use this path when you want to overwrite the existing and still want to use the original component.
+
 
 ```js title="themes/your-theme-folder/pages/productView/General.js"
 import General from '@default-theme/catalog/frontStore/productView/General';
+
+export default function NewGeneral(props) {
+  return (
+    <div>
+      <General {...props} />
+      <div>My extra code</div>
+    </div>
+  );
+}
 ```
 
 ## Overwriting the existing blocks
