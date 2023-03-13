@@ -31,7 +31,7 @@ EverShop's highly modular structure is a result of several open source technolog
 
 ### React
 
-[React](https://reactjs.org/) is a free and open-source front-end JavaScript library for building user interfaces based on UI components. EverShop implements server-side rendering of React components with hidration to provide a fast, performant experience and SEO optimization.
+[React](https://reactjs.org/) is a free and open-source front-end JavaScript library for building user interfaces based on UI components. EverShop implements server-side rendering of React components with hydration to provide a fast, performant experience and SEO optimization.
 
 ### GraphQL
 
@@ -62,7 +62,7 @@ Check out the theme documentation [here](/docs/development/theme/theme-overview)
 
 ## Demo store
 
-Expore our demo store.
+Explore our demo store.
 
 import Link from '@docusaurus/Link';
 
