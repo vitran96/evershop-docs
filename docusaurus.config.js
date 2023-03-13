@@ -139,32 +139,32 @@ const config = {
           content: "https://evershop.io/img/social-card.jpg",
         },
       ],
-      // algolia: {
-      //   // The application ID provided by Algolia
-      //   appId: "ZKHQCAQOLG",
+      algolia: {
+        // The application ID provided by Algolia
+        appId: "YOUP0U3MFZ",
 
-      //   // Public API key: it is safe to commit it
-      //   apiKey: "425f7db8f417cc2c6db911e1e1bf192d",
+        // Public API key: it is safe to commit it
+        apiKey: "d160d70304dd855502e1a83c4a312ad1",
 
-      //   indexName: "netlify_d4eac805-177a-4f1e-90cf-4c82e9080356_main_all",
+        indexName: "evershopio",
 
-      //   // Optional: see doc section below
-      //   contextualSearch: true,
+        // Optional: see doc section below
+        contextualSearch: true,
 
-      //   // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
-      //   // replaceSearchResultPathname: {
-      //   //   from: "/docs/", // or as RegExp: /\/docs\//
-      //   //   to: "/",
-      //   // },
+        // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
+        // replaceSearchResultPathname: {
+        //   from: "/docs/", // or as RegExp: /\/docs\//
+        //   to: "/",
+        // },
 
-      //   // Optional: Algolia search parameters
-      //   //searchParameters: {},
+        // Optional: Algolia search parameters
+        //searchParameters: {},
 
-      //   // Optional: path for search page that enabled by default (`false` to disable it)
-      //   //searchPagePath: "search",
+        // Optional: path for search page that enabled by default (`false` to disable it)
+        //searchPagePath: "search",
 
-      //   //... other Algolia params
-      // },
+        //... other Algolia params
+      },
     }),
 };
 
