@@ -98,13 +98,6 @@ const config = {
             position: "right",
             label: "Contact Us",
           },
-          {
-            type: "doc",
-            docId: "development/getting-started/installation-guide",
-            position: "right",
-            label: "Get Started",
-            className: "button button--primary",
-          },
         ],
       },
       footer: {
