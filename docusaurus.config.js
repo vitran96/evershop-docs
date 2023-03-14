@@ -159,6 +159,12 @@ const config = {
         //... other Algolia params
       },
     }),
+  scripts: [
+    {
+      src: "/hotjar.js",
+      async: true,
+    },
+  ],
 };
 
 module.exports = config;
