@@ -54,9 +54,6 @@ const config = {
           // Optional fields.
           anonymizeIP: true, // Should IPs be anonymized?
         },
-        gtag: {
-          trackingID: "G-NL5DS5R8SM",
-        },
       }),
     ],
   ],
@@ -159,12 +156,6 @@ const config = {
         //... other Algolia params
       },
     }),
-  scripts: [
-    {
-      src: "/hotjar.js",
-      async: true,
-    },
-  ],
 };
 
 module.exports = config;
