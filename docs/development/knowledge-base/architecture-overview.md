@@ -9,7 +9,7 @@ description: The Architecture Overview of Evershop platform. Explains about proj
 
 # Architecture Overview
 
-Evershop was developed with Node and MySQL. The project is divided into 2 parts: the backend and the frontend.
+Evershop was developed with Node and PostgreSQL. The project is divided into 2 parts: the backend and the frontend.
 
 It is a monolithic application, which means that the backend and the frontend are in the same project.
 
