@@ -4,36 +4,32 @@ keywords:
 - Evershop database
 sidebar_label: The Database
 title: Database
-description: Learn what a database is and how to work with database in EverShop. Create and modify MySQL database by following this tutorial.
+description: Learn what a database is and how to work with database in EverShop. Create and modify PostgreSQL database by following this tutorial.
 ---
 
-# Database
+# eCommerce platform with PostgreSQL database
 
-EverShop uses [MySQL](https://www.mysql.com/) as a database storage. EverShop supports MySQL 8.0.13 or higher.
+EverShop uses [PostgreSQL](https://www.postgresql.org/) as a database storage. EverShop requires PostgreSQL 13 or higher.
 
-## What is MySQL?
+## What is PostgreSQL?
 
-MySQL is an open-source relational database management system developed, distributed, and supported by Oracle Corporation. It uses [structured query language](https://en.wikipedia.org/wiki/SQL) for accessing, adding, and managing content in a database.
+PostgreSQL is a powerful and popular open-source relational database management system (RDBMS) that is known for its robustness, scalability, and extensibility. It is one of the most advanced and feature-rich databases available, offering features such as support for complex queries, indexes, transactions, and advanced data types like arrays, JSON, and XML.
 
-MySQL is an open-source software licensed under the [GNU General Public License v2](https://en.wikipedia.org/wiki/GNU_General_Public_License), allowing users to use, scrutinize, share and modify the software. The Oracle Corporation also offers commercially licensed MySQL servers that take-away the pains of configuring, securing, and managing a database.
+PostgreSQL is often used as a backend database for web applications, and it is frequently deployed on Linux, Unix, and Windows servers. It also has a strong reputation for data integrity, and is often the preferred choice for applications that require ACID (Atomicity, Consistency, Isolation, and Durability) compliance.
 
-MySQL provides high-performance databases that are ideal for heavy-load production systems. Industry leaders like Amazon, Netflix, Uber, and Airbnb are companies using MySQL in their tech stacks.
+PostgreSQL is developed and maintained by a global community of open-source developers, and is released under the PostgreSQL License, a permissive free software license.
 
-## Working with MySQL in EverShop
+## Working with PostgreSQL in EverShop
 
 ## Database connection setup
 
-:::info
-For now, EverShop requires your database to support native password authentication. If you are using MySQL 8.0.4 or higher, you can use the `mysql_native_password` plugin.
-:::
-
-By accessing in the EverShop installation DIR we can edit the `config/default.json` file using any of the best text editor. Here you can see the codes that connect MySQL DB with live EverShop site. For example, the codes looks like following:
+By accessing in the EverShop installation DIR we can edit the `config/default.json` file using any of the best text editor. Here you can see the codes that connect PostgreSQL DB with live EverShop site. For example, the codes looks like following:
 
 ```json
   "system": {
     "database": {
       "host": "localhost",
-      "port": "3306",
+      "port": "5432",
       "database": "evershop",
       "user": "root",
       "password": "123456"
@@ -41,9 +37,9 @@ By accessing in the EverShop installation DIR we can edit the `config/default.js
   }
 ```
 
-### Connect to MySQL server using SSL
+### Connect to PostgreSQL server using SSL
 
-If you want to connect to the MySQL server using SSL, you can add the following properties to the `config/default.json` file:
+If you want to connect to the PostgreSQL server using SSL, you can add the following properties to the `config/default.json` file:
 
 ```json
   "system": {
@@ -81,18 +77,18 @@ You let the pool object manage the connection for you rather than creating and m
 ```js
 const {
   pool
-} = require('@evershop/evershop/src/lib/mysql/connection');
+} = require('@evershop/evershop/src/lib/postgres/connection');
 
 const {
   select
-} = require('@evershop/mysql-query-builder');
+} = require('@evershop/postgres-query-builder');
 
 const query = select();
 query.from('cms_page')
 .leftJoin('cms_page_description')
-.on('cms_page.`cms_page_id`', '=', 'cms_page_description.`cms_page_description_cms_page_id`');
+.on('cms_page.cms_page_id', '=', 'cms_page_description.cms_page_description_cms_page_id');
 query.where('status', '=', 1);
-query.where('cms_page_description.`url_key`', '=', request.params.url_key);
+query.where('cms_page_description.url_key', '=', request.params.url_key);
 
 const cmsPage = await query.load(pool);
 ```
@@ -109,11 +105,11 @@ const {
   select,
   update,
   startTransaction
-} = require('@evershop/mysql-query-builder');
+} = require('@evershop/postgres-query-builder');
 
 const {
   getConnection
-} = require('@evershop/evershop/src/lib/mysql/connection');
+} = require('@evershop/evershop/src/lib/postgres/connection');
 
 const connection = await getConnection();
 await startTransaction(connection);
@@ -133,11 +129,11 @@ try {
 ```js
 const {
   pool
-} = require('@evershop/evershop/src/lib/mysql/connection');
+} = require('@evershop/evershop/src/lib/postgres/connection');
 
 const {
   select
-} = require('@evershop/mysql-query-builder');
+} = require('@evershop/postgres-query-builder');
 
 const order = await select()
 .from('order')
@@ -150,18 +146,18 @@ It is also possible to perform a complex query by using a query builder.
 ```js
 const {
   pool
-} = require('@evershop/evershop/src/lib/mysql/connection');
+} = require('@evershop/evershop/src/lib/postgres/connection');
 
 const {
   select
-} = require('@nodejscart/mysql-query-builder');
+} = require('@nodejscart/postgres-query-builder');
 
 const query = select();
 query.from('cms_page')
 .leftJoin('cms_page_description')
-.on('cms_page.`cms_page_id`', '=', 'cms_page_description.`cms_page_description_cms_page_id`');
+.on('cms_page.cms_page_id', '=', 'cms_page_description.cms_page_description_cms_page_id');
 query.where('status', '=', 1);
-query.andWhere('cms_page_description.`url_key`', '=', request.params.url_key);
+query.andWhere('cms_page_description.url_key', '=', request.params.url_key);
 
 const cmsPage = await query.load(pool);
 ```
@@ -174,11 +170,11 @@ const {
   insert,
   commit,
   startTransaction
-} = require('@evershop/mysql-query-builder');
+} = require('@evershop/postgres-query-builder');
 
 const {
   getConnection
-} = require('@evershop/evershop/src/lib/mysql/connection');
+} = require('@evershop/evershop/src/lib/postgres/connection');
 
 module.exports = async (request, response, stack, next) => {
   const connection = await getConnection();
@@ -209,11 +205,11 @@ const {
   update,
   commit,
   startTransaction
-} = require('@evershop/mysql-query-builder');
+} = require('@evershop/postgres-query-builder');
 
 const {
   getConnection
-} = require('@evershop/evershop/src/lib/mysql/connection');
+} = require('@evershop/evershop/src/lib/postgres/connection');
 
 module.exports = async (request, response, stack, next) => {
   const connection = await getConnection();
@@ -242,11 +238,11 @@ const {
   del,
   commit,
   startTransaction
-} = require('@evershop/mysql-query-builder');
+} = require('@evershop/postgres-query-builder');
 
 const {
   getConnection
-} = require('@evershop/evershop/src/lib/mysql/connection');
+} = require('@evershop/evershop/src/lib/postgres/connection');
 
 module.exports = async (request, response, stack, next) => {
   const connection = await getConnection();

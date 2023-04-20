@@ -26,4 +26,4 @@ To install EverShop, you must have [Node.js](https://nodejs.org/en/) version 14 
 
 ## Database
 
-[MySQL 8.0.13](https://www.mysql.com/) or higher.
+[PostgreSQL 13](https://www.postgresql.org/) or higher.

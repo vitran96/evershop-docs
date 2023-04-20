@@ -25,9 +25,9 @@ EverShop's highly modular structure is a result of several open source technolog
 
 [Node.js](https://nodejs.org/en/) is an open-source server side runtime environment built on Chrome's V8 JavaScript engine. It provides an event driven, non-blocking (asynchronous) I/O and cross-platform runtime environment for building highly scalable server-side application using JavaScript
 
-### MySQL
+### PostgreSQL
 
-[MySQL](https://www.mysql.com/) is a mature and widely used relational database management system (RDBMS) that uses structured query language (SQL). There are both free community versions and commercial versions of MySQL. EverShop requires at least the of MySQL Community Edition version 8.0.
+[PostgreSQL](https://www.postgresql.org/) is a powerful, open source object-relational database system. It has more than 15 years of active development and a proven architecture that has earned it a strong reputation for reliability, data integrity, and correctness. EverShop requires PostgreSQL 13 or higher.
 
 ### React
 

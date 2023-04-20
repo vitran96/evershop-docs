@@ -168,11 +168,11 @@ The product page will be look like this:
 
 ![product page](./img/product-comment-form.png)
 
-## Step 4: Create a MySQL table to store the comments
+## Step 4: Create a PostgreSQL table to store the comments
 
-When a customer submits the comment form, we will save the comment to the database. To do that, we need to create a MySQL table to store the comments.
+When a customer submits the comment form, we will save the comment to the database. To do that, we need to create a PostgreSQL table to store the comments.
 
-To create a MySQL table, we will use the migration feature of EverShop. To do that, we will create a new folder named `migration` in our extension:
+To create a PostgreSQL table, we will use the migration feature of EverShop. To do that, we will create a new folder named `migration` in our extension:
 
 ```bash
 ./extensions
@@ -186,7 +186,7 @@ To create a MySQL table, we will use the migration feature of EverShop. To do th
 In the `migration` folder, we will create a new file named `Version-1.0.0.js`:
 
 ```js title="migration/Version-1.0.0.js"
-const { execute } = require('@evershop/mysql-query-builder');
+const { execute } = require('@evershop/postgres-query-builder');
 
 // eslint-disable-next-line no-multi-assign
 module.exports = exports = async (connection) => {
@@ -203,9 +203,9 @@ module.exports = exports = async (connection) => {
 };
 ```
 
-In the above example, a migration file provides a function that accepts a MySQL connection as a parameter. This parameter is provided by the EverShop core.
+In the above example, a migration file provides a function that accepts a PostgreSQL connection as a parameter. This parameter is provided by the EverShop core.
 
-That's it. A new MySQL table named `product_comment` will be created automatically when you start the project later.
+That's it. A new PostgreSQL table named `product_comment` will be created automatically when you start the project later.
 
 For now, let's make it simple with 4 columns only: `comment_id`, `product_id`, `user_name` and `comment`.
 
@@ -301,8 +301,8 @@ In real case, you may want to do more like validating the customer info and only
 The last middleware that we need is a middleware to save the comment. This middleware will be executed after the `validateComment` middleware. To do that, we will create a new file named `[validateComment]saveComment.js`:
 
 ```js title="api/frontStore/productComment/[validateComment]saveComment.js"
-const { pool } = require('@evershop/evershop/src/lib/mysql/connection');
-const { insert } = require('@evershop/mysql-query-builder');
+const { pool } = require('@evershop/evershop/src/lib/postgres/connection');
+const { insert } = require('@evershop/postgres-query-builder');
 
 module.exports = async function graphql(request, response, delegate, next) {
   try {
@@ -562,7 +562,7 @@ The code of the `Comment.resolvers.js` file is:
 
 ```js title="graphql/types/Comment/Comment.resolvers.js"
 const { camelCase } = require('@evershop/evershop/src/lib/util/camelCase');
-const { select } = require('@evershop/mysql-query-builder');
+const { select } = require('@evershop/postgres-query-builder');
 
 module.exports = {
   Query: {

@@ -95,8 +95,8 @@ stripe
 The `createPaymentIntent.js` will look like this:
 
 ```js
-const { select } = require('@evershop/mysql-query-builder');
-const { pool } = require('@evershop/evershop/src/lib/mysql/connection');
+const { select } = require('@evershop/postgres-query-builder');
+const { pool } = require('@evershop/evershop/src/lib/postgres/connection');
 const smallestUnit = require("zero-decimal-currencies");
 const { getSetting } = require('@evershop/evershop/src/modules/setting/services/setting');
 const stripePayment = require('stripe');
@@ -522,8 +522,8 @@ The webhook endpoint will receive the webhook from Stripe and update the order p
 /* eslint-disable import/order */
 const {
   insert, startTransaction, update, commit, rollback, select
-} = require('@evershop/mysql-query-builder');
-const { getConnection } = require('@evershop/evershop/src/lib/mysql/connection');
+} = require('@evershop/postgres-query-builder');
+const { getConnection } = require('@evershop/evershop/src/lib/postgres/connection');
 const { getConfig } = require('@evershop/evershop/src/lib/util/getConfig');
 const { getSetting } = require('@evershop/evershop/src/modules/setting/services/setting');
 

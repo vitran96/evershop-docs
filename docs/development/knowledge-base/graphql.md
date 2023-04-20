@@ -137,7 +137,7 @@ extend type Query {
 The resolvers are used to fetch the data from the database. The resolvers are written in javascript. The resolvers file must have the `.resolvers.js` extension.
 
 ```js title="Product.resolvers.js"
-const { select } = require('@evershop/mysql-query-builder');
+const { select } = require('@evershop/postgres-query-builder');
 const { buildUrl } = require('@evershop/evershop/src/lib/router/buildUrl');
 const { camelCase } = require('@evershop/evershop/src/lib/util/camelCase');
 

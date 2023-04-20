@@ -18,45 +18,12 @@ Please check [this document](/docs/development/getting-started/system-requiremen
 
 :::
 ## Using `create-evershop-app` command
-### Without MySQL database(The `playAround` mode) 
-You can get started with EverShop in minutes by running the following command:
-    
-```bash
-npx create-evershop-app my-app --playAround
-```
-With the `--playAround` flag, you don't need to install MySQL database. A MySQL database will be provided to you in our cloud server. So you can get started with EverShop quickly.
 
-:::warning
-This database is only for testing purpose. It will be permanently deleted after 7 days. No backup is available. Please DO NOT insert any important data into this database. After 7 days, you will have to install your own MySQL database to continue using EverShop.
-:::
-
-### With MySQL database
-If you already have a MySQL database, you can run the following command to get started with EverShop:
-    
 ```bash
 npx create-evershop-app my-app
-``` 
-
-#### Connect to MySQL server using SSL
-
-By defaul EverShop supports password authentication (caching_sha2_password or native_mysql_native_password). If you want to connect to the MySQL server using SSL, you can add the following properties to the `config/default.json` file after the installation process:
-
-```json
-  "system": {
-    "database": {
-      "host": "localhost",
-      "port": "3306",
-      "database": "evershop",
-      "user": "root",
-      "password": "123456",
-      "ssl": {
-        "ca": "path/to/ca.pem",
-        "cert": "path/to/client-cert.pem",
-        "key": "path/to/client-key.pem"
-      }
-    }
-  }
 ```
+
+The `create-evershop-app` command will create a new folder named `my-app` and install all of the dependencies for you.
 
 ## Install manually
 
@@ -70,7 +37,7 @@ npm init;
 npm install @evershop/evershop;
 ```
 
-### Step 2: Install The Core Npm Scripts
+### Step 2: Install the core Npm scripts
 
 Open the package.json file and add the following scripts:
 
@@ -82,7 +49,7 @@ Open the package.json file and add the following scripts:
 }
 ```
 
-### Step 3: Run the installation script
+### Step 3: Run he installation script
 
 Before running this script, make sure that you have an empty database ready for EverShop.
 :::info
@@ -93,7 +60,7 @@ Please check [this document](/docs/development/getting-started/system-requiremen
 This installation script will do the following tasks:
 
 - Create a default configuration file.
-- Create a MySQL schema.
+- Create a database schema.
 - Create your administrator user.
 
 ```js title="Installation script"

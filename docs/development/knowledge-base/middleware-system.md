@@ -24,11 +24,11 @@ Let’s take a look one example of middleware function
 ```js
 const {
   del
-} = require('@evershop/mysql-query-builder');
+} = require('@evershop/postgres-query-builder');
 
 const {
   pool
-} = require('@evershop/evershop/src/lib/mysql/connection');
+} = require('@evershop/evershop/src/lib/postgres/connection');
 
 module.exports = async (request, response, stack, next) => {
   try {

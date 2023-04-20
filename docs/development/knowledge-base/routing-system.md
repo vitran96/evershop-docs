@@ -137,7 +137,7 @@ EverShop has a function that helps you to general a URL of a route base on its I
 Let’s take a look at an example
 
 ```js
-const { commit, rollback } = require('@evershop/mysql-query-builder');
+const { commit, rollback } = require('@evershop/postgres-query-builder');
 const { buildUrl } = require('@evershop/evershop/src/lib/router/buildUrl');
 
 // eslint-disable-next-line no-unused-vars
