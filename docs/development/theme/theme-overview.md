@@ -93,13 +93,13 @@ The structure of a EverShop theme directory typically would be like following
     |   ├── checkout
     └── pages # Every sub-folder represents a page.
         ├── all # Components located in this folder will be used in all pages.
-        │   ├── All.js #Master level components.
+        │   ├── All.jsx #Master level components.
         ├── categoryView
-        │   └── FreeShippingBanner.js #Master level components.
+        │   └── FreeShippingBanner.jsx #Master level components.
         ├── checkout
-        │   └── CheckoutOnly.js #Master level components.
+        │   └── CheckoutOnly.jsx #Master level components.
         └── homepage
-            └── HomepageOnly.js #Master level components.
+            └── HomepageOnly.jsx #Master level components.
 ```
 
 #### The `public` folder
@@ -116,7 +116,7 @@ You can access to the file `public/images/logo.png` by using the following code:
 
 The `pages` folder is used to add new components to the existing pages. For example, if you want to add a new component to the homepage, you can create a new file in the `pages/homepage` folder.
 
-In the above example, we have a file named `HomepageOnly.js` in the `pages/homepage` folder. This file will be used to add a new component to the homepage only.
+In the above example, we have a file named `HomepageOnly.jsx` in the `pages/homepage` folder. This file will be used to add a new component to the homepage only.
 
 ### The `components` folder
 

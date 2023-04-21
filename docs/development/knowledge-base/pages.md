@@ -24,16 +24,16 @@ catalog
     │   └── productEdit
     │       ├── route.json
     │       ├── index.js
-    │       ├── General.js
-    │       ├── Images.js
-    │       ├── Price.js
+    │       ├── General.jsx
+    │       ├── Images.jsx
+    │       ├── Price.jsx
     └── frontStore
         └── productView
             ├── route.json
             ├── index.js
-            ├── ProductImages.js
-            ├── ProductInfo.js
-            ├── ProductOptions.js
+            ├── ProductImages.jsx
+            ├── ProductInfo.jsx
+            ├── ProductOptions.jsx
 
 ```
 
@@ -65,9 +65,9 @@ Below is an example of a page folder:
 productEdit
 ├── route.json #This is route definition for the page
 ├── index.js #This is a middleware function
-├── General.js #This is a React component 
-├── Images.js #This is a React component
-└── Price.js #This is a React component
+├── General.jsx #This is a React component 
+├── Images.jsx #This is a React component
+└── Price.jsx #This is a React component
 ```
 
 ### The page route
@@ -113,9 +113,9 @@ If you have a middleware function that required for all pages in the admin panel
 
 ### The page template (Master components)
 
-The Master components are located in the page folder. For example, the `General.js`, `Images.js` and `Price.js` files are React components for the `productEdit` page.
+The Master components are located in the page folder. For example, the `General.jsx`, `Images.jsx` and `Price.jsx` files are React components for the `productEdit` page.
 
-You must provide a default export for each React component. For example, the `General.js` file is:
+You must provide a default export for each React component. For example, the `General.jsx` file is:
 
 ```js
 
@@ -146,7 +146,7 @@ Check the [data loading document](/docs/development/knowledge-base/data-fetching
 :::
 
 :::warning
-A page folder can contain both middlewares and React components. To help EverShop to identify the React Component and middleware, you must name the React component with the first letter in uppercase. For example, `General.js` is a React component while `general.js` is a middleware.
+A page folder can contain both middlewares and React components. To help EverShop to identify the React Component and middleware, you must name the React component with the first letter in uppercase and the file extension is `jsx`. For example, `General.jsx` is a React component while `general.js` is a middleware.
 :::
 
 ### Shared React components

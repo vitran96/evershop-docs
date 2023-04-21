@@ -70,15 +70,15 @@ extensions
     │   │   └── postCreate
     │   │       ├── route.json
     │   │       ├── index.js
-    │   │       ├── GeneralComponent.js
-    │   │       └── FormComponent.js
+    │   │       ├── GeneralComponent.jsx
+    │   │       └── FormComponent.jsx
     │   └── site
     │       └── postView
     │           ├── route.json
     │           ├── index.js
-    │           ├── TitleComponent.js
-    │           ├── PriceComponent.js
-    │           └── VariantsComponent.js
+    │           ├── TitleComponent.jsx
+    │           ├── PriceComponent.jsx
+    │           └── VariantsComponent.jsx
     ├── bootstrap.js
     └── packages.json
 ```

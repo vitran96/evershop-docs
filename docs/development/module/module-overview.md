@@ -37,18 +37,18 @@ modules
     │   ├── admin
     │   │   └── postCreate
     │   │       ├── route.json
-    │   │       ├── Form.js
-    │   │       ├── General.js
-    │   │       ├── Variants.js
+    │   │       ├── Form.jsx
+    │   │       ├── General.jsx
+    │   │       ├── Variants.jsx
     │   │       └── index.js
     │   ├── global
     │   │   └── authMiddleware.js
     │   └── frontStore
     │       └── postView
     │           ├── route.json
-    │           ├── GeneralInformation.js
-    │           ├── Price.js
-    │           ├── Media.js
+    │           ├── GeneralInformation.jsx
+    │           ├── Price.jsx
+    │           ├── Media.jsx
     │           └── index.js
     ├── migration
     │   └── Version_1.0.0.js

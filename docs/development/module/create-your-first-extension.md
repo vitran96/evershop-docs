@@ -79,7 +79,7 @@ So to add a Component to this page, we will create a subfolder named `frontStore
 
 Now let's create a [React component](https://reactjs.org/) named `CommentForm.js`:
 
-```js title="CommentForm.js"
+```js title="CommentForm.jsx"
 import React from 'react';
 import { Form } from '@evershop/evershop/src/lib/components/form/Form';
 import { Field } from '@evershop/evershop/src/lib/components/form/Field';
@@ -118,7 +118,7 @@ For now, we will not add any logic to the form. We will do it later.
 
 We want to display the form to the left column of the product page. To do that, we update the `CommentForm.js` file and add the layout definition:
 
-```js title="CommentForm.js"
+```js title="CommentForm.jsx"
 import React from 'react';
 import { Form } from '@evershop/evershop/src/lib/components/form/Form';
 import { Field } from '@evershop/evershop/src/lib/components/form/Field';
@@ -345,7 +345,7 @@ If everything is OK, you will see the following response:
 
 Now let's go back to the `CommentForm` component and add this API endpoint to the form:
 
-```js title="src/components/CommentForm.js"
+```js title="src/components/CommentForm.jsx"
 import React from 'react';
 import { Form } from '@evershop/evershop/src/lib/components/form/Form';
 import { Field } from '@evershop/evershop/src/lib/components/form/Field';
@@ -414,7 +414,7 @@ Because our API requires a field named `product_id` to be passed to the API endp
 
 The final code of the `CommentForm` component is:
 
-```js title="src/components/CommentForm.js"
+```js title="src/components/CommentForm.jsx"
 import React from 'react';
 import { Form } from '@evershop/evershop/src/lib/components/form/Form';
 import { Field } from '@evershop/evershop/src/lib/components/form/Field';
@@ -590,8 +590,8 @@ Now let's show the comments on the product page. To do that, we will create a ne
         │── pages
         │   └── frontStore
         │       └── productView
-        │           │── CommentForm.js
-        │           └── Comments.js
+        │           │── CommentForm.jsx
+        │           └── Comments.jsx
         │── migration
         │── api
         └── graphql
@@ -599,7 +599,7 @@ Now let's show the comments on the product page. To do that, we will create a ne
 
 The code of the `Comments.js` file is:
 
-```js title="src/components/Comments.js"
+```js title="src/components/Comments.jsx"
 import React from 'react';
 
 export default function Comments({ comments = [] }) {
@@ -648,8 +648,8 @@ Let's create a new file named 'Component.scss' and add some styles to it:
         │── pages
         │   └── frontStore
         │       └── productView
-        │           │── CommentForm.js
-        │           │── Comments.js
+        │           │── CommentForm.jsx
+        │           │── Comments.jsx
         │           └── Component.scss
         │── migration
         │── api
@@ -680,7 +680,7 @@ The code of the `Component.scss` file is:
 
 Update the `Comments.js` file to use the `Component.scss` file:
 
-```js title="src/components/Comments.js"
+```js title="src/components/Comments.jsx"
 import React from 'react';
 import './Comments.scss';
 

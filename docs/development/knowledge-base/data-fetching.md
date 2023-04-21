@@ -25,7 +25,7 @@ When you create a React component that needs some data for SSR(Server Side Rende
 
 Let's take a look below example:
 
-```js title="modules/catalog/pages/productView/GeneralInformation.js"
+```js title="modules/catalog/pages/productView/GeneralInformation.jsx"
 export default function GeneralInfo({ product }) {
   return (
     <Area
@@ -106,7 +106,7 @@ export const query = `<Your GraphQL query>`;
 
 Sometime you need to pass some arguments to the GraphQL query. For example, you want to fetch the product details for a specific product. In this case, you need to pass the product id to the GraphQL query. To do this, you can use the `getContextValue` function. The `getContextValue` function will return the value of the context key that you pass to it.
 
-```js title="modules/catalog/pages/productView/GeneralInformation.js"
+```js title="modules/catalog/pages/productView/GeneralInformation.jsx"
 export const query = `
   query Query {
     product (id: getContextValue('productId')) {

@@ -59,16 +59,16 @@ catalog
     │   └── productEdit
     │       ├── route.json
     │       ├── index.js
-    │       ├── General.js
-    │       ├── Images.js
-    │       ├── Price.js
+    │       ├── General.jsx
+    │       ├── Images.jsx
+    │       ├── Price.jsx
     └── frontStore
         └── productView
             ├── route.json
             ├── index.js
-            ├── ProductImages.js
-            ├── ProductInfo.js
-            ├── ProductOptions.js
+            ├── ProductImages.jsx
+            ├── ProductInfo.jsx
+            ├── ProductOptions.jsx
 ```
 
 The `pages` folder has 3 sub-folders: `admin`, `frontStore` and `global`. The `admin` folder contains all of admin panel pages. The `frontStore` folder contains pages for your store front. The `global` folder contains *middleware function* that are used in both admin panel and store front.
@@ -85,21 +85,21 @@ catalog
     │   └── productEdit
     │       ├── route.json
     │       ├── index.js
-    │       ├── General.js
-    │       ├── Images.js
-    │       └── Price.js
+    │       ├── General.jsx
+    │       ├── Images.jsx
+    │       └── Price.jsx
     └── frontStore
         ├── categoryView
         │   ├── route.json
         │   ├── index.js
-        │   ├── CategoryInfo.js
-        │   └── CategoryProducts.js
+        │   ├── CategoryInfo.jsx
+        │   └── CategoryProducts.jsx
         └── productView
             ├── route.json
             ├── index.js
-            ├── ProductImages.js
-            ├── ProductInfo.js
-            └── ProductOptions.js
+            ├── ProductImages.jsx
+            ├── ProductInfo.jsx
+            └── ProductOptions.jsx
             
 ```
 In the above example, there are 3 pages: `productEdit`, `categoryView` and `productView`.
@@ -126,7 +126,7 @@ catalog
 ├── pages
     ├── admin
     │   └── productNew+productEdit
-    │       └── ProductInfo.js
+    │       └── ProductInfo.jsx
     └── frontStore
 ```
 
@@ -149,7 +149,7 @@ If a block is rendered by an Area component, third party developers can insert t
 
 Let's take a look at the following code:
 
-```js title="src/components/Layout.js"
+```js title="src/components/Layout.jsx"
 import React from 'react';
 import Area from '@evershop/evershop/src/lib/components/Area';
 
@@ -166,7 +166,7 @@ In the above code, we declare a `Area` with the ID# `blockId`. The `Area` will r
 
 You can also provide a list of pre-defined components to the `Area` component:
 
-```js title="src/components/Layout.js"
+```js title="src/components/Layout.jsx"
 import React from 'react';
 import Area from '@evershop/evershop/src/lib/components/Area';
 import Top from './Top';
@@ -207,7 +207,7 @@ The `Area` component will render its child components in order of `sortOrder`.
 
 Let's say we have a page 'productView' with the bellow layout component:
   
-```js title="src/modules/catalog/pages/frontStore/productView/Layout.js"
+```js title="src/modules/catalog/pages/frontStore/productView/Layout.jsx"
 import React from 'react';
 import Area from '@evershop/evershop/src/lib/components/Area';
 
@@ -223,7 +223,7 @@ export default function Layout() {
 
 Now we want to insert a component into the left side of the product view page to show the product rating. We can create a new component named `ProductRating.js`:
 
-```js title="src/modules/catalog/pages/frontStore/productView/ProductRating.js"
+```js title="src/modules/catalog/pages/frontStore/productView/ProductRating.jsx"
 import React from 'react';
 import Area from '@evershop/evershop/src/lib/components/Area';
 

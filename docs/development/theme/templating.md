@@ -32,11 +32,11 @@ catalog
     │   └── attributeEdit
     ├── frontStore
     │   ├── productView
-    │   │   ├── General.js
-    │   │   └── Media.js
+    │   │   ├── General.jsx
+    │   │   └── Media.jsx
     │   ├── categoryView
-    │   │   ├── General.js
-    │   │   └── Products.js
+    │   │   ├── General.jsx
+    │   │   └── Products.jsx
 ```
 In the above example, the `General.js`, `Media.js` and `Products.js` are the master level components. They are located directly in the page folder. There is no limitation on the number of master level components in a page. You can have as many as you want.
 
@@ -54,9 +54,9 @@ Shared components are the components that are used in multiple pages. Those comp
     └── components
         ├── admin
         ├── common
-        │   ├── Area.js
+        │   ├── Area.jsx
         │   └── form
-        │       ├── Form.js
+        │       ├── Form.jsx
         └── frontStore
 ```
 
@@ -74,7 +74,7 @@ So, if you want to overwrite the 'Area' component using your theme. You can crea
 - `@components-origin` - This path alias will also point to the `components` folder in the `src` folder just like the `@components` path alias. The only different is this alias always resolve to "@evershop/evershop/src/components/". It is useful when you want to overwrite some component for adding something instead of rewrite the entire original one.
 
 
-```js title="themes/your-theme-folder/components/common/Area.js"
+```js title="themes/your-theme-folder/components/common/Area.jsx"
 import Area from '@components-origin/common/Area';
 
 export default NewArea(props) {
@@ -90,7 +90,7 @@ export default NewArea(props) {
 - `@default-theme` -  This path alias will point to `pages` folder in each module. Use this path when you want to overwrite the existing and still want to use the original component.
 
 
-```js title="themes/your-theme-folder/pages/productView/General.js"
+```js title="themes/your-theme-folder/pages/productView/General.jsx"
 import General from '@default-theme/catalog/frontStore/productView/General';
 
 export default function NewGeneral(props) {
@@ -109,9 +109,9 @@ When you want to overwrite the existing component, first thing you need to do is
 
 ### Overwriting the existing master level component
 
-Let's take a look the default `Layout.js` component from the `cms` core module:
+Let's take a look the default `Layout.jsx` component from the `cms` core module:
 
-```js title="modules/pages/all/Layout.js"
+```js title="modules/pages/all/Layout.jsx"
 
 import React from 'react';
 import Area from '@components/common/Area';
@@ -146,9 +146,9 @@ export const layout = {
 };
 ```
 
-This master component is located in the `modules/cms/pages/frontStore/all` folder. In order to overwrite this component, you need to create a new file at `themes/your-theme-folder/pages/all/Layout.js`.
+This master component is located in the `modules/cms/pages/frontStore/all` folder. In order to overwrite this component, you need to create a new file at `themes/your-theme-folder/pages/all/Layout.jsx`.
 
-```js title="themes/your-theme-folder/pages/all/Layout.js"
+```js title="themes/your-theme-folder/pages/all/Layout.jsx"
 
 import React from 'react';
 import Area from '@components/common/Area';
@@ -168,9 +168,9 @@ Now, EverShop will use your component instead of the default one.
 
 ### Overwriting the existing shared component
 
-Let's take a look the default `Area.js` component from the `common` folder:
+Let's take a look the default `Area.jsx` component from the `common` folder:
 
-```js title="src/components/common/Area.js"
+```js title="src/components/common/Area.jsx"
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -179,9 +179,9 @@ import PropTypes from 'prop-types';
 export default Area;
 ```
 
-This shared component is located in the `src/components/common` folder. In order to overwrite this component, you need to create a new file at `themes/your-theme-folder/components/common/Area.js`.
+This shared component is located in the `src/components/common` folder. In order to overwrite this component, you need to create a new file at `themes/your-theme-folder/components/common/Area.jsx`.
 
-```js title="themes/your-theme-folder/components/common/Area.js"
+```js title="themes/your-theme-folder/components/common/Area.jsx"
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -208,7 +208,7 @@ To add a new master level component to the page, first thing you need to do is t
 <your-theme-folder>
 └── pages
     └── productView
-        └── NewComponent.js
+        └── NewComponent.jsx
 ```
 The `NewComponent.js` file will be automatically loaded when the `productView` page is rendered.
 
@@ -223,7 +223,7 @@ If you want to add a new master level component that will be used in all pages, 
         └── NewComponent.js
 ```
 
-The `NewComponent.js` file will be automatically loaded when any page is rendered.
+The `NewComponent.jsx` file will be automatically loaded when any page is rendered.
 
 **Multiple pages**
 
@@ -233,7 +233,7 @@ And, if you have a component that will be used in multiple pages, you can create
 <your-theme-folder>
 └── pages
     └── productView+categoryView
-        └── NewComponent.js
+        └── NewComponent.jsx
 ```
 
 The `NewComponent.js` file will be automatically loaded when the `productView` and `categoryView` page is rendered.
@@ -246,7 +246,7 @@ To add a new shared component, you can create a new file in the `components` fol
 <your-theme-folder>
 └── components
     └── common
-        └── NewComponent.js
+        └── NewComponent.jsx
 ```
 
 Now you can import the new component in any master level component.
