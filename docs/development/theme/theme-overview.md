@@ -19,6 +19,10 @@ Out-of-the-box [EverShop](https://evershop.io/) application provides a default t
 
 You can use the default theme for a live store, but if you want to customize the default design, you need to create a new theme. We strongly recommend not to change the default directly, because if you do edit the default files, your changes can be overwritten by the new version of the default files during upgrades.
 
+:::info
+You can checkout this repo for an example of theme [Eve Theme](https://github.com/evershopcommerce/evetheme). It is a simple theme that helps you to understand how to create a theme for EverShop.
+:::
+
 ## Where are themes located?
 
 ### The default theme
@@ -139,3 +143,6 @@ You can configure your theme in the `config/default.js` file located in the root
 Changing a theme requires running the `build` command again.
 :::
 
+:::info
+You can checkout this repo for an example of theme [Eve Theme](https://github.com/evershopcommerce/evetheme). It is a simple theme that helps you to understand how to create a theme for EverShop.
+:::
