@@ -143,6 +143,6 @@ You can configure your theme in the `config/default.js` file located in the root
 Changing a theme requires running the `build` command again.
 :::
 
-:::info
+## Example theme
+
 You can checkout this repo for an example of theme [Eve Theme](https://github.com/evershopcommerce/evetheme). It is a simple theme that helps you to understand how to create a theme for EverShop.
-:::
