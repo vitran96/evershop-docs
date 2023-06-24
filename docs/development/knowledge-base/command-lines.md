@@ -29,6 +29,14 @@ This command will start your store in development mode.
 evershop dev
 ```
 
+## Evershop Debug Command
+
+This command will start your store in development mode and enable the debuging. 
+
+```bash
+evershop dev --debug
+```
+
 ## Evershop Build Command
 
 This command builds the [React](https://reactjs.org/) components and make your store ready for production. The built components will be stored in the `.evershop` folder.

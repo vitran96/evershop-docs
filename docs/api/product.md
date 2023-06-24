@@ -151,15 +151,13 @@ import Api from '@site/src/components/rest/Api';
         }
       }
     },
-    "categories": {
-      "type": "array",
-      "items": {
-        "type": [
-          "string",
-          "integer"
-        ],
-        "pattern": "^[0-9]+$"
-      }
+    "category_id": {
+      "type": [
+        "string",
+        "integer",
+        "null"
+      ],
+      "pattern": "^[0-9]+$"
     },
     "options": {
       "type": "array",

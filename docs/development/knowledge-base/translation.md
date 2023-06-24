@@ -15,11 +15,11 @@ By default Evershop is translated into English. You can translate your front sto
 
 ### 1. Set the language of your front store
 
-To set the language of your front store, you need to go to update the `config/<yourenvironmen>.json` file located in the root directory of your project. Edit the `system.language` property and set the language code of your language. For example, if you want to translate your front store into French, you should set the `system.language` property to `fr`.
+To set the language of your front store, you need to go to update the `config/<yourenvironmen>.json` file located in the root directory of your project. Edit the `shop.language` property and set the language code of your language. For example, if you want to translate your front store into French, you should set the `shop.language` property to `fr`.
 
 ```json
 {
-  "system": {
+  "shop": {
     ..., // other configurations
     "language": "fr"
   }
