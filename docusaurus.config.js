@@ -69,7 +69,7 @@ const config = {
       navbar: {
         title: "",
         logo: {
-          alt: "A GraphQL Based and NodeJS ecommerce platform",
+          alt: "A Open-source NodeJS ecommerce platform",
           src: "img/logo.png",
         },
         items: [
@@ -94,6 +94,11 @@ const config = {
             href: "/contact-us",
             position: "right",
             label: "Contact Us",
+          },
+          {
+            href: "/extensions",
+            position: "right",
+            label: "Extensions",
           },
         ],
       },
