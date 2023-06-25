@@ -122,7 +122,7 @@ Open the package.json and add the following script:
 
 ```js title="Add the core dev script"
 "scripts": {
-    "setup": "evershop setup",
+    "setup": "evershop install",
     "build": "evershop build",
     "start": "evershop start",
     "dev": "evershop dev"
