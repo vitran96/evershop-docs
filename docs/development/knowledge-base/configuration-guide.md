@@ -11,7 +11,7 @@ description: Configure the EverShop application. Setup your shop information and
 
 In EverShop, some of the configurations can be done from the admin panel like Payment method, Shipment method, Taxes… We will learn more about these items in our user guide document.
 
-In this section, we will focus on the configuration for development.
+In this section, we will focus on the configuration from the `config/` directory. This directory contains the configuration files for the application.
 
 Under the hood, EverShop makes use of [config package](https://www.npmjs.com/package/config) to handle the configuration.
 
@@ -23,104 +23,90 @@ Let’s take a look at an example
 
 ```bash
 {
-  "shop": {
-    "title": "Amazing shop",
-    "description": "Amazing shop",
-    "currency": "usd",
-    "language": "en",
-    "timezone": ""
-  },
-  "catalog": {
-    "product": {
-      "image": {
-        "thumbnail": {
-          "width": 100,
-          "height": 100
+    "shop" : {
+        "currency": "USD",
+        "language": "cn",
+        "weightUnit": "kg"
+    },   
+    "catalog": {
+        "product": {
+            "image": {
+                "thumbnail": {
+                    "width": 100,
+                    "height": 100
+                },
+                "listing": {
+                    "width": 300,
+                    "height": 300
+                },
+                "single": {
+                    "width": 500,
+                    "height": 500
+                },
+                "placeHolder": "/default/image/placeholder.png"
+            }
         },
-        "listing": {
-          "width": 300,
-          "height": 300
-        },
-        "single": {
-          "width": 500,
-          "height": 500
-        },
-        "placeHolder": "/default/image/placeholder.png"
-      }
+        "showOutOfStockProduct": false
     },
-    "showOutOfStockProduct": false
-  },
-  "checkout": {
-    "allowCountries": [
-      "US",
-      "VN"
-    ],
-    "shippingRate": [
-      {
-        "condition": {},
-        "destimation": [
-          "*"
+    "order": {
+        "shipmentStatus": [
+            {
+                "name": "Unfullfilled",
+                "code": "unfullfilled",
+                "badge": "warning",
+                "progress": "incomplete"
+            },
+            {
+                "name": "Fullfilled",
+                "code": "fullfilled",
+                "badge": "success",
+                "progress": "complete"
+            }
         ],
-        "rate": 10
-      }
-    ]
-  },
-  "order": {
-    "shipmentStatus": [
-      {
-        "name": "Unfullfilled",
-        "code": "unfullfilled",
-        "badge": "warning",
-        "progress": "incomplete"
-      },
-      {
-        "name": "Fullfilled",
-        "code": "fullfilled",
-        "badge": "success",
-        "progress": "complete"
-      }
-    ],
-    "paymentStatus": [
-      {
-        "name": "Pending",
-        "code": "pending",
-        "badge": "default",
-        "progress": "incomplete"
-      },
-      {
-        "name": "Paid",
-        "code": "paid",
-        "badge": "success",
-        "progress": "complete"
-      },
-      {
-        "name": "Refunded",
-        "code": "refunded",
-        "badge": "critical",
-        "progress": "complete"
-      }
-    ]
-  },
-  "customer": {
-    "address": {
-      "full_name": {
-        "type": "text",
-        "title": "Full name",
-        "validarionRules": [
-          "notEmpty"
+        "paymentStatus": [
+            {
+                "name": "Pending",
+                "code": "pending",
+                "badge": "default",
+                "progress": "incomplete"
+            },
+            {
+                "name": "Paid",
+                "code": "paid",
+                "badge": "success",
+                "progress": "complete"
+            },
+            {
+                "name": "Refunded",
+                "code": "refunded",
+                "badge": "critical",
+                "progress": "complete"
+            }
         ]
-      }
+    },
+    "system": {
+        "database": {
+            "host": "localhost",
+            "port": "5432",
+            "database": "testrc5again",
+            "user": "postgres",
+            "password": "123456"
+        },
+        "extensions": [
+            {
+                "name": "productComment",
+                "resolve": "extensions/productComment",
+                "enabled": true,
+                "priority": 10 
+            }
+        ]
+    },
+    "pricing": {
+        "tax": {
+            "precision": 2,
+            "round_level": "unit"
+        }
     }
-  },
-  "system": {
-    "database": {
-      "host": "localhost",
-      "port": "3306",
-      "database": "install",
-      "user": "root",
-      "password": "123456"
-    }
-  }
 }
 ```
 
@@ -174,5 +160,5 @@ const {
   getConfig
 } = require('@evershop/evershop/lib/util/getConfig');
 
-let shopTitle = getConfig('shop.title', 'EverShop'),
+let shopTitle = getConfig('shop.language', 'en'),
 ```
