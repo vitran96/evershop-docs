@@ -49,7 +49,7 @@ Open the package.json file and add the following scripts:
 }
 ```
 
-### Step 3: Run he installation script
+### Step 3: Run the installation script
 
 Before running this script, make sure that you have an empty database ready for EverShop.
 :::info
@@ -122,7 +122,7 @@ Open the package.json and add the following script:
 
 ```js title="Add the core dev script"
 "scripts": {
-    "setup": "evershop setup",
+    "setup": "evershop install",
     "build": "evershop build",
     "start": "evershop start",
     "dev": "evershop dev"
