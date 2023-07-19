@@ -21,7 +21,7 @@ Use this endpoint to create a user session (admin login).
 
 <Api
   method="POST"
-  url="/api/users/sessions"
+  url="/api/user/sessions"
   requestSchema={{
   "type": "object",
   "properties": {
@@ -54,7 +54,7 @@ Use this endpoint to delete a user session (admin logout).
 
 <Api
   method="POST"
-  url="/api/users/sessions/{id}"
+  url="/api/user/sessions/{id}"
   responseSample={`{
   "data": {}
 }`}
