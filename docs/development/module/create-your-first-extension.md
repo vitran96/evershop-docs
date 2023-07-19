@@ -11,7 +11,7 @@ description: In this tutorial, we will pick a simple use case and create an exte
 
 ## Requirements
 
-- You must have EverShop version 2.0.2-alpha.5 installed on your machine. If you don't have EverShop installed, please follow the [installation guide](/docs/development/getting-started/installation-guide).
+- You must have EverShop version 1.0.0-rc.6 installed on your machine. If you don't have EverShop installed, please follow the [installation guide](/docs/development/getting-started/installation-guide).
 
 - You must have a basic understanding of EverShop module. If you don't know what is a module, please read [this document](/docs/development/module/module-overview).
 
