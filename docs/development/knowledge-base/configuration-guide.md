@@ -1,5 +1,5 @@
 ---
-sidebar_position: 45
+sidebar_position: 11
 keywords:
 - Configuration
 sidebar_label: Configuration
@@ -48,42 +48,6 @@ Let’s take a look at an example
         },
         "showOutOfStockProduct": false
     },
-    "order": {
-        "shipmentStatus": [
-            {
-                "name": "Unfullfilled",
-                "code": "unfullfilled",
-                "badge": "warning",
-                "progress": "incomplete"
-            },
-            {
-                "name": "Fullfilled",
-                "code": "fullfilled",
-                "badge": "success",
-                "progress": "complete"
-            }
-        ],
-        "paymentStatus": [
-            {
-                "name": "Pending",
-                "code": "pending",
-                "badge": "default",
-                "progress": "incomplete"
-            },
-            {
-                "name": "Paid",
-                "code": "paid",
-                "badge": "success",
-                "progress": "complete"
-            },
-            {
-                "name": "Refunded",
-                "code": "refunded",
-                "badge": "critical",
-                "progress": "complete"
-            }
-        ]
-    },
     "system": {
         "database": {
             "host": "localhost",
@@ -100,12 +64,6 @@ Let’s take a look at an example
                 "priority": 10 
             }
         ]
-    },
-    "pricing": {
-        "tax": {
-            "precision": 2,
-            "round_level": "unit"
-        }
     }
 }
 ```
@@ -162,3 +120,193 @@ const {
 
 let shopTitle = getConfig('shop.language', 'en'),
 ```
+
+## What goes into a configuration file?
+
+A configuration file is a JSON file that contains the configuration for the application. The configuration file is divided into sections, each section contains a group of configuration items.
+
+The high-level overview of the configuration file can be categorized into:
+
+- Shop configuration
+- Database configuration
+- Extension configuration
+- Catalog configuration
+- Pricing configuration
+- Theming configuration
+
+### Shop configuration
+
+The shop configuration contains the information about the shop. This information is used to display on the storefront.
+
+```bash
+{
+    "shop" : {
+        "currency": "USD",
+        "language": "cn",
+        "weightUnit": "kg",
+        "homeUrl": "http://localhost:3000" // This is the URL to your storefront, it is used for integration with third-party services
+    }
+}
+```
+
+### Database configuration
+
+The database configuration contains the connection details of Postgres database
+
+```bash
+{
+  "system": {
+    "database": {
+      "host": "aws.production",
+      "port": "3306",
+      "database": "production",
+      "user": "root",
+      "password": "lsdjgdfhgoiwnm"
+    }
+  }
+}
+```
+
+### Extension configuration
+
+The extension configuration contains the list of extensions that are enabled for the application. The extension configuration is used to enable/disable the extension and set the priority for the extension.
+
+```bash
+{
+  "system": {
+    "extensions": [
+      {
+        "name": "productComment",
+        "resolve": "extensions/productComment",
+        "enabled": true,
+        "priority": 10
+      }
+    ]
+  }
+}
+```
+
+### Catalog configuration
+
+The catalog configuration contains the configuration for the catalog module. You can configure the image size for the product image, the product listing behavior, and the placeholder image for the product.
+
+```bash
+{
+    "catalog": {
+        "product": {
+            "image": {
+                "thumbnail": {
+                    "width": 100,
+                    "height": 100
+                },
+                "listing": {
+                    "width": 300,
+                    "height": 300
+                },
+                "single": {
+                    "width": 500,
+                    "height": 500
+                },
+                "placeHolder": "/default/image/placeholder.png"
+            }
+        },
+        "showOutOfStockProduct": false
+    }
+}
+```
+
+### Pricing configuration
+
+The pricing configuration contains the configuration for the pricing calculation. You can configure the rounding behavior and the precision for the pricing calculation.
+
+```bash
+{
+    "pricing": {
+        "rounding": "round",
+        "precision": 2,
+        "tax": {
+            "rounding": "round",
+            "precision": 2,
+            "round_level": "unit"
+        }
+    }
+}
+```
+
+### Theming configuration
+
+Theming configuration contains the configuration for the theme. You can configure the logo, favicon, and the meta tag for the storefront.
+
+```bash
+{
+    "themeConfig": {
+        "logo": {
+            "alt": "You amazing shop logo",
+            "src": "/logo.png",
+            "width": 100,
+            "height": 100
+        },
+        "headTags": {
+            "links": [],
+            "metas": [],
+            "scripts": []
+        },
+        "copyright": "© 2022 Evershop. All Rights Reserved."
+    }
+}
+```
+
+#### Logo
+
+From the above example, you can see that the logo configuration contains the alt, src, width, and height of the logo. The logo is used to display on the storefront. You can have your logo in the `public` directory and set the path to the logo in the configuration file.
+
+:::info
+In above example, the logo is located at `public/logo.png`
+:::
+
+#### Favicon
+
+To add your custom favicon, you can use the `themeConfig` and add a `link` tag for the favicon.
+
+```bash
+{
+    "themeConfig": {
+        "headTags": {
+            "links": [
+                {
+                    "rel": "icon",
+                    "href": "/favicon.ico"
+                }
+            ]
+        }
+    }
+}
+```
+
+You can use this method to add social banners, social icons, and other meta tags to the storefront.
+
+### Custom CSS and Javascript
+
+To add your custom CSS and Javascript, you can use the `themeConfig` and add a `script` tag for the CSS and JS.
+
+```bash
+{
+    "themeConfig": {
+        "headTags": {
+            "scripts": [
+                {
+                    "src": "/custom.js",
+                    "async": true
+                }
+            ],
+            "links": [
+                {
+                    "rel": "stylesheet",
+                    "href": "/custom.css"
+                }
+            ]
+        }
+    }
+}
+```
+
