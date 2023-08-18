@@ -28,7 +28,7 @@ const config = {
     defaultLocale: "en",
     locales: ["en"],
   },
-  plugins: ["docusaurus-plugin-sass"],
+  plugins: ["docusaurus-plugin-sass", "@docusaurus/plugin-ideal-image"],
   presets: [
     [
       "classic",
