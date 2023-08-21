@@ -86,14 +86,14 @@ const config = {
             label: "API",
           },
           {
-            href: "https://discord.com/invite/GSzt7dt7RM",
-            label: "Discord",
-            position: "right",
-          },
-          {
             href: "/extensions",
             position: "right",
             label: "Extensions",
+          },
+          {
+            href: "https://discord.com/invite/GSzt7dt7RM",
+            label: "Discord",
+            position: "right",
           },
           {
             href: "/contact-us",
