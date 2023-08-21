@@ -91,14 +91,14 @@ const config = {
             position: "right",
           },
           {
-            href: "/contact-us",
-            position: "right",
-            label: "Contact Us",
-          },
-          {
             href: "/extensions",
             position: "right",
             label: "Extensions",
+          },
+          {
+            href: "/contact-us",
+            position: "right",
+            label: "Contact Us",
           },
         ],
       },
