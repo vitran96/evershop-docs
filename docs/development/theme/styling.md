@@ -144,7 +144,7 @@ module.exports = {
 ```
 
 :::warning
-Adding the `tailwind.storeFront.config.js` file requires you to restart the development server.
+Adding the `tailwind.frontStore.config.js` file requires you to restart the development server.
 :::
 
 ## Sass
@@ -166,5 +166,52 @@ nav {
     padding: 6px 12px;
     text-decoration: none;
   }
+}
+```
+
+## Global CSS
+
+There are two ways to include global CSS files in your application. 
+
+### Using configuration file
+
+You can add the CSS files to the `css` array in the `config/default.json` file.
+
+```js title="config/default.json"
+{
+  ...,
+  "themeConfig": {
+        "headTags": {
+            "links": [
+                {
+                    "rel": "stylesheet",
+                    "href": "/custom.css"
+                }
+            ]
+        }
+    }
+}
+```
+
+
+:::info
+Please check the [configuration guide](../knowledge-base/configuration-guide) for more information about the `themeConfig` configuration.
+:::
+
+### Import css file from your custom component
+
+You can import the CSS files from your custom component. You need to make sure this component is used in all pages of your storefront.
+
+```js title="themes/mytheme/pages/all/Global.jsx"
+import React from 'react';
+import './bootstrap.css';
+
+export default function Global() {
+  return <></>;
+}
+
+export const layout = {
+  areaId: 'head',
+  sortOrder: 1
 }
 ```
