@@ -170,3 +170,15 @@ To run the project in debug mode, you are required to add the debuging script to
     "dev:debug": "evershop dev --debug"
 }
 ```
+
+And then you can run the project in debug mode by running the following commands:
+
+```js title="Start the site in debug mode"
+npm run dev:debug
+```
+
+or 
+  
+```js title="Start the site in debug mode"
+npm run start:debug
+```
