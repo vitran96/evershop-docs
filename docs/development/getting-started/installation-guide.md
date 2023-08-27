@@ -158,3 +158,15 @@ Open the `jsconfig.json` file and add the following content:
   }
 }
 ```
+
+### The debug mode
+
+To run the project in debug mode, you are required to add the debuging script to the `package.json` file.
+
+```js title="Add the debuging scripts"
+"scripts": {
+    ...,
+    "start:debug": "evershop start --debug",
+    "dev:debug": "evershop dev --debug"
+}
+```
