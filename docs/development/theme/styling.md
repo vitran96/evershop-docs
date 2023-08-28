@@ -51,11 +51,11 @@ import './tailwind.scss';
 
 That is all. Now you can use TailwindCss in your components.
 
-### Overwrite TailwindCss configuration
+### Overwrite the TailwindCss configuration from your theme
 
-You can overwrite the default TailwindCss configuration by creating a `tailwind.frontStore.config.js` file in the root of your project.
+You can overwrite the default TailwindCss configuration by creating a `tailwind.config.js` file in your theme folder.
 
-```js title="tailwind.frontStore.config.js"
+```js title="themes/friday/tailwind.config.js"
 module.exports = {
   corePlugins: {
     // ...
@@ -144,7 +144,7 @@ module.exports = {
 ```
 
 :::warning
-Adding the `tailwind.frontStore.config.js` file requires you to restart the development server.
+Adding the `tailwind.config.js` file requires you to restart the development server.
 :::
 
 ## Sass
