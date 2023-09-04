@@ -9,7 +9,7 @@ description: This document describes step by step how to integrate the Stripe pa
 
 # Stripe Payment Gateway Integration
 
-By default, EverShop supports an online payment gateway - Stripe. This document will walk you through the steps of how we integrated with Stripe payment gateway. So you will learn how to integrate your payment gateway with EverShop.
+By default, EverShop supports an online payment gateway - Stripe. This document will walk you through the steps of how we integrate with Stripe payment gateway. So you will learn how to integrate your payment gateway with EverShop.
 
 ## Create an extension
 
