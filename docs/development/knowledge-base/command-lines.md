@@ -31,7 +31,7 @@ evershop dev
 
 ## Evershop Debug Command
 
-This command will start your store in development mode and enable the debuging. 
+This command will start your store in development mode and enable the debugging. 
 
 ```bash
 evershop dev --debug
