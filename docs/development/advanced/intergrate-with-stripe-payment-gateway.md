@@ -9,7 +9,7 @@ description: This document describes step by step how to integrate the Stripe pa
 
 # Stripe Payment Gateway Integration
 
-By default, EverShop supports an online payment gateway - Stripe. This document will walk you through the steps how we integrated with Stripe payment gateway. So you will learn how to integrate your payment gateway with EverShop.
+By default, EverShop supports an online payment gateway - Stripe. This document will walk you through the steps of how we integrate with Stripe payment gateway. So you will learn how to integrate your payment gateway with EverShop.
 
 ## Create an extension
 
@@ -19,11 +19,11 @@ But if you want to create your own payment gateway, you can follow the [Create y
 
 ## Register your payment gateway to the checkout page
 
-During the checkout process, EverShop will render the payment gateway list for the customer to choose. To get the payment gateway list, EverShop will call the `paymentMethods` API. So you need to register your payment gateway to the checkout page by hooking into the `paymentMethods` API.
+During the checkout process, EverShop will render the payment gateway list for the customers to choose. To get the payment gateway list, EverShop will call the `paymentMethods` API. So you need to register your payment gateway to the checkout page by hooking into the `paymentMethods` API.
 
 As you may know, to hook into an API, you need to create a middleware. So let's create a middleware to register our payment gateway.
 
-Let's go and create a api folder in the root of your extension. It will look like this:
+Let's go and create an api folder in the root of your extension. It will look like this:
 
 ```bash
 stripe
@@ -474,9 +474,9 @@ export default function CheckoutForm() {
 }
 ```
 
-As you know our checkout process is organized in steps. The first step is the `contact info`, the second step is the `shipping info` and the third step is the `payment info`. The checkout context will manage the steps and trigger the order creation API automatically when all steps are completed. 
+As you know, our checkout process is organized in steps. The first step is the `contact info`, the second step is the `shipping info` and the third step is the `payment info`. The checkout context will manage the steps and trigger the order creation API automatically when all steps are completed. 
 
-So what we need to do in this step are: 
+So, the things we need to do in this step are: 
 
 + Manage the billing address form and payment method
 + Save the billing address and payment method 
@@ -491,11 +491,11 @@ When an order is placed, the payment status is `pending`.
 
 When the payment is completed successfully, Stripe will send a webhook to our server. The webhook will update the order payment status to `paid`.
 
-To receive the webhook, we need to create and API endpoint and configure the webhook in Stripe dashboard.
+To receive the webhook, we need to create an API endpoint and configure the webhook in Stripe dashboard.
 
 ### Create webhook endpoint
 
-Lets create our webhook endpoint. We will create a folder `stripeWebHook` in the `api/frontStore` folder.
+Let's create our webhook endpoint. We will create a folder `stripeWebHook` in the `api/frontStore` folder.
 
 ```bash
 stripe
@@ -611,7 +611,7 @@ module.exports = async (request, response, stack, next) => {
 };
 ```
 
-The above middleware will receive the webhook from Stripe and update the order payment status to `paid`. It also creates a payment transaction and add an activity log.
+The above middleware will receive the webhook from Stripe and update the order payment status to `paid`. It also creates a payment transaction and adds an activity log.
 
 ### Configure webhook in Stripe dashboard
 
@@ -623,10 +623,10 @@ Now we need to configure the webhook in Stripe dashboard. Go to the Stripe dashb
 
 We will create setting page for our Stripe payment method. The setting page will allow admin to configure the Stripe API keys and webhook endpoint.
 
-We will not cover the detail of this step here since it is similar to the previous tutorial. You can refer to the previous tutorial to learn how to create a page or extending a existed layout. You can also refer to the source code of the Stripe payment method in the `modules/stripe` folder for more details.
+We will not cover the detail of this step here since it is similar to the previous tutorial. You can refer to the previous tutorial to learn how to create a page or extend an existing layout. You can also refer to the source code of the Stripe payment method in the `modules/stripe` folder for more details.
 
 ## Summary
 
 In this tutorial, we have learned how to create a Stripe payment method for our Evershop store. We have created a Stripe payment method and configured the webhook in Stripe dashboard. We have also created a setting page for the Stripe payment method.
 
-Each payment method has its own payment flow and the integration with the payment gateway is different. In this tutorial, we have used Stripe as an example we will cover other payment methods in the future.
+Each payment method has its own payment flow and the integration with the payment gateway is different. In this tutorial, we have used Stripe as an example. We will cover other payment methods in the future.
