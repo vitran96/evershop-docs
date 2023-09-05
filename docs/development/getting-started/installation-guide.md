@@ -14,7 +14,7 @@ The following installation guides will guide you step-by-step to create a new Ev
 
 :::info
 
-Please check [this document](/docs/development/getting-started/system-requirements) for the system requirement list.
+Please check [this document](/docs/development/getting-started/system-requirements) for the system requirements list.
 
 :::
 ## Using `create-evershop-app` command
@@ -54,7 +54,7 @@ Open the package.json file and add the following scripts:
 Before running this script, make sure that you have an empty database ready for EverShop.
 :::info
 
-Please check [this document](/docs/development/getting-started/system-requirements) for the system requirement list.
+Please check [this document](/docs/development/getting-started/system-requirements) for the system requirements list.
 
 :::
 This installation script will do the following tasks:
@@ -73,7 +73,7 @@ During the installation process, you will be asked for some information like dat
 
 :::
 
-### Step 4: Folder permision
+### Step 4: Folder permission
 
 EverShop needs to write some files to the disk. So you need to make sure that the following folders have the write permission:
 
@@ -114,7 +114,7 @@ Updating EverShop requires running the `build` command again.
 
 ## For developer
 
-If you are developer and want to start the project in the development mode. There are some extra steps
+If you are a developer and want to start the project in the development mode, there are some additional steps you need to follow.
 
 ### Adding the `dev` script
 

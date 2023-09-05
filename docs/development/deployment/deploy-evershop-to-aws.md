@@ -9,7 +9,7 @@ description: This document describes step by step how to deploy EverShop to AWS 
 
 # Deploy EverShop to AWS
 
-This document describes step by step how to deploy EverShop to AWS using AWS EC2 and AWS RDS.
+This document gives a step by step explanation on how to deploy EverShop to AWS using AWS EC2 and AWS RDS.
 Before you start, make sure you have an AWS account. In this document, we will use the free tier.
 
 ## EC2 instance preparation
@@ -81,7 +81,7 @@ server {
 }
 ```
 
-By default, Aws will provide you with a default domain name. You can use this domain name to access your EverShop application. If you want to use a custom domain name, you need to configure it in the AWS console.
+By default, AWS will provide you with a default domain name. You can use this domain name to access your EverShop application. If you want to use a custom domain name, you need to configure it in the AWS console.
 
 Remember to replace `evershop.example.com` with your domain name.
 
@@ -149,7 +149,7 @@ If you have a theme, extension. You need to add it to your forked repository.
 
 ### Deploy the source code to your EC2 instance
 
-This step, you have many options. You can deploy the source code using git, GitHub Actions, or any other method you prefer. In this tutorial, we will use a simple bash script to deploy the source code to our EC2 instance. This script will download the source code from your forked repository and run the EverShop application.
+At this step, you have many options. You can deploy the source code using git, GitHub Actions, or any other method you prefer. In this tutorial, we will use a simple bash script to deploy the source code to our EC2 instance. This script will download the source code from your forked repository and run the EverShop application.
 
 ```bash
 #!/bin/bash
@@ -255,7 +255,7 @@ Now you can access your EverShop application using your domain name. The admin p
 
 ## Conclusion
 
-In this tutorial, we have learned how to install EverShop on an AWS EC2 instance. We have also learned how to configure Nginx to serve the EverShop application. This tutorial is a good starting point for anyone who wants to install EverShop on a production server. This tutorial uses AWS EC2 and RDS, but you can use any other server provider you prefer.
+In this tutorial, we have learned how to install EverShop on an AWS EC2 instance. We have also learned how to configure Nginx to serve the EverShop application. This tutorial is a good starting point for anyone who wants to install EverShop on a production server. This tutorial uses AWS EC2 and RDS, but you can use any other server provider of your preference.
 
 ## Bonus
 
