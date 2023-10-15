@@ -217,9 +217,9 @@ chmod 777 $CURRENT_BUILD/media
 
 cd $CURRENT_BUILD
 
-# Start app with pm2 using the configuration file
+# Start app with pm2
 pm2 stop all
-pm2 start app.json
+pm2 start npm -- start
 ```
 This script will do the following:
 - Download the source code from your forked repository.
