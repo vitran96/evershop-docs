@@ -1,5 +1,5 @@
 ---
-sidebar_position: 40
+sidebar_position: 12
 keywords:
 - Evershop command lines
 sidebar_label: Command Lines
@@ -31,7 +31,7 @@ evershop dev
 
 ## Evershop Debug Command
 
-This command will start your store in development mode and enable the debugging. 
+This command will start your store in production mode and enable the debugging. 
 
 ```bash
 evershop start --debug
