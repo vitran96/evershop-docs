@@ -34,8 +34,12 @@ evershop dev
 This command will start your store in development mode and enable the debugging. 
 
 ```bash
-evershop dev --debug
+evershop start --debug
 ```
+
+:::info
+The debug mode will enable by default when you run `evershop dev` command.
+:::
 
 ## Evershop Build Command
 
@@ -46,6 +50,10 @@ This command builds the [React](https://reactjs.org/) components and make your s
 evershop build
 ```
 
+:::info
+If you want to skip the minimization process, you can run `evershop build -- --skip-minify` command.
+:::
+
 ## Evershop Start Command
 
 This command starts your store in production mode. You need to run `evershop build` before running this command.
@@ -54,3 +62,18 @@ This command starts your store in production mode. You need to run `evershop bui
 evershop start
 ```
 
+## Evershop Admin User Create Command
+
+You can use this command to create a new admin user.
+
+```bash
+npm run user:create -- --email "user email" --password "user password" --name "user name"
+```
+
+## Evershop Admin User Change Password Command
+
+You can use this command to change the password of an admin user.
+
+```bash
+npm run user:changePassword -- --email "user email" --password "new password"
+```
