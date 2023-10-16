@@ -17,7 +17,7 @@ Under the hood, EverShop makes use of [config package](https://www.npmjs.com/pac
 
 ## Configuration file location
 
-Configurations are JSON files stored in configuration files within a directory named ‘config’ located at the root level of your application.
+Configurations are JSON files stored in configuration files within a directory named `config` located at the root level of your application.
 
 Let’s take a look at an example
 
@@ -42,20 +42,13 @@ Let’s take a look at an example
                 "single": {
                     "width": 500,
                     "height": 500
-                },
-                "placeHolder": "/default/image/placeholder.png"
+                }
             }
         },
         "showOutOfStockProduct": false
     },
     "system": {
-        "database": {
-            "host": "localhost",
-            "port": "5432",
-            "database": "testrc5again",
-            "user": "postgres",
-            "password": "123456"
-        },
+        "theme": "friday",
         "extensions": [
             {
                 "name": "productComment",
@@ -74,20 +67,46 @@ Configuration files can be overridden and extended by [environment variables](ht
 
 For example, you can overwrite the configuration for your production store by below steps
 
-- Create a new configuration file named ‘production.json’ in the ‘config’ directory.
+- Create a new configuration file named `production.json` in the `config` directory.
 - Add your configuration for production
 
 ```bash
 {
-  "system": {
-    "database": {
-      "host": "aws.production",
-      "port": "3306",
-      "database": "production",
-      "user": "root",
-      "password": "lsdjgdfhgoiwnm"
+    "shop" : {
+        "currency": "USD",
+        "language": "cn",
+        "weightUnit": "kg"
+    },   
+    "catalog": {
+        "product": {
+            "image": {
+                "thumbnail": {
+                    "width": 100,
+                    "height": 100
+                },
+                "listing": {
+                    "width": 300,
+                    "height": 300
+                },
+                "single": {
+                    "width": 500,
+                    "height": 500
+                }
+            }
+        },
+        "showOutOfStockProduct": false
+    },
+    "system": {
+        "theme": "friday",
+        "extensions": [
+            {
+                "name": "productComment",
+                "resolve": "extensions/productComment",
+                "enabled": true,
+                "priority": 10 
+            }
+        ]
     }
-  }
 }
 ```
 
@@ -98,11 +117,10 @@ Let's take a look at the below code:
 ```bash
 const config = require('config');
 //...
-const dbConfig = config.get('system.db');
-db.connect(dbConfig, ...);
+const language = config.get('shop.language');
 
-if (config.has('optionalFeature.detail')) {
-  const detail = config.get('optionalFeature.detail');
+if (config.has('shop.language')) {
+  const language = config.get('shop.language');
   //...
 }
 ```
@@ -128,11 +146,11 @@ A configuration file is a JSON file that contains the configuration for the appl
 The high-level overview of the configuration file can be categorized into:
 
 - Shop configuration
-- Database configuration
 - Extension configuration
 - Catalog configuration
 - Pricing configuration
 - Theming configuration
+- Customer address schema
 
 ### Shop configuration
 
@@ -149,24 +167,6 @@ The shop configuration contains the information about the shop. This information
 }
 ```
 
-### Database configuration
-
-The database configuration contains the connection details of Postgres database
-
-```bash
-{
-  "system": {
-    "database": {
-      "host": "aws.production",
-      "port": "3306",
-      "database": "production",
-      "user": "root",
-      "password": "lsdjgdfhgoiwnm"
-    }
-  }
-}
-```
-
 ### Extension configuration
 
 The extension configuration contains the list of extensions that are enabled for the application. The extension configuration is used to enable/disable the extension and set the priority for the extension.
@@ -177,7 +177,7 @@ The extension configuration contains the list of extensions that are enabled for
     "extensions": [
       {
         "name": "productComment",
-        "resolve": "extensions/productComment",
+        "resolve": "extensions/productComment", #This is the path to the extension folder
         "enabled": true,
         "priority": 10
       }
@@ -206,8 +206,7 @@ The catalog configuration contains the configuration for the catalog module. You
                 "single": {
                     "width": 500,
                     "height": 500
-                },
-                "placeHolder": "/default/image/placeholder.png"
+                }
             }
         },
         "showOutOfStockProduct": false
@@ -223,11 +222,24 @@ The pricing configuration contains the configuration for the pricing calculation
 {
     "pricing": {
         "rounding": "round",
-        "precision": 2,
+        "precision": 2
+    }
+}
+```
+
+### Tax calculation configuration
+
+The tax calculation configuration contains the configuration for the tax calculation. You can configure the rounding behavior and the precision for the tax calculation.
+
+```bash
+{
+    "pricing": {
         "tax": {
             "rounding": "round",
             "precision": 2,
-            "round_level": "unit"
+            "round_level": "unit",
+            "display_catalog_price_including_tax": true,
+            "display_checkout_price_including_tax": true
         }
     }
 }
@@ -309,3 +321,67 @@ To add your custom CSS and Javascript, you can use the `themeConfig` and add a `
     }
 }
 ```
+
+### Customer address schema
+
+The customer address schema contains the configuration for the customer address. You can configure the address fields for the customer address 
+
+```bash
+{
+    ..., #Other configuration
+    "customer": {
+        "addressSchema": {
+            type: 'object',
+            properties: {
+                full_name: {
+                    type: 'string'
+                },
+                telephone: {
+                    type: ['string', 'number']
+                },
+                address_1: {
+                    type: 'string'
+                },
+                address_2: {
+                    type: 'string'
+                },
+                city: {
+                    type: 'string'
+                },
+                province: {
+                    type: 'string'
+                },
+                country: {
+                    type: 'string',
+                    pattern: '^[A-Z]{2}$'
+                },
+                postcode: {
+                    type: ['string', 'number']
+                }
+            },
+            required: [
+                'full_name',
+                'telephone',
+                'address_1',
+                'city',
+                'country',
+                'province',
+                'postcode'
+            ],
+            errorMessage: {
+                properties: {
+                    full_name: translate('Full name is required'),
+                    telephone: translate('Telephone is missing or invalid'),
+                    address_1: translate('Address is missing or invalid'),
+                    province: translate('Province is missing or invalid'),
+                    postcode: translate('Postcode is missing or invalid'),
+                    country: translate('Country is missing or invalid')
+                }
+            },
+            additionalProperties: true
+        }
+    }
+}
+```
+
+EverShop will use this schema to validate the customer address. This json schema is based on [ajv](https://ajv.js.org/) library.
