@@ -1,9 +1,9 @@
 ---
-sidebar_position: 5
+sidebar_position: 10
 keywords:
-- Deploy EverShop to AWS
-sidebar_label: Deploy EverShop to AWS
-title: Deploy EverShop to AWS
+- Deploy EverShop To AWS
+sidebar_label: Deploy EverShop To AWS
+title: Deploy EverShop To AWS
 description: This document describes step by step how to deploy EverShop to AWS using AWS EC2 and AWS RDS.
 ---
 
