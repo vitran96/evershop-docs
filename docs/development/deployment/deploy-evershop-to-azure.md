@@ -99,7 +99,7 @@ During the deployment process, Azure will run the `npm install` command to insta
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "evershop build -- --skip-minify", // Skip the minification process, if you want to minify the code, remove the --skip-minify flag
+    "build": "evershop build --skip-minify", // Skip the minification process, if you want to minify the code, remove the --skip-minify flag
     "start": "evershop start",
     "user:create": "evershop user:create",
     "user:changePassword": "evershop user:changePassword"
