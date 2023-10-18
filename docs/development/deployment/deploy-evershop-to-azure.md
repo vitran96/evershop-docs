@@ -48,7 +48,7 @@ And for the database, let's use the following settings:
 
 <p align="center">
 
-![Azure Environment Variable List](./img/azure-env-list.png "Azure Environment Variable List")
+![Azure Resource List](./img/azure-resouce-list.png "Azure Resource List")
 </p>
 
 ## Step 2: Configure Deployment Options
