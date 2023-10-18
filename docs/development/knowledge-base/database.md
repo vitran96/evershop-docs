@@ -23,39 +23,27 @@ PostgreSQL is developed and maintained by a global community of open-source deve
 
 ## Database connection setup
 
-By accessing in the EverShop installation DIR we can edit the `config/default.json` file using any of the best text editor. Here you can see the codes that connect PostgreSQL DB with live EverShop site. For example, the codes looks like following:
+### Setup environment variables for database connection
 
-```json
-  "system": {
-    "database": {
-      "host": "localhost",
-      "port": "5432",
-      "database": "evershop",
-      "user": "root",
-      "password": "123456"
-    }
-  }
+EverShop uses [dotenv](https://www.npmjs.com/package/dotenv) to load environment variables from a `.env` file into `process.env`.
+
+To setup the database connection, you need to create a `.env` file in the root folder of your project and add the following variables:
+
+```bash
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_NAME=evershop
+DB_SSLMODE=disable
 ```
 
 ### Connect to PostgreSQL server using SSL
 
-If you want to connect to the PostgreSQL server using SSL, you can add the following properties to the `config/default.json` file:
+If you want to connect to the PostgreSQL server using SSL, you can change the `DB_SSLMODE` variable to `require`.
 
-```json
-  "system": {
-    "database": {
-      "host": "localhost",
-      "port": "3306",
-      "database": "evershop",
-      "user": "root",
-      "password": "123456",
-      "ssl": {
-        "ca": "path/to/ca.pem",
-        "cert": "path/to/client-cert.pem",
-        "key": "path/to/client-key.pem"
-      }
-    }
-  }
+```bash
+DB_SSLMODE=require
 ```
 
 ## Quick Tour
