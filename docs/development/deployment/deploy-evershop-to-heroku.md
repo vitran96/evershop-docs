@@ -89,6 +89,7 @@ heroku config:set DB_PORT=5432 -a APP_NAME
 heroku config:set DB_USER=gqdnxqkaxcrbyd -a APP_NAME
 heroku config:set DB_PASSWORD=dd3aecf3715167ce8a519c518f637sdfcb9ebb0dda3723d050e8a3b8a7cf19fc789 -a APP_NAME
 heroku config:set DB_NAME=d468v1qsdfnb0arsqf -a APP_NAME
+heroku config:set DB_SSLMODE=no-verify -a APP_NAME
 ```
 
 :::caution
