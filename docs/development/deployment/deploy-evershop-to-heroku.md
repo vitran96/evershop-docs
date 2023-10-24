@@ -97,7 +97,7 @@ Replace `APP_NAME` with the name of your Heroku app.
 
 ## Step 4: Prepare The Local Project
 
-We assume that you already have an EverShop project installed on your local machine. If not, please follow the [installation guide](/docs/development/installation) to install EverShop on your local machine.
+We assume that you already have an EverShop project installed on your local machine. If not, please follow the [installation guide](/docs/development/getting-started/installation-guide) to install EverShop on your local machine.
 
 Typically, the EverShop project structure will look like this:
 
