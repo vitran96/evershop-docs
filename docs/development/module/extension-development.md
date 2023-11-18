@@ -72,7 +72,7 @@ extensions
     │   │       ├── index.js
     │   │       ├── GeneralComponent.jsx
     │   │       └── FormComponent.jsx
-    │   └── site
+    │   └── frontStore
     │       └── postView
     │           ├── route.json
     │           ├── index.js
