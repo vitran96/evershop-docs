@@ -54,6 +54,7 @@ export type TagType =
   | 'large'
   | 'meta'
   | 'personal'
+  | 'cms'
   // Right-to-left direction.
   | 'rtl';
 
@@ -84,6 +85,24 @@ const Users: Extension[] = [
     npm: 'https://www.npmjs.com/package/@evershop/product_review',
     source: null,
     tags: ['mechandise'],
+  },
+  {
+    title: 'Azure Blob Storage',
+    description:
+      'An Azure Blob Storage extension for storing media files in Azure Blob Storage.',
+    preview: require('./extension/azure-storage.png'),
+    npm: 'https://www.npmjs.com/package/@evershop/azure_file_storage',
+    source: null,
+    tags: ['cms'],
+  },
+  {
+    title: 'Amazon S3 Storage',
+    description:
+      'An Amazon S3 Storage extension for storing media files in Amazon S3 Storage.',
+    preview: require('./extension/s3-storage-evershop.png'),
+    npm: 'https://www.npmjs.com/package/@evershop/s3_file_storage',
+    source: null,
+    tags: ['cms'],
   }
 ];
 
@@ -132,13 +151,16 @@ export const Tags: {[type in TagType]: Tag} = {
     description: '',
     color: '#127f82',
   },
-
   mechandise: {
     label: translate({message: 'Merchandise'}),
     description: '',
     color: '#fe6829',
   },
-
+  cms: {
+    label: translate({message: 'CMS'}),
+    description: '',
+    color: '#fe6829',
+  },
 };
 
 export const TagList = Object.keys(Tags) as TagType[];
