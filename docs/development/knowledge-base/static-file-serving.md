@@ -9,6 +9,10 @@ description: EverShop allows you to serve static files, like images, in the publ
 
 # Static File Serving
 
+:::warning
+For product images, category images we suggest to use the cloud storage. It is recommended for production use. Please check the available extensions in the [EverShop Marketplace](https://evershop.io/extensions).
+:::
+
 EverShop can serve static files, like images, under a folder called public in the root directory. Files inside public can then be referenced by your code starting from the base URL (/).
 
 For example, if you add an image to public/banner.png, the following code will access the image:
