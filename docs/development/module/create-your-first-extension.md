@@ -17,7 +17,7 @@ description: In this tutorial, we will pick a simple use case and create an exte
 
 - You must have a basic understanding of EverShop extension. If you don't know what is an extension, please read [this document](/docs/development/module/extension-development).
 
-## Senario
+## Scenario
 
 In this tutorial, we will pick a simple use case and create an extension to demonstrate step by step how to create an extension for EverShop.
 
