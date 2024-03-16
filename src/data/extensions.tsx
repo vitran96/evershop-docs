@@ -67,7 +67,7 @@ const Users: Extension[] = [
     preview: require('./extension/sendgrid.png'),
     npm: 'https://npmjs.com/package/@evershop/sendgrid',
     source: 'https://github.com/evershopcommerce/evershop',
-    tags: ['notification'],
+    tags: ['notification']
   },
   {
     title: 'Resend Email',
