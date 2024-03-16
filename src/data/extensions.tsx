@@ -66,7 +66,15 @@ const Users: Extension[] = [
     description: 'A SendGrid extension for sending transactional emails.',
     preview: require('./extension/sendgrid.png'),
     npm: 'https://npmjs.com/package/@evershop/sendgrid',
-    source: 'https://github.com/agile-ts/documentation',
+    source: 'https://github.com/evershopcommerce/evershop',
+    tags: ['notification'],
+  },
+  {
+    title: 'Resend Email',
+    description: 'A Resend extension for sending transactional emails.',
+    preview: require('./extension/resend.png'),
+    npm: 'https://npmjs.com/package/@evershop/resend',
+    source: 'https://github.com/evershopcommerce/evershop',
     tags: ['notification'],
   },
   {
@@ -74,7 +82,7 @@ const Users: Extension[] = [
     description: 'A Google Login extension for authenticating customers.',
     preview: require('./extension/google-login.png'),
     npm: 'https://www.npmjs.com/package/@evershop/google_login',
-    source: 'https://github.com/sviete/AIS-WWW',
+    source: 'https://github.com/evershopcommerce/evershop',
     tags: ['authentication'],
   },
   {
@@ -83,7 +91,7 @@ const Users: Extension[] = [
       'A Product Reviews extension for collecting and displaying customer reviews.',
     preview: require('./extension/product-review.png'),
     npm: 'https://www.npmjs.com/package/@evershop/product_review',
-    source: null,
+    source: 'https://github.com/evershopcommerce/evershop',
     tags: ['mechandise'],
   },
   {
@@ -92,7 +100,7 @@ const Users: Extension[] = [
       'An Azure Blob Storage extension for storing media files in Azure Blob Storage.',
     preview: require('./extension/azure-storage.png'),
     npm: 'https://www.npmjs.com/package/@evershop/azure_file_storage',
-    source: null,
+    source: 'https://github.com/evershopcommerce/evershop',
     tags: ['cms'],
   },
   {
@@ -101,7 +109,7 @@ const Users: Extension[] = [
       'An Amazon S3 Storage extension for storing media files in Amazon S3 Storage.',
     preview: require('./extension/s3-storage-evershop.png'),
     npm: 'https://www.npmjs.com/package/@evershop/s3_file_storage',
-    source: null,
+    source: 'https://github.com/evershopcommerce/evershop',
     tags: ['cms'],
   }
 ];
