@@ -9,12 +9,12 @@ description: EverShop system requirements. The full list of requirements that yo
 
 # System requirements
 
-This document will inform entire [EverShop System Requirements](/docs/development/getting-started/system-requirements) for you to follow and get the most effective EverShop system for your store.
+This document lists all the [EverShop system requirements](/docs/development/getting-started/system-requirements) for you to follow and get the most effective EverShop system for your store.
 
 ![Docs Version Dropdown](./img/backend.png)
 ## Operating systems​
 
-EverShop can run on Window, Linux or Mac-OS.
+EverShop can run on Windows, Linux or Mac-OS.
 
 ## Node.js
 

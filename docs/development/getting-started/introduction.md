@@ -11,9 +11,9 @@ description: EverShop is a full stack Node Ecommerce platform that helps develop
 
 Welcome to the EverShop. A Node Ecommerce Platform!
 
-EverShop is an open-source [Node ecommerce platform](/) that helps developers developing their e-commerce store. Based on a module system, EverShop is a flexible with both admin panel and front store are extensible.
+EverShop is an open-source [Node ecommerce platform](/) that helps developers developing their e-commerce store. EverShop is a flexible platform built on a module system, with extensible options for both the admin panel and the front store.
 
-EverShop also offers rich functionality. Enabling merchants to develop a web store meets the business requirements.
+EverShop also offers rich functionality, enabling merchants to develop a web store that meets their business requirements.
 
 EverShop is free and open-source. The source code is available on [GitHub](https://github.com/evershopcommerce/evershop)
 
@@ -23,7 +23,7 @@ EverShop's highly modular structure is a result of several open source technolog
 
 ### NodeJS
 
-[Node.js](https://nodejs.org/en/) is an open-source server side runtime environment built on Chrome's V8 JavaScript engine. It provides an event driven, non-blocking (asynchronous) I/O and cross-platform runtime environment for building highly scalable server-side application using JavaScript
+[Node.js](https://nodejs.org/en/) is an open-source server side runtime environment built on Chrome's V8 JavaScript engine. It provides an event driven, non-blocking (asynchronous) I/O and cross-platform runtime environment for building highly scalable server-side application using JavaScript.
 
 ### PostgreSQL
 
@@ -87,4 +87,4 @@ The demo admin account email is `demo@evershop.io` and the password is `123456`
 
 EverShop is still in development. We highly welcome any feedback and suggestions.
 
-We invite you to join our [Discord channel](https://discord.com/invite/GSzt7dt7RM) for project discusstion.
+We invite you to join our [Discord channel](https://discord.com/invite/GSzt7dt7RM) for project discussion.
