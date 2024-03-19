@@ -79,6 +79,10 @@ import Link from '@docusaurus/Link';
           </Link>
 </div>
 
+:::info
+The demo admin account email is `demo@evershop.io` and the password is `123456`
+:::
+
 ## Development
 
 EverShop is still in development. We highly welcome any feedback and suggestions.

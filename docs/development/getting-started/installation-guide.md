@@ -4,7 +4,6 @@ keywords:
 - EverShop installation
 sidebar_label: Installation guide
 title: Evershop installation guide.
- # Wite a good SEO description here.
 description: This document will guide you through the installation process of EverShop. The quick installation guide is also available to help you install EverShop template quickly.
 ---
 
@@ -17,7 +16,7 @@ The following installation guides will guide you step-by-step to create a new Ev
 Please check [this document](/docs/development/getting-started/system-requirements) for the system requirements list.
 
 :::
-## Using `create-evershop-app` command
+## Install EverShop Using `create-evershop-app` command
 
 ```bash
 npx create-evershop-app my-app
@@ -25,7 +24,30 @@ npx create-evershop-app my-app
 
 The `create-evershop-app` command will create a new folder named `my-app` and install all of the dependencies for you.
 
-## Install manually
+## Install EverShop Using Docker
+
+You can get started with EverShop in minutes by using the Docker image. The Docker image is a great way to get started with EverShop without having to worry about installing dependencies or configuring your environment.
+
+```bash
+curl -sSL https://raw.githubusercontent.com/evershopcommerce/evershop/main/docker-compose.yml > docker-compose.yml
+docker-compose up -d
+```
+
+The Docker image will start a fresh EverShop installation with the default configuration. You can access the site at `http://localhost:3000` and the admin panel at `http://localhost:3000/admin`.
+
+:::info
+To create a new admin user, terminal into the Docker app container and run the following command:
+
+```bash
+npm run user:create -- --email "your email" --password "your password" --name "your name"
+```
+:::
+
+:::caution
+The public Docker image is for installing EverShop in your local environment only. If you are looking for a development solution, please check the development section below.
+:::
+
+## Install EverShop manually using Npm
 
 ### Step 1: Install The @evershop/evershop Npm Package
 
@@ -45,22 +67,25 @@ Open the package.json file and add the following scripts:
 "scripts": {
     "setup": "evershop install",
     "build": "evershop build",
-    "start": "evershop start"
+    "start": "evershop start",
+    "start:debug": "evershop start --debug",
+    "dev": "evershop dev",
+    "user:create": "evershop user:create",
+    "user:changePassword": "evershop user:changePassword"
 }
 ```
 
 ### Step 3: Run the installation script
 
-Before running this script, make sure that you have an empty database ready for EverShop.
+Before running this script, make sure that you have an empty Postgres database ready for EverShop.
+
 :::info
-
 Please check [this document](/docs/development/getting-started/system-requirements) for the system requirements list.
-
 :::
+
 This installation script will do the following tasks:
 
 - Create a default configuration file.
-- Create a database schema.
 - Create your administrator user.
 
 ```js title="Installation script"
@@ -68,9 +93,7 @@ npm run setup
 ```
 
 :::caution
-
 During the installation process, you will be asked for some information like database connection, your shop information…
-
 :::
 
 ### Step 4: Folder permission
@@ -98,18 +121,18 @@ Your site will start at `http://localhost:3000`.
 
 Admin panel can be accessed at `http://localhost:3000/admin`.
 
-## Update EverShop
+## Upgrade EverShop
 
-To update EverShop, you can run the following command:
+To upgrade EverShop version, you can run the following command:
 
-```js title="Update EverShop"
+```js title="Upgrade EverShop"
 npm install @evershop/evershop@latest
 ```
 
 EverShop will take care of the database migration for you.
 
-:::note
-Updating EverShop requires running the `build` command again.
+:::caution
+Upgrading EverShop requires running the `build` command again.
 :::
 
 ## For developer
@@ -127,6 +150,16 @@ Open the package.json and add the following script:
     "start": "evershop start",
     "dev": "evershop dev"
 }
+```
+
+### Adding the workspace configuration
+
+Open the package.json and add the following configuration:
+
+```js title="Adding the workspace configuration"
+ "workspaces": [
+    "extensions/*" #This is where you put your extensions
+  ],
 ```
 
 ### Start the project in development mode
@@ -167,18 +200,100 @@ To run the project in debug mode, you are required to add the debugging script t
 "scripts": {
     ...,
     "start:debug": "evershop start --debug",
-    "dev:debug": "evershop dev --debug"
 }
 ```
 
 And then you can run the project in debug mode by running the following commands:
 
 ```js title="Start the site in debug mode"
-npm run dev:debug
+npm run start:debug
 ```
 
-or 
+:::info
+The debug mode is enabled by default when you run the `dev` command.
+:::
+
+### Dockerize your project - Build your own Docker image
+
+You can build your own Docker image by using the following `Dockerfile`:
+
+```dockerfile title="Dockerfile"
+FROM node:18-alpine
+WORKDIR /app
+RUN npm install -g npm@9
+COPY package*.json .
+# Copy your custom theme.
+COPY themes ./themes
+
+# Copy your custom extensions.
+COPY extensions ./extensions
+
+# Copy your config.
+COPY config ./config
+
+# Copy your media.
+COPY media ./media
+
+# Copy your public files.
+COPY public ./public
+
+# Copy your translations.
+COPY translations ./translations
+
+# Run npm install.
+RUN npm install
+
+# Build assets.
+RUN npm run build
+
+EXPOSE 80
+CMD ["npm", "run", "start"]
+```
+
+And this is the `docker-compose.yml` file:
+
+```yml title="docker-compose.yml"
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      DB_HOST: database
+      DB_PORT: 5432
+      DB_PASSWORD: postgres
+      DB_USER: postgres
+      DB_NAME: postgres
+    networks:
+      - myevershop
+    depends_on:
+      - database
+    ports:
+      - 3000:3000
   
-```js title="Start the site in debug mode"
-npm run start:debug
+  #The postgres database: 
+  database:
+    image: postgres:16
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - myevershop
+
+networks:
+  myevershop:
+    name: MyEverShop
+    driver: bridge
+
+volumes:
+  postgres-data:
 ```
