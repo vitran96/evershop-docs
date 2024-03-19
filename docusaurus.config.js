@@ -122,7 +122,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Evershop.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Evershop. <br/> Deploys by <a href="https://www.netlify.com" target="_blank" rel="nofollow">Netlify</a>`,
       },
       prism: {
         theme: lightCodeTheme,
