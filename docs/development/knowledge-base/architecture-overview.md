@@ -54,9 +54,17 @@ This folder contains the log file. The log file is where we store the logging in
 
 This folder contains the configuration files. You can learn more about the configuration in [this document](/docs/development/knowledge-base/configuration-guide).
 
+:::info
+By default, the `config` folder is not created when you create a new project. You need to create it manually.
+:::
+
 ### The `extensions` Folder
 
 This folder contains modules developed by third-party and developer. Check [this document](../module/extension-development) to understand more the module structure.
+
+:::info
+By default, the `extensions` folder is not created when you create a new project. You need to create it manually.
+:::
 
 ### The `media` Folder
 
@@ -69,3 +77,7 @@ This is the default node_modules from [NodeJS](https://nodejs.org/en/). It conta
 ### The `themes` Folder
 
 This folder contains themes developed by third-party and developer. Check [this document](../theme/theme-overview) for more information.
+
+:::info
+By default, the `themes` folder is not created when you create a new project. You need to create it manually.
+:::
