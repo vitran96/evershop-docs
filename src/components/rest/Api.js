@@ -1,38 +1,40 @@
-import React from 'react';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
-import './Api.scss';
+import React from "react";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import "./Api.scss";
 
 const RequestSchema = ({ schema, indentLevel = 0 }) => {
   const properties = schema.properties || null;
 
   const style = {
     marginLeft: `${indentLevel * 20}px`,
-    display: 'table',
-    maxWidth: '100%',
+    display: "table",
+    maxWidth: "100%",
   };
 
   const getType = (field) => {
     if (Array.isArray(properties[field].type)) {
       if (properties[field].enum) {
-        return `${properties[field].type.join(' or ')} (${properties[field].enum.map(v => {
-          return typeof v === 'string' ? `'${v}'` : v;
-        }).join(', ')})`;
+        return `${properties[field].type.join(" or ")} (${properties[field].enum
+          .map((v) => {
+            return typeof v === "string" ? `'${v}'` : v;
+          })
+          .join(", ")})`;
       }
-      return properties[field].type.join(' or ');
-    } else if (properties[field].type === 'array') {
+      return properties[field].type.join(" or ");
+    } else if (properties[field].type === "array") {
       if (properties[field].items.type) {
         return `array of ${properties[field].items.type}`;
       } else {
-        return 'array';
+        return "array";
       }
-    } else if (properties[field].type === 'object') {
-      return 'object';
+    } else if (properties[field].type === "object") {
+      return "object";
     } else if (properties[field].pattern) {
       return `string (${properties[field].pattern})`;
     } else if (properties[field].enum) {
-      return `${properties[field].type} (${properties[field].enum.join(', ')})`;
+      return `${properties[field].type} (${properties[field].enum.join(", ")})`;
     } else {
       return properties[field].type;
     }
@@ -49,9 +51,9 @@ const RequestSchema = ({ schema, indentLevel = 0 }) => {
     <table style={style}>
       <thead>
         <tr>
-          <th className='text-left'>Field Name</th>
-          <th className='text-left'>Field Type</th>
-          <th className='text-left'>Required</th>
+          <th className="text-left">Field Name</th>
+          <th className="text-left">Field Type</th>
+          <th className="text-left">Required</th>
         </tr>
       </thead>
       <tbody>
@@ -62,11 +64,11 @@ const RequestSchema = ({ schema, indentLevel = 0 }) => {
               <td>{getType(field)}</td>
               <td>
                 {schema.required && schema.required.includes(field)
-                  ? 'Yes'
-                  : 'No'}
+                  ? "Yes"
+                  : "No"}
               </td>
             </tr>
-            {properties[field].type === 'object' && (
+            {properties[field].type === "object" && (
               <tr>
                 <td colSpan={3}>
                   <RequestSchema
@@ -76,8 +78,8 @@ const RequestSchema = ({ schema, indentLevel = 0 }) => {
                 </td>
               </tr>
             )}
-            {properties[field].type === 'array' &&
-              properties[field].items.type === 'object' && (
+            {properties[field].type === "array" &&
+              properties[field].items.type === "object" && (
                 <tr>
                   <td colSpan={3} align="right">
                     <RequestSchema
@@ -98,46 +100,40 @@ export default function Api({
   method,
   url,
   requestSchema = `{}`,
-  responseSample
+  responseSample,
 }) {
-  return <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
-    <div>
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
       <div>
-        <div className="flex gap-2 justify-start pb-3">
-          <b>Request Schema (application/json)</b>
+        <div>
+          <div className="flex gap-2 justify-start pb-3">
+            <b>Request Schema (application/json)</b>
+          </div>
+          {requestSchema && <RequestSchema schema={requestSchema} />}
         </div>
-        {requestSchema && <RequestSchema schema={requestSchema} />}
       </div>
-    </div>
-    <div className='w-full'>
-      <div className="border rounded-md border-gray-400 p-3 w-full">
-        <div className=" pb-2 flex gap-2 justify-start items-center">
-          <span className={`method ${method}`}>{method}</span>
-          <span className="url">{url}</span>
-        </div>
-        <Tabs>
-          <TabItem value="curl" label="cURL">
-            <CodeBlock
-              language="jsx"
-              showLineNumbers
-            >
-              {
-                `curl
+      <div className="w-full">
+        <div className="border rounded-md border-gray-400 p-3 w-full">
+          <div className=" pb-2 flex gap-2 justify-start items-center">
+            <span className={`method ${method}`}>{method}</span>
+            <span className="url">{url}</span>
+          </div>
+          <Tabs>
+            <TabItem value="curl" label="cURL">
+              <CodeBlock language="jsx" showLineNumbers>
+                {`curl
   -H "Accept: application/json"
-  -H "Cookie: admin_token=<your jwt token id>"
+  -H "Cookie: asid=<your admin cookie>"
   https://<your domain>${url}
 `}
-            </CodeBlock>
-          </TabItem>
-          <TabItem value="js" label="JavaScript">
-            <CodeBlock
-              language="jsx"
-              showLineNumbers
-            >
-              {`fetch('https://<your domain>${url}', {
+              </CodeBlock>
+            </TabItem>
+            <TabItem value="js" label="JavaScript">
+              <CodeBlock language="jsx" showLineNumbers>
+                {`fetch('https://<your domain>${url}', {
   headers: {
     'Accept': 'application/json',
-    'Cookie': 'admin_token=<your jwt token id>'
+    'Cookie': 'asid=<your admin cookie>'
   }
 })
   .then(response => response.json())
@@ -152,23 +148,21 @@ export default function Api({
     // Handle the error
   });
 `}
-            </CodeBlock>
-          </TabItem>
-        </Tabs>
-        <div className="mt-5">
-          <div>
-            <div className="flex gap-2 justify-start pb-3">
-              <b>Sample Of Response</b>
+              </CodeBlock>
+            </TabItem>
+          </Tabs>
+          <div className="mt-5">
+            <div>
+              <div className="flex gap-2 justify-start pb-3">
+                <b>Sample Of Response</b>
+              </div>
+              <CodeBlock language="jsx" showLineNumbers>
+                {responseSample}
+              </CodeBlock>
             </div>
-            <CodeBlock
-              language="jsx"
-              showLineNumbers
-            >
-              {responseSample}
-            </CodeBlock>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  );
 }
