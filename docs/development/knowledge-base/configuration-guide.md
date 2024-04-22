@@ -263,7 +263,7 @@ Theming configuration contains the configuration for the theme. You can configur
             "metas": [],
             "scripts": []
         },
-        "copyright": "© 2022 Evershop. All Rights Reserved."
+        "copyRight": "© 2022 Evershop. All Rights Reserved."
     }
 }
 ```
