@@ -83,8 +83,6 @@ import Link from '@docusaurus/Link';
 The demo admin account email is `demo@evershop.io` and the password is `123456`
 :::
 
-## Development
+## Community
 
-EverShop is still in development. We highly welcome any feedback and suggestions.
-
-We invite you to join our [Discord channel](https://discord.com/invite/GSzt7dt7RM) for project discussion.
+We invite you to join our [Discord channel](https://discord.com/invite/GSzt7dt7RM) for project discussion. Thank you!
