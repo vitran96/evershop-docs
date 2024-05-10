@@ -154,6 +154,11 @@ const sidebars = {
         {
           type: "html",
           value:
+            '<a class="menu__link" href="/docs/api/cart#create-a-new-cart"><span class="method POST">POST</span><span>Create a new cart</span></a>',
+        },
+        {
+          type: "html",
+          value:
             '<a class="menu__link" href="/docs/api/cart#add-item-to-cart"><span class="method POST">POST</span><span>Add item to cart</span></a>',
         },
         {
