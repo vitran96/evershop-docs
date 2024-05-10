@@ -416,4 +416,5 @@ Use this endpoint to add payment method to cart.
     }
   }
 }`}
+  isPrivate={false}
  />

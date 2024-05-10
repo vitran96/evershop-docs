@@ -39,4 +39,5 @@ import Api from '@site/src/components/rest/Api';
     ]
   }
 }`}
+  isPrivate={false}
  />

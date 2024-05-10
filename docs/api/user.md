@@ -43,6 +43,7 @@ Use this endpoint login a user.
     "sid": "auxzei_bEdRGT-HwfACmq7D5XyHf2l5M"
   }
 }`}
+  isPrivate={false}
  />
 
 <hr/>
@@ -57,4 +58,5 @@ Use this endpoint to logout a user.
   responseSample={`{
   "data": {}
 }`}
+  isPrivate={false}
  />

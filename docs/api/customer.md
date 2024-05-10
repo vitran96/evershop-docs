@@ -168,13 +168,13 @@ Use this endpoint to delete an customer.
 
  <hr/>
 
- ## Create a customer session
+ ## Login
 
-Use this endpoint to create a customer session (login).
+Use this endpoint to login a customer.
 
 <Api
   method="POST"
-  url="/api/customers/sessions"
+  url="/customer/login"
   requestSchema={{
   "type": "object",
   "properties": {
@@ -193,22 +193,23 @@ Use this endpoint to create a customer session (login).
 }}
   responseSample={`{
   "data": {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJjdXN0b21lcklkIjoyMiwidXVpZCI6ImQ3YTVlOGI1YTY3MzExZWRiNDZiNjBkODE5MTM0ZjM5Iiwic3RhdHVzIjoxLCJncm91cElkIjoxLCJlbWFpbCI6ImtjMDRBY25MNHU2dUNldDJoSFVxQGVtYWlsLmNvbSIsImZ1bGxOYW1lIjoia2MwNEFjbkw0dTZ1Q2V0MmhIVXEiLCJjcmVhdGVkQXQiOiIyMDIzLTAyLTA3IDE1OjA3OjU1IiwidXBkYXRlZEF0IjoiMjAyMy0wMi0wNyAxNTowNzo1NSJ9LCJzaWQiOiIwOWQzNGMyMS00YWYzLTRkYjgtYTM4Yi0zMzVlYmY2ZDQ1ZmEiLCJpYXQiOjE2NzU2NDk2MTgsImV4cCI6MTY3NTgyMjQxOH0.KVViMcH55nQKHGffvNaVzEENAYS4kEh2xz-KfHHjOWA",
     "sid": "09d34c21-4af3-4db8-a38b-335ebf6d45fa"
   }
 }`}
+  isPrivate={false}
  />
 
 <hr/>
 
- ## Delete a customer session
+ ## Logout
 
-Use this endpoint to delete a customer session (logout).
+Use this endpoint to logout a customer.
 
 <Api
   method="POST"
-  url="/api/customers/sessions/{ids}"
+  url="/customers/logout"
   responseSample={`{
   "data": {}
 }`}
+  isPrivate={false}
  />
