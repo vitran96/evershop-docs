@@ -15,13 +15,13 @@ Use the REST API to interact with EverShop users.
 
 import Api from '@site/src/components/rest/Api';
 
-## Create a user session
+## Login
 
-Use this endpoint to create a user session (admin login).
+Use this endpoint login a user.
 
 <Api
   method="POST"
-  url="/api/user/sessions"
+  url="/user/login"
   requestSchema={{
   "type": "object",
   "properties": {
@@ -40,21 +40,20 @@ Use this endpoint to create a user session (admin login).
 }}
   responseSample={`{
   "data": {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjdXN0b21lciI6eyJjdXN0b21lcklkIjoyMiwidXVpZCI6ImQ3YTVlOGI1YTY3MzExZWRiNDZiNjBkODE5MTM0ZjM5Iiwic3RhdHVzIjoxLCJncm91cElkIjoxLCJlbWFpbCI6ImtjMDRBY25MNHU2dUNldDJoSFVxQGVtYWlsLmNvbSIsImZ1bGxOYW1lIjoia2MwNEFjbkw0dTZ1Q2V0MmhIVXEiLCJjcmVhdGVkQXQiOiIyMDIzLTAyLTA3IDE1OjA3OjU1IiwidXBkYXRlZEF0IjoiMjAyMy0wMi0wNyAxNTowNzo1NSJ9LCJzaWQiOiIwOWQzNGMyMS00YWYzLTRkYjgtYTM4Yi0zMzVlYmY2ZDQ1ZmEiLCJpYXQiOjE2NzU2NDk2MTgsImV4cCI6MTY3NTgyMjQxOH0.KVViMcH55nQKHGffvNaVzEENAYS4kEh2xz-KfHHjOWA",
-    "sid": "09d34c21-4af3-4db8-a38b-335ebf6d45fa"
+    "sid": "auxzei_bEdRGT-HwfACmq7D5XyHf2l5M"
   }
 }`}
  />
 
 <hr/>
 
- ## Delete a user session
+ ## Logout
 
-Use this endpoint to delete a user session (admin logout).
+Use this endpoint to logout a user.
 
 <Api
-  method="POST"
-  url="/api/user/sessions/{id}"
+  method="GET"
+  url="/user/logout"
   responseSample={`{
   "data": {}
 }`}
