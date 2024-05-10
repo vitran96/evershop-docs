@@ -101,6 +101,7 @@ export default function Api({
   url,
   requestSchema = `{}`,
   responseSample,
+  isPrivate = true,
 }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -120,17 +121,27 @@ export default function Api({
           </div>
           <Tabs>
             <TabItem value="curl" label="cURL">
-              <CodeBlock language="jsx" showLineNumbers>
-                {`curl
+              {isPrivate ? (
+                <CodeBlock language="jsx" showLineNumbers>
+                  {`curl
   -H "Accept: application/json"
   -H "Cookie: asid=<your admin cookie>"
   https://<your domain>${url}
 `}
-              </CodeBlock>
+                </CodeBlock>
+              ) : (
+                <CodeBlock language="jsx" showLineNumbers>
+                  {`curl
+  -H "Accept: application/json"
+  https://<your domain>${url}
+`}
+                </CodeBlock>
+              )}
             </TabItem>
             <TabItem value="js" label="JavaScript">
-              <CodeBlock language="jsx" showLineNumbers>
-                {`fetch('https://<your domain>${url}', {
+              {isPrivate ? (
+                <CodeBlock language="jsx" showLineNumbers>
+                  {`fetch('https://<your domain>${url}', {
   headers: {
     'Accept': 'application/json',
     'Cookie': 'asid=<your admin cookie>'
@@ -148,7 +159,28 @@ export default function Api({
     // Handle the error
   });
 `}
-              </CodeBlock>
+                </CodeBlock>
+              ) : (
+                <CodeBlock language="jsx" showLineNumbers>
+                  {`fetch('https://<your domain>${url}', {
+  headers: {
+    'Accept': 'application/json',
+  }
+})
+  .then(response => response.json())
+  .then(data => {
+    if(data.error) {
+      // Handle the error
+    } else {
+      // Handle the data
+    }
+  })
+  .catch(error => {
+    // Handle the error
+  });
+`}
+                </CodeBlock>
+              )}
             </TabItem>
           </Tabs>
           <div className="mt-5">
