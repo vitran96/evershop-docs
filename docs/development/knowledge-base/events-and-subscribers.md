@@ -86,4 +86,265 @@ The subscriber function must be a default export.
 
 ## List of Events
 
-To be updated
+### A new product created
+
+This event is triggered when a product is created.
+  
+```js
+// Event name: product_created
+// Data object:
+{
+  "product_id": 214,
+  "uuid": "217fb454-797b-493e-8b33-0daf7c767e1d",
+  "type": "simple",
+  "variant_group_id": null,
+  "visibility": true,
+  "group_id": 1,
+  "sku": "new-product",
+  "price": 120,
+  "weight": 12,
+  "tax_class": null,
+  "status": true,
+  "created_at": "2024-05-14T02:19:08.371545+00:00",
+  "updated_at": "2024-05-14T02:19:08.371545+00:00",
+  "category_id": null
+}
+
+// Example subscriber
+// module.exports = async function syncData(data) {
+//     const productSku = data.sku;
+// }
+```
+
+### A product updated
+
+This event is triggered when a product is updated.
+  
+```js
+// Event name: product_updated
+// Data object:
+{
+  "product_id": 186,
+  "uuid": "621e5159-0499-4e6a-aeee-13920d818aa9",
+  "type": "simple",
+  "variant_group_id": 105,
+  "visibility": true,
+  "group_id": 1,
+  "sku": "NJC44203-Purple-M",
+  "price": 255,
+  "weight": 4.9,
+  "tax_class": null,
+  "status": true,
+  "created_at": "2021-10-05T05:47:59+00:00",
+  "updated_at": "2023-03-11T21:28:25+00:00",
+  "category_id": null
+}
+
+// Example subscriber
+// module.exports = async function syncData(data) {
+//     const productSku = data.sku;
+// }
+```
+
+### A new category created
+
+This event is triggered when a category is created.
+  
+```js
+// Event name: category_created
+// Data object:
+{
+  "category_id": 18,
+  "uuid": "d5111391-d1ea-4ea0-9e21-1bfcffe23f48",
+  "status": true,
+  "parent_id": null,
+  "include_in_nav": true,
+  "position": null,
+  "created_at": "2022-11-24T14:05:19+00:00",
+  "updated_at": "2022-11-24T14:05:19+00:00"
+}
+
+// Example subscriber
+// module.exports = async function syncData(data) {
+//     const categoryId = data.category_id;
+// }
+```
+
+### A category updated
+
+This event is triggered when a category is updated.
+  
+```js
+// Event name: category_updated
+// Data object:
+{
+  "category_id": 18,
+  "uuid": "d5111391-d1ea-4ea0-9e21-1bfcffe23f48",
+  "status": true,
+  "parent_id": null,
+  "include_in_nav": true,
+  "position": null,
+  "created_at": "2022-11-24T14:05:19+00:00",
+  "updated_at": "2022-11-24T14:05:19+00:00"
+}
+
+// Example subscriber
+// module.exports = async function syncData(data) {
+//     const categoryId = data.category_id;
+// }
+```
+
+### An order created
+
+This event is triggered when an order is created.
+  
+```js
+// Event name: order_created
+// Data object:
+{
+  "order_id": 2070,
+  "uuid": "7afebbbd-69f6-4e2c-84c5-5b899173b867",
+  "integration_order_id": null,
+  "sid": "xu8STFfyGfi6IkQcPfZc9rXEgPZ3mjvY",
+  "order_number": "12070",
+  "cart_id": 26270,
+  "currency": "USD",
+  "customer_id": null,
+  "customer_email": "admin@admin.com",
+  "customer_full_name": null,
+  "user_ip": null,
+  "user_agent": null,
+  "coupon": null,
+  "shipping_fee_excl_tax": 5,
+  "shipping_fee_incl_tax": 5,
+  "discount_amount": 0,
+  "sub_total": 504,
+  "total_qty": 1,
+  "total_weight": 6.4,
+  "tax_amount": 0,
+  "shipping_note": null,
+  "grand_total": 509,
+  "shipping_method": "7d0aba1a-fa8a-4b37-8b0c-5162cb34997e",
+  "shipping_method_name": "Standard Delivery",
+  "shipping_address_id": 4141,
+  "payment_method": "stripe",
+  "payment_method_name": "Credit Card",
+  "billing_address_id": 4142,
+  "shipment_status": "processing",
+  "payment_status": "pending",
+  "created_at": "2024-05-08T10:13:00.138845+00:00",
+  "updated_at": "2024-05-08T10:13:00.138845+00:00",
+  "sub_total_incl_tax": 504
+}
+
+// Example subscriber
+// module.exports = async function sendMail(data) {
+//     const customerEmail = data.customer_email;
+// }
+```
+
+### An order placed
+
+This event is triggered when a product is placed. This event is triggered by the payment gateway. 
+For example with the offline payment method like COD, this event will be triggered when the order is created.
+With online payment gateway like Stripe or Paypal, this event will be triggered when the payment is successful.
+  
+```js
+// Event name: order_placed
+// Data object:
+{
+  "order_id": 2070,
+  "uuid": "7afebbbd-69f6-4e2c-84c5-5b899173b867",
+  "integration_order_id": null,
+  "sid": "xu8STFfyGfi6IkQcPfZc9rXEgPZ3mjvY",
+  "order_number": "12070",
+  "cart_id": 26270,
+  "currency": "USD",
+  "customer_id": null,
+  "customer_email": "admin@admin.com",
+  "customer_full_name": null,
+  "user_ip": null,
+  "user_agent": null,
+  "coupon": null,
+  "shipping_fee_excl_tax": 5,
+  "shipping_fee_incl_tax": 5,
+  "discount_amount": 0,
+  "sub_total": 504,
+  "total_qty": 1,
+  "total_weight": 6.4,
+  "tax_amount": 0,
+  "shipping_note": null,
+  "grand_total": 509,
+  "shipping_method": "7d0aba1a-fa8a-4b37-8b0c-5162cb34997e",
+  "shipping_method_name": "Standard Delivery",
+  "shipping_address_id": 4141,
+  "payment_method": "stripe",
+  "payment_method_name": "Credit Card",
+  "billing_address_id": 4142,
+  "shipment_status": "processing",
+  "payment_status": "paid",
+  "created_at": "2024-05-08T10:13:00.138845+00:00",
+  "updated_at": "2024-05-08T10:13:00.138845+00:00",
+  "sub_total_incl_tax": 504
+}
+
+// Example subscriber
+// module.exports = async function sendMail(data) {
+//     const customerName = data.customer_full_name;
+// }
+```
+
+### Inventory updated
+
+This event is triggered when the inventory of a product is updated.
+  
+```js
+// Event name: inventory_updated
+// Data object:
+{
+  "old": {
+    "product_inventory_id": 110,
+    "product_inventory_product_id": 110,
+    "qty": 997,
+    "manage_stock": true,
+    "stock_availability": true
+  },
+  "new": {
+    "product_inventory_id": 110,
+    "product_inventory_product_id": 110,
+    "qty": 996,
+    "manage_stock": true,
+    "stock_availability": true
+  }
+}
+
+// Example subscriber
+// module.exports = async function syncInventory(data) {
+//     const productID = data.old.product_inventory_product_id;
+//     const newStock = data.new.qty;
+// }
+```
+
+### A new customer created
+
+This event is triggered when a customer is created.
+  
+```js
+// Event name: customer_registered
+// Data object:
+{
+  "customer_id": 12670,
+  "uuid": "7db52ab1-30a0-4477-9a56-8b681ac31f39",
+  "status": 1,
+  "group_id": 1,
+  "email": "david@evershop.io",
+  "full_name": "David Nguyen",
+  "created_at": "2024-05-14T02:11:25.917Z",
+  "updated_at": "2024-05-14T02:11:25.917Z"
+}
+
+// Example subscriber
+// module.exports = async function sendWelcomeEmail(data) {
+//     const customerEmail = data.email;
+// }
+```
