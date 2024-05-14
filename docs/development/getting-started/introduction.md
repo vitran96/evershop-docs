@@ -86,3 +86,7 @@ The demo admin account email is `demo@evershop.io` and the password is `123456`
 ## Community
 
 We invite you to join our [Discord channel](https://discord.com/invite/GSzt7dt7RM) for project discussion. Thank you!
+
+import Sponsors from '@site/src/components/Sponsor';
+
+<Sponsors/>

@@ -348,3 +348,7 @@ This event is triggered when a customer is created.
 //     const customerEmail = data.email;
 // }
 ```
+
+import Sponsors from '@site/src/components/Sponsor';
+
+<Sponsors/>

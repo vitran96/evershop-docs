@@ -385,3 +385,7 @@ The customer address schema contains the configuration for the customer address.
 ```
 
 EverShop will use this schema to validate the customer address. This json schema is based on [ajv](https://ajv.js.org/) library.
+
+import Sponsors from '@site/src/components/Sponsor';
+
+<Sponsors/>

@@ -182,3 +182,7 @@ And it returns a final URL.
 ```js
 buildUrl('productEdit', { id: 1 });
 ```
+
+import Sponsors from '@site/src/components/Sponsor';
+
+<Sponsors/>

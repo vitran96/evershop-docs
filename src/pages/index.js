@@ -267,6 +267,50 @@ function Developer() {
   );
 }
 
+function Sponsors() {
+  const sponsors = [
+    {
+      name: "Netlify",
+      url: "https://www.netlify.com/",
+      logo: "/img/sponsors/netlify.png",
+    },
+    {
+      name: "Algolia",
+      url: "https://www.algolia.com/",
+      logo: "/img/sponsors/algolia.png",
+    },
+  ];
+
+  return (
+    <header className="hero--primary justify-center">
+      <h2 className="text-center largest">Sponsors</h2>
+      <br />
+      <div className="flex justify-center gap-2 sponsors">
+        {sponsors.map((sponsor) => (
+          <div
+            key={sponsor.name}
+            className="flex justify-center items-center sponsor">
+            <a
+              className="flex items-center"
+              href={sponsor.url}
+              target="_blank"
+              rel="noreferrer">
+              <img src={sponsor.logo} alt={sponsor.name} />
+            </a>
+          </div>
+        ))}
+      </div>
+      <br />
+      <br />
+      <div className="flex justify-center">
+        <Link className="button button--secondary button--sm" to="/support">
+          Become a sponsor
+        </Link>
+      </div>
+    </header>
+  );
+}
+
 function TechStack() {
   return (
     <section className="py-10 md:py-20">
@@ -312,6 +356,7 @@ export default function Home() {
         <TechStack />
         <Developer />
         <HomepageEcommerceFeatures />
+        <Sponsors />
         <Discord />
       </main>
     </Layout>

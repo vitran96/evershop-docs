@@ -328,3 +328,24 @@ button.menu__caret {
     white-space: nowrap;
     width: 1px;
 }
+
+.sponsors .sponsor {
+  width: 100px;
+  height: 60px;
+  padding: 10px;
+  background-color: #f1f1f1;
+}
+
+.sponsors .sponsor:nth-child(2n) {
+  background-color: transparent
+}
+
+.sponsors .sponsor img {
+    filter: grayscale(1);
+    opacity: .5;
+}
+
+.sponsors .sponsor:hover img {
+    filter: none;
+    opacity: 1;
+}

@@ -108,6 +108,10 @@ const config = {
           {
             items: [
               {
+                label: "Support Us",
+                to: "/support",
+              },
+              {
                 label: "License",
                 to: "https://github.com/evershopcommerce/evershop/blob/main/LICENSE",
               },

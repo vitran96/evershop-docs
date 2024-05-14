@@ -218,3 +218,7 @@ const Todos = () => {
   );
 };
 ```
+
+import Sponsors from '@site/src/components/Sponsor';
+
+<Sponsors/>

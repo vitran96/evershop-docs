@@ -305,3 +305,7 @@ networks:
 volumes:
   postgres-data:
 ```
+
+import Sponsors from '@site/src/components/Sponsor';
+
+<Sponsors/>
