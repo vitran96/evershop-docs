@@ -11,11 +11,21 @@ description: In this tutorial, we will pick a simple use case and create an exte
 
 ## Requirements
 
-- You must have EverShop version 1.0.0-rc.5 installed on your machine. If you don't have EverShop installed, please follow the [installation guide](/docs/development/getting-started/installation-guide).
+- You must have EverShop version at least 1.0.0-rc.5 installed on your machine. If you don't have EverShop installed, please follow the [installation guide](/docs/development/getting-started/installation-guide).
 
 - You must have a basic understanding of EverShop module. If you don't know what is a module, please read [this document](/docs/development/module/module-overview).
 
 - You must have a basic understanding of EverShop extension. If you don't know what is an extension, please read [this document](/docs/development/module/extension-development).
+
+## Youtube video
+
+<div className="block md:hidden">
+<iframe width="100%" height="250" src="https://www.youtube.com/embed/760LriNpjtY?si=V4C_K9YBrXbYQwCf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<div className="hidden md:block">
+<iframe width="100%" height="500" src="https://www.youtube.com/embed/760LriNpjtY?si=V4C_K9YBrXbYQwCf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 ## Scenario
 
