@@ -13,6 +13,10 @@ In EverShop, some of the configurations can be done from the admin panel like Pa
 
 In this section, we will focus on the configuration from the `config/` directory. This directory contains the configuration files for the application.
 
+:::info
+By default, EverShop does not create the `config/` directory after the installation. You need to create the `config/` directory and add the configuration files manually.
+:::
+
 Under the hood, EverShop makes use of [config package](https://www.npmjs.com/package/config) to handle the configuration.
 
 ## Configuration file location
