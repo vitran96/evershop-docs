@@ -12,7 +12,7 @@ function ContactForm() {
     // if success, show success message
     // if error, show error message
 
-    fetch("http://localhost:5000/api/contact", {
+    fetch("https://evershop.io/api/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
