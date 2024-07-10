@@ -120,9 +120,10 @@ router.post("/contact", async (req, res) => {
       });
     }
   } catch (e) {
+    console.log(e);
     res.json({
       status: "error",
-      message: "Internal server error. Please try again later.....",
+      message: e.message,
     });
   }
 });
