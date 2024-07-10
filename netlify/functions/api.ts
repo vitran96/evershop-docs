@@ -29,8 +29,8 @@ router.post("/contact", async (req, res) => {
     }
     // Check if the API key is set
     const apiKey =
-      Netlify.env.get("SENDGRID_API_KEY") || process.env.SENDGRID_API_KEY;
-    const from = Netlify.env.get("SENDGRID_FROM_EMAIL") || process.env.SENDGRID_FROM_EMAIL;
+       process.env.SENDGRID_API_KEY;
+    const from = process.env.SENDGRID_FROM_EMAIL;
 
     if (!apiKey || !from) {
       res.json({
@@ -123,7 +123,7 @@ router.post("/contact", async (req, res) => {
     console.log(e);
     res.json({
       status: "error",
-      message: e.message,
+      message: "Internal server error. Please try again later....."
     });
   }
 });
