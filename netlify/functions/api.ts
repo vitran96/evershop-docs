@@ -1,5 +1,6 @@
 import express, { Router } from "express";
 import serverless from "serverless-http";
+import fetch from "node-fetch";
 
 const api = express();
 api.use(express.json());
@@ -28,8 +29,7 @@ router.post("/contact", async (req, res) => {
       return;
     }
     // Check if the API key is set
-    const apiKey =
-       process.env.SENDGRID_API_KEY;
+    const apiKey = process.env.SENDGRID_API_KEY;
     const from = process.env.SENDGRID_FROM_EMAIL;
 
     if (!apiKey || !from) {
@@ -123,10 +123,11 @@ router.post("/contact", async (req, res) => {
     console.log(e);
     res.json({
       status: "error",
-      message: "Internal server error. Please try again later....."
+      message: "Internal server error. Please try again later.",
     });
   }
 });
 
 api.use("/api/", router);
+
 export const handler = serverless(api);
