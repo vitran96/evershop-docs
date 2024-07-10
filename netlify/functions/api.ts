@@ -1,6 +1,5 @@
 import express, { Router } from "express";
 import serverless from "serverless-http";
-import fetch from "node-fetch";
 
 const api = express();
 api.use(express.json());
