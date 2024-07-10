@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import { Formik } from "formik";
@@ -13,7 +12,7 @@ function ContactForm() {
     // if success, show success message
     // if error, show error message
 
-    fetch("https://db.cloud.evershop.io/contact/send", {
+    fetch("http://localhost:5000/api/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -141,7 +140,7 @@ function ContactForm() {
                     )}
                     {error && (
                       <div className="text-[#ff7474] my-2">
-                        Sorry! There was an error.
+                        Sorry! There was an error. Please try again later.
                       </div>
                     )}
                     <div className="mt-5">

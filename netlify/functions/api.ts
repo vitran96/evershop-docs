@@ -1,13 +1,132 @@
-// YOUR_BASE_DIRECTORY/netlify/functions/api.ts
-
 import express, { Router } from "express";
 import serverless from "serverless-http";
 
 const api = express();
-
+api.use(express.json());
 const router = Router();
-router.get("/hello", (req, res) => res.send("Hello World!"));
+router.post("/contact", async (req, res) => {
+  function escapeHTML(str) {
+    const escapeChars = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    };
+
+    return str.replace(/[&<>"']/g, function (match) {
+      return escapeChars[match];
+    });
+  }
+  try {
+    const { name, email, message } = req.body;
+    if (!name || !email || !message) {
+      res.json({
+        status: "error",
+        message: "Internal server error. Please try again later.",
+      });
+      return;
+    }
+    // Check if the API key is set
+    const apiKey =
+      Netlify.env.get("SENDGRID_API_KEY");
+    const from = Netlify.env.get("SENDGRID_FROM_EMAIL");
+
+    if (!apiKey || !from) {
+      res.json({
+        status: "error",
+        message: "Internal server error. Please try again later.",
+      });
+      return;
+    }
+    const escapedName = escapeHTML(name);
+    const escapedMessage = escapeHTML(message);
+    // Send email to customer
+    const html = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" lang="en">
+
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta name="x-apple-disable-message-reformatting" />
+  </head>
+  <div style="display:none;overflow:hidden;line-height:1px;opacity:0;max-height:0;max-width:0">The sales intelligence platform that helps you uncover qualified leads.<div> ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿ ‌​‍‎‏﻿</div>
+  </div>
+
+  <body style="background-color:#ffffff;font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Roboto,Oxygen-Sans,Ubuntu,Cantarell,&quot;Helvetica Neue&quot;,sans-serif">
+    <table align="center" width="100%" border="0" cellPadding="0" cellSpacing="0" role="presentation" style="max-width:37.5em;margin:0 auto;padding:20px 0 48px">
+      <tbody>
+        <tr style="width:100%">
+          <td><img alt="EverShop" width="50" height="50" src="https://evershop.io/img/logo.png" style="display:block;outline:none;border:none;text-decoration:none;margin:0 auto" width="170" />
+            <p style="font-size:16px;line-height:26px;margin:16px 0">Hi team,</p>
+            <p style="font-size:16px;line-height:26px;margin:16px 0">We got a message from ${escapedName}. Here&#x27;s what <!-- -->${escapedName}<!-- --> wrote:</p>
+			<p style="font-size:18px;line-height:1.4;margin:16px 0;color:#484848;padding:24px;background-color:#f2f3f3;border-radius:4px">“${escapedMessage}”</p>
+            <p style="font-size:16px;line-height:26px;margin:16px 0">Best,<br />The EverShop team</p>
+            <hr style="width:100%;border:none;border-top:1px solid #eaeaea;border-color:#cccccc;margin:20px 0" />
+            <p style="font-size:12px;line-height:24px;margin:16px 0;color:#8898aa">470 Noor Ave STE B #1148, South San Francisco, CA 94080</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+
+</html>`;
+    const msg = {
+      personalizations: [
+        {
+          to: [
+            {
+              email: "support@evershop.io",
+              name: "The EverShop Team",
+            },
+          ],
+          subject: `New contact message from ${escapedName}`,
+        },
+      ],
+      from: {
+        email: "support@evershop.io",
+        name: "The EverShop Team",
+      },
+      reply_to: {
+        email: email,
+        name: escapedName,
+      },
+      content: [
+        {
+          type: "text/html",
+          value: html,
+        },
+      ],
+    };
+    // Using navtive fetch from Node.js call sendgrid API
+    const response = await fetch("https://api.sendgrid.com/v3/mail/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify(msg),
+    });
+    // Check if the response is successful
+    if (response.status === 202) {
+      res.json({
+        status: "success",
+        message: "Message sent successfully.",
+      });
+    } else {
+      console.log(response);
+      res.json({
+        status: "error",
+        message: "Internal server error. Please try again later.",
+      });
+    }
+  } catch (e) {
+    console.log(e);
+    res.json({
+      status: "error",
+      message: "Internal server error. Please try again later.",
+    });
+  }
+});
 
 api.use("/api/", router);
-
 export const handler = serverless(api);
