@@ -242,8 +242,7 @@ The tax calculation configuration contains the configuration for the tax calcula
             "rounding": "round",
             "precision": 2,
             "round_level": "unit",
-            "display_catalog_price_including_tax": true,
-            "display_checkout_price_including_tax": true
+            "price_including_tax": true
         }
     }
 }
