@@ -21,7 +21,7 @@ Use this endpoint login a user.
 
 <Api
   method="POST"
-  url="/user/login"
+  url="admin/user/login"
   requestSchema={{
   "type": "object",
   "properties": {
@@ -54,7 +54,7 @@ Use this endpoint to logout a user.
 
 <Api
   method="GET"
-  url="/user/logout"
+  url="admin/user/logout"
   responseSample={`{
   "data": {}
 }`}
