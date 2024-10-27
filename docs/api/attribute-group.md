@@ -20,7 +20,7 @@ import Api from '@site/src/components/rest/Api';
 
 <Api
   method="POST"
-  url="/api/attribute-groups"
+  url="/api/attributeGroups"
   requestSchema={{
   "type": "object",
   "properties": {
@@ -52,7 +52,7 @@ Use this endpoint to update an attribute group.
 
 <Api
   method="PATCH"
-  url="/api/attribute-groups/{id}"
+  url="/api/attributeGroups/{id}"
   requestSchema={{
   "type": "object",
   "properties": {
@@ -84,7 +84,7 @@ Use this endpoint to delete an attribute group.
 
 <Api
   method="DELETE"
-  url="/api/attribute-groups/{id}"
+  url="/api/attributeGroups/{id}"
   responseSample={`{
   "data": {
     "attribute_group_id": 50,
