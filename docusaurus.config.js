@@ -1,9 +1,9 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/palenight");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
-
+const { themes } = require("prism-react-renderer");
+const lightTheme = themes.palenight;
+const darkTheme = themes.dracula;
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "EverShop",
@@ -70,40 +70,50 @@ const config = {
         title: "",
         logo: {
           alt: "A Open-source NodeJS ecommerce platform",
-          src: "img/logo.png",
+          src: "img/logo.svg",
         },
         items: [
           {
-            type: "doc",
-            docId: "development/getting-started/introduction",
-            position: "right",
-            label: "Docs",
+            type: "html",
+            value: `
+              <a class="navbar__link" href="/docs"><span>Docs</span> <img src="/img/chevron-down.svg" alt="divider" class="divider" /></a> 
+              <div class="mega__menu__dropdown">
+                This is the mega menu
+              </div>
+            `,
           },
           {
             type: "doc",
             docId: "api/overview",
-            position: "right",
+            position: "left",
             label: "API",
           },
           {
             href: "/extensions",
-            position: "right",
-            label: "Extensions",
-          },
-          {
-            href: "https://discord.com/invite/GSzt7dt7RM",
-            label: "Discord",
-            position: "right",
+            position: "left",
+            label: "Marketplace",
           },
           {
             href: "/contact-us",
-            position: "right",
+            position: "left",
             label: "Contact Us",
+          },
+          {
+            type: "html",
+            position: "right",
+            value: `<a class="button button--primary button--xs flex items-center align-middle" href="/docs/development/getting-started/introduction"><span>Get started</span> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+<path d="M3 9H15M15 9L10.5 4.5M15 9L10.5 13.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></a>`,
           },
         ],
       },
       footer: {
         style: "light",
+        logo: {
+          alt: "Evershop",
+          src: "img/logo.svg",
+          href: "https://evershop.io",
+        },
         links: [
           {
             items: [
@@ -126,11 +136,11 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Evershop. <br/> Deploys by <a href="https://www.netlify.com" target="_blank" rel="nofollow">Netlify</a>`,
+        copyright: `© Copyright © ${new Date().getFullYear()} Evershop. Deploys by <a href="https://www.netlify.com" target="_blank" rel="nofollow">Netlify</a>`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: lightTheme,
+        darkTheme: darkTheme,
       },
       metadata: [
         {
@@ -167,4 +177,4 @@ const config = {
     }),
 };
 
-module.exports = config;
+export default config;

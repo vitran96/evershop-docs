@@ -15,10 +15,13 @@ export default function FooterLayout({ style, links, logo, copyright }) {
         "footer--dark": style === "dark",
       })}>
       <div className="container container-fluid">
-        {links}
+        <div className="flex justify-items-center items-center gap-9">
+          {logo && <div>{logo}</div>}
+          {links}
+        </div>
         {(logo || copyright) && (
-          <div className="footer__bottom text--center">
-            {logo && <div className="margin-bottom--sm">{logo}</div>}
+          <div className="footer__bottom">
+            {logo && <div>{logo}</div>}
             <div className="text--left">{copyright}</div>
           </div>
         )}

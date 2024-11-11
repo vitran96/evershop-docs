@@ -4,7 +4,24 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import HomepageWebDevFeatures from "@site/src/components/HomepageWebDevFeatures";
 import CodeBlock from "@theme/CodeBlock";
-import HomepageEcommerceFeatures from "../components/HomepageEcommerceFeatures";
+import Separator from "../components/Separator";
+import BorderBlock from "../components/BorderBlock";
+import Card from "../components/Card";
+import BlockHead from "../components/BlockHead";
+import SVGComponent from "../components/Svg";
+import StreamLineProductControl from "../components/Animations/StreamLineProductControl";
+import Category from "../components/Animations/Category";
+import Collection from "../components/Animations/Collection";
+import HeroBannerOne from "../components/HeroBannerOne";
+import FadeInOutSlides from "../components/Animations/FadeInOutSlides";
+import HeroBannerTwo from "../components/HeroBannerTwo";
+import IntegrationLogos from "../components/Animations/IntegrationLogos";
+import CheckoutExperience from "../components/Animations/CheckoutExperience";
+import PaymentIntegration from "../components/Animations/PaymentIntegration";
+import OrderManagement from "../components/Animations/OrderManagement";
+import ContentBlocks from "../components/Animations/ContentBlocks";
+import ThemeExtension from "../components/Animations/ThemeExtension";
+import ThemeExtensionButtons from "../components/Animations/ThemeExtensionButtons";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -12,53 +29,80 @@ function HomepageHeader() {
   return (
     <header className="hero hero--primary text-center">
       <div className="container text-center">
-        <h1 className="hero__title mb-4">
-          {"Open-Source NodeJS Ecommerce Platform"}
-        </h1>
+        <div className="flex justify-center">
+          <div className="flex justify-center gap-3 text-primary font-medium bg-[#E5FFF9] max-w-fit p-1 pr-2 rounded-[16px] text-sm leading-5">
+            <div className="flex justify-center gap-[3px] bg-white rounded-[16px] px-2 py-[2px]">
+              <div className="flex justify-center">
+                <img alt="Version" src="/img/glowing-star.png" />
+              </div>
+              <span>Version 1.2</span>
+            </div>
+            <div className="flex gap-[5px] items-center justify-center">
+              <span>Check out the repo</span>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3.33301 8.00016H12.6663M12.6663 8.00016L7.99967 3.3335M12.6663 8.00016L7.99967 12.6668"
+                  stroke="#008060"
+                  stroke-width="1.3333"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-center">
+          <h1 className="hero__title mb-3 max-w-screen-lg">
+            Your All-in-One open source ecommerce solution
+          </h1>
+        </div>
         <div className="flex items-center justify-center">
-          <p className="text-lg text-center text-slate-500">
-            <p>
-              NodeJS ecommerce platform with essential commerce features
-              <br />
-              Built with React, modular and fully customizable
+          <p className="text-xl text-center text-slate-500 mb-10">
+            <p className="mb-0 max-w-3xl">
+              Open-source, built on NodeJS, and designed for flexibility. Easily
+              scale, customize, and manage your online store with powerful
+              commerce features
             </p>
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 mt-6">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           <div className="flex justify-center md:justify-end">
             <Link
-              className="button button--primary button--md"
+              className="button button--secondary rounded-xl button--large"
               to="https://demo.evershop.io/">
-              Explore our demo ->
+              Explore our demo
             </Link>
           </div>
           <div className="flex md:justify-start justify-center">
             <Link
-              className="button button--secondary button--md hover:bg-gray-200"
+              className="button button--primary rounded-xl button--large"
               to="/docs/development/getting-started/introduction">
-              Getting started ->
+              <span>Get started</span> <span className="pl-2">-></span>
             </Link>
           </div>
         </div>
-        {/* <div className="flex gap-2 justify-center items-center mt-3">
-          <a
-            aria-label="EverShop GitHub"
-            className="flex"
-            href="https://github.com/evershopcommerce/evershop"
-            target="_blank">
-            <Github role={"img"} />
-          </a>
-        </div> */}
-        <div className="flex flex-col md:flex-row md:space-y-0 justify-center mt-10">
-          <div>
-            <div className="flex justify-center hero-image">
-              <img
-                width={900}
-                height={598}
-                alt="EverShop GraphQL Data Loading"
-                src="/img/hero-banner.webp"
-              />
-            </div>
+
+        <div className="flex flex-col md:flex-row md:space-y-0 justify-center mt-16 min-w-[90%]">
+          <div className="flex justify-center hero-image w-full">
+            <FadeInOutSlides
+              slides={[
+                {
+                  id: 1,
+                  content: HeroBannerOne,
+                },
+                {
+                  id: 2,
+                  content: HeroBannerTwo,
+                },
+              ]}
+              loop={false}
+              full={true}
+            />
           </div>
         </div>
       </div>
@@ -66,72 +110,396 @@ function HomepageHeader() {
   );
 }
 
-function QuickStart() {
+function Logos() {
   return (
     <div className="container">
-      <div className="flex flex-col  md:flex-row md:space-y-0  justify-center ">
-        <div>
-          <h2 className="justify-center text-center">Get started in minutes</h2>
-          <CodeBlock language="bash">
-            {`npx create-evershop-app my-app --playAround`}
-          </CodeBlock>
-        </div>
+      <div className="grid grid-cols-6 gap-14 py-10">
+        <img alt="EverShop" src="/img/company-logo.png" />
+        <img alt="EverShop" src="/img/company-logo.png" />
+        <img alt="EverShop" src="/img/company-logo.png" />
+        <img alt="EverShop" src="/img/company-logo.png" />
+        <img alt="EverShop" src="/img/company-logo.png" />
+        <img alt="EverShop" src="/img/company-logo.png" />
       </div>
     </div>
   );
 }
 
-function GraphQLAndReact() {
+function DynamicWidgets() {
   return (
     <div className="container">
-      <div className="flex flex-col md:flex-row md:space-y-0 justify-center ">
-        <div>
-          <div className="flex justify-center">
-            <img
-              width={900}
-              height={598}
-              alt="EverShop GraphQL Data Loading"
-              src="/img/hero-banner.webp"
-            />
-          </div>
-        </div>
+      <div>
+        <BlockHead
+          label="Dynamic Widgets"
+          heading={{
+            className: "",
+            text: "Maximize store performance with customizable content blocks",
+          }}
+          subheading={{
+            className: "max-w-[760px]",
+            text: "Personalize your storefront and optimize user experience by leveraging powerful widgets for effortless content management and navigation.",
+          }}
+        />
+        <BorderBlock backgroundColor={"#fff"}>
+          <Card
+            backgroundColor={
+              "radial-gradient(73% 56% at 96% 69%, #27b4874d 0%, #ffffff00 100%), radial-gradient(50% 50% at 0% 100%, #645EE51F 0%, #F8F9FAff 100%)"
+            }>
+            <ContentBlocks />
+          </Card>
+        </BorderBlock>
       </div>
     </div>
   );
 }
 
-function WhatIsEverShop() {
+function CatalogManagement() {
   return (
     <div className="container">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-5 bg-white rounded-md p-10">
-        <div>
-          <h2 className="text-left largest font-bold h1">
-            What is <span className="text-[#2f80ed]">EverShop?</span>
-          </h2>
-          <div className="mt-5">
-            <p className="text-left">
-              EverShop is an open-source NodeJS ecommerce platform with
-              essential commerce features. Built with React, modular and fully
-              customizable.
-            </p>
-            <Link
-              className="button button--primary button--md"
-              to="/docs/development/getting-started/introduction">
-              Read More
-            </Link>
-          </div>
-        </div>
-        <div>
-          <div className="flex justify-center divide-y">
-            <div>
-              <h3 className="text-left largest font-bold h6">
-                Designed for Agility & Customisability
-              </h3>
-              <p className="text-left">
-                EverShop is designed to be modular and customizable.
-              </p>
+      <div>
+        <BlockHead
+          label="Catalog Management"
+          heading={{
+            className: "",
+            text: "Simplify product management",
+          }}
+          subheading={{
+            className: "max-w-[730px]",
+            text: "Easily manage, categorize, and showcase your products with intuitive tools for enhanced shopping experiences.",
+          }}
+        />
+        <BorderBlock backgroundColor={"#fff"}>
+          <Card backgroundColor={"#F8F9FA"} className={"mb-6"}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 overflow-hidden">
+              <div className="flex flex-col justify-center pl-12 pt-9">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none">
+                  <path
+                    d="M25.7736 7.57345L17.4136 3.06679C16.5336 2.58679 15.4669 2.58679 14.5869 3.06679L6.2269 7.57345C5.61357 7.90679 5.24023 8.54679 5.24023 9.28012C5.24023 10.0001 5.61357 10.6535 6.2269 10.9868L14.5869 15.4935C15.0269 15.7335 15.5202 15.8535 16.0002 15.8535C16.4802 15.8535 16.9736 15.7335 17.4136 15.4935L25.7736 10.9868C26.3869 10.6535 26.7602 10.0135 26.7602 9.28012C26.7602 8.54679 26.3869 7.90679 25.7736 7.57345Z"
+                    fill="#008060"
+                  />
+                  <path
+                    d="M13.2137 17.0533L5.42699 13.1599C4.82699 12.8666 4.13366 12.8933 3.57366 13.2399C3.00033 13.5999 2.66699 14.1999 2.66699 14.8666V22.2133C2.66699 23.4799 3.37366 24.6266 4.50699 25.1999L12.2803 29.0933C12.547 29.2266 12.8403 29.2933 13.1337 29.2933C13.4803 29.2933 13.827 29.1999 14.1337 29.0133C14.707 28.6666 15.0403 28.0533 15.0403 27.3866V20.0399C15.0537 18.7599 14.347 17.6133 13.2137 17.0533Z"
+                    fill="#008060"
+                  />
+                  <path
+                    d="M28.4266 13.2399C27.8533 12.8933 27.16 12.8533 26.5733 13.1599L18.8 17.0533C17.6666 17.6266 16.96 18.7599 16.96 20.0399V27.3866C16.96 28.0533 17.2933 28.6666 17.8666 29.0133C18.1733 29.1999 18.52 29.2933 18.8666 29.2933C19.16 29.2933 19.4533 29.2266 19.72 29.0933L27.4933 25.1999C28.6266 24.6266 29.3333 23.4933 29.3333 22.2133V14.8666C29.3333 14.1999 29 13.5999 28.4266 13.2399Z"
+                    fill="#008060"
+                  />
+                </svg>
+                <h5 className="mt-4 mb-3">Streamline Product Control</h5>
+                <div>
+                  Effortlessly manage, organize, and update your products with
+                  intuitive tools and detailed insights.
+                </div>
+              </div>
+              <div className="pt-20">
+                <StreamLineProductControl />
+              </div>
             </div>
+          </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card
+              backgroundColor={
+                "radial-gradient(80% 50% at 100% 0%, #27b4874d 0%, #F8F9FAff 100%)"
+              }>
+              <div className="pl-12 pt-12 pb-12">
+                <div className="w-full flex justify-start pl-6 rounded-2xl categry-shadow">
+                  <Category />
+                </div>
+                <div className="flex flex-col justify-center pt-12">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none">
+                    <path
+                      d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.19C2 19.83 4.17 22 7.81 22H16.19C19.83 22 22 19.83 22 16.19V7.81C22 4.17 19.83 2 16.19 2ZM9.97 14.9L7.72 17.15C7.57 17.3 7.38 17.37 7.19 17.37C7 17.37 6.8 17.3 6.66 17.15L5.91 16.4C5.61 16.11 5.61 15.63 5.91 15.34C6.2 15.05 6.67 15.05 6.97 15.34L7.19 15.56L8.91 13.84C9.2 13.55 9.67 13.55 9.97 13.84C10.26 14.13 10.26 14.61 9.97 14.9ZM9.97 7.9L7.72 10.15C7.57 10.3 7.38 10.37 7.19 10.37C7 10.37 6.8 10.3 6.66 10.15L5.91 9.4C5.61 9.11 5.61 8.63 5.91 8.34C6.2 8.05 6.67 8.05 6.97 8.34L7.19 8.56L8.91 6.84C9.2 6.55 9.67 6.55 9.97 6.84C10.26 7.13 10.26 7.61 9.97 7.9ZM17.56 16.62H12.31C11.9 16.62 11.56 16.28 11.56 15.87C11.56 15.46 11.9 15.12 12.31 15.12H17.56C17.98 15.12 18.31 15.46 18.31 15.87C18.31 16.28 17.98 16.62 17.56 16.62ZM17.56 9.62H12.31C11.9 9.62 11.56 9.28 11.56 8.87C11.56 8.46 11.9 8.12 12.31 8.12H17.56C17.98 8.12 18.31 8.46 18.31 8.87C18.31 9.28 17.98 9.62 17.56 9.62Z"
+                      fill="#008060"
+                    />
+                  </svg>
+                  <div className="mt-3 mb-2 text-xl font-semibold text-[#101828]">
+                    Efficient Category Organization
+                  </div>
+                  <div>
+                    Create, edit, and organize product categories for intuitive
+                    navigation and enhanced user experience.
+                  </div>
+                </div>
+              </div>
+            </Card>
+            <Card
+              backgroundColor={
+                "radial-gradient(80% 50% at 100% 0%, #645EE51F 0%, #F8F9FAff 100%)"
+              }>
+              <div className="pl-12 overflow-hidden">
+                <div className="w-full flex justify-start pt-12">
+                  <Collection />
+                </div>
+                <div className="flex flex-col justify-center pt-12">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none">
+                    <path
+                      d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.19C2 19.83 4.17 22 7.81 22H16.19C19.83 22 22 19.83 22 16.19V7.81C22 4.17 19.83 2 16.19 2ZM9.97 14.9L7.72 17.15C7.57 17.3 7.38 17.37 7.19 17.37C7 17.37 6.8 17.3 6.66 17.15L5.91 16.4C5.61 16.11 5.61 15.63 5.91 15.34C6.2 15.05 6.67 15.05 6.97 15.34L7.19 15.56L8.91 13.84C9.2 13.55 9.67 13.55 9.97 13.84C10.26 14.13 10.26 14.61 9.97 14.9ZM9.97 7.9L7.72 10.15C7.57 10.3 7.38 10.37 7.19 10.37C7 10.37 6.8 10.3 6.66 10.15L5.91 9.4C5.61 9.11 5.61 8.63 5.91 8.34C6.2 8.05 6.67 8.05 6.97 8.34L7.19 8.56L8.91 6.84C9.2 6.55 9.67 6.55 9.97 6.84C10.26 7.13 10.26 7.61 9.97 7.9ZM17.56 16.62H12.31C11.9 16.62 11.56 16.28 11.56 15.87C11.56 15.46 11.9 15.12 12.31 15.12H17.56C17.98 15.12 18.31 15.46 18.31 15.87C18.31 16.28 17.98 16.62 17.56 16.62ZM17.56 9.62H12.31C11.9 9.62 11.56 9.28 11.56 8.87C11.56 8.46 11.9 8.12 12.31 8.12H17.56C17.98 8.12 18.31 8.46 18.31 8.87C18.31 9.28 17.98 9.62 17.56 9.62Z"
+                      fill="#008060"
+                    />
+                  </svg>
+                  <div className="mt-3 mb-2 text-xl font-semibold text-[#101828]">
+                    Showcase Product Collections
+                  </div>
+                  <div>
+                    Group items into collections to highlight new arrivals,
+                    promotions, and featured products.
+                  </div>
+                </div>
+              </div>
+            </Card>
           </div>
+        </BorderBlock>
+      </div>
+    </div>
+  );
+}
+
+function CheckoutManagement() {
+  return (
+    <div className="container">
+      <div>
+        <BlockHead
+          label="Checkout Experience"
+          heading={{
+            className: "",
+            text: "Seamless checkout experience",
+          }}
+          subheading={{
+            className: "",
+            text: "Streamline transactions with fast, user-friendly checkout for enhanced satisfaction.",
+          }}
+        />
+        <BorderBlock backgroundColor={"#fff"}>
+          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-6">
+            <Card
+              backgroundColor={
+                "radial-gradient(80% 50% at 100% 0%, rgba(39, 180, 135, 0.3) 0%, rgb(248, 249, 250) 100%)"
+              }>
+              <div className="flex flex-col justify-center p-12 pr-6">
+                <div className="mr-[-24px] mb-12">
+                  <CheckoutExperience />
+                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none">
+                  <path
+                    d="M9.31994 13.28H12.4099V20.48C12.4099 21.54 13.7299 22.04 14.4299 21.24L21.9999 12.64C22.6599 11.89 22.1299 10.72 21.1299 10.72H18.0399V3.52003C18.0399 2.46003 16.7199 1.96003 16.0199 2.76003L8.44994 11.36C7.79994 12.11 8.32994 13.28 9.31994 13.28Z"
+                    fill="#008060"
+                  />
+                  <path
+                    d="M8.5 4.75H1.5C1.09 4.75 0.75 4.41 0.75 4C0.75 3.59 1.09 3.25 1.5 3.25H8.5C8.91 3.25 9.25 3.59 9.25 4C9.25 4.41 8.91 4.75 8.5 4.75Z"
+                    fill="#008060"
+                  />
+                  <path
+                    d="M7.5 20.75H1.5C1.09 20.75 0.75 20.41 0.75 20C0.75 19.59 1.09 19.25 1.5 19.25H7.5C7.91 19.25 8.25 19.59 8.25 20C8.25 20.41 7.91 20.75 7.5 20.75Z"
+                    fill="#008060"
+                  />
+                  <path
+                    d="M4.5 12.75H1.5C1.09 12.75 0.75 12.41 0.75 12C0.75 11.59 1.09 11.25 1.5 11.25H4.5C4.91 11.25 5.25 11.59 5.25 12C5.25 12.41 4.91 12.75 4.5 12.75Z"
+                    fill="#008060"
+                  />
+                </svg>
+                <div className="mt-3 mb-2 text-lg leading-7 font-semibold text-[#101828] tracking-[-0.1px]">
+                  Accelerated Checkout Experience
+                </div>
+                <div>
+                  Deliver a lightning-fast checkout process that enhances
+                  customer satisfaction and drives conversions.
+                </div>
+              </div>
+            </Card>
+            <Card
+              backgroundColor={
+                "radial-gradient(80% 50% at 100% 0%, rgba(100, 94, 229, 0.12) 0%, rgb(248, 249, 250) 100%)"
+              }>
+              <div className="flex flex-col justify-center p-12 pr-6">
+                <div className="mr-[-24px] mb-12">
+                  <PaymentIntegration />
+                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M4 3C2.34315 3 1 4.34315 1 6V8H23V6C23 4.34315 21.6569 3 20 3H4ZM23 10H1V18C1 19.6569 2.34315 21 4 21H20C21.6569 21 23 19.6569 23 18V10ZM8 15.5C8 16.3284 7.32843 17 6.5 17C5.67157 17 5 16.3284 5 15.5C5 14.6716 5.67157 14 6.5 14C7.32843 14 8 14.6716 8 15.5ZM11.5 17C12.3284 17 13 16.3284 13 15.5C13 14.6716 12.3284 14 11.5 14C10.6716 14 10 14.6716 10 15.5C10 16.3284 10.6716 17 11.5 17Z"
+                    fill="#008060"
+                  />
+                </svg>
+                <div className="mt-3 mb-2 text-lg leading-7 font-semibold text-[#101828]">
+                  Seamless Payment Integration
+                </div>
+                <div>
+                  Connect with a wide variety of payment providers for a smooth,
+                  secure checkout experiencet.
+                </div>
+              </div>
+            </Card>
+            <Card
+              backgroundColor={
+                "radial-gradient(80% 50% at 100% 0%, rgba(39, 180, 135, 0.3) 0%, rgb(248, 249, 250) 100%)"
+              }>
+              <div className="flex flex-col justify-center p-12 pr-6">
+                <div className="mr-[-24px] mb-12">
+                  <OrderManagement />
+                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M5.41832 2.32488C5.71048 2.19898 6.01314 2.42747 6.09093 2.73594C6.41905 4.03699 7.59706 5 9 5H15C16.4029 5 17.5809 4.03699 17.9091 2.73594C17.9869 2.42747 18.2895 2.19898 18.5817 2.32488C20.0042 2.93791 21 4.35266 21 6V19C21 21.2091 19.2091 23 17 23H7C4.79086 23 3 21.2091 3 19V6C3 4.35266 3.99582 2.93791 5.41832 2.32488ZM9 10C9 10.5523 8.55228 11 8 11C7.44772 11 7 10.5523 7 10C7 9.44772 7.44772 9 8 9C8.55228 9 9 9.44772 9 10ZM11 10C11 9.44772 11.4477 9 12 9H16C16.5523 9 17 9.44772 17 10C17 10.5523 16.5523 11 16 11H12C11.4477 11 11 10.5523 11 10ZM12 13C11.4477 13 11 13.4477 11 14C11 14.5523 11.4477 15 12 15H16C16.5523 15 17 14.5523 17 14C17 13.4477 16.5523 13 16 13H12ZM12 17C11.4477 17 11 17.4477 11 18C11 18.5523 11.4477 19 12 19H14C14.5523 19 15 18.5523 15 18C15 17.4477 14.5523 17 14 17H12ZM9 14C9 14.5523 8.55228 15 8 15C7.44772 15 7 14.5523 7 14C7 13.4477 7.44772 13 8 13C8.55228 13 9 13.4477 9 14ZM9 18C9 18.5523 8.55228 19 8 19C7.44772 19 7 18.5523 7 18C7 17.4477 7.44772 17 8 17C8.55228 17 9 17.4477 9 18Z"
+                    fill="#008060"
+                  />
+                  <path
+                    d="M9 1H15C15.5523 1 16 1.44772 16 2C16 2.55228 15.5523 3 15 3H9C8.44772 3 8 2.55228 8 2C8 1.44772 8.44772 1 9 1Z"
+                    fill="#008060"
+                  />
+                </svg>
+                <div className="mt-3 mb-2 text-lg leading-7 font-semibold text-[#101828]">
+                  Streamlined Order Management
+                </div>
+                <div>
+                  Efficiently track and manage your orders with real-time
+                  updates and seamless fulfillment workflows.
+                </div>
+              </div>
+            </Card>
+          </div>
+        </BorderBlock>
+      </div>
+    </div>
+  );
+}
+
+function Integrations() {
+  return (
+    <div className="container pt-5">
+      <div className="grid grid-cols-2 gap-[73px]">
+        <BlockHead
+          label="Streamline"
+          heading={{
+            className: "",
+            text: "Seamless integrations for every business need",
+          }}
+          subheading={{
+            className: "",
+            text: "Connect EverShop with your favorite tools to manage payments, marketing, and more—all from a unified platform. Simplify your workflow and grow your business with ease.",
+          }}
+          alignment="left"
+        />
+        <IntegrationLogos />
+      </div>
+    </div>
+  );
+}
+
+function ElevateYourStore() {
+  return (
+    <div className="container">
+      <div>
+        <BlockHead
+          label="Marketplace"
+          heading={{
+            className: "",
+            text: "Elevate your online store",
+          }}
+          subheading={{
+            className: "max-w-[730px]",
+            text: "Unlock the potential of your e-commerce business with powerful solutions tailored for seamless growth.",
+          }}
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[68px]">
+          <BorderBlock
+            backgroundColor={"#fff"}
+            bigRadius={false}
+            className="marketplace-block grid grid-flow-row grid-rows-[2fr_1fr] h-full">
+            <div className="bg-[#F8F9FA] rounded-t-xl flex items-center flex-col justify-end pt-5 px-8">
+              <div className="w-44 mb-2">
+                <ThemeExtensionButtons />
+              </div>
+              <ThemeExtension />
+            </div>
+            <div className="mt-2 p-4">
+              <div className="text-xl font-semibold">
+                Expand Your Commerce Capabilities
+              </div>
+              <div className="mt-3 mb-[15px]">
+                Explore a wide range of customizable modules, extensions, and
+                themes to enhance customer experience and drive more sales.
+              </div>
+              <a
+                href="/extensions"
+                className="text-primary hover:underline flex items-center gap-2">
+                <span>Explore the Marketplace</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none">
+                  <path
+                    d="M3.33301 10H16.6663M16.6663 10L11.6663 5M16.6663 10L11.6663 15"
+                    stroke="#008060"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+          </BorderBlock>
+          <BorderBlock
+            backgroundColor={"#fff"}
+            bigRadius={false}
+            className="marketplace-block grid grid-flow-row grid-rows-[2fr_1fr] h-full">
+            <div className="bg-[#F8F9FA] rounded-t-xl flex justify-center flex-col items-center pt-5 px-8">
+              <img
+                src="/img/cloud.webp"
+                alt="EverShop cloud"
+                width={558}
+                height={312}
+              />
+            </div>
+            <div className="mt-2 p-4">
+              <div className="text-xl font-semibold">
+                Scale with Cloud Solutions
+              </div>
+              <div className="mt-3 mb-[15px]">
+                Coming soon! Discover optimized cloud modules designed to boost
+                performance and adapt to your unique needs.
+              </div>
+              <a className="text-primary hover:underline flex items-center gap-2">
+                <span>Comming Soon</span>
+              </a>
+            </div>
+          </BorderBlock>
         </div>
       </div>
     </div>
@@ -140,89 +508,28 @@ function WhatIsEverShop() {
 
 function Discord() {
   return (
-    <div className="container mt-20">
-      <div className="flex flex-col  md:flex-row md:space-y-0  justify-center bg-[#3f39a7] p-[30px] md:p-[80px] rounded-lg relative">
+    <div className="discord mt-20">
+      <div className="container flex flex-col md:flex-row md:space-y-0 justify-center p-[30px] md:p-[75px] rounded-lg relative">
         <div className="text-center">
-          <h3 className="largest justify-center text-center text-white">
-            Let's build together. Work together!
-          </h3>
-          <p className="text-white">
-            Join our young and creative team on Discord
-          </p>
-          <div className="flex justify-center mb-5">
-            <div style={{ width: "150px" }}>
-              <img
-                alt="Join EverShop team"
-                src="data:image/webp;base64,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"
-              />
-            </div>
+          <img
+            src="/img/avatar.png"
+            width={120}
+            height={56}
+            alt="EverShop discord"
+          />
+          <h2 className="justify-center text-center text-white pt-4">
+            Join the Movement. Create with Us!
+          </h2>
+          <div className="text-white mb-6 text-xl">
+            Be part of a collaborative, creative team on Discord, where every
+            idea counts!
           </div>
           <Link
-            className="button button--primary button--md"
+            className="button button--secondary button--large"
             to="https://discord.com/invite/GSzt7dt7RM">
-            Join the team
+            Start Collaborating
           </Link>
         </div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="absolute disable-pointer-events z-0 pointer-events-none"
-          style={{ top: "0", left: "0", right: "0", bottom: "0" }}
-          fill="none"
-          viewBox="0 0 1160 463">
-          <path
-            fillRule="evenodd"
-            stroke="#fff"
-            strokeOpacity="0.24"
-            d="M1220.2-29.472c3.88 60.252-41.77 112.247-101.99 116.134-60.21 3.886-112.18-41.807-116.07-102.059-3.885-60.252 41.77-112.247 101.99-116.133 60.21-3.887 112.18 41.806 116.07 102.058z"
-            clipRule="evenodd"></path>
-          <path
-            fillRule="evenodd"
-            stroke="#000"
-            strokeOpacity="0.24"
-            d="M-56.233-34.453c4.856-75.219 69.729-132.262 144.898-127.409 75.17 4.852 132.171 69.762 127.316 144.98-4.856 75.218-69.729 132.261-144.898 127.409-75.17-4.852-132.17-69.762-127.316-144.98z"
-            clipRule="evenodd"></path>
-          <path
-            stroke="#000"
-            strokeOpacity="0.24"
-            d="M991.325 -77H1150.4940000000001V82.16900000000001H991.325z"
-            transform="rotate(20.34 991.325 -77)"></path>
-          <rect
-            width="244.949"
-            height="244.949"
-            stroke="#fff"
-            strokeOpacity="0.24"
-            rx="15"
-            transform="scale(-1 1) rotate(30 215.805 -518.215)"></rect>
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="absolute disable-pointer-events z-0 pointer-events-none"
-          style={{ left: "0", right: "0", bottom: "0" }}
-          fill="none"
-          viewBox="0 0 1160 463">
-          <path
-            stroke="#000"
-            strokeOpacity="0.24"
-            d="M203.506 325.479L51.127 608.876l-150.632-175.15 303.011-108.247z"></path>
-          <circle
-            cx="168.078"
-            cy="399.913"
-            r="31.187"
-            stroke="#fff"
-            strokeOpacity="0.24"
-            transform="rotate(-10.785 168.078 399.913)"></circle>
-          <circle
-            cx="1019.6"
-            cy="372.772"
-            r="51.81"
-            stroke="#000"
-            strokeOpacity="0.24"
-            transform="rotate(-24 1019.6 372.772)"></circle>
-          <path
-            stroke="#fff"
-            strokeOpacity="0.24"
-            d="M1239.01 281.575l-152.38 283.397L936 389.822l303.01-108.247z"></path>
-        </svg>
       </div>
     </div>
   );
@@ -230,117 +537,243 @@ function Discord() {
 
 function Developer() {
   return (
-    <div className="container mt-10 mb-10">
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-y-3 md:gap-3 p-[20px] md:p-[80px] bg-[#eaf2fd] items-center rounded-lg relative">
-        <div className="text-left md:text-center col-span-1">
-          <img
-            alt="EverShop - React ecommerce platform"
-            src="/img/logo.png"
-            height={92}
-            width={80}
-          />
+    <div className="developer container rounded-2xl bg-[#202328] border border-[#0F8769] px-16 py-[42px] mt-16">
+      <div>
+        <h4 className="text-white mb-2">
+          Engineered for developers, designed for efficiency!
+        </h4>
+        <div className="text-white max-w-2xl">
+          EverShop streamlines the tedious aspects of development, letting you
+          focus on building great products with ease.
         </div>
-        <div className="text-left col-span-3">
-          <h3 className="largest justify-center text-left ">
-            Made For Developers!
-          </h3>
-          <p>
-            {" "}
-            EverShop took care of all the boring, painful parts and offers best
-            developer experience.{" "}
-          </p>
-        </div>
-        <div className="grid grid-cols-1 gap-2 col-span-1">
-          <Link
-            className="button button--primary button--md"
-            to="https://discord.com/invite/GSzt7dt7RM">
-            Join the team
-          </Link>
-          <Link
-            className="button button--secondary button--md"
-            to="https://github.com/evershopcommerce/evershop">
-            Star us on Github
-          </Link>
+        <div className="flex justify-start gap-4 mt-8">
+          <div className="flex justify-items-start">
+            <Link
+              to="/docs/development/getting-started"
+              className="button--primary button--small">
+              Join the team
+            </Link>
+          </div>
+          <div className="flex justify-items-start">
+            <Link
+              to="/docs/development/getting-started"
+              className="button button--secondary button--small">
+              Star us on Github
+            </Link>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-function Sponsors() {
-  const sponsors = [
-    {
-      name: "Netlify",
-      url: "https://www.netlify.com/",
-      logo: "/img/sponsors/netlify.png",
-    },
-    {
-      name: "Algolia",
-      url: "https://www.algolia.com/",
-      logo: "/img/sponsors/algolia.png",
-    },
-  ];
-
+function TechLogo({ src, name }) {
   return (
-    <header className="hero--primary justify-center">
-      <h2 className="text-center largest">Sponsors</h2>
-      <br />
-      <div className="flex justify-center gap-2 sponsors">
-        {sponsors.map((sponsor) => (
-          <div
-            key={sponsor.name}
-            className="flex justify-center items-center sponsor">
-            <a
-              className="flex items-center"
-              href={sponsor.url}
-              target="_blank"
-              rel="noreferrer">
-              <img src={sponsor.logo} alt={sponsor.name} />
-            </a>
-          </div>
-        ))}
+    <div className="rounded-2xl bg-[#202328] tech-logo flex justify-center items-center p-[1px]">
+      <div className="tech-logo-inner p-6 pt-[9px] pb-[13px] flex justify-center items-center w-full h-full flex-col">
+        <span className="p-[11px]">
+          <img
+            src={src}
+            alt={name}
+            width={60}
+            height={60}
+            className="h-[60px]"
+          />
+        </span>
+        <div>
+          <span className="text-white">{name}</span>
+        </div>
       </div>
-      <br />
-      <br />
-      <div className="flex justify-center">
-        <Link className="button button--secondary button--sm" to="/support">
-          Become a sponsor
-        </Link>
-      </div>
-    </header>
+    </div>
   );
 }
 
 function TechStack() {
   return (
-    <section className="py-10 md:py-20">
+    <section className="py-10 md:py-20 bg-[#14181C]">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div className="flex justify-center items-center">
-            <img
-              src="/img/stack-bg.webp"
-              alt="Evershop tech stack"
-              width={878}
-              height={592}
-            />
-          </div>
-          <div>
-            <h1 className="text-center md:text-left largest font-bold">
-              Build with stack <br /> that you love!
-            </h1>
-            <div className="flex justify-center md:justify-start mt-10">
-              <img
-                width={686}
-                height={465}
-                style={{ maxWidth: "300px", height: "auto" }}
-                alt="EverShop Tech Stack"
-                src="/img/tech-stack.webp"
-              />
-            </div>
-          </div>
+        <BlockHead
+          label="Stacks"
+          heading={{
+            text: "Build faster with the tech you love!",
+            className: "text-white",
+          }}
+          subheading={{
+            text: "Supercharge your dev process with your favorite tech!",
+            className: "text-white",
+          }}
+        />
+        <div className="grid grid-cols-7 gap-[39px] mb-[69px]">
+          <TechLogo src="/img/react-logo.svg" name="ReactJS" />
+          <TechLogo src="/img/graphql-logo.svg" name="GraphQL" />
+          <TechLogo src="/img/nodejs-logo.svg" name="NodeJS" />
+          <TechLogo src="/img/tailwind-logo.svg" name="TailwindCSS" />
+          <TechLogo src="/img/expressjs-logo.svg" name="ExpressJS" />
+          <TechLogo src="/img/postgresql-logo.svg" name="PostgreSQL" />
+          <TechLogo src="/img/webpack-logo.svg" name="Webpack" />
         </div>
+        <CodeShow />
+        <ThemeAndExtensionDevelop />
+        <Developer />
       </div>
     </section>
+  );
+}
+
+function CodeShow() {
+  return (
+    <div className="grid grid-cols-2 gap-0 bg-[#202328] rounded-xl mb-8">
+      <div className="col-span-1 p-16">
+        <h4 className="text-white mb-3">Data fetching from React component</h4>
+        <div className="text-white text-lg mb-10">
+          Using Graphql query for loading data and pass to React component as
+          props with easy
+        </div>
+        <a
+          href="/docs/development/knowledge-base/data-fetching"
+          className="text-white hover:text-white">
+          Docs ->
+        </a>
+      </div>
+      <div className="col-span-1">
+        <img src="/img/code-show.png" alt="Code" />
+      </div>
+    </div>
+  );
+}
+
+function ThemeAndExtensionDevelop() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-1">
+      <div className="bg-[#202328] px-16 pt-[60px] rounded-xl">
+        <h4 className="text-white">
+          Master the art of theme customization for your online store
+        </h4>
+        <p className="text-white text-lg mb-6">
+          Effortlessly create a unique look for your store with EverShop’s theme
+          customization tools. From minimal to feature-rich designs, you’ll have
+          full control over your store’s appearance.
+        </p>
+        <a
+          href="/docs/development/theme"
+          className="text-white hover:text-white text-lg">
+          Explore theme customization ->
+        </a>
+      </div>
+      <div className="bg-[#202328] px-16 pt-[60px] rounded-xl">
+        <h4 className="text-white">
+          Build extensions to enhance and integrate your store
+        </h4>
+        <p className="text-white text-lg mb-6">
+          Develop custom extensions to meet your business needs. Seamlessly
+          integrate EverShop with existing systems or add functionality to
+          enhance the platform and align with your goals.
+        </p>
+        <a
+          href="/docs/development/theme"
+          className="text-white hover:text-white text-lg">
+          Learn about extension development ->
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function TestimonialCard({ name, jobTitle, content }) {
+  return name ? (
+    <div className="bg-[#F8F9FA] p-8 rounded-xl col-span-1">
+      <div className="text-[#687082] mb-5">&quot;{content}&quot;</div>
+      <div className="flex justify-start items-center">
+        <div>
+          <div className="text-[#101828] mb-1">{name}</div>
+          <div className="text-[#687082]">{jobTitle}</div>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div className="bg-[#F8F9FA] p-4 rounded-xl rounded-t-none col-span-1"></div>
+  );
+}
+
+function TestimonialColumn({ testimonials }) {
+  return (
+    <div className="grid gap-6">
+      {testimonials.map((testimonial, i) => (
+        <TestimonialCard {...testimonial} key={i} />
+      ))}
+    </div>
+  );
+}
+
+function Testimonials() {
+  const columnOne = [
+    {
+      name: "John Doe",
+      jobTitle: "CEO, Company",
+      content:
+        "Our eCommerce site’s performance has skyrocketed since we migrated to this platform. It’s incredibly responsive.",
+    },
+    {
+      name: "Jane Doe",
+      jobTitle: "CTO, Company",
+      content:
+        "EverShop has been a game-changer for our business. It’s incredibly easy to use and has helped us streamline our operations and improve customer satisfaction.",
+    },
+  ];
+
+  const columnTwo = [
+    {},
+    {
+      name: "John Doe",
+      jobTitle: "CEO, Company",
+      content:
+        "EverShop has been a game-changer for our business. It’s incredibly easy to use and has helped us streamline our operations and improve customer satisfaction.",
+    },
+    {
+      name: "Jane Doe",
+      jobTitle: "CTO, Company",
+      content:
+        "EverShop has been a game-changer for our business. It’s incredibly easy to use and has helped us streamline our operations and improve customer satisfaction.",
+    },
+  ];
+
+  const columnThree = [
+    {
+      name: "John Doe",
+      jobTitle: "CEO, Company",
+      content:
+        "EverShop has been a game-changer for our business. It’s incredibly easy to use and has helped us streamline our operations and improve customer satisfaction.",
+    },
+    {
+      name: "Jane Doe",
+      jobTitle: "CTO, Company",
+      content:
+        "EverShop has been a game-changer for our business. It’s incredibly easy to use and has helped us streamline our operations and improve customer satisfaction.",
+    },
+  ];
+
+  // Double quote html entities
+
+  return (
+    <div className="container pt-5 relative">
+      <BlockHead
+        label="Testimonials"
+        heading={{
+          className: "",
+          text: "Real results, real impact: testimonials from our clients",
+        }}
+        subheading={{
+          className: "max-w-[760px]",
+          text: "See how businesses have used our solution to streamline operations and improve customer satisfaction.",
+        }}
+      />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <TestimonialColumn testimonials={columnOne} />
+        <TestimonialColumn testimonials={columnTwo} />
+        <TestimonialColumn testimonials={columnThree} />
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-br from-yellow-500 via-orange-600 to-red-700 w-full min-h-48"></div>
+    </div>
   );
 }
 
@@ -352,11 +785,20 @@ export default function Home() {
       description="EverShop ecommerce platform provides the best developer experience and rich ecommerce features that help build online stores and start selling online.">
       <HomepageHeader />
       <main>
+        <Logos />
+        <Separator isFirst={true} />
+        <DynamicWidgets />
+        <Separator />
+        <CatalogManagement />
+        <Separator />
+        <CheckoutManagement />
+        <Separator />
+        <Integrations />
+        <Separator />
+        <ElevateYourStore />
         <HomepageWebDevFeatures />
         <TechStack />
-        <Developer />
-        <HomepageEcommerceFeatures />
-        <Sponsors />
+        <Testimonials />
         <Discord />
       </main>
     </Layout>
