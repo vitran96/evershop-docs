@@ -3,8 +3,7 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
-
- @import url('https://fonts.googleapis.com/css?family=Inter:400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inter:500,600&display=swap');
 
 /* You can override the default Infima variables here. */
 :root {
@@ -75,6 +74,7 @@
 }
 
 /* EVERSHOP CUSTOMIZATION */
+/* NAV BAR */
 #__docusaurus{
   .navbar__inner {
     max-width: 1216px;
@@ -82,13 +82,19 @@
   }
 }
 
-/* NAV BAR */
+html.docs-wrapper #__docusaurus{
+  .navbar__inner {
+    max-width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 0 auto;
+  }
+}
 nav.navbar {
   background-color: #fff;
   box-shadow: none;
   height: auto;
   border-bottom: 1px solid #F4F5F6;
-  
 }
 
 nav .navbar__logo {
@@ -115,6 +121,8 @@ div.navbar__item .mega__menu__dropdown{
   position: absolute;
   top: 100%;
   left: 0;
+  width: 780px;
+  padding-top: 24px;
 }
 
 div.navbar__item:hover .mega__menu__dropdown{
@@ -200,7 +208,7 @@ div.navbar__item:hover .mega__menu__dropdown{
 .hero--primary {
   padding-top: 3.6rem;
   padding-bottom: 0;
-  background: radial-gradient(50% 50% at 0% 100%, #645EE51F 0%, #ffffff00 100%), radial-gradient(50% 50% at 100% 50%, #28B3881F 0%, #ffffff00 100%);
+  background: radial-gradient(50% 50% at 0% 100%, #645EE51F 0%, #ffffff00 100%), radial-gradient(50% 50% at 100% 50%, #28B3881F 0%, #ffffff00 100%), rgba(78, 78, 78, 0.08);
 }
 .current-version {
   background-color: #292d3e;
@@ -237,10 +245,19 @@ box-shadow: 0px 0px 0px 1px rgba(17, 24, 28, 0.08), 0px 1px 2px -1px rgba(17, 24
 
 /* developer */
 .developer {
-  background: radial-gradient(circle at 21% 80%, rgb(99 216 163 / 30%), transparent 35%), url('/img/logo.svg');
+  background: radial-gradient(circle at 21% 80%, rgb(99 216 163 / 30%), transparent 35%);
   background-size: 47% 113%, 84% 71%;
   background-repeat: no-repeat;
   background-position: bottom left, top right;
+  img {
+    opacity: 0.1;
+    transition: all 0.3s;
+  }
+  &:hover {
+    img {
+      opacity: 0.8;
+    }
+  }
 }
 
 /* Discord */
@@ -358,7 +375,7 @@ body .button--secondary {
 }
 
 .card:hover {
-  box-shadow: rgb(0 0 0 / 15%) 0px 4px 12px -4px;
+  box-shadow: 0px 64px 64px -48px rgba(31, 47, 70, 0.12);
 }
 
 .pointer-events-none {
@@ -551,3 +568,23 @@ button.menu__caret {
   background: radial-gradient(circle at 21% 80%, rgb(99 216 163 / 30%), transparent 35%);
   background-blend-mode: hue;
 }
+
+
+.layer-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .layer {
+    border-radius: 8px;
+    will-change: transform, opacity, z-index;
+    position: absolute;
+    left:0;
+    right:0;
+    bottom: 0;
+    margin-left:auto;
+    margin-right:auto;
+    box-shadow: 0 -10px 20px -5px rgb(2 2 2 / 75%), 10px 0 20px -5px rgb(2 2 2 / 75%);
+    height: fit-content;
+  }
+}
+

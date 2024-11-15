@@ -3,12 +3,10 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import HomepageWebDevFeatures from "@site/src/components/HomepageWebDevFeatures";
-import CodeBlock from "@theme/CodeBlock";
 import Separator from "../components/Separator";
 import BorderBlock from "../components/BorderBlock";
 import Card from "../components/Card";
 import BlockHead from "../components/BlockHead";
-import SVGComponent from "../components/Svg";
 import StreamLineProductControl from "../components/Animations/StreamLineProductControl";
 import Category from "../components/Animations/Category";
 import Collection from "../components/Animations/Collection";
@@ -22,10 +20,9 @@ import OrderManagement from "../components/Animations/OrderManagement";
 import ContentBlocks from "../components/Animations/ContentBlocks";
 import ThemeExtension from "../components/Animations/ThemeExtension";
 import ThemeExtensionButtons from "../components/Animations/ThemeExtensionButtons";
+import DataFetching from "../components/Animations/Coding";
 
 function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
-  const Github = require("@site/static/img/github.svg").default;
   return (
     <header className="hero hero--primary text-center">
       <div className="container text-center">
@@ -208,7 +205,7 @@ function CatalogManagement() {
                 "radial-gradient(80% 50% at 100% 0%, #27b4874d 0%, #F8F9FAff 100%)"
               }>
               <div className="pl-12 pt-12 pb-12">
-                <div className="w-full flex justify-start pl-6 rounded-2xl categry-shadow">
+                <div className="w-full flex justify-start rounded-2xl shadow-lg">
                   <Category />
                 </div>
                 <div className="flex flex-col justify-center pt-12">
@@ -537,7 +534,7 @@ function Discord() {
 
 function Developer() {
   return (
-    <div className="developer container rounded-2xl bg-[#202328] border border-[#0F8769] px-16 py-[42px] mt-16">
+    <div className="developer overflow-hidden relative container rounded-2xl bg-[#202328] border border-[#0F8769] px-16 py-[42px] mt-16">
       <div>
         <h4 className="text-white mb-2">
           Engineered for developers, designed for efficiency!
@@ -549,20 +546,26 @@ function Developer() {
         <div className="flex justify-start gap-4 mt-8">
           <div className="flex justify-items-start">
             <Link
-              to="/docs/development/getting-started"
+              to="https://discord.com/invite/GSzt7dt7RM"
               className="button--primary button--small">
               Join the team
             </Link>
           </div>
           <div className="flex justify-items-start">
             <Link
-              to="/docs/development/getting-started"
+              to="https://github.com/evershopcommerce/evershop"
               className="button button--secondary button--small">
               Star us on Github
             </Link>
           </div>
         </div>
       </div>
+      <img
+        src="/img/logo.svg"
+        className="absolute right-0 top-[20%] filter grayscale "
+        width={230}
+        height={230}
+      />
     </div>
   );
 }
@@ -620,23 +623,67 @@ function TechStack() {
   );
 }
 
+const DataFetchingDes = () => (
+  <>
+    <h4 className="text-white mb-3">Data fetching from React component</h4>
+    <div className="text-white text-lg mb-10">
+      Using Graphql query for loading data and pass to React component as props
+      with easy
+    </div>
+    <a
+      href="/docs/development/knowledge-base/data-fetching"
+      className="text-white hover:text-white">
+      Docs ->
+    </a>
+  </>
+);
+
+const Middleware = () => (
+  <>
+    <h4 className="text-white mb-3">File based middleware</h4>
+    <div className="text-white text-lg mb-10">
+      Using Graphql query for loading data and pass to React component as props
+      with easy
+    </div>
+    <a
+      href="/docs/development/knowledge-base/middleware-system"
+      className="text-white hover:text-white">
+      Docs ->
+    </a>
+  </>
+);
+
+const DynamicLayout = () => (
+  <>
+    <h4 className="text-white mb-3">Dynamic layout</h4>
+    <div className="text-white text-lg mb-10">
+      Using Graphql query for loading data and pass to React component as props
+      with easy
+    </div>
+    <a
+      href="/docs/development/theme/templating"
+      className="text-white hover:text-white">
+      Docs ->
+    </a>
+  </>
+);
 function CodeShow() {
   return (
     <div className="grid grid-cols-2 gap-0 bg-[#202328] rounded-xl mb-8">
       <div className="col-span-1 p-16">
-        <h4 className="text-white mb-3">Data fetching from React component</h4>
-        <div className="text-white text-lg mb-10">
-          Using Graphql query for loading data and pass to React component as
-          props with easy
-        </div>
-        <a
-          href="/docs/development/knowledge-base/data-fetching"
-          className="text-white hover:text-white">
-          Docs ->
-        </a>
+        <FadeInOutSlides
+          slides={[
+            { content: DataFetchingDes },
+            { content: Middleware },
+            { content: DynamicLayout },
+          ]}
+          loop={true}
+          full={false}
+          interval={5000}
+        />
       </div>
-      <div className="col-span-1">
-        <img src="/img/code-show.png" alt="Code" />
+      <div className="col-span-1 pb-6">
+        <DataFetching />
       </div>
     </div>
   );
@@ -660,7 +707,7 @@ function ThemeAndExtensionDevelop() {
           Explore theme customization ->
         </a>
       </div>
-      <div className="bg-[#202328] px-16 pt-[60px] rounded-xl">
+      <div className="bg-[#202328] px-16 py-[60px] rounded-xl">
         <h4 className="text-white">
           Build extensions to enhance and integrate your store
         </h4>
@@ -755,7 +802,7 @@ function Testimonials() {
   // Double quote html entities
 
   return (
-    <div className="container pt-5 relative">
+    <div className="container pt-20 relative">
       <BlockHead
         label="Testimonials"
         heading={{

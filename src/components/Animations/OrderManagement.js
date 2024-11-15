@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useSpring, useTrail, animated } from "@react-spring/web";
+import { useTrail, animated } from "@react-spring/web";
 const One = () => (
   <React.Fragment>
     <g id="minus-square_2">

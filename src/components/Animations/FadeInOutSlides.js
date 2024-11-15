@@ -1,7 +1,12 @@
 import { useTransition, animated } from "@react-spring/web";
 import React, { useEffect, useState } from "react";
 
-function FadeInOutSlides({ slides, loop = false, full = false }) {
+function FadeInOutSlides({
+  slides,
+  loop = false,
+  full = false,
+  interval = 5000,
+}) {
   const [showSlide, setShowSlide] = useState(0);
 
   const transitions = useTransition(showSlide, {
@@ -18,10 +23,10 @@ function FadeInOutSlides({ slides, loop = false, full = false }) {
 
   useEffect(() => {
     if (loop) {
-      const interval = setInterval(() => {
+      const intervalVar = setInterval(() => {
         setShowSlide((prev) => (prev + 1) % slides.length);
-      }, 5000);
-      return () => clearInterval(interval);
+      }, interval);
+      return () => clearInterval(intervalVar);
     }
   }, [loop, slides.length]);
 
