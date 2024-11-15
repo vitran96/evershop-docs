@@ -100,7 +100,7 @@ const LayeredLoopAnimation = () => {
   }, []);
 
   return (
-    <div className="p-8 pb-0 overflow-hidden">
+    <div className="p-8 pb-[5px] overflow-hidden">
       <div className="layer-container">
         <div className="invisible pt-16 ">
           <One />

@@ -37,7 +37,7 @@ function FadeInOutSlides({
       {transitions((style, item) => {
         const SlideComponent = slides[item]["content"]; // Get the component to render
         return (
-          <animated.div style={style}>
+          <animated.div style={style} className={"fade__in__out__slide"}>
             <SlideComponent
               startSlide={() => {
                 setShowSlide((prev) => (prev + 1) % slides.length);

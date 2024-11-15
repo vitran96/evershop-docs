@@ -313,8 +313,6 @@ const OrderManagement = (props) => {
   return (
     <svg
       ref={svgRef}
-      width={336}
-      height={242}
       viewBox="0 0 336 242"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

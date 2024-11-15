@@ -209,6 +209,10 @@ div.navbar__item:hover .mega__menu__dropdown{
   padding-top: 3.6rem;
   padding-bottom: 0;
   background: radial-gradient(50% 50% at 0% 100%, #645EE51F 0%, #ffffff00 100%), radial-gradient(50% 50% at 100% 50%, #28B3881F 0%, #ffffff00 100%), rgba(78, 78, 78, 0.08);
+  .fade__in__out__slide {
+    display: flex;
+    align-items: end;
+  }
 }
 .current-version {
   background-color: #292d3e;
