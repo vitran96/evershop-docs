@@ -5,7 +5,7 @@ import CollectionTwo from "./CollectionTwo";
 
 const Collection = () => {
   return (
-    <div className="h-64 w-full rounded-l-2xl shadow-lg p-6 bg-white ">
+    <div className="h-64 w-full rounded-l-2xl p-6 bg-white ">
       <FadeInOutSlides
         slides={[{ content: CollectionTwo }, { content: CollectionOne }]}
         loop={true}

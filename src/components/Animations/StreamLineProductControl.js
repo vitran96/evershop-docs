@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
-import {
-  useSpring,
-  animated,
-  useSprings,
-  useTransition,
-} from "@react-spring/web";
+import { useSpring, animated, useSprings } from "@react-spring/web";
 import MovingBorder from "./MovingBorder";
 import FadeInOutSlides from "./FadeInOutSlides";
 

@@ -1,17 +1,11 @@
 import * as React from "react";
 import { useSpring, animated } from "@react-spring/web";
 
-const HeroBannerTwo = ({ startSlide }) => {
+const HeroBannerTwo = () => {
   const elementAnimation = useSpring({
-    from: { transform: "translateY(100%)" }, // Start from below the viewport
-    to: { transform: "translateY(0)" }, // Slide up after path animation
-    config: { duration: 1500 },
-    onRest: () => {
-      // Wait for 1 second and start next slide
-      setTimeout(() => {
-        startSlide();
-      }, 1500);
-    },
+    from: { opacity: 0, transform: "translateY(20px)" }, // Start from below the viewport
+    to: { opacity: 1, transform: "translateY(0)" }, // Slide up after path animation
+    config: { duration: 1000 },
   });
 
   return (

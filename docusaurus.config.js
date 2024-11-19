@@ -1,9 +1,6 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const { themes } = require("prism-react-renderer");
-const lightTheme = themes.palenight;
-const darkTheme = themes.dracula;
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "EverShop",
@@ -82,9 +79,9 @@ const config = {
 <path d="M9 0L17.6603 9H0.339746L9 0Z" fill="white"/>
 </svg></div>
                       <div class="bg-white rounded-2xl flex flex-col width-[780px]">
-        <div class="grid grid-cols-1 md:grid-cols-3 md:gap-10 p-6 ">
+        <div class="top--section grid grid-cols-1 md:grid-cols-3 p-6">
           <div>
-            <div class="flex gap-2 justify-start items-center border-b border-[#F4F5F6] pb-4">
+            <div class="header flex gap-2 justify-start items-center border-b pb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
@@ -123,7 +120,7 @@ const config = {
             </div>
           </div>
           <div>
-            <div class="flex gap-2 justify-start items-center border-b border-[#F4F5F6] pb-4">
+            <div class="header flex gap-2 justify-start items-center border-b pb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
@@ -157,7 +154,7 @@ const config = {
             </div>
           </div>
           <div>
-            <div class="flex gap-2 justify-start items-center border-b border-[#F4F5F6] pb-4">
+            <div class="header flex gap-2 justify-start items-center border-b pb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
@@ -199,7 +196,7 @@ const config = {
             </div>
           </div>
         </div>
-        <div class="bg-[#F8F9FA] p-6 rounded-b-2xl mt-5">
+        <div class="bg-[#F8F9FA] p-6 rounded-b-2xl">
           <div class="grid grid-cols-1 md:grid-cols-3 md:gap-10">
             <div class="flex gap-2 justify-start items-center ">
               <svg
@@ -325,6 +322,7 @@ const config = {
           alt: "Evershop",
           src: "img/logo.svg",
           href: "https://evershop.io",
+          className: "footer__logo",
         },
         links: [
           {
@@ -350,10 +348,9 @@ const config = {
         ],
         copyright: `© Copyright © ${new Date().getFullYear()} Evershop. Deploys by <a href="https://www.netlify.com" target="_blank" rel="nofollow">Netlify</a>`,
       },
-      prism: {
-        theme: lightTheme,
-        darkTheme: darkTheme,
-      },
+      // prism: {
+      //   theme: darkTheme,
+      // },
       metadata: [
         {
           name: "og:image",
@@ -398,7 +395,7 @@ const config = {
     <%~ it.headTags %>
     <link
     rel="preload"
-    href="https://fonts.googleapis.com/css?family=Inter:500,600&display=swap"
+    href="https://fonts.googleapis.com/css?family=Inter:400,500,600&display=swap"
     as="style"
     onload="this.onload=null;this.rel='stylesheet'"
 />

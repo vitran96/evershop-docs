@@ -35,6 +35,16 @@ const CheckoutExperience = (props) => {
     config: { duration: 2000 },
   });
 
+  const radius = 30; // Radius of the circle
+  const circumference = 2 * Math.PI * radius - 10; // Circumference of the circle
+
+  // Animation using React Spring
+  const { dashOffset } = useSpring({
+    from: { dashOffset: circumference },
+    to: { dashOffset: inView ? 0 : circumference }, // Animate from circumference to 0
+    config: { duration: 2000 }, // Adjust animation duration as needed
+  });
+
   return (
     <svg
       ref={svgRef}
@@ -149,10 +159,16 @@ const CheckoutExperience = (props) => {
             fill="#F4F5F6"
             d="M263 95c0 18.778-15.222 34-34 34s-34-15.222-34-34 15.222-34 34-34 34 15.222 34 34Zm-61.2 0c0 15.022 12.178 27.2 27.2 27.2 15.022 0 27.2-12.178 27.2-27.2 0-15.022-12.178-27.2-27.2-27.2-15.022 0-27.2 12.178-27.2 27.2Z"
           />
-          <path
-            fill="#67CE67"
-            d="M229 64.4c0-1.878 1.526-3.418 3.395-3.23a33.998 33.998 0 0 1 30.5 31.162 33.999 33.999 0 0 1-52.784 30.938 34.003 34.003 0 0 1-10.776-44.883 33.998 33.998 0 0 1 15.983-14.513c1.719-.755 3.646.238 4.226 2.024.58 1.785-.409 3.685-2.109 4.483a27.203 27.203 0 0 0-14.883 30.969 27.198 27.198 0 0 0 47.809 10.489 27.2 27.2 0 0 0-17.97-43.827C230.528 67.778 229 66.278 229 64.4Z"
-            clipPath="url(#revealClip)"
+          <animated.circle
+            cx="228.45"
+            cy="94.108"
+            r={radius}
+            stroke="#4caf50"
+            strokeWidth="7"
+            fill="transparent"
+            strokeLinecap="round"
+            strokeDasharray={circumference}
+            strokeDashoffset={dashOffset} // React Spring controls this value
           />
           <text
             xmlSpace="preserve"
@@ -252,15 +268,6 @@ const CheckoutExperience = (props) => {
             result="shape"
           />
         </filter>
-        <clipPath id="revealClip">
-          <animated.rect
-            x="0"
-            y="0"
-            width="100%"
-            height="100%"
-            style={{ transform: clipPathY.to((y) => `translateY(${y}%)`) }}
-          />
-        </clipPath>
       </defs>
     </svg>
   );

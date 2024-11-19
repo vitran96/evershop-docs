@@ -3,7 +3,7 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
-@import url('https://fonts.googleapis.com/css?family=Inter:500,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inter:400,500,600&display=swap');
 
 /* You can override the default Infima variables here. */
 :root {
@@ -74,6 +74,18 @@
 }
 
 /* EVERSHOP CUSTOMIZATION */
+body .DocSearch-Button-Key {
+  background: #fff;
+  width: 25px;
+  top: 0;
+  box-shadow: none;
+  height: 24px;
+  color: #101828;
+  font-weight: bold;
+  margin-right: 0;
+  margin-left: 5px;
+  border-radius: 6px;
+}
 /* NAV BAR */
 #__docusaurus{
   .navbar__inner {
@@ -123,6 +135,12 @@ div.navbar__item .mega__menu__dropdown{
   left: 0;
   width: 780px;
   padding-top: 24px;
+  .header {
+    border-color: #F4F5F6;
+  }
+  .top--section {
+    gap: 1.5rem;  
+  }
 }
 
 div.navbar__item:hover .mega__menu__dropdown{
@@ -230,13 +248,8 @@ background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(230,232,236,1) 50
 
 /* Dev Features Section */
 .dev-features-icon{
-border-radius: 100%;
-display: flex;
-max-width: fit-content;
-padding: 1.5px;
-background: var(--Neutrals-08, #FFF);
-/* d01 */
-box-shadow: 0px 0px 0px 1px rgba(17, 24, 28, 0.08), 0px 1px 2px -1px rgba(17, 24, 28, 0.08), 0px 2px 4px 0px rgba(17, 24, 28, 0.04);
+width: 84px;
+height: 84px;
 }
 
 /* Tech Stack */
@@ -250,6 +263,7 @@ box-shadow: 0px 0px 0px 1px rgba(17, 24, 28, 0.08), 0px 1px 2px -1px rgba(17, 24
 
 /* developer */
 .developer {
+  box-shadow: 0px -1px 8px -1px rgba(14, 135, 105, 0.20) inset, 0px -1px 8px -1px rgba(14, 135, 105, 0.20) inset;
   background: radial-gradient(circle at 21% 80%, rgb(99 216 163 / 30%), transparent 35%);
   background-size: 47% 113%, 84% 71%;
   background-repeat: no-repeat;
@@ -373,14 +387,18 @@ body .button--secondary {
   }
 }
 
-.card {
+.feature__card {
   background: white;
   color: #23222a;
   border-radius: 16px;
 }
 
-.card:hover {
+.feature__card:hover {
   box-shadow: 0px 64px 64px -48px rgba(31, 47, 70, 0.12);
+  .readmore {
+    gap: 1rem;
+    transition: 0.3s;
+  }
 }
 
 .pointer-events-none {
@@ -399,12 +417,15 @@ main[class*='docMainContainer'] .container {
 
 /* Footer */
 .footer {
-      .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-    }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  a:has(.footer__logo) {
+    opacity: 1 !important;
+  }
+}
 .footer__bottom {
   > div:first-child {
     display: none
@@ -419,11 +440,11 @@ main[class*='docMainContainer'] .container {
   color: var(--ifm-color-primary);
   margin-top: 0;
 }
-body .footerLogoLink_node_modules-\@docusaurus-theme-classic-lib-theme-Footer-Logo-styles-module {
-  opacity: 1;
-}
 
 .footer__links {
+  .footer__link-item {
+    color: var(--ifm-navbar-link-color)
+  }
   margin-bottom: 0;
   margin-left: 0 !important;
   .footer__title {
@@ -593,3 +614,58 @@ button.menu__caret {
   }
 }
 
+.dynamic-content {
+  margin-bottom: -100px;
+  max-width: 100%;
+  padding: 50px;
+  padding-bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  .setting{
+    grid-row-start: 4;
+    grid-row-end: 9;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    z-index: 1000;
+  }
+  .setting__shadow {
+    grid-row-start: 4;
+    grid-row-end: 8;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    border-radius: 16px;
+    background: rgba(217, 217, 217, 0.48);
+    background-blend-mode: multiply;
+    filter: blur(40px);
+  }
+  .builder {
+    grid-row-start: 1;
+    grid-row-end: 9;
+    grid-column-start: 4;
+    grid-column-end: 13;
+  }
+}
+.cursor-icon {
+  position: fixed;
+  pointer-events: none;
+  z-index: 50;
+  mix-blend-mode: difference;
+}
+
+.cursor-icon .click-animation {
+  animation: click-effect 0.4s ease-out;
+}
+
+@keyframes click-effect {
+  0% {
+    transform: scale(0);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}

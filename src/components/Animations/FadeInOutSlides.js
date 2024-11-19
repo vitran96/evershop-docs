@@ -5,7 +5,7 @@ function FadeInOutSlides({
   slides,
   loop = false,
   full = false,
-  interval = 5000,
+  interval = 500000,
 }) {
   const [showSlide, setShowSlide] = useState(0);
 
@@ -16,6 +16,7 @@ function FadeInOutSlides({
       gridRowStart: 1,
       gridColumnStart: 1,
     },
+    pause: loop,
     enter: { opacity: 1 },
     leave: { opacity: 0 },
     config: { duration: 500 },

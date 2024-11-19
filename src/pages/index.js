@@ -21,6 +21,7 @@ import ContentBlocks from "../components/Animations/ContentBlocks";
 import ThemeExtension from "../components/Animations/ThemeExtension";
 import ThemeExtensionButtons from "../components/Animations/ThemeExtensionButtons";
 import DataFetching from "../components/Animations/Coding";
+import Builder from "../components/Animations/BuilderSVG";
 
 function HomepageHeader() {
   return (
@@ -60,7 +61,7 @@ function HomepageHeader() {
         </div>
         <div className="flex items-center justify-center">
           <p className="text-xl text-center text-slate-500 mb-10">
-            <p className="mb-0 max-w-3xl">
+            <p className="mb-0 max-w-3xl font-normal">
               Open-source, built on NodeJS, and designed for flexibility. Easily
               scale, customize, and manage your online store with powerful
               commerce features
@@ -79,11 +80,28 @@ function HomepageHeader() {
             <Link
               className="button button--primary rounded-xl button--large"
               to="/docs/development/getting-started/introduction">
-              <span>Get started</span> <span className="pl-2">-></span>
+              <span className="flex items-center">
+                <span>Get started</span>{" "}
+                <span className="pl-2 flex justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="23"
+                    height="22"
+                    viewBox="0 0 23 22"
+                    fill="none">
+                    <path
+                      d="M4.16699 11H18.8337M18.8337 11L13.3337 5.5M18.8337 11L13.3337 16.5"
+                      stroke="white"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </span>
             </Link>
           </div>
         </div>
-
         <div className="flex flex-col md:flex-row md:space-y-0 justify-center mt-16 min-w-[90%]">
           <div className="flex justify-center hero-image w-full">
             <FadeInOutSlides
@@ -99,6 +117,7 @@ function HomepageHeader() {
               ]}
               loop={false}
               full={true}
+              interval={100000}
             />
           </div>
         </div>
@@ -142,7 +161,7 @@ function DynamicWidgets() {
             backgroundColor={
               "radial-gradient(73% 56% at 96% 69%, #27b4874d 0%, #ffffff00 100%), radial-gradient(50% 50% at 0% 100%, #645EE51F 0%, #F8F9FAff 100%)"
             }>
-            <ContentBlocks />
+            <Builder />
           </Card>
         </BorderBlock>
       </div>
@@ -205,7 +224,7 @@ function CatalogManagement() {
                 "radial-gradient(80% 50% at 100% 0%, #27b4874d 0%, #F8F9FAff 100%)"
               }>
               <div className="pl-12 pt-12 pb-12">
-                <div className="w-full flex justify-start rounded-2xl shadow-lg">
+                <div className="w-full flex justify-start rounded-2xl">
                   <Category />
                 </div>
                 <div className="flex flex-col justify-center pt-12">
@@ -717,7 +736,7 @@ function ThemeAndExtensionDevelop() {
           enhance the platform and align with your goals.
         </p>
         <a
-          href="/docs/development/theme"
+          href="/docs/development/module/module-overview"
           className="text-white hover:text-white text-lg">
           Learn about extension development ->
         </a>

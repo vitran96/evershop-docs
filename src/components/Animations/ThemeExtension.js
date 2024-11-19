@@ -18,14 +18,19 @@ const ThemeExtension = (props) => {
     strokeDashoffset: 0,
     from: { strokeDashoffset: pathLength },
     config: { duration: 2000 },
-    loop: { reverse: true, delay: 1000 },
+    onStart: () => startFill({ fillOpacity: 0, fill: "#fff" }),
+    loop: true,
+    delay: 2000, // Starts after the fill animation
+    onRest: () => startFill({ fillOpacity: 1, fill: "#008060" }),
   });
 
-  const fillAnimation = useSpring({
-    fillOpacity: 1,
-    from: { fillOpacity: 0 },
-    config: { duration: 1000 },
-    delay: 2000, // Starts after the stroke animation
+  const [fillAnimation, startFill] = useSpring(() => {
+    return {
+      fillOpacity: 1,
+      from: { fillOpacity: 0, fill: "#008060" },
+      config: { duration: 1000 },
+      delay: 2000, // Starts after the stroke animation
+    };
   });
 
   return (
@@ -246,7 +251,6 @@ const ThemeExtension = (props) => {
         />
         <animated.path
           ref={pathRef}
-          fill="#E5FFF9"
           stroke="#008060"
           strokeWidth={1.3}
           style={{

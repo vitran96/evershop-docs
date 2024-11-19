@@ -2,9 +2,11 @@ import * as React from "react";
 import { useSpring, animated } from "@react-spring/web";
 
 const HeroBannerOne = ({ startSlide }) => {
+  const timeoutRef = React.useRef();
   const svgRef = React.useRef();
   const [inView, setInView] = React.useState(false);
   const [pathComplete, setPathComplete] = React.useState(false);
+  const [clipComplete, setClipComplete] = React.useState(false);
   // Set up Intersection Observer to trigger when SVG is in view
   React.useEffect(() => {
     const observer = new IntersectionObserver(
@@ -19,22 +21,40 @@ const HeroBannerOne = ({ startSlide }) => {
 
   // React Spring animation for the path
   const clipPathAnimation = useSpring({
-    from: { clipPath: "inset(100% 0 0 0)" }, // Fully hidden (clip starts at 100%)
-    to: { clipPath: inView ? "inset(0% 0 0 0)" : "inset(100% 0 0 0)" }, // Reveal from bottom to top
+    from: { opacity: 0 }, // Fully hidden (clip starts at 100%)
+    to: { opacity: pathComplete ? 0.6 : 0 }, // Reveal from bottom to top
     config: { duration: 800 },
-    onRest: () => setPathComplete(true),
+    onRest: () => setClipComplete(true),
   });
 
   const elementAnimation = useSpring({
-    from: { transform: "translateY(100%)" }, // Start from below the viewport
-    to: { transform: pathComplete ? "translateY(0)" : "translateY(100%)" }, // Slide up after path animation
-    config: { duration: 1500 },
+    from: { transform: "translateY(100%)", opacity: 0 }, // Start from below the viewport
+    to: {
+      opacity: clipComplete ? 1 : 0,
+      transform: clipComplete ? "translateY(0)" : "translateY(20px)",
+    }, // Slide up after path animation
+    config: { duration: 500 },
     onRest: () => {
       // Wait for 1 second and then start the slide
-      setTimeout(() => {
+      const timeout = setTimeout(() => {
+        console.log("startSlide");
         startSlide();
-      }, 1500);
+      }, 5000);
+      timeoutRef.current = timeout;
     },
+    onResume: () => {
+      // Clear the timeout when the component is unmounted
+      clearTimeout(timeoutRef.current);
+    },
+  });
+
+  const pathLength = 800;
+  // Create a spring for the stroke-dashoffset
+  const styles = useSpring({
+    from: { strokeDashoffset: pathLength },
+    to: { strokeDashoffset: 0 },
+    config: { duration: 2000 }, // Animation duration
+    onRest: () => setPathComplete(true),
   });
 
   return (
@@ -44,7 +64,7 @@ const HeroBannerOne = ({ startSlide }) => {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       fill="none"
       viewBox="0 0 1104 640">
-      <g clipPath="url(#a)">
+      <g clipPath="url(#clip0_4846_2555)">
         <path
           fill="#F7F7F7"
           d="M0 20C0 8.954 8.954 0 20 0h1064c11.05 0 20 8.954 20 20v620H0V20Z"
@@ -62,7 +82,7 @@ const HeroBannerOne = ({ startSlide }) => {
           </tspan>
         </text>
         <path fill="#fff" d="M0 50h192v590H0z" />
-        <g filter="url(#b)">
+        <g filter="url(#filter0_ii_4846_2555)">
           <rect width={160} height={44} x={16} y={70} fill="#F7F7F7" rx={8} />
           <path
             fill="#008060"
@@ -139,7 +159,7 @@ const HeroBannerOne = ({ startSlide }) => {
         />
         <path
           fill="#687082"
-          d="M35.5 248.833c0-.46.373-.833.833-.833h3.334a.833.833 0 1 1 0 1.667h-3.334a.833.833 0 0 1-.833-.834Z"
+          d="M35.5 248.833c0-.46.373-.833.833-.833h3.334a.833.833 0 0 1 0 1.667h-3.334a.833.833 0 0 1-.833-.834Z"
         />
         <path
           fill="#687082"
@@ -283,14 +303,18 @@ const HeroBannerOne = ({ startSlide }) => {
             {"Widget"}
           </tspan>
         </text>
-        <g filter="url(#c)">
-          <mask id="d" fill="#fff">
+        <g filter="url(#filter1_i_4846_2555)">
+          <mask id="path-43-inside-1_4846_2555" fill="#fff">
             <path d="M0 0h1104v50H0V0Z" />
           </mask>
           <path fill="#fff" d="M0 0h1104v50H0V0Z" />
-          <path fill="#F4F4F4" d="M1104 49H0v2h1104v-2Z" mask="url(#d)" />
+          <path
+            fill="#F4F4F4"
+            d="M1104 49H0v2h1104v-2Z"
+            mask="url(#path-43-inside-1_4846_2555)"
+          />
           <mask
-            id="f"
+            id="mask0_4846_2555"
             width={27}
             height={30}
             x={20}
@@ -298,12 +322,12 @@ const HeroBannerOne = ({ startSlide }) => {
             maskUnits="userSpaceOnUse"
             style={{ maskType: "alpha" }}>
             <path
-              fill="url(#e)"
+              fill="url(#pattern0_4846_2555)"
               d="M0 0h26.136v30H0z"
               transform="translate(20 10)"
             />
           </mask>
-          <g mask="url(#f)">
+          <g mask="url(#mask0_4846_2555)">
             <path fill="#008060" d="M6.141-3.859h83.152v77.446H6.141z" />
           </g>
           <text
@@ -337,7 +361,7 @@ const HeroBannerOne = ({ startSlide }) => {
               {"Search"}
             </tspan>
           </text>
-          <g clipPath="url(#g)">
+          <g clipPath="url(#clip1_4846_2555)">
             <rect
               width={34}
               height={34}
@@ -346,14 +370,14 @@ const HeroBannerOne = ({ startSlide }) => {
               fill="#E6E8EC"
               rx={17}
             />
-            <path fill="url(#h)" d="M1046 8h34v34h-34z" />
+            <path fill="url(#pattern1_4846_2555)" d="M1046 8h34v34h-34z" />
           </g>
         </g>
         <rect width={192} height={1} y={595} fill="#F4F4F4" rx={0.5} />
         <path
           fill="#687082"
           fillRule="evenodd"
-          d="M44.625 613.909a2.49 2.49 0 0 0-.732-1.801 2.49 2.49 0 0 0-1.801-.732 2.48 2.48 0 0 0-1.395.447.153.153 0 0 1-.145.016.152.152 0 0 1-.09-.114 2.486 2.486 0 0 0-.67-1.302 2.495 2.495 0 0 0-1.792-.756 2.49 2.49 0 0 0-1.79.756c-.001 0 0 0 0 0a2.502 2.502 0 0 0-.67 1.302.152.152 0 0 1-.092.114.153.153 0 0 1-.145-.016 2.476 2.476 0 0 0-1.394-.447s.001 0 0 0a2.491 2.491 0 0 0-1.801.732 2.5 2.5 0 0 0-.285 3.195c.03.043.036.097.017.145a.152.152 0 0 1-.115.091 2.505 2.505 0 0 0-1.302.669 2.495 2.495 0 0 0-.756 1.792 2.493 2.493 0 0 0 .756 1.791 2.497 2.497 0 0 0 1.302.67.152.152 0 0 1 .114.091.152.152 0 0 1-.016.145 2.5 2.5 0 0 0-.447 1.394s0-.001 0 0a2.498 2.498 0 0 0 2.533 2.534 2.495 2.495 0 0 0 1.395-.448.153.153 0 0 1 .144-.016c.048.02.082.063.091.114a2.502 2.502 0 0 0 .67 1.302 2.494 2.494 0 0 0 1.791.756 2.49 2.49 0 0 0 1.792-.756c0 .001 0 0 0 0a2.495 2.495 0 0 0 .67-1.302.152.152 0 0 1 .09-.114.153.153 0 0 1 .145.016 2.492 2.492 0 0 0 1.394.448 2.5 2.5 0 0 0 2.534-2.534s0 .001 0 0a2.505 2.505 0 0 0-.447-1.394.152.152 0 0 1-.017-.145.152.152 0 0 1 .114-.091 2.493 2.493 0 0 0 1.302-.669c.467-.454.757-1.09.757-1.792s-.29-1.337-.756-1.791a2.51 2.51 0 0 0-1.303-.67.152.152 0 0 1-.114-.091.152.152 0 0 1 .017-.145 2.501 2.501 0 0 0 .447-1.394Zm-1.91-.623a.834.834 0 0 0-1.064-.096 1.82 1.82 0 0 1-2.83-1.172.835.835 0 0 0-1.641 0 1.82 1.82 0 0 1-2.83 1.172.834.834 0 0 0-1.16 1.16 1.819 1.819 0 0 1-1.172 2.83.834.834 0 0 0 0 1.64 1.817 1.817 0 0 1 1.172 2.83.834.834 0 0 0 1.16 1.16 1.823 1.823 0 0 1 1.737-.189c.59.245.988.771 1.093 1.362a.834.834 0 0 0 1.64 0 1.82 1.82 0 0 1 2.83-1.173.834.834 0 0 0 1.16-1.16 1.817 1.817 0 0 1 1.173-2.83.834.834 0 0 0 0-1.64 1.819 1.819 0 0 1-1.172-2.83.834.834 0 0 0-.097-1.064Z"
+          d="M44.625 613.909a2.49 2.49 0 0 0-.732-1.801 2.49 2.49 0 0 0-1.801-.732 2.48 2.48 0 0 0-1.395.447.153.153 0 0 1-.145.016.152.152 0 0 1-.09-.114 2.486 2.486 0 0 0-.67-1.302 2.495 2.495 0 0 0-1.792-.756 2.49 2.49 0 0 0-1.79.756c-.001 0 0 0 0 0a2.502 2.502 0 0 0-.67 1.302.152.152 0 0 1-.092.114.153.153 0 0 1-.145-.016 2.476 2.476 0 0 0-1.394-.447s.001 0 0 0a2.491 2.491 0 0 0-1.801.732 2.5 2.5 0 0 0-.285 3.195c.03.043.036.097.017.145a.152.152 0 0 1-.115.091 2.505 2.505 0 0 0-1.302.669 2.495 2.495 0 0 0-.756 1.792c0 .702.29 1.337.756 1.791 0 .001 0 0 0 0a2.497 2.497 0 0 0 1.302.67.152.152 0 0 1 .114.091.152.152 0 0 1-.016.145 2.5 2.5 0 0 0-.447 1.394s0-.001 0 0a2.498 2.498 0 0 0 2.533 2.534 2.495 2.495 0 0 0 1.395-.448.153.153 0 0 1 .144-.016c.048.02.082.063.091.114a2.502 2.502 0 0 0 .67 1.302 2.494 2.494 0 0 0 1.791.756 2.49 2.49 0 0 0 1.792-.756s0 .001 0 0a2.495 2.495 0 0 0 .67-1.302.152.152 0 0 1 .09-.114.153.153 0 0 1 .145.016 2.492 2.492 0 0 0 1.394.448 2.5 2.5 0 0 0 2.534-2.534s0 .001 0 0a2.505 2.505 0 0 0-.447-1.394.152.152 0 0 1-.017-.145.152.152 0 0 1 .114-.091 2.493 2.493 0 0 0 1.302-.669c.467-.454.757-1.09.757-1.792s-.29-1.337-.756-1.791a2.51 2.51 0 0 0-1.303-.67.152.152 0 0 1-.114-.091.152.152 0 0 1 .017-.145 2.501 2.501 0 0 0 .447-1.394Zm-1.91-.623a.834.834 0 0 0-1.064-.096 1.82 1.82 0 0 1-2.83-1.172.835.835 0 0 0-1.641 0 1.82 1.82 0 0 1-2.83 1.172.834.834 0 0 0-1.16 1.16 1.819 1.819 0 0 1-1.172 2.83.834.834 0 0 0 0 1.64 1.817 1.817 0 0 1 1.172 2.83.834.834 0 0 0 1.16 1.16 1.823 1.823 0 0 1 1.737-.189c.59.245.988.771 1.093 1.362a.834.834 0 0 0 1.64 0 1.82 1.82 0 0 1 2.83-1.173.834.834 0 0 0 1.16-1.16 1.817 1.817 0 0 1 1.173-2.83.834.834 0 0 0 0-1.64 1.819 1.819 0 0 1-1.172-2.83.834.834 0 0 0-.097-1.064Z"
           clipRule="evenodd"
         />
         <path
@@ -375,7 +399,7 @@ const HeroBannerOne = ({ startSlide }) => {
           </tspan>
         </text>
         <rect width={630} height={370} x={216} y={122} fill="#fff" rx={8} />
-        <g clipPath="url(#i)">
+        <g clipPath="url(#clip2_4846_2555)">
           <text
             xmlSpace="preserve"
             fill="#101828"
@@ -454,108 +478,134 @@ const HeroBannerOne = ({ startSlide }) => {
               {"Current week"}
             </tspan>
           </text>
-          <g clipPath="url(#j)">
+          <g clipPath="url(#clip3_4846_2555)">
             <path
               stroke="#E6E8EC"
               strokeLinecap="square"
-              d="M236.003 441h751m-717.308 0-.39-298m416.39 298-.39-298m-345.61 298-.39-298m415.39 298-.39-298m-345.61 298-.39-298m415.39 298-.39-298m-345.61 298-.39-298m69.382 298-.374-298m69.382 298-.39-298"
+              d="M236.003 441H826m-563.528 0-.307-298m327.122 298-.306-298M317.464 441l-.306-298m326.337 298-.306-298M371.672 441l-.306-298m326.336 298-.306-298M425.879 441l-.306-298m54.508 298-.294-298m54.507 298-.306-298"
               opacity={0.6}
             />
             <g
               fill="#222630"
-              clipPath="url(#k)"
+              clipPath="url(#clip4_4846_2555)"
               fontFamily="Inter"
-              fontSize={13}
-              fontWeight={500}
               letterSpacing={0}>
-              <text xmlSpace="preserve" style={{ whiteSpace: "pre" }}>
-                <tspan x={258.328} y={464.727}>
-                  {"Jan"}
-                </tspan>
-              </text>
-              <text xmlSpace="preserve" style={{ whiteSpace: "pre" }}>
-                <tspan x={328.068} y={464.727}>
+              <text
+                xmlSpace="preserve"
+                fontSize={13}
+                fontWeight={500}
+                style={{ whiteSpace: "pre" }}>
+                <tspan x={246.068} y={464.727}>
                   {"Feb"}
                 </tspan>
               </text>
-              <text xmlSpace="preserve" style={{ whiteSpace: "pre" }}>
-                <tspan x={397.471} y={464.727}>
+              <text
+                xmlSpace="preserve"
+                fontSize={13}
+                fontWeight={500}
+                style={{ whiteSpace: "pre" }}>
+                <tspan x={315.471} y={464.727}>
                   {"Mar"}
                 </tspan>
               </text>
-              <text xmlSpace="preserve" style={{ whiteSpace: "pre" }}>
-                <tspan x={467.442} y={464.727}>
+              <text
+                xmlSpace="preserve"
+                fontSize={13}
+                fontWeight={500}
+                style={{ whiteSpace: "pre" }}>
+                <tspan x={385.442} y={464.727}>
                   {"Apr"}
                 </tspan>
               </text>
-              <text xmlSpace="preserve" style={{ whiteSpace: "pre" }}>
-                <tspan x={533.163} y={464.727}>
+              <text
+                xmlSpace="preserve"
+                fontSize={13}
+                fontWeight={500}
+                style={{ whiteSpace: "pre" }}>
+                <tspan x={451.163} y={464.727}>
                   {"Jun"}
                 </tspan>
               </text>
-              <text xmlSpace="preserve" style={{ whiteSpace: "pre" }}>
-                <tspan x={605.429} y={464.727}>
+              <text
+                xmlSpace="preserve"
+                fontSize={13}
+                fontWeight={500}
+                style={{ whiteSpace: "pre" }}>
+                <tspan x={523.429} y={464.727}>
                   {"Jul"}
                 </tspan>
               </text>
-              <text xmlSpace="preserve" style={{ whiteSpace: "pre" }}>
-                <tspan x={672.071} y={464.727}>
+              <text
+                xmlSpace="preserve"
+                fontSize={13}
+                fontWeight={500}
+                style={{ whiteSpace: "pre" }}>
+                <tspan x={590.071} y={464.727}>
                   {"Aug"}
                 </tspan>
               </text>
-              <text xmlSpace="preserve" style={{ whiteSpace: "pre" }}>
-                <tspan x={742.49} y={464.727}>
+              <text
+                xmlSpace="preserve"
+                fontSize={13}
+                fontWeight={500}
+                style={{ whiteSpace: "pre" }}>
+                <tspan x={660.49} y={464.727}>
                   {"Sep"}
                 </tspan>
               </text>
-              <text xmlSpace="preserve" style={{ whiteSpace: "pre" }}>
-                <tspan x={811.398} y={464.727}>
+              <text
+                xmlSpace="preserve"
+                fontSize={13}
+                fontWeight={500}
+                style={{ whiteSpace: "pre" }}>
+                <tspan x={729.398} y={464.727}>
                   {"Oct"}
+                </tspan>
+              </text>
+              <text
+                xmlSpace="preserve"
+                fontSize={14}
+                style={{ whiteSpace: "pre" }}>
+                <tspan x={795.771} y={467.591}>
+                  {"Nov"}
                 </tspan>
               </text>
             </g>
             <animated.path
-              fill="url(#l)"
-              d="M1167.77 331.614s-38.81 30.174-59.51 18.004c-20.69-12.17-26.99-51.002-83.62-51.002-56.627 0-133.833 76.541-178.129 76.541-44.296 0-90.387-73.581-156.396-37.036-66.008 36.546-53.704 60.136-106.121 60.136-52.417 0-98.046-144.954-157.482-144.254-44.317 0-61.328 137.616-76.104 158.966-14.775 21.35-56.062-37.812-129.017-37.812-64.394 0-125.46-113.903-187.983-113.903-62.522 0-87.92 120.792-143.388 120.792s-54.648-43.925-98.718-43.925c-.313 75.565 0 151.177 0 151.177H1167.77V331.614Z"
-              opacity={0.15}
+              fill="url(#paint0_linear_4846_2555)"
+              d="M236 391.752s34.5 14.908 45 17.602c24.5 6.288 45.997-20.169 65.5-40.854 16.5-17.5 16.149-17.027 28-28 13.5-12.5 24.5 0 40.5 23.854 18.163 27.079 34.251 21.132 51 7 16-13.5 56.06-78.494 81.5-78 18.969 0 27.33 26.831 40 41.5 12.092 14 28.454 49.423 56.017 49.423 27.562 0 71.983-29.637 92.983-45.923 24.5-19 36-32.854 58-46.354 20-10 27-2.5 31.432 1.354.153 33.602 0 148 0 148H236v-49.602Z"
+              opacity={0}
               style={clipPathAnimation}
             />
             <animated.path
-              stroke="#3E7EFF"
+              stroke="#008060"
               strokeWidth={2}
-              style={clipPathAnimation}
-              d="M1167.77 331.461s-38.81 30.114-59.51 17.968c-20.7-12.146-27-50.901-83.64-50.901-56.63 0-133.844 76.39-178.146 76.39-44.301 0-90.397-73.436-156.413-36.962-66.016 36.473-53.71 60.017-106.133 60.017-52.423 0-98.058-144.668-157.5-143.97-44.322 0-61.335 137.344-76.112 158.652-14.778 21.308-56.069-37.737-129.033-37.737-64.401 0-125.474-113.679-188.003-113.679-62.53 0-87.931 120.554-143.405 120.554-55.474 0-54.654-43.837-98.73-43.837"
+              strokeLinecap="round"
+              strokeDasharray={pathLength} // Total path length
+              style={styles} // Animated styles
+              d="M236 391.752s34.5 14.908 45 17.602c24.5 6.288 45.997-20.169 65.5-40.854 16.5-17.5 16.149-17.027 28-28 13.5-12.5 24.5 0 40.5 23.854 18.163 27.079 34.251 21.132 51 7 16-13.5 56.06-78.494 81.5-78 18.969 0 27.33 26.83 40 41.5 12.092 14 28.454 49.423 56.017 49.423 27.562 0 71.983-29.637 92.983-45.923 24.5-19 36-32.854 58-46.354 20-10 27-2.5 31.432 1.354"
+              opacity={0.2}
             />
-            <mask
-              id="m"
-              width={752}
-              height={309}
-              x={236}
-              y={133}
-              maskUnits="userSpaceOnUse"
-              style={{ maskType: "luminance" }}>
-              <path fill="#fff" d="M236 133.5h752v308H236v-308Z" />
-            </mask>
-            <g mask="url(#m)" style={clipPathAnimation}>
-              <animated.path
-                id="animatedClipPathOne"
-                fill="url(#n)"
-                d="M-243 361.663s33.458.566 54.149-9.65c20.691-10.217 98.59-70.615 155.2-70.615 56.608 0 81.143 48.644 125.426 48.644 44.282 0 77.737 37.779 143.725 68.458 35.5-12 54 0 106.871 3.994 52.402 0 79.038-167.079 138.455-166.492 44.304 0 85.086 98.088 99.857 116.011 14.771 17.922 63.723 59.691 128.097 59.691 64.373 0 121.505-124.219 184.008-124.219 62.503 0 87.894 101.4 143.342 101.4 55.45 0 54.63-36.872 98.69-36.872.36 39.912 0 127.487 0 127.487H-243V361.663Z"
-                opacity={0.2}
-                style={clipPathAnimation}
-              />
-              <animated.path
-                id="animatedClipPathTwo"
-                stroke="#01A27B"
-                strokeWidth={2}
-                style={clipPathAnimation}
-                d="M-243 360.16s33.462.563 54.156-9.612c20.693-10.175 98.603-70.331 155.22-70.331 56.616 0 81.154 48.449 125.442 48.449 44.289 0 63.185 41.605 129.182 72.161 60-13.554 69.04 0 121.448 0 52.408 0 79.047-166.41 138.473-165.825 44.309 0 85.096 97.695 99.869 115.546C595.563 368.399 644.521 410 708.903 410c64.383 0 121.522-123.721 184.033-123.721 62.511 0 87.905 100.994 143.364 100.994 55.46 0 54.64-36.725 98.7-36.725"
-              />
-            </g>
-            <ellipse cx={547.06} cy={293} fill="#fff" rx={9.06} ry={9} />
-            <ellipse cx={547.06} cy={293} fill="#01A27B" rx={5.033} ry={5} />
+            <animated.ellipse
+              cx={547.06}
+              cy={293}
+              fill="#fff"
+              rx={9.06}
+              ry={9}
+              style={elementAnimation}
+            />
+            <animated.ellipse
+              cx={547.06}
+              cy={293}
+              fill="#01A27B"
+              rx={5.033}
+              ry={5}
+              style={elementAnimation}
+            />
           </g>
-          <animated.g filter="url(#o)" style={elementAnimation}>
+          <animated.g
+            filter="url(#filter2_d_4846_2555)"
+            style={elementAnimation}>
             <rect
               width={274.924}
               height={107}
@@ -616,16 +666,19 @@ const HeroBannerOne = ({ startSlide }) => {
               d="M779.367 228.795a4.02 4.02 0 1 0-8.04 0 4.02 4.02 0 0 0 8.04 0Z"
             />
             <mask
-              id="q"
+              id="mask1_4846_2555"
               width={103}
               height={52}
               x={707}
               y={217}
               maskUnits="userSpaceOnUse"
               style={{ maskType: "alpha" }}>
-              <path fill="url(#p)" d="M707 217.538h102.924V269H707v-51.462Z" />
+              <path
+                fill="url(#paint1_linear_4846_2555)"
+                d="M707 217.538h102.924V269H707v-51.462Z"
+              />
             </mask>
-            <g mask="url(#q)">
+            <g mask="url(#mask1_4846_2555)">
               <path
                 fill="#ECFDF3"
                 d="M710.704 262.789 707 269h102.924v-51.462l-1.462 8.872h-1.949l-1.755 4.437c-.156 0-1.17 1.775-1.657 2.662l-4.191 2.661-2.436 3.55-3.899-3.55-2.047-2.661-2.924 6.211h-3.021l-2.535-6.211-3.118-2.662c-.156 0-1.43-1.774-2.047-2.662h-1.559l-3.704 2.662-3.216 2.662-1.463 6.211-4.386 2.662-2.241 2.662-2.534 4.436-2.437 5.823h-1.072l-2.924.554-2.827-6.377-2.436-4.436h-1.462l-2.535-2.662-3.605 2.662h-3.412l-3.411 4.436-3.412 5.324-2.533 5.324-2.729 2.661-3.704-2.661-2.925 2.661-2.923 2.662-2.729-2.662Z"
@@ -651,7 +704,7 @@ const HeroBannerOne = ({ startSlide }) => {
             />
           </animated.g>
         </g>
-        <rect width={630} height={485} x={216} y={500} fill="#fff" rx={8} />
+        <rect width={630} height={204} x={216} y={500} fill="#fff" rx={8} />
         <text
           xmlSpace="preserve"
           fill="#101828"
@@ -676,7 +729,14 @@ const HeroBannerOne = ({ startSlide }) => {
             {"All Product"}
           </tspan>
         </text>
-        <rect width={60} height={60} x={236} y={558} fill="url(#r)" rx={12} />
+        <rect
+          width={60}
+          height={60}
+          x={236}
+          y={558}
+          fill="url(#pattern2_4846_2555)"
+          rx={12}
+        />
         <text
           xmlSpace="preserve"
           fill="#101828"
@@ -713,7 +773,14 @@ const HeroBannerOne = ({ startSlide }) => {
             {"28192 sold"}
           </tspan>
         </text>
-        <rect width={60} height={60} x={236} y={630} fill="url(#s)" rx={12} />
+        <rect
+          width={60}
+          height={60}
+          x={236}
+          y={630}
+          fill="url(#pattern3_4846_2555)"
+          rx={12}
+        />
         <rect width={226} height={304} x={854} y={122} fill="#fff" rx={8} />
         <ellipse
           cx={965.861}
@@ -722,6 +789,22 @@ const HeroBannerOne = ({ startSlide }) => {
           rx={68.841}
           ry={68.758}
         />
+        <mask
+          id="mask2_4846_2555"
+          width={138}
+          height={138}
+          x={897}
+          y={154}
+          maskUnits="userSpaceOnUse"
+          style={{ maskType: "luminance" }}>
+          <ellipse
+            cx={965.861}
+            cy={222.758}
+            fill="#fff"
+            rx={68.841}
+            ry={68.758}
+          />
+        </mask>
         <path
           fill="#3E7EFF"
           fillRule="evenodd"
@@ -873,84 +956,62 @@ const HeroBannerOne = ({ startSlide }) => {
         </text>
       </g>
       <defs>
-        <clipPath id="a">
+        <clipPath id="clip0_4846_2555">
           <path
             fill="#fff"
             d="M0 20C0 8.954 8.954 0 20 0h1064c11.05 0 20 8.954 20 20v620H0V20Z"
           />
         </clipPath>
-        <clipPath id="g">
+        <clipPath id="clip1_4846_2555">
           <rect width={34} height={34} x={1046} y={8} fill="#fff" rx={17} />
         </clipPath>
-        <clipPath id="i">
-          <path fill="#fff" d="M236 136h590v342H236z" />
+        <clipPath id="clip2_4846_2555">
+          <path
+            fill="#fff"
+            d="M0 0h590v342H0z"
+            transform="translate(236 136)"
+          />
         </clipPath>
-        <clipPath id="j">
-          <path fill="#fff" d="M236 209h590v269H236z" />
+        <clipPath id="clip3_4846_2555">
+          <path
+            fill="#fff"
+            d="M0 0h590v269H0z"
+            transform="translate(236 209)"
+          />
         </clipPath>
-        <clipPath id="k">
-          <path fill="#fff" d="M258 452h709v21H258z" />
+        <clipPath id="clip4_4846_2555">
+          <path fill="#fff" d="M0 0h590v21H0z" transform="translate(236 452)" />
         </clipPath>
         <pattern
-          id="e"
+          id="pattern0_4846_2555"
           width={1}
           height={1}
           patternContentUnits="objectBoundingBox">
-          <use xlinkHref="#t" transform="scale(.00268 .00234)" />
+          <use xlinkHref="#image0_4846_2555" transform="scale(.00268 .00234)" />
         </pattern>
         <pattern
-          id="h"
+          id="pattern1_4846_2555"
           width={1}
           height={1}
           patternContentUnits="objectBoundingBox">
-          <use xlinkHref="#u" transform="scale(.00208)" />
+          <use xlinkHref="#image1_4846_2555" transform="scale(.00208)" />
         </pattern>
         <pattern
-          id="r"
+          id="pattern2_4846_2555"
           width={1}
           height={1}
           patternContentUnits="objectBoundingBox">
-          <use xlinkHref="#v" transform="scale(.00169)" />
+          <use xlinkHref="#image2_4846_2555" transform="scale(.00169)" />
         </pattern>
         <pattern
-          id="s"
+          id="pattern3_4846_2555"
           width={1}
           height={1}
           patternContentUnits="objectBoundingBox">
-          <use xlinkHref="#v" transform="scale(.00169)" />
+          <use xlinkHref="#image2_4846_2555" transform="scale(.00169)" />
         </pattern>
-        <linearGradient
-          id="l"
-          x1={1821.45}
-          x2={1821.45}
-          y1={30.541}
-          y2={489.298}
-          gradientUnits="userSpaceOnUse">
-          <stop stopColor="#3E7EFF" />
-          <stop offset={1} stopColor="#fff" />
-        </linearGradient>
-        <linearGradient
-          id="n"
-          x1={-593.693}
-          x2={-593.693}
-          y1={135.729}
-          y2={433}
-          gradientUnits="userSpaceOnUse">
-          <stop stopColor="#01A27B" />
-          <stop offset={1} stopColor="#01A27B" stopOpacity={0} />
-        </linearGradient>
-        <linearGradient
-          id="p"
-          x1={758.462}
-          x2={758.462}
-          y1={217.538}
-          y2={269}
-          gradientUnits="userSpaceOnUse">
-          <stop />
-          <stop offset={1} stopOpacity={0} />
-        </linearGradient>
         <filter
-          id="b"
+          id="filter0_ii_4846_2555"
           width={160}
           height={46}
           x={16}
@@ -968,7 +1029,7 @@ const HeroBannerOne = ({ startSlide }) => {
           <feGaussianBlur stdDeviation={0.5} />
           <feComposite in2="hardAlpha" k2={-1} k3={1} operator="arithmetic" />
           <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0" />
-          <feBlend in2="shape" result="effect1_innerShadow_394_1091" />
+          <feBlend in2="shape" result="effect1_innerShadow_4846_2555" />
           <feColorMatrix
             in="SourceAlpha"
             result="hardAlpha"
@@ -979,13 +1040,13 @@ const HeroBannerOne = ({ startSlide }) => {
           <feComposite in2="hardAlpha" k2={-1} k3={1} operator="arithmetic" />
           <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0" />
           <feBlend
-            in2="effect1_innerShadow_394_1091"
+            in2="effect1_innerShadow_4846_2555"
             mode="multiply"
-            result="effect2_innerShadow_394_1091"
+            result="effect2_innerShadow_4846_2555"
           />
         </filter>
         <filter
-          id="c"
+          id="filter1_i_4846_2555"
           width={1104}
           height={50}
           x={0}
@@ -1002,10 +1063,10 @@ const HeroBannerOne = ({ startSlide }) => {
           <feOffset dx={1} />
           <feComposite in2="hardAlpha" k2={-1} k3={1} operator="arithmetic" />
           <feColorMatrix values="0 0 0 0 0.956863 0 0 0 0 0.956863 0 0 0 0 0.956863 0 0 0 1 0" />
-          <feBlend in2="shape" result="effect1_innerShadow_394_1091" />
+          <feBlend in2="shape" result="effect1_innerShadow_4846_2555" />
         </filter>
         <filter
-          id="o"
+          id="filter2_d_4846_2555"
           width={318.924}
           height={151}
           x={529}
@@ -1021,7 +1082,7 @@ const HeroBannerOne = ({ startSlide }) => {
           <feMorphology
             in="SourceAlpha"
             radius={2}
-            result="effect1_dropShadow_394_1091"
+            result="effect1_dropShadow_4846_2555"
           />
           <feOffset dy={20} />
           <feGaussianBlur stdDeviation={12} />
@@ -1029,17 +1090,52 @@ const HeroBannerOne = ({ startSlide }) => {
           <feColorMatrix values="0 0 0 0 0.0648261 0 0 0 0 0.0733614 0 0 0 0 0.0845229 0 0 0 0.12 0" />
           <feBlend
             in2="BackgroundImageFix"
-            result="effect1_dropShadow_394_1091"
+            result="effect1_dropShadow_4846_2555"
           />
           <feBlend
             in="SourceGraphic"
-            in2="effect1_dropShadow_394_1091"
+            in2="effect1_dropShadow_4846_2555"
             result="shape"
           />
         </filter>
-        <image id="t" width={373} height={428} href="/img/logo.svg" />
-        <image id="u" width={480} height={480} href="/img/avatar.webp" />
-        <image id="v" width={592} height={592} href="/img/shoe-hero.webp" />
+        <image
+          id="image0_4846_2555"
+          width={373}
+          height={428}
+          href="/img/logo.svg"
+        />
+        <image
+          id="image1_4846_2555"
+          width={480}
+          height={480}
+          href="/img/avatar.webp"
+        />
+        <image
+          id="image2_4846_2555"
+          width={592}
+          height={592}
+          href="/img/shoe-hero.webp"
+        />
+        <linearGradient
+          id="paint0_linear_4846_2555"
+          x1={85.846}
+          x2={85.846}
+          y1={151.937}
+          y2={402.207}
+          gradientUnits="userSpaceOnUse">
+          <stop stopColor="#01A27B" />
+          <stop offset={1} stopColor="#01A27B" stopOpacity={0} />
+        </linearGradient>
+        <linearGradient
+          id="paint1_linear_4846_2555"
+          x1={758.462}
+          x2={758.462}
+          y1={217.538}
+          y2={269}
+          gradientUnits="userSpaceOnUse">
+          <stop />
+          <stop offset={1} stopOpacity={0} />
+        </linearGradient>
       </defs>
     </animated.svg>
   );
