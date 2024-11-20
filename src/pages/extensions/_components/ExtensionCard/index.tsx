@@ -6,9 +6,7 @@
  */
 
 import React from 'react';
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-import Translate from '@docusaurus/Translate';
 import Image from '@theme/IdealImage';
 import {
   Tags,
@@ -19,13 +17,11 @@ import {
 } from '@site/src/data/extensions';
 import {sortBy} from '@site/src/utils/jsUtils';
 import Heading from '@theme/Heading';
-import styles from './styles.module.css';
 
 const TagComp = React.forwardRef<HTMLLIElement, Tag>(
   ({label, color, description}, ref) => (
-    <li ref={ref} className={styles.tag} title={description}>
-      <span className={styles.textLabel}>{label.toLowerCase()}</span>
-      <span className={styles.colorLabel} style={{backgroundColor: color}} />
+    <li ref={ref} title={description} className='bg-[#F4F5F6] py-[6px] px-3 text-sm text-Neutrals-03 inline-block leading-5 capitalize rounded-lg'>
+      <span >{label.toLowerCase()}</span>
     </li>
   ),
 );
@@ -42,7 +38,6 @@ function ExtensionCardTag({tags}: {tags: TagType[]}) {
     <>
       {tagObjectsSorted.map((tagObject, index) => {
         const id = `extension_card_tag_${tagObject.tag}`;
-
         return (
           <TagComp key={index} {...tagObject} />
         );
@@ -53,26 +48,41 @@ function ExtensionCardTag({tags}: {tags: TagType[]}) {
 
 function ExtensionCard({extension}: {extension: Extension}) {
   return (
-    <li key={extension.title} className="card shadow--md">
-      <div className={clsx('card__image', styles.showcaseCardImage)}>
+    <div key={extension.title} className="border bg-white border-Neutrals-06 rounded-[20px] p-2 pb-6 shadow-extension">
+      <div className="bg-Other-01">
         <Image img={extension.preview} />
       </div>
-      <div className="card__body">
-        <div className={clsx(styles.showcaseCardHeader)}>
-          <Heading as="h4" className={styles.showcaseCardTitle}>
-            <Link href={extension.npm} className={styles.showcaseCardLink}>
-              {extension.title}
-            </Link>
-          </Heading>
-
-          
-        </div>
-        <p className={styles.showcaseCardBody}>{extension.description}</p>
-      </div>
-      <ul className={clsx('card__footer', styles.cardFooter)}>
+      <div className='p-3 pb-0'>
+        <ul className="list-none pl-0 mt-5">
         <ExtensionCardTag tags={extension.tags} />
-      </ul>
-    </li>
+        </ul>
+        <div className="mt-4">
+          <div className='flex justify-between'>
+            <Heading as="h3" className='mb-1 text-xl font-bold'>
+              <Link href={extension.npm} className="text-Neutrals-01">
+                {extension.title}
+              </Link>
+            </Heading>
+            {extension.price && (
+              <span className="text-primary font-bold text-lg">
+                {extension.price}$
+              </span>
+            )}
+            {!extension.price && (
+              <span className="text-primary font-bold text-lg">Free</span>
+            )}
+          </div>
+          <p className='text-Neutrals-04 mb-0'>{extension.description}</p>
+        </div>
+        <div className='flex justify-between mt-4 items-center'>
+          <div className='flex justify-start gap-2 items-center'>
+            <div className='w-8 h-8 bg-primary-02 flex justify-center items-center rounded-full'><img src='/img/logo.svg' alt='EverShop' width={15} height={15} /></div>
+            <span className='text-Neutrals-04 text-base'>EverShop</span>
+          </div>
+          <a href={extension.npm} target='_blank' className='font-bold'>Download</a>
+        </div>
+      </div>
+    </div>
   );
 }
 

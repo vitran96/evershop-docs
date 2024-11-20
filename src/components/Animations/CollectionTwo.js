@@ -2,14 +2,14 @@ import * as React from "react";
 import { useTrail, animated } from "@react-spring/web";
 const One = () => (
   <>
-    <div className="w-4 h-4 left-0 top-0 absolute border border-[#687082] rounded-sm"></div>
-    <div className="left-[65px] top-0 absolute text-[#101828] text-[13px] font-medium font-['Inter'] leading-none">
+    <div className="w-4 h-4 left-0 top-0 absolute border border-Neutrals-04 rounded-sm"></div>
+    <div className="left-[65px] top-0 absolute text-Neutrals-01 text-[13px] font-medium font-['Inter'] leading-none">
       1
     </div>
-    <div className="left-[151px] top-0 absolute text-[#101828] text-[13px] font-medium font-['Inter'] leading-none">
+    <div className="left-[151px] top-0 absolute text-Neutrals-01 text-[13px] font-medium font-['Inter'] leading-none">
       Hot Deals
     </div>
-    <div className="left-[363px] top-0 absolute text-[#101828] text-[13px] font-medium font-['Inter'] leading-none">
+    <div className="left-[363px] top-0 absolute text-Neutrals-01 text-[13px] font-medium font-['Inter'] leading-none">
       hot__deals
     </div>
   </>
@@ -17,28 +17,28 @@ const One = () => (
 
 const Two = () => (
   <>
-    <div className="w-4 h-4 left-0 top-0 absolute border border-[#687082] rounded-sm"></div>
-    <div className="left-[65px] top-0 absolute text-[#101828] text-[13px] font-medium font-['Inter'] leading-none">
+    <div className="w-4 h-4 left-0 top-0 absolute border border-Neutrals-04 rounded-sm"></div>
+    <div className="left-[65px] top-0 absolute text-Neutrals-01 text-[13px] font-medium font-['Inter'] leading-none">
       2
     </div>
-    <div className="left-[151px] top-0 absolute text-[#101828] text-[13px] font-medium font-['Inter'] leading-none">
+    <div className="left-[151px] top-0 absolute text-Neutrals-01 text-[13px] font-medium font-['Inter'] leading-none">
       New Arrivals
     </div>
-    <div className="left-[363px] top-0 absolute text-[#101828] text-[13px] font-medium font-['Inter'] leading-none">
+    <div className="left-[363px] top-0 absolute text-Neutrals-01 text-[13px] font-medium font-['Inter'] leading-none">
       new__arrivals
     </div>
   </>
 );
 const Three = () => (
   <>
-    <div className="w-4 h-4 left-0 top-0 absolute border border-[#687082] rounded-sm"></div>
-    <div className="left-[65px] top-0 absolute text-[#101828] text-[13px] font-medium font-['Inter'] leading-none">
+    <div className="w-4 h-4 left-0 top-0 absolute border border-Neutrals-04 rounded-sm"></div>
+    <div className="left-[65px] top-0 absolute text-Neutrals-01 text-[13px] font-medium font-['Inter'] leading-none">
       3
     </div>
-    <div className="left-[151px] top-0 absolute text-[#101828] text-[13px] font-medium font-['Inter'] leading-none">
+    <div className="left-[151px] top-0 absolute text-Neutrals-01 text-[13px] font-medium font-['Inter'] leading-none">
       Featured Products
     </div>
-    <div className="left-[363px] top-0 absolute text-[#101828] text-[13px] font-medium font-['Inter'] leading-none">
+    <div className="left-[363px] top-0 absolute text-Neutrals-01 text-[13px] font-medium font-['Inter'] leading-none">
       featured__products
     </div>
   </>
@@ -81,7 +81,7 @@ const CollectionTwo = (props) => {
       <div className="self-stretch justify-between items-center inline-flex">
         <div className="grow shrink basis-0 flex-col justify-start items-start gap-1 inline-flex">
           <div className="self-stretch justify-start items-center gap-3 inline-flex">
-            <div className="text-[#101828] text-base font-semibold font-['Inter'] leading-none">
+            <div className="text-Neutrals-01 text-base font-semibold font-['Inter'] leading-none">
               Collection
             </div>
           </div>

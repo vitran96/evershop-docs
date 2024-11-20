@@ -6,12 +6,12 @@ const CollectionOne = (props) => (
       <div className="self-stretch justify-between items-center inline-flex">
         <div className="grow shrink basis-0 flex-col justify-start items-start gap-1 inline-flex">
           <div className="self-stretch justify-center items-center gap-3 inline-flex">
-            <div className="text-[#101828] text-base font-semibold font-['Inter'] leading-none">
+            <div className="text-Neutrals-01 text-base font-semibold font-['Inter'] leading-none">
               ⚡ Today’s Hot Picks ⚡️
             </div>
           </div>
           <div className="self-stretch px-[22px] justify-center items-center gap-2.5 inline-flex">
-            <div className="grow shrink basis-0 text-center text-[#101828] text-sm font-normal font-['Inter'] leading-normal">
+            <div className="grow shrink basis-0 text-center text-Neutrals-01 text-sm font-normal font-['Inter'] leading-normal">
               Discover our hot deals
             </div>
           </div>

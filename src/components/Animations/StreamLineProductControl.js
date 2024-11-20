@@ -60,9 +60,9 @@ const Before = ({ startSlide }) => {
           delay={0}
         />
         <div>
-          <div className="text-[13px] leading-[18px] text-[#687082]">Men</div>
+          <div className="text-[13px] leading-[18px] text-Neutrals-04">Men</div>
           <div className="font-medium">Air Force 1 Low EWP</div>
-          <div className="text-sm text-[#687082]">3 colours</div>
+          <div className="text-sm text-Neutrals-04">3 colours</div>
           <div className="text-[15px] leading-[24px] font-semibold mt-1">
             $280.00 - $399.00
           </div>
@@ -88,7 +88,7 @@ const Before = ({ startSlide }) => {
       </div>
 
       <div className="mt-4 border-b border-gray-200">
-        <div className="grid grid-cols-6 text-[11px] font-medium text-[#687082] py-2">
+        <div className="grid grid-cols-6 text-[11px] font-medium text-Neutrals-04 py-2">
           <div>VARIANT</div>
           <div>SIZE</div>
           <div>COLOR</div>
@@ -97,7 +97,7 @@ const Before = ({ startSlide }) => {
           <div className="text-right">ACTION</div>
         </div>
       </div>
-      <div className="text-[#101828] font-medium">
+      <div className="text-Neutrals-01 font-medium">
         <div className="grid grid-cols-6 items-center py-2">
           <div>
             <MovingBorder>
@@ -257,12 +257,12 @@ const After = ({ startSlide }) => {
             ))}
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-[11px] divide-[#e6e8ec] divide-y">
+        <div className="grid grid-cols-1 gap-[11px] divide-Neutrals-06 divide-y">
           <div className="flex-col justify-start items-start gap-1 flex">
             <div className="flex-col justify-start items-start flex">
               <div className="flex-col justify-start items-start gap-0.5 flex">
                 <div className="justify-between items-center inline-flex">
-                  <div className="text-[#101828] text-lg font-semibold leading-normal">
+                  <div className="text-Neutrals-01 text-lg font-semibold leading-normal">
                     Air Force 1 Low EWP
                   </div>
                 </div>
@@ -271,14 +271,14 @@ const After = ({ startSlide }) => {
                     Men
                   </div>
                 </div>
-                <div className="text-[#101828] text-[15px] font-medium leading-normal">
+                <div className="text-Neutrals-01 text-[15px] font-medium leading-normal">
                   $280.00 - $399.00
                 </div>
               </div>
             </div>
           </div>
           <div className="flex-col justify-start items-start gap-2 flex pt-[11px]">
-            <div className="self-stretch text-[#101828] text-[13px] font-medium font-['Inter'] leading-tight">
+            <div className="self-stretch text-Neutrals-01 text-[13px] font-medium font-['Inter'] leading-tight">
               Choose a Color
             </div>
             <div style={{ display: "flex", gap: "8px" }}>
@@ -302,9 +302,9 @@ const After = ({ startSlide }) => {
           </div>
           <div className="w-[226px] h-9 flex flex-col gap-3  pt-[11px]">
             <div className="flex gap-3 items-center">
-              <div className="w-[117px] h-9 rounded-xl border border-[#e6e8ec] flex justify-center items-center gap-6">
+              <div className="w-[117px] h-9 rounded-xl border border-Neutrals-06 flex justify-center items-center gap-6">
                 <div className="text-2xl">-</div>
-                <div className="text-[#101828] text-sm font-medium leading-tight">
+                <div className="text-Neutrals-01 text-sm font-medium leading-tight">
                   3
                 </div>
                 <div className="text-2xl">+</div>

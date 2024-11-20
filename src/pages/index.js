@@ -28,7 +28,7 @@ function HomepageHeader() {
     <header className="hero hero--primary text-center">
       <div className="container text-center">
         <div className="flex justify-center">
-          <div className="flex justify-center gap-3 text-primary font-medium bg-[#E5FFF9] max-w-fit p-1 pr-2 rounded-[16px] text-sm leading-5">
+          <div className="flex justify-center gap-3 text-primary font-medium bg-primary-02 max-w-fit p-1 pr-2 rounded-[16px] text-sm leading-5">
             <div className="flex justify-center gap-[3px] bg-white rounded-[16px] px-2 py-[2px]">
               <div className="flex justify-center">
                 <img alt="Version" src="/img/glowing-star.png" />
@@ -158,6 +158,7 @@ function DynamicWidgets() {
         />
         <BorderBlock backgroundColor={"#fff"}>
           <Card
+            className={"overflow-hidden"}
             backgroundColor={
               "radial-gradient(73% 56% at 96% 69%, #27b4874d 0%, #ffffff00 100%), radial-gradient(50% 50% at 0% 100%, #645EE51F 0%, #F8F9FAff 100%)"
             }>
@@ -239,7 +240,7 @@ function CatalogManagement() {
                       fill="#008060"
                     />
                   </svg>
-                  <div className="mt-3 mb-2 text-xl font-semibold text-[#101828]">
+                  <div className="mt-3 mb-2 text-xl font-semibold text-Neutrals-01">
                     Efficient Category Organization
                   </div>
                   <div>
@@ -269,7 +270,7 @@ function CatalogManagement() {
                       fill="#008060"
                     />
                   </svg>
-                  <div className="mt-3 mb-2 text-xl font-semibold text-[#101828]">
+                  <div className="mt-3 mb-2 text-xl font-semibold text-Neutrals-01">
                     Showcase Product Collections
                   </div>
                   <div>
@@ -334,7 +335,7 @@ function CheckoutManagement() {
                     fill="#008060"
                   />
                 </svg>
-                <div className="mt-3 mb-2 text-lg leading-7 font-semibold text-[#101828] tracking-[-0.1px]">
+                <div className="mt-3 mb-2 text-lg leading-7 font-semibold text-Neutrals-01 tracking-[-0.1px]">
                   Accelerated Checkout Experience
                 </div>
                 <div>
@@ -364,7 +365,7 @@ function CheckoutManagement() {
                     fill="#008060"
                   />
                 </svg>
-                <div className="mt-3 mb-2 text-lg leading-7 font-semibold text-[#101828]">
+                <div className="mt-3 mb-2 text-lg leading-7 font-semibold text-Neutrals-01">
                   Seamless Payment Integration
                 </div>
                 <div>
@@ -398,7 +399,7 @@ function CheckoutManagement() {
                     fill="#008060"
                   />
                 </svg>
-                <div className="mt-3 mb-2 text-lg leading-7 font-semibold text-[#101828]">
+                <div className="mt-3 mb-2 text-lg leading-7 font-semibold text-Neutrals-01">
                   Streamlined Order Management
                 </div>
                 <div>
@@ -456,7 +457,7 @@ function ElevateYourStore() {
             backgroundColor={"#fff"}
             bigRadius={false}
             className="marketplace-block grid grid-flow-row grid-rows-[2fr_1fr] h-full">
-            <div className="bg-[#F8F9FA] rounded-t-xl flex items-center flex-col justify-end pt-5 px-8">
+            <div className="bg-Other-01 rounded-t-xl flex items-center flex-col justify-end pt-5 px-8">
               <div className="w-44 mb-2">
                 <ThemeExtensionButtons />
               </div>
@@ -495,7 +496,7 @@ function ElevateYourStore() {
             backgroundColor={"#fff"}
             bigRadius={false}
             className="marketplace-block grid grid-flow-row grid-rows-[2fr_1fr] h-full">
-            <div className="bg-[#F8F9FA] rounded-t-xl flex justify-center flex-col items-center pt-5 px-8">
+            <div className="bg-Other-01 rounded-t-xl flex justify-center flex-col items-center pt-5 px-8">
               <img
                 src="/img/cloud.webp"
                 alt="EverShop cloud"
@@ -553,7 +554,7 @@ function Discord() {
 
 function Developer() {
   return (
-    <div className="developer overflow-hidden relative container rounded-2xl bg-[#202328] border border-[#0F8769] px-16 py-[42px] mt-16">
+    <div className="developer overflow-hidden relative container rounded-2xl bg-Other-03 border border-[#0F8769] px-4 md:px-16 py-6 md:py-[42px] mt-16">
       <div>
         <h4 className="text-white mb-2">
           Engineered for developers, designed for efficiency!
@@ -566,14 +567,14 @@ function Developer() {
           <div className="flex justify-items-start">
             <Link
               to="https://discord.com/invite/GSzt7dt7RM"
-              className="button--primary button--small">
+              className="button--primary button--small text-sm md:text-base">
               Join the team
             </Link>
           </div>
           <div className="flex justify-items-start">
             <Link
               to="https://github.com/evershopcommerce/evershop"
-              className="button button--secondary button--small">
+              className="button button--secondary button--small text-sm md:text-base">
               Star us on Github
             </Link>
           </div>
@@ -591,7 +592,7 @@ function Developer() {
 
 function TechLogo({ src, name }) {
   return (
-    <div className="rounded-2xl bg-[#202328] tech-logo flex justify-center items-center p-[1px]">
+    <div className="rounded-2xl bg-Other-03 tech-logo flex justify-center items-center p-[1px]">
       <div className="tech-logo-inner p-6 pt-[9px] pb-[13px] flex justify-center items-center w-full h-full flex-col">
         <span className="p-[11px]">
           <img
@@ -688,7 +689,7 @@ const DynamicLayout = () => (
 );
 function CodeShow() {
   return (
-    <div className="grid grid-cols-2 gap-0 bg-[#202328] rounded-xl mb-8">
+    <div className="grid grid-cols-2 gap-0 bg-Other-03 rounded-xl mb-8">
       <div className="col-span-1 p-16">
         <FadeInOutSlides
           slides={[
@@ -711,7 +712,7 @@ function CodeShow() {
 function ThemeAndExtensionDevelop() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-1">
-      <div className="bg-[#202328] px-16 pt-[60px] rounded-xl">
+      <div className="bg-Other-03 px-16 pt-[60px] rounded-xl">
         <h4 className="text-white">
           Master the art of theme customization for your online store
         </h4>
@@ -726,7 +727,7 @@ function ThemeAndExtensionDevelop() {
           Explore theme customization ->
         </a>
       </div>
-      <div className="bg-[#202328] px-16 py-[60px] rounded-xl">
+      <div className="bg-Other-03 px-16 py-[60px] rounded-xl">
         <h4 className="text-white">
           Build extensions to enhance and integrate your store
         </h4>
@@ -747,17 +748,17 @@ function ThemeAndExtensionDevelop() {
 
 function TestimonialCard({ name, jobTitle, content }) {
   return name ? (
-    <div className="bg-[#F8F9FA] p-8 rounded-xl col-span-1">
-      <div className="text-[#687082] mb-5">&quot;{content}&quot;</div>
+    <div className="bg-Other-01 p-5 md:p-8 rounded-xl col-span-1">
+      <div className="text-Neutrals-04 mb-5">&quot;{content}&quot;</div>
       <div className="flex justify-start items-center">
         <div>
-          <div className="text-[#101828] mb-1">{name}</div>
-          <div className="text-[#687082]">{jobTitle}</div>
+          <div className="text-Neutrals-01 mb-1">{name}</div>
+          <div className="text-Neutrals-04">{jobTitle}</div>
         </div>
       </div>
     </div>
   ) : (
-    <div className="bg-[#F8F9FA] p-4 rounded-xl rounded-t-none col-span-1"></div>
+    <div className="bg-Other-01 p-4 rounded-xl rounded-t-none col-span-1"></div>
   );
 }
 

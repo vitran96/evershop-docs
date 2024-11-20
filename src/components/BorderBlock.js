@@ -11,7 +11,7 @@ export default function BorderBlock({
     : `rounded-[20px] ${className}`;
   return (
     <div
-      className={`border ${blockClassName} p-2 border-[#E6E8EC]`}
+      className={`border ${blockClassName} p-2 border-Neutrals-06`}
       style={{
         backgroundColor: backgroundColor || "#fff",
       }}>

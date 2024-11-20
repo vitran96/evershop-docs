@@ -121,6 +121,7 @@ export type Extension = {
   npm: string;
   source: string | null;
   tags: TagType[];
+  price: number | null;
 };
 
 export type Tag = {

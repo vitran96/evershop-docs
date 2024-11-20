@@ -7,6 +7,7 @@
     "start": "docusaurus start",
     "build": "docusaurus build && mv _redirects build || move _redirects build && mv robots.txt build || move robots.txt build && mv 0919e90b543640ef88ecf1e05998e658.txt build || move 0919e90b543640ef88ecf1e05998e658.txt build",
     "buildacc": "docusaurus build && mv robots_acc.txt build/robots.txt || move robots_acc.txt build/robots.txt",
+    "buildlocal": "docusaurus build --bundle-analyzer",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",

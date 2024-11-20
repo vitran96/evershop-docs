@@ -1,5 +1,11 @@
-import React from "react";
-import { useSpring, animated, useSprings } from "@react-spring/web";
+import React, { useEffect } from "react";
+import {
+  useSpring,
+  animated,
+  useSprings,
+  useSpringRef,
+  useChain,
+} from "@react-spring/web";
 
 const Header = (props) => (
   <svg
@@ -218,35 +224,6 @@ const Header = (props) => (
           transform="translate(1378 26)"
         />
       </clipPath>
-    </defs>
-  </svg>
-);
-
-const Banner = (props) => (
-  <svg
-    viewBox="0 0 1440 240"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlnsXlink="http://www.w3.org/1999/xlink"
-    {...props}>
-    <rect width={1440} height={240} fill="url(#pattern0_4867_3032)" />
-    <defs>
-      <pattern
-        id="pattern0_4867_3032"
-        patternContentUnits="objectBoundingBox"
-        width={1}
-        height={1}>
-        <use
-          xlinkHref="#image0_4867_3032"
-          transform="scale(0.000416667 0.0025)"
-        />
-      </pattern>
-      <image
-        id="image0_4867_3032"
-        width={2400}
-        height={400}
-        href="/img/sneaker.webp"
-      />
     </defs>
   </svg>
 );
@@ -1407,7 +1384,7 @@ const Products = (props) => (
         id="image4_4867_3033"
         width={592}
         height={592}
-        href="/img/Vector-5.webp"
+        href="/img/Vector.webp"
       />
     </defs>
   </svg>
@@ -1830,62 +1807,190 @@ const Articles = (props) => (
 
 const BuilderSVG = () => {
   const [reversing, setReversing] = React.useState(false);
-  const contentRef = React.useRef(null);
-  const parentRef = React.useRef(null);
-  const parentStyles = useSpring({
-    height: parentRef.current?.scrollHeight,
-  });
-  const [styles, api] = useSpring(() => ({
-    height: reversing ? 0 : contentRef.current?.scrollHeight,
-    opacity: reversing ? 0 : 1,
-  }));
-  const clicks = useSprings(2, [
-    {
-      from: { backgroundColor: reversing ? "#008060" : "#969faf" },
-      to: { backgroundColor: reversing ? "#969faf" : "#008060" },
+  const timeout = React.useRef(null);
+  const startRef = useSpringRef();
+  // Start with the entire block slide up from the bottom
+  const startSprings = useSpring({
+    ref: startRef,
+    from: {
+      opacity: reversing ? 1 : 0,
+      transform: reversing ? "translateY(0px)" : "translateY(20px)",
     },
-    {
-      from: { left: reversing ? "50%" : "0%" },
-      to: { left: reversing ? "0%" : "50%" },
-      onRest: () => {
-        api.start({
-          to: async (next) => {
-            await next({
-              height: reversing ? 0 : contentRef.current?.scrollHeight,
-              opacity: reversing ? 0 : 1,
-            });
-          },
-          from: {
-            height: reversing ? contentRef.current?.scrollHeight : 0,
-            opacity: reversing ? 1 : 0,
-          },
-          onRest: () =>
-            setTimeout(() => {
-              setReversing(!reversing);
-            }, 2000),
-        });
+    to: [
+      {
+        opacity: reversing ? 0 : 1,
+        transform: reversing ? "translateY(20px)" : "translateY(0px)",
       },
+    ],
+    onResume: () => {
+      setReversing(!reversing);
+      startRef.start();
     },
+  });
+
+  const settingRef = useSpringRef();
+  // Start with the entire block slide up from the bottom
+  const settingSprings = useSpring({
+    ref: settingRef,
+    from: {
+      opacity: reversing ? 1 : 0,
+      transform: reversing ? "translateY(0px)" : "translateY(20px)",
+    },
+    to: {
+      opacity: reversing ? 0 : 1,
+      transform: reversing ? "translateY(20px)" : "translateY(0px)",
+    },
+  });
+
+  const productsSettingRef = useSpringRef();
+  // Start with the entire block slide up from the bottom
+  const productsSettingSprings = useSpring({
+    ref: productsSettingRef,
+    from: {
+      opacity: reversing ? 1 : 0,
+      transform: reversing ? "translateY(0px)" : "translateY(20px)",
+    },
+    to: {
+      opacity: reversing ? 0 : 1,
+      transform: reversing ? "translateY(20px)" : "translateY(0px)",
+    },
+    config: { duration: reversing ? 0 : 500 },
+  });
+
+  const articlesSettingRef = useSpringRef();
+  // Start with the entire block slide up from the bottom
+  const articlesSettingSprings = useSpring({
+    ref: articlesSettingRef,
+    from: {
+      opacity: reversing ? 1 : 0,
+      transform: reversing ? "translateY(0px)" : "translateY(20px)",
+    },
+    to: {
+      opacity: reversing ? 0 : 1,
+      transform: reversing ? "translateY(20px)" : "translateY(0px)",
+    },
+    config: { duration: reversing ? 0 : 500 },
+  });
+
+  const productStatusBackgroundRef = useSpringRef();
+  const productStatusBackgroundSprings = useSpring({
+    ref: productStatusBackgroundRef,
+    from: { backgroundColor: reversing ? "#008060" : "#969faf" },
+    to: { backgroundColor: reversing ? "#969faf" : "#008060" },
+    config: { duration: reversing ? 0 : 500 },
+  });
+
+  const productsStatusPositionRef = useSpringRef();
+  const productsStatusPositionSprings = useSpring({
+    ref: productsStatusPositionRef,
+    from: { left: reversing ? "50%" : "0%" },
+    to: { left: reversing ? "0%" : "50%" },
+    config: { duration: reversing ? 0 : 500 },
+  });
+
+  const articlesStatusBackgroundRef = useSpringRef();
+  const articlesStatusBackgroundSprings = useSpring({
+    ref: articlesStatusBackgroundRef,
+    from: { backgroundColor: reversing ? "#008060" : "#969faf" },
+    to: { backgroundColor: reversing ? "#969faf" : "#008060" },
+    config: { duration: reversing ? 0 : 500 },
+  });
+
+  const articlesStatusPositionRef = useSpringRef();
+  const articlesStatusPositionSprings = useSpring({
+    ref: articlesStatusPositionRef,
+    from: { left: reversing ? "50%" : "0%" },
+    to: { left: reversing ? "0%" : "50%" },
+    config: { duration: reversing ? 0 : 500 },
+  });
+
+  const productsBorderRef = useSpringRef();
+  const productsBorderSprings = useSpring({
+    ref: productsBorderRef,
+    from: { opacity: reversing ? 1 : 0 },
+    to: {
+      opacity: reversing ? 0 : 1,
+      transform: reversing ? "scale(0)" : "scale(1)",
+    },
+    config: { duration: reversing ? 0 : 500 },
+  });
+
+  const productsRef = useSpringRef();
+  const productsSprings = useSpring({
+    ref: productsRef,
+    from: { opacity: reversing ? 1 : 0 },
+    to: { opacity: reversing ? 0 : 1 },
+    config: { duration: reversing ? 0 : 500 },
+  });
+  const articlesBorderRef = useSpringRef();
+  const articlesBorderSprings = useSpring({
+    ref: articlesBorderRef,
+    from: { opacity: reversing ? 1 : 0 },
+    to: {
+      opacity: reversing ? 0 : 1,
+      transform: reversing ? "scale(0)" : "scale(1)",
+    },
+    config: { duration: reversing ? 0 : 500 },
+  });
+  const articlessRef = useSpringRef();
+  const articlesSprings = useSpring({
+    ref: articlessRef,
+    from: { opacity: reversing ? 1 : 0 },
+    to: { opacity: reversing ? 0 : 1 },
+    config: { duration: reversing ? 0 : 500 },
+    onRest: () => {
+      if (timeout.current) {
+        clearTimeout(timeout.current);
+      }
+      timeout.current = setTimeout(() => {
+        setReversing(!reversing);
+        startRef.start();
+      }, 2500);
+    },
+  });
+
+  useChain([
+    startRef,
+    productsBorderRef,
+    settingRef,
+    productsBorderRef,
+    productsSettingRef,
+    productStatusBackgroundRef,
+    productsStatusPositionRef,
+    productsRef,
+    articlesBorderRef,
+    articlesSettingRef,
+    articlesStatusBackgroundRef,
+    articlesStatusPositionRef,
+    articlessRef,
   ]);
 
   return (
-    <animated.div
-      className="dynamic-content"
-      ref={parentRef}
-      style={parentStyles}>
-      <div className="builder bg-white rounded-t-2xl">
+    <div className="dynamic-content">
+      <animated.div
+        className="builder bg-white rounded-t-2xl"
+        style={startSprings}>
         <div>
           <Header />
         </div>
-        <div>
-          <Banner />
-        </div>
-        <animated.div style={styles} ref={contentRef}>
-          <Products />
+        <animated.div
+          className={"shadow-[inset_0_0_3px_#008060]"}
+          style={productsBorderSprings}>
+          <animated.div style={productsSprings} className={"bg-white"}>
+            <Products />
+          </animated.div>
         </animated.div>
-        <Articles />
-      </div>
-      <div className="w-80 p-6 bg-white rounded-t-2xl setting">
+        <animated.div
+          className={"shadow-[inset_0_0_3px_#008060]"}
+          style={articlesBorderSprings}>
+          <animated.div style={articlesSprings} className={"bg-white"}>
+            <Articles />
+          </animated.div>
+        </animated.div>
+      </animated.div>
+      <animated.div
+        className="w-80 p-6 bg-white rounded-t-2xl setting"
+        style={settingSprings}>
         <div className="grid grid-cols-1 gap-5">
           <div className="flex justify-start items-center gap-2">
             <svg
@@ -1902,7 +2007,7 @@ const BuilderSVG = () => {
                 stroke-linejoin="round"
               />
             </svg>
-            <span className="font-medium text-[#101828]">Main Menu</span>
+            <span className="font-medium text-Neutrals-01">Main Menu</span>
           </div>
           <div className="flex justify-start items-center gap-2">
             <svg
@@ -1919,9 +2024,9 @@ const BuilderSVG = () => {
                 stroke-linejoin="round"
               />
             </svg>
-            <span className="font-medium text-[#101828]">Hero Banners</span>
+            <span className="font-medium text-Neutrals-01">Hero Banners</span>
           </div>
-          <div>
+          <animated.div style={productsSettingSprings}>
             <div className="flex justify-start items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -1937,7 +2042,7 @@ const BuilderSVG = () => {
                   stroke-linejoin="round"
                 />
               </svg>
-              <span className="font-medium text-[#101828]">New Arrivals</span>
+              <span className="font-medium text-Neutrals-01">New Arrivals</span>
             </div>
             <div className="flex justify-between p-4  rounded-md bg-[#E2E2E2] mt-2">
               <div className="flex justify-start gap-2 items-center">
@@ -1948,66 +2053,81 @@ const BuilderSVG = () => {
                   viewBox="0 0 20 20"
                   fill="none">
                   <path
-                    d="M5.74449 7.82895H5.65676V6.09211C5.65676 3.69403 7.60079 1.75 9.99887 1.75C12.3969 1.75 14.341 3.69403 14.341 6.09211V7.82895H14.2532M9.99887 11.3026V13.0395M16.0778 12.1711C16.0778 15.5284 13.3562 18.25 9.99887 18.25C6.64156 18.25 3.91992 15.5284 3.91992 12.1711C3.91992 8.81374 6.64156 6.09211 9.99887 6.09211C13.3562 6.09211 16.0778 8.81374 16.0778 12.1711Z"
-                    stroke="#727272"
+                    d="M1.66699 9.99997L9.70218 14.0176C9.8115 14.0722 9.86616 14.0996 9.92349 14.1103C9.97427 14.1198 10.0264 14.1198 10.0772 14.1103C10.1345 14.0996 10.1891 14.0722 10.2985 14.0176L18.3337 9.99997M1.66699 14.1666L9.70218 18.1842C9.8115 18.2389 9.86616 18.2662 9.92349 18.277C9.97427 18.2865 10.0264 18.2865 10.0772 18.277C10.1345 18.2662 10.1891 18.2389 10.2985 18.1842L18.3337 14.1666M1.66699 5.83331L9.70218 1.81571C9.8115 1.76105 9.86616 1.73372 9.92349 1.72297C9.97427 1.71344 10.0264 1.71344 10.0772 1.72297C10.1345 1.73372 10.1891 1.76105 10.2985 1.81571L18.3337 5.83331L10.2985 9.8509C10.1891 9.90556 10.1345 9.93289 10.0772 9.94365C10.0264 9.95317 9.97427 9.95317 9.92349 9.94365C9.86616 9.93289 9.8115 9.90556 9.70218 9.8509L1.66699 5.83331Z"
+                    stroke="#008060"
                     stroke-width="1.5"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
                 </svg>
-                <span className="text-[#101828]">Status</span>
+                <span className="text-Neutrals-01 font-bold text-lg">3</span>
               </div>
               <div className="flex items-center">
                 <animated.button
                   id="toggleButton"
                   className="h-6 w-12 rounded-full  relative focus:outline-none transition-colors"
-                  style={clicks[0]}>
+                  style={productStatusBackgroundSprings}>
                   <animated.span
                     id="toggleIndicator"
                     className="w-5 h-5 bg-white rounded-full absolute top-0.5  shadow transition-transform"
-                    style={clicks[1]}></animated.span>
+                    style={productsStatusPositionSprings}></animated.span>
                 </animated.button>
               </div>
             </div>
-          </div>
-          <div className="flex justify-start items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none">
-              <path
-                d="M5 7.5L10 12.5L15 7.5"
-                stroke="#101828"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            <span className="font-medium text-[#101828]">Shipping Bar</span>
-          </div>
-          <div className="flex justify-start items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none">
-              <path
-                d="M5 7.5L10 12.5L15 7.5"
-                stroke="#101828"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            <span className="font-medium text-[#101828]">Footer</span>
-          </div>
+          </animated.div>
+          <animated.div style={articlesSettingSprings}>
+            <div className="flex justify-start items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none">
+                <path
+                  d="M5 7.5L10 12.5L15 7.5"
+                  stroke="#101828"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span className="font-medium text-Neutrals-01">New Arrivals</span>
+            </div>
+            <div className="flex justify-between p-4  rounded-md bg-[#E2E2E2] mt-2">
+              <div className="flex justify-start gap-2 items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none">
+                  <path
+                    d="M1.66699 9.99997L9.70218 14.0176C9.8115 14.0722 9.86616 14.0996 9.92349 14.1103C9.97427 14.1198 10.0264 14.1198 10.0772 14.1103C10.1345 14.0996 10.1891 14.0722 10.2985 14.0176L18.3337 9.99997M1.66699 14.1666L9.70218 18.1842C9.8115 18.2389 9.86616 18.2662 9.92349 18.277C9.97427 18.2865 10.0264 18.2865 10.0772 18.277C10.1345 18.2662 10.1891 18.2389 10.2985 18.1842L18.3337 14.1666M1.66699 5.83331L9.70218 1.81571C9.8115 1.76105 9.86616 1.73372 9.92349 1.72297C9.97427 1.71344 10.0264 1.71344 10.0772 1.72297C10.1345 1.73372 10.1891 1.76105 10.2985 1.81571L18.3337 5.83331L10.2985 9.8509C10.1891 9.90556 10.1345 9.93289 10.0772 9.94365C10.0264 9.95317 9.97427 9.95317 9.92349 9.94365C9.86616 9.93289 9.8115 9.90556 9.70218 9.8509L1.66699 5.83331Z"
+                    stroke="#008060"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span className="text-Neutrals-01 font-bold text-lg">4</span>
+              </div>
+              <div className="flex items-center">
+                <animated.button
+                  id="toggleButton"
+                  className="h-6 w-12 rounded-full  relative focus:outline-none transition-colors"
+                  style={articlesStatusBackgroundSprings}>
+                  <animated.span
+                    id="toggleIndicator"
+                    className="w-5 h-5 bg-white rounded-full absolute top-0.5  shadow transition-transform"
+                    style={articlesStatusPositionSprings}></animated.span>
+                </animated.button>
+              </div>
+            </div>
+          </animated.div>
         </div>
-      </div>
+      </animated.div>
       <div className="setting__shadow"></div>
-    </animated.div>
+    </div>
   );
 };
 

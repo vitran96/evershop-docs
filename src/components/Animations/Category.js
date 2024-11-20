@@ -8,13 +8,13 @@ const Category = ({ children }) => {
         <div className="self-stretch justify-between items-center inline-flex w-full pr-6">
           <div className="grow shrink basis-0 flex-col justify-start items-start gap-1 inline-flex">
             <div className="self-stretch justify-start items-center gap-3 inline-flex">
-              <div className="w-2.5 h-2.5 bg-[#00764a] rounded-full" />
+              <div className="w-2.5 h-2.5 bg-Success-01 rounded-full" />
               <div className="text-[#686f82] text-sm font-medium leading-none">
                 Category Name
               </div>
             </div>
             <div className="self-stretch px-6 justify-start items-center gap-2.5 inline-flex">
-              <div className="grow shrink basis-0 text-[#101828] text-base font-semibold leading-normal">
+              <div className="grow shrink basis-0 text-Neutrals-01 text-base font-semibold leading-normal">
                 Man
               </div>
             </div>

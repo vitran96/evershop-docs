@@ -108,7 +108,7 @@ function Feature({ icon, title, description, readMore }) {
 
 export default function HomepageFeatures() {
   return (
-    <section className="bg-[#F8F9FA] py-20 mt-20">
+    <section className="bg-Other-01 py-20 mt-20">
       <div className="container">
         <BlockHead
           label="Toolkits"

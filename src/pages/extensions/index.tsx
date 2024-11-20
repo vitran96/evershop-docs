@@ -33,8 +33,8 @@ import ExtensionCard from './_components/ExtensionCard';
 
 import styles from './styles.module.css';
 
-const TITLE = 'EverShop Extensions';
-const DESCRIPTION = 'List of EverShop Extensions from the community.';
+const TITLE = 'EverShop Marketplace';
+const DESCRIPTION = 'Explore a curated collection created by the community, designed to expand your store\'s functionality and enhance the user experience.';
 
 type UserState = {
   scrollTopPosition: number;
@@ -117,12 +117,11 @@ function useFilteredExtensions() {
 
 function ExtensionHeader() {
   return (
-    <section className="margin-top--lg margin-bottom--lg text--center">
-      <Heading as="h1">{TITLE}</Heading>
-      <p>{DESCRIPTION}</p>
-      <Link className="button button--primary" to={'/contact-us'}>
-        Submit your extension
-      </Link>
+    <section className="margin-top--lg margin-bottom--lg flex items-center justify-center ">
+      <div className='text--center w-[720px]'>
+        <Heading as="h1">{TITLE}</Heading>
+        <p>{DESCRIPTION}</p>
+      </div>
     </section>
   );
 }
@@ -204,11 +203,11 @@ function ExtensionCards() {
             )}>
             {/* <SearchBar /> */}
           </div>
-          <ul className={clsx('clean-list', styles.showcaseList)}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {filteredUsers.map((extension) => (
               <ExtensionCard key={extension.title} extension={extension} />
             ))}
-          </ul>
+          </div>
         </div>
     </section>
   );
@@ -217,7 +216,7 @@ function ExtensionCards() {
 export default function Extension(): JSX.Element {
   return (
     <Layout title={TITLE} description={DESCRIPTION}>
-      <main className="margin-vert--lg">
+      <main className="bg-green-conner bg-[#FCFCFC]">
         <ExtensionHeader />
         <ExtensionFilters />
         <ExtensionCards />

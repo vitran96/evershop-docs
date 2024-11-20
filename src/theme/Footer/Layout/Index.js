@@ -14,8 +14,8 @@ export default function FooterLayout({ style, links, logo, copyright }) {
       className={clsx("footer", {
         "footer--dark": style === "dark",
       })}>
-      <div className="container container-fluid">
-        <div className="flex justify-items-center items-center gap-9">
+      <div className="container container-fluid flex flex-col md:flex-row justify-between  md:items-center">
+        <div className="flex flex-col md:flex-row justify-items-center items-left md:items-center gap-5 md:gap-9">
           {logo && <div>{logo}</div>}
           {links}
         </div>
