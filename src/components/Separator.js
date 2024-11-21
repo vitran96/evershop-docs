@@ -4,7 +4,9 @@ export default function Separator({ isFirst = false }) {
   return (
     <div
       className={
-        isFirst ? "separator mx-16 mb-20" : "separator mx-16 my-20"
+        isFirst
+          ? "separator mx-3 mb-16 md:mx-16 md:mb-20"
+          : "separator mx-3 my-16 md:mx-16 md:my-20"
       }></div>
   );
 }

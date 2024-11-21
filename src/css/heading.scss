@@ -5,6 +5,14 @@
   --ifm-h4-font-size: 24px;
   --ifm-h5-font-size: 20px;
   --ifm-h6-font-size: 16px;
+  @include mobile {
+    --ifm-h1-font-size: 48px;
+    --ifm-h2-font-size: 32px;
+    --ifm-h3-font-size: 24px;
+    --ifm-h4-font-size: 18px;
+    --ifm-h5-font-size: 16px;
+    --ifm-h6-font-size: 14px;
+  }
 }
 body {
   .h1,
@@ -44,50 +52,4 @@ body {
     .h4 {
       line-height: 32px;
     }
-}
-
-@media (min-width: 436px) {
-  body {
-    h1,
-      .h1 {
-        font-size: 42px;
-      }
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    h1,
-      .h1 {
-        font-size: 51px;
-      }
-  }
-}
-
-@media (min-width: 1240px) {
-  body {
-    h1,
-      .h1 {
-        font-size: 57px;
-      }
-  }
-  h2,
-      .h2 {
-        font-size: 40px;
-        line-height: 52px;
-      }
-}
-
-@media (min-width: 436px) {
-  .h5,
-  h5 {
-    font-size: 22px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .h5,
-  h5 {
-    font-size: 24px;
-  }
 }

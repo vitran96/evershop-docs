@@ -187,8 +187,8 @@ function CatalogManagement() {
         />
         <BorderBlock backgroundColor={"#fff"}>
           <Card backgroundColor={"#F8F9FA"} className={"mb-6"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 overflow-hidden">
-              <div className="flex flex-col justify-center pl-12 pt-9">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6 overflow-hidden">
+              <div className="order-2 md:order-1 flex flex-col justify-center pl-5 md:pl-12 pt-5 md:pt-9">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -214,7 +214,7 @@ function CatalogManagement() {
                   intuitive tools and detailed insights.
                 </div>
               </div>
-              <div className="pt-20">
+              <div className="pt-16 md:pt-20 order-1 md:order-2">
                 <StreamLineProductControl />
               </div>
             </div>
@@ -224,11 +224,11 @@ function CatalogManagement() {
               backgroundColor={
                 "radial-gradient(80% 50% at 100% 0%, #27b4874d 0%, #F8F9FAff 100%)"
               }>
-              <div className="pl-12 pt-12 pb-12">
+              <div className="pl-5 pt-5 pb-5 md:pl-12 md:pt-12 md:pb-12">
                 <div className="w-full flex justify-start rounded-2xl">
                   <Category />
                 </div>
-                <div className="flex flex-col justify-center pt-12">
+                <div className="flex flex-col justify-center pt-8 md:pt-12">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -254,11 +254,11 @@ function CatalogManagement() {
               backgroundColor={
                 "radial-gradient(80% 50% at 100% 0%, #645EE51F 0%, #F8F9FAff 100%)"
               }>
-              <div className="pl-12 overflow-hidden">
-                <div className="w-full flex justify-start pt-12">
+              <div className="pl-5 md:pl-12 overflow-hidden">
+                <div className="w-full flex justify-start pt-5 md:pt-12">
                   <Collection />
                 </div>
-                <div className="flex flex-col justify-center pt-12">
+                <div className="flex flex-col justify-center pt-8 md:pt-12 pb-5">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -308,8 +308,8 @@ function CheckoutManagement() {
               backgroundColor={
                 "radial-gradient(80% 50% at 100% 0%, rgba(39, 180, 135, 0.3) 0%, rgb(248, 249, 250) 100%)"
               }>
-              <div className="flex flex-col justify-center p-12 pr-6">
-                <div className="mr-[-24px] mb-12">
+              <div className="flex flex-col justify-center p-5 md:p-12 pr-6">
+                <div className="mr-[-24px] mb-8 md:mb-12">
                   <CheckoutExperience />
                 </div>
                 <svg
@@ -348,8 +348,8 @@ function CheckoutManagement() {
               backgroundColor={
                 "radial-gradient(80% 50% at 100% 0%, rgba(100, 94, 229, 0.12) 0%, rgb(248, 249, 250) 100%)"
               }>
-              <div className="flex flex-col justify-center p-12 pr-6">
-                <div className="mr-[-24px] mb-12">
+              <div className="flex flex-col justify-center p-5 md:p-12 pr-6">
+                <div className="mr-[-24px] mb-8 md:mb-12">
                   <PaymentIntegration />
                 </div>
                 <svg
@@ -378,8 +378,8 @@ function CheckoutManagement() {
               backgroundColor={
                 "radial-gradient(80% 50% at 100% 0%, rgba(39, 180, 135, 0.3) 0%, rgb(248, 249, 250) 100%)"
               }>
-              <div className="flex flex-col justify-center p-12 pr-6">
-                <div className="mr-[-24px] mb-12">
+              <div className="flex flex-col justify-center p-5 md:p-12 pr-6">
+                <div className="mr-[-24px] mb-8 md:mb-12">
                   <OrderManagement />
                 </div>
                 <svg
@@ -418,7 +418,7 @@ function CheckoutManagement() {
 function Integrations() {
   return (
     <div className="container pt-5">
-      <div className="grid grid-cols-2 gap-[73px]">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-[73px]">
         <BlockHead
           label="Streamline"
           heading={{
@@ -452,11 +452,11 @@ function ElevateYourStore() {
             text: "Unlock the potential of your e-commerce business with powerful solutions tailored for seamless growth.",
           }}
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[68px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-[68px]">
           <BorderBlock
             backgroundColor={"#fff"}
             bigRadius={false}
-            className="marketplace-block grid grid-flow-row grid-rows-[2fr_1fr] h-full">
+            className="marketplace-block grid grid-flow-row md:grid-rows-[2fr_1fr] h-full">
             <div className="bg-Other-01 rounded-t-xl flex items-center flex-col justify-end pt-5 px-8">
               <div className="w-44 mb-2">
                 <ThemeExtensionButtons />
@@ -613,7 +613,7 @@ function TechLogo({ src, name }) {
 
 function TechStack() {
   return (
-    <section className="py-10 md:py-20 bg-[#14181C]">
+    <section className="py-16 md:py-20 bg-[#14181C]">
       <div className="container">
         <BlockHead
           label="Stacks"
@@ -626,7 +626,7 @@ function TechStack() {
             className: "text-white",
           }}
         />
-        <div className="grid grid-cols-7 gap-[39px] mb-[69px]">
+        <div className="grid grid-cols-2 md:grid-cols-7 gap-8 md:gap-[39px] mb-8 md:mb-[69px]">
           <TechLogo src="/img/react-logo.svg" name="ReactJS" />
           <TechLogo src="/img/graphql-logo.svg" name="GraphQL" />
           <TechLogo src="/img/nodejs-logo.svg" name="NodeJS" />
@@ -645,14 +645,16 @@ function TechStack() {
 
 const DataFetchingDes = () => (
   <>
-    <h4 className="text-white mb-3">Data fetching from React component</h4>
-    <div className="text-white text-lg mb-10">
+    <h4 className="text-white mb-1 md:mb-3">
+      Data fetching from React component
+    </h4>
+    <div className="text-white text-lg mb-3 md:mb-10">
       Using Graphql query for loading data and pass to React component as props
       with easy
     </div>
     <a
       href="/docs/development/knowledge-base/data-fetching"
-      className="text-white hover:text-white">
+      className="text-white hover:text-white font-bold">
       Docs ->
     </a>
   </>
@@ -660,14 +662,14 @@ const DataFetchingDes = () => (
 
 const Middleware = () => (
   <>
-    <h4 className="text-white mb-3">File based middleware</h4>
-    <div className="text-white text-lg mb-10">
+    <h4 className="text-white mb-1 md:mb-3">File based middleware</h4>
+    <div className="text-white text-lg mb-3 md:mb-10">
       Using Graphql query for loading data and pass to React component as props
       with easy
     </div>
     <a
       href="/docs/development/knowledge-base/middleware-system"
-      className="text-white hover:text-white">
+      className="text-white hover:text-white font-bold">
       Docs ->
     </a>
   </>
@@ -675,22 +677,22 @@ const Middleware = () => (
 
 const DynamicLayout = () => (
   <>
-    <h4 className="text-white mb-3">Dynamic layout</h4>
-    <div className="text-white text-lg mb-10">
+    <h4 className="text-white mb-1 md:mb-3">Dynamic layout</h4>
+    <div className="text-white text-lg mb-3 md:mb-10">
       Using Graphql query for loading data and pass to React component as props
       with easy
     </div>
     <a
       href="/docs/development/theme/templating"
-      className="text-white hover:text-white">
+      className="text-white hover:text-white font-bold">
       Docs ->
     </a>
   </>
 );
 function CodeShow() {
   return (
-    <div className="grid grid-cols-2 gap-0 bg-Other-03 rounded-xl mb-8">
-      <div className="col-span-1 p-16">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-0 bg-Other-03 rounded-xl mb-8">
+      <div className="col-span-1 p-4 md:p-16">
         <FadeInOutSlides
           slides={[
             { content: DataFetchingDes },
@@ -702,7 +704,7 @@ function CodeShow() {
           interval={5000}
         />
       </div>
-      <div className="col-span-1 pb-6">
+      <div className="col-span-1 pb-2 md:pb-6">
         <DataFetching />
       </div>
     </div>
@@ -712,7 +714,7 @@ function CodeShow() {
 function ThemeAndExtensionDevelop() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-1">
-      <div className="bg-Other-03 px-16 pt-[60px] rounded-xl">
+      <div className="bg-Other-03 px-4 py-6 md:px-16 md:py-[60px] rounded-xl">
         <h4 className="text-white">
           Master the art of theme customization for your online store
         </h4>
@@ -727,7 +729,7 @@ function ThemeAndExtensionDevelop() {
           Explore theme customization ->
         </a>
       </div>
-      <div className="bg-Other-03 px-16 py-[60px] rounded-xl">
+      <div className="bg-Other-03 px-4 py-6 md:px-16 md:py-[60px] rounded-xl">
         <h4 className="text-white">
           Build extensions to enhance and integrate your store
         </h4>

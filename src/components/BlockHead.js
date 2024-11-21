@@ -17,8 +17,8 @@ export default function BlockHead({
       : `text-left ${subheading.className}`;
   const className =
     alignment === "center"
-      ? "flex flex-col gap-3 justify-items-center items-center mb-[68px]"
-      : "flex flex-col gap-3 justify-items-start items-start mb-[68px]";
+      ? "flex flex-col gap-3 justify-items-center items-center mb-8 md:mb-[68px]"
+      : "flex flex-col gap-3 justify-items-start items-start mb-8 md:mb-[68px]";
   return (
     <div className={className}>
       <div className="text-center">

@@ -3,9 +3,9 @@ import SlidingImage from "./SlidingImage";
 
 const Category = ({ children }) => {
   return (
-    <div className="w-full h-64 pl-6 pt-6 pb-4 bg-white rounded-tl-2xl rounded-bl-2xl justify-start items-center inline-flex">
+    <div className="w-full h-64 pl-5 pt-5 md:pl-6 md:pt-6 pb-4 bg-white rounded-tl-2xl rounded-bl-2xl justify-start items-center inline-flex">
       <div className="self-stretch flex-col justify-start items-start gap-6 inline-flex w-full">
-        <div className="self-stretch justify-between items-center inline-flex w-full pr-6">
+        <div className="self-stretch justify-between items-center inline-flex w-full pr-1 md:pr-6">
           <div className="grow shrink basis-0 flex-col justify-start items-start gap-1 inline-flex">
             <div className="self-stretch justify-start items-center gap-3 inline-flex">
               <div className="w-2.5 h-2.5 bg-Success-01 rounded-full" />
@@ -34,12 +34,14 @@ const Category = ({ children }) => {
                   fill="#00764A"
                 />
               </svg>
-              <span className="pl-1 text-sm font-medium">Add product</span>
+              <span className="pl-1 text-xs md:text-sm font-medium">
+                Add product
+              </span>
             </button>
           </div>
         </div>
         <div className="self-stretch h-36 flex-col justify-start items-start gap-5 flex">
-          <div className="self-stretch justify-start items-center gap-3 inline-flex">
+          <div className="self-stretch gap-3 grid grid-cols-3 md:grid-cols-4">
             <div className="flex-col justify-center items-start gap-4 inline-flex">
               <SlidingImage
                 src="/img/category-one.webp"
@@ -79,7 +81,7 @@ const Category = ({ children }) => {
                 <div className="w-12 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
               </div>
             </div>
-            <div className="flex-col justify-center items-start gap-4 inline-flex">
+            <div className="flex-col justify-center items-start gap-4 hidden md:inline-flex">
               <SlidingImage
                 src="/img/category-four.webp"
                 alt="Category Four"

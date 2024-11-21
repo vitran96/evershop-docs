@@ -1,11 +1,5 @@
-import React, { useEffect } from "react";
-import {
-  useSpring,
-  animated,
-  useSprings,
-  useSpringRef,
-  useChain,
-} from "@react-spring/web";
+import React from "react";
+import { useSpring, animated, useSpringRef, useChain } from "@react-spring/web";
 
 const Header = (props) => (
   <svg
@@ -1989,9 +1983,9 @@ const BuilderSVG = () => {
         </animated.div>
       </animated.div>
       <animated.div
-        className="w-80 p-6 bg-white rounded-t-2xl setting"
+        className="md:w-80 p-4 md:p-6 bg-white rounded-t-2xl setting"
         style={settingSprings}>
-        <div className="grid grid-cols-1 gap-5">
+        <div className="grid grid-cols-1 gap-3 md:gap-5">
           <div className="flex justify-start items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -2007,7 +2001,9 @@ const BuilderSVG = () => {
                 stroke-linejoin="round"
               />
             </svg>
-            <span className="font-medium text-Neutrals-01">Main Menu</span>
+            <span className="font-medium text-sm md:text-base text-Neutrals-01">
+              Main Menu
+            </span>
           </div>
           <div className="flex justify-start items-center gap-2">
             <svg
@@ -2024,7 +2020,9 @@ const BuilderSVG = () => {
                 stroke-linejoin="round"
               />
             </svg>
-            <span className="font-medium text-Neutrals-01">Hero Banners</span>
+            <span className="font-medium text-sm md:text-base text-Neutrals-01">
+              Hero Banners
+            </span>
           </div>
           <animated.div style={productsSettingSprings}>
             <div className="flex justify-start items-center gap-2">
@@ -2042,9 +2040,11 @@ const BuilderSVG = () => {
                   stroke-linejoin="round"
                 />
               </svg>
-              <span className="font-medium text-Neutrals-01">New Arrivals</span>
+              <span className="font-medium text-sm md:text-base text-Neutrals-01">
+                New Arrivals
+              </span>
             </div>
-            <div className="flex justify-between p-4  rounded-md bg-[#E2E2E2] mt-2">
+            <div className="flex justify-between p-2 md:p-4 rounded-md bg-[#E2E2E2] mt-2">
               <div className="flex justify-start gap-2 items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -2065,11 +2065,11 @@ const BuilderSVG = () => {
               <div className="flex items-center">
                 <animated.button
                   id="toggleButton"
-                  className="h-6 w-12 rounded-full  relative focus:outline-none transition-colors"
+                  className="h-4 w-8 md:h-6 md:w-12 rounded-full  relative focus:outline-none transition-colors"
                   style={productStatusBackgroundSprings}>
                   <animated.span
                     id="toggleIndicator"
-                    className="w-5 h-5 bg-white rounded-full absolute top-0.5  shadow transition-transform"
+                    className="w-4 h-4 md:w-5 md:h-5 bg-white rounded-full absolute top-0  shadow transition-transform"
                     style={productsStatusPositionSprings}></animated.span>
                 </animated.button>
               </div>
@@ -2091,9 +2091,11 @@ const BuilderSVG = () => {
                   stroke-linejoin="round"
                 />
               </svg>
-              <span className="font-medium text-Neutrals-01">New Arrivals</span>
+              <span className="font-medium text-sm md:text-base text-Neutrals-01">
+                Latest Articles
+              </span>
             </div>
-            <div className="flex justify-between p-4  rounded-md bg-[#E2E2E2] mt-2">
+            <div className="flex justify-between p-2 md:p-4  rounded-md bg-[#E2E2E2] mt-2">
               <div className="flex justify-start gap-2 items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -2114,11 +2116,11 @@ const BuilderSVG = () => {
               <div className="flex items-center">
                 <animated.button
                   id="toggleButton"
-                  className="h-6 w-12 rounded-full  relative focus:outline-none transition-colors"
+                  className="h-4 w-8 md:h-6 md:w-12 rounded-full  relative focus:outline-none transition-colors"
                   style={articlesStatusBackgroundSprings}>
                   <animated.span
                     id="toggleIndicator"
-                    className="w-5 h-5 bg-white rounded-full absolute top-0.5  shadow transition-transform"
+                    className="w-4 h-4 md:w-5 md:h-5 bg-white rounded-full absolute top-0  shadow transition-transform"
                     style={articlesStatusPositionSprings}></animated.span>
                 </animated.button>
               </div>

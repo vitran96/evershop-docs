@@ -47,7 +47,7 @@ function SlidingImage({ src, alt, width, height, delay = 0 }) {
       style={{
         ...imageAnimation,
         width: width,
-        height: height,
+        height: "auto !important",
       }}
     />
   );

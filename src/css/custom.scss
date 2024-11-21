@@ -640,12 +640,22 @@ button.menu__caret {
   grid-template-rows: repeat(8, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+  @include mobile {
+    padding: 20px;
+    padding-bottom: 0;
+  }
   .setting{
     grid-row-start: 4;
     grid-row-end: 9;
     grid-column-start: 1;
     grid-column-end: 5;
     z-index: 1000;
+    @include mobile {
+      grid-row-start: 2;
+      grid-row-end: 9;
+      grid-column-start: 1;
+      grid-column-end: 11;
+    }
   }
   .setting__shadow {
     grid-row-start: 4;
@@ -698,4 +708,22 @@ button.menu__caret {
     transform: scale(1.5);
     opacity: 0;
   }
+}
+
+.StreamLineProductControl {
+  background-color: #F8F9FA;
+  box-shadow: 0px 2.15px 0.5px -2px rgba(0, 0, 0, 0.25), 0px 24px 24px -16px rgba(8, 8, 8, 0.04), 0px 6px 13px 0px rgba(8, 8, 8, 0.03), 0px 6px 4px -4px rgba(8, 8, 8, 0.05), 0px 5px 1.5px -4px rgba(8, 8, 8, 0.09);
+  padding-left: 40px;
+  height: 300px;
+  width: 100%;
+  @include mobile {
+    box-shadow: none !important;
+    padding-left: 20px;
+    height: 245px;
+  }
+  backdrop-filter: blur(32px);
+  border-radius: 16px 16px 0px 0px;
+  
+  position: relative;
+  
 }

@@ -37,7 +37,8 @@ module.exports = {
         xl: "1280px",
       },
       padding: {
-        DEFAULT: "20px",
+        DEFAULT: "16px",
+        md: "20px",
         xl: "32px",
       },
     },

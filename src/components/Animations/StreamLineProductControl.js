@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import styles from "./styles.module.scss";
 import { useSpring, animated, useSprings } from "@react-spring/web";
 import MovingBorder from "./MovingBorder";
 import FadeInOutSlides from "./FadeInOutSlides";
@@ -36,39 +35,40 @@ function SlidingImage({
     <animated.img
       src={src}
       alt={alt}
+      width={width}
+      height={height}
       style={{
         ...imageAnimation,
-        width: width,
-        height: height,
       }}
     />
   );
 }
 
-const colors = ["#a9a07c", "#a4cfc1", "#e43010"];
-
+const colors = ["#a9a07c", "#a4cfc1", "#CD519F"];
 const Before = ({ startSlide }) => {
   return (
     <div className="">
       <div className="flex gap-5 items-start">
-        <SlidingImage
-          src="/img/shoe-one.webp"
-          alt="Air Force 1 Low EWP"
-          width={100}
-          height={100}
-          startSlide={startSlide}
-          delay={0}
-        />
-        <div>
+        <div className="w-16 md:w-24">
+          <SlidingImage
+            src="/img/shoe-one.webp"
+            alt="Air Force 1 Low EWP"
+            width={100}
+            height={100}
+            startSlide={startSlide}
+            delay={0}
+          />
+        </div>
+        <div className="text-xs md:text-base">
           <div className="text-[13px] leading-[18px] text-Neutrals-04">Men</div>
           <div className="font-medium">Air Force 1 Low EWP</div>
           <div className="text-sm text-Neutrals-04">3 colours</div>
-          <div className="text-[15px] leading-[24px] font-semibold mt-1">
+          <div className="text-xs md:text-[15px] leading-[24px] font-semibold mt-1">
             $280.00 - $399.00
           </div>
         </div>
         <div className="ml-auto flex items-center p-1 bg-[#F4F5F6] rounded-[16px] border border-gray-200 shadow-sm font-medium">
-          <button className="ml-auto flex items-center px-3 py-2 bg-white rounded-[12px] border border-gray-200 shadow-sm font-medium">
+          <button className="ml-auto flex items-center px-2 mdpx-3 py-1 md:py-2 bg-white rounded-[12px] border border-gray-200 shadow-sm font-medium">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -82,23 +82,23 @@ const Before = ({ startSlide }) => {
                 fill="#00764A"
               />
             </svg>
-            <span className="pl-1 text-sm font-medium">Push</span>
+            <span className="pl-1 text-xs md:text-sm font-medium">Push</span>
           </button>
         </div>
       </div>
 
       <div className="mt-4 border-b border-gray-200">
-        <div className="grid grid-cols-6 text-[11px] font-medium text-Neutrals-04 py-2">
+        <div className="grid grid-cols-4 md:grid-cols-6 text-[11px] font-medium text-Neutrals-04 py-2">
           <div>VARIANT</div>
           <div>SIZE</div>
           <div>COLOR</div>
           <div className="text-left">PRICE</div>
-          <div className="text-left">STOCK</div>
-          <div className="text-right">ACTION</div>
+          <div className="text-left hidden md:block">STOCK</div>
+          <div className="text-right hidden md:block">ACTION</div>
         </div>
       </div>
       <div className="text-Neutrals-01 font-medium">
-        <div className="grid grid-cols-6 items-center py-2">
+        <div className="grid grid-cols-4 md:grid-cols-6 items-center py-2">
           <div>
             <MovingBorder>
               <SlidingImage
@@ -114,8 +114,10 @@ const Before = ({ startSlide }) => {
           <div className="text-[13px]">X</div>
           <div className="text-[13px]">Red</div>
           <div className="text-left text-[13px] font-semibold">$280.00</div>
-          <div className="text-left text-[13px] font-semibold">130</div>
-          <div className="text-right text-[13px] font-semibold">
+          <div className="text-left text-[13px] font-semibold hidden md:block">
+            130
+          </div>
+          <div className="text-right text-[13px] font-semibold hidden md:block">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -139,7 +141,7 @@ const Before = ({ startSlide }) => {
             </svg>
           </div>
         </div>
-        <div className="grid grid-cols-6 items-center py-2">
+        <div className="grid grid-cols-4 md:grid-cols-6 items-center py-2">
           <div>
             <MovingBorder>
               <SlidingImage
@@ -156,8 +158,10 @@ const Before = ({ startSlide }) => {
           <div className="text-[13px]">M</div>
           <div className="text-[13px]">Green</div>
           <div className="text-left text-[13px] font-semibold">$300.00</div>
-          <div className="text-left text-[13px] font-semibold">160</div>
-          <div className="text-right text-[13px] font-semibold">
+          <div className="text-left text-[13px] font-semibold hidden md:block">
+            160
+          </div>
+          <div className="text-right text-[13px] font-semibold hidden md:block">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -234,23 +238,16 @@ const After = ({ startSlide }) => {
 
   return (
     <div className="">
-      <div className="justify-start items-start flex gap-6">
-        <div className="pl-2 pr-3 pt-1 pb-16 bg-[#f4f5f6] rounded-lg flex-col justify-start items-center inline-flex w-[240px]">
-          <div className="relative w-[200px] h-[200px]">
+      <div className="grid grid-cols-[40%_60%] md:grid-cols-2 grid-row gap-3 md:gap-6">
+        <div className="pl-2 bg-[#f4f5f6] rounded-lg flex-col justify-center items-center inline-flex w-full">
+          <div className="grid grid-cols-1 grid-rows-1">
             {imageSprings.map((styles, i) => (
               <animated.img
                 key={i}
                 src={`/img/shoe-${colors[i].replace("#", "")}.webp`}
                 alt={`Variant ${colors[i]}`}
-                className="w-16 h-16 rounded-lg"
+                className="rounded-lg col-span-1 row-span-1 col-start-1 row-start-1"
                 style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  bottom: 0,
-                  right: 0,
-                  width: "100%",
-                  height: "100%",
                   ...styles,
                 }}
               />
@@ -262,16 +259,16 @@ const After = ({ startSlide }) => {
             <div className="flex-col justify-start items-start flex">
               <div className="flex-col justify-start items-start gap-0.5 flex">
                 <div className="justify-between items-center inline-flex">
-                  <div className="text-Neutrals-01 text-lg font-semibold leading-normal">
+                  <div className="text-Neutrals-01 text-sm md:text-lg font-semibold leading-normal">
                     Air Force 1 Low EWP
                   </div>
                 </div>
                 <div className="justify-start items-start gap-0.5 inline-flex">
-                  <div className="w-[220px] text-[#686f82] text-[13px] font-normal leading-[18px]">
+                  <div className="text-[#686f82] text-xs md:text-[13px] font-normal leading-[18px]">
                     Men
                   </div>
                 </div>
-                <div className="text-Neutrals-01 text-[15px] font-medium leading-normal">
+                <div className="text-Neutrals-01 text-xs md:text-[15px] font-medium leading-normal">
                   $280.00 - $399.00
                 </div>
               </div>
@@ -292,7 +289,7 @@ const After = ({ startSlide }) => {
                     ...styles,
                   }}>
                   <div
-                    className="w-7 h-7 rounded-full"
+                    className="w-5 h-5 md:w-7 md:h-7 rounded-full"
                     style={{
                       backgroundColor: colors[i],
                     }}></div>
@@ -300,20 +297,20 @@ const After = ({ startSlide }) => {
               ))}
             </div>
           </div>
-          <div className="w-[226px] h-9 flex flex-col gap-3  pt-[11px]">
+          <div className="flex flex-col gap-3  pt-[11px]">
             <div className="flex gap-3 items-center">
-              <div className="w-[117px] h-9 rounded-xl border border-Neutrals-06 flex justify-center items-center gap-6">
+              <div className="w-[100px] h-7 px-1 md:w-[117px] md:h-9 rounded-xl border border-Neutrals-06 flex justify-center items-center gap-6">
                 <div className="text-2xl">-</div>
                 <div className="text-Neutrals-01 text-sm font-medium leading-tight">
                   3
                 </div>
                 <div className="text-2xl">+</div>
               </div>
-              <div className="text-right text-[#dd0003] text-[11px] font-medium leading-[18px]">
+              <div className="hidden md:block text-right text-[#dd0003] text-[11px] font-medium leading-[18px]">
                 Only 10 items Left
               </div>
             </div>
-            <div className="w-[226px] px-6 py-[13px] bg-[#008060] rounded-xl justify-center items-center gap-2.5 inline-flex">
+            <div className="px-6 py-[13px] bg-[#008060] rounded-xl justify-center items-center gap-2.5 inline-flex">
               <div className="text-white text-sm font-semibold leading-none">
                 Buy Now
               </div>
@@ -332,14 +329,14 @@ const items = [
 
 export default function StreamLineProductControl() {
   return (
-    <div className={styles.container}>
+    <div className="StreamLineProductControl">
       <div className="absolute top-[-40px] left-6 bottom-0 right-0 flex justify-end">
         <div
           style={{
             width: "548px",
             height: "100%",
           }}
-          className="ml-auto rounded-t-2xl shadow-lg p-6 bg-white">
+          className="ml-auto rounded-l-2xl md:rounded-b-none md:rounded-t-2xl md:shadow-lg p-3 pl-4 md:pl-6 pt-4 md:pt-6 md:p-6 bg-white">
           <FadeInOutSlides slides={items} />
         </div>
       </div>

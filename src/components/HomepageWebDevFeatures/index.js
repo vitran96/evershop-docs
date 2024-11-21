@@ -74,7 +74,7 @@ const FeatureList = [
 function Feature({ icon, title, description, readMore }) {
   return (
     <div>
-      <div className="feature__card p-6 box-border">
+      <div className="feature__card px-4 py-5 md:p-6 box-border">
         <div className="dev-features-icon flex justify-center items-center">
           <img src={icon} alt={title} />
         </div>
@@ -108,7 +108,7 @@ function Feature({ icon, title, description, readMore }) {
 
 export default function HomepageFeatures() {
   return (
-    <section className="bg-Other-01 py-20 mt-20">
+    <section className="bg-Other-01 py-16 mt-16 md:py-20 md:mt-20">
       <div className="container">
         <BlockHead
           label="Toolkits"
