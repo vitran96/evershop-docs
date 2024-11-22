@@ -1,18 +1,10 @@
 :root {
-  --ifm-h1-font-size: 60px;
-  --ifm-h2-font-size: 40px;
-  --ifm-h3-font-size: 30px;
-  --ifm-h4-font-size: 24px;
-  --ifm-h5-font-size: 20px;
-  --ifm-h6-font-size: 16px;
-  @include mobile {
-    --ifm-h1-font-size: 48px;
-    --ifm-h2-font-size: 32px;
-    --ifm-h3-font-size: 24px;
-    --ifm-h4-font-size: 18px;
-    --ifm-h5-font-size: 16px;
-    --ifm-h6-font-size: 14px;
-  }
+  --ifm-h1-font-size: 3.75rem;
+  --ifm-h2-font-size: 2.5rem;
+  --ifm-h3-font-size: 1.875rem;
+  --ifm-h4-font-size: 1.5rem;
+  --ifm-h5-font-size: 1.25rem;
+  --ifm-h6-font-size: 1rem;
 }
 body {
   .h1,
@@ -35,7 +27,7 @@ body {
     h1,
     .h1 {
       letter-spacing: -1.2px;
-      line-height: 72px;
+      line-height: 4.5rem;
     }
 
     h2,

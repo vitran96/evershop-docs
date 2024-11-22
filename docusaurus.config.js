@@ -73,15 +73,15 @@ const config = {
           {
             type: "html",
             value: `
-              <a class="navbar__link" href="/docs"><span>Docs</span> <img src="/img/chevron-down.svg" alt="divider" class="divider" /></a> 
+              <a class="navbar__link" href="/docs/development/getting-started/introduction"><span>Docs</span> <img src="/img/chevron-down.svg" alt="divider" class="divider" /></a> 
               <div class="mega__menu__dropdown">
                       <div style="padding-left: 35px; display:flex"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="9" viewBox="0 0 18 9" fill="none">
 <path d="M9 0L17.6603 9H0.339746L9 0Z" fill="white"/>
 </svg></div>
-                      <div class="bg-white rounded-2xl flex flex-col width-[780px]">
-        <div class="top--section grid grid-cols-1 md:grid-cols-3 p-6">
+                      <div class="bg-white flex flex-col width-[780px]">
+        <div class="top--section grid grid-cols-1 gap-5 md:grid-cols-3 p-6">
           <div>
-            <div class="header flex gap-2 justify-start items-center border-b pb-4">
+            <div class="header flex gap-2 justify-start items-center border-b border-Neutrals-06 pb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
@@ -103,24 +103,24 @@ const config = {
                   fill="#008060"
                 />
               </svg>
-              <span class="text-[12px] leading-4 uppercase font-medium text-[#687082]">
+              <span class="text-[12px] leading-4 uppercase font-medium text-Neutrals-04">
                 GETTING STARTED
               </span>
             </div>
             <div class="flex flex-col gap-5 mt-5">
-              <a href="/docs/development/getting-started/introduction" class="font-medium text-sm text-[#101828]">
+              <a href="/docs/development/getting-started/introduction" class="font-medium text-sm text-Neutrals-01">
                 Introduction
               </a>
-              <a href="/docs/development/getting-started/system-requirements" class="font-medium text-sm text-[#101828]">
+              <a href="/docs/development/getting-started/system-requirements" class="font-medium text-sm text-Neutrals-01">
                 System Requirements
               </a>
-              <a href="/docs/development/getting-started/installation-guide" class="font-medium text-sm text-[#101828]">
+              <a href="/docs/development/getting-started/installation-guide" class="font-medium text-sm text-Neutrals-01">
                 Installation Guide
               </a>
             </div>
           </div>
           <div>
-            <div class="header flex gap-2 justify-start items-center border-b pb-4">
+            <div class="header flex gap-2 justify-start items-center border-b border-Neutrals-06 pb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
@@ -137,24 +137,24 @@ const config = {
                   fill="#008060"
                 />
               </svg>
-              <span class="text-[12px] leading-4 uppercase font-medium text-[#687082]">
+              <span class="text-[12px] leading-4 uppercase font-medium text-Neutrals-04">
                 MODULE DEVELOPMENT
               </span>
             </div>
             <div class="flex flex-col gap-5 mt-5">
-              <a href="/docs/development/module/module-overview" class="font-medium text-sm text-[#101828]">
+              <a href="/docs/development/module/module-overview" class="font-medium text-sm text-Neutrals-01">
                 Overview
               </a>
-              <a href="/docs/development/module/extension-development" class="font-medium text-sm text-[#101828]">
+              <a href="/docs/development/module/extension-development" class="font-medium text-sm text-Neutrals-01">
                 Extention Development
               </a>
-              <a href="/docs/development/module/create-your-first-extension" class="font-medium text-sm text-[#101828]">
+              <a href="/docs/development/module/create-your-first-extension" class="font-medium text-sm text-Neutrals-01">
                 Create Your First Extention
               </a>
             </div>
           </div>
           <div>
-            <div class="header flex gap-2 justify-start items-center border-b pb-4">
+            <div class="header flex gap-2 justify-start items-center border-b border-Neutrals-06 pb-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
@@ -179,25 +179,25 @@ const config = {
                   fill="#008060"
                 />
               </svg>
-              <span class="text-[12px] leading-4 uppercase font-medium text-[#687082]">
+              <span class="text-[12px] leading-4 uppercase font-medium text-Neutrals-04">
                 THEME DEVELOPMENT
               </span>
             </div>
             <div class="flex flex-col gap-5 mt-5">
-              <a href="/docs/development/theme/theme-overview" class="font-medium text-sm text-[#101828]">
+              <a href="/docs/development/theme/theme-overview" class="font-medium text-sm text-Neutrals-01">
                 Overview
               </a>
-              <a href="/docs/development/theme/view-system" class="font-medium text-sm text-[#101828]">
+              <a href="/docs/development/theme/view-system" class="font-medium text-sm text-Neutrals-01">
                 The View System
               </a>
-              <a href="/docs/development/theme/styling" class="font-medium text-sm text-[#101828]">
+              <a href="/docs/development/theme/styling" class="font-medium text-sm text-Neutrals-01">
                 Styling
               </a>
             </div>
           </div>
         </div>
-        <div class="bg-[#F8F9FA] p-6 rounded-b-2xl">
-          <div class="grid grid-cols-1 md:grid-cols-3 md:gap-10">
+        <div class="bg-Other-01 p-6 rounded-b-2xl">
+          <div class="grid grid-cols-3 md:gap-10">
             <div class="flex gap-2 justify-start items-center ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -223,7 +223,7 @@ const config = {
                   fill="#008060"
                 />
               </svg>
-              <a href="/docs/development/knowledge-base" class="text-[12px] leading-4 uppercase font-medium text-[#687082]">
+              <a href="/docs/development/knowledge-base" class="text-xs md:text-[12px] leading-4 uppercase font-medium text-Neutrals-04">
                 KNOWLEDGE
               </a>
             </div>
@@ -252,7 +252,7 @@ const config = {
                   fill="#008060"
                 />
               </svg>
-              <a href="/docs/development/advanced" class="text-[12px] leading-4 uppercase font-medium text-[#687082]">
+              <a href="/docs/development/advanced" class="text-xs md:text-[12px] leading-4 uppercase font-medium text-Neutrals-04">
                 ADVANCED GUIDES
               </a>
             </div>
@@ -281,7 +281,7 @@ const config = {
                   fill="#008060"
                 />
               </svg>
-              <a href="/docs/development/deployment" class="text-[12px] leading-4 uppercase font-medium text-[#687082]">
+              <a href="/docs/development/deployment" class="text-xs md:text-[12px] leading-4 uppercase font-medium text-Neutrals-04">
                 DEPLOYMENT GUIDES
               </a>
             </div>

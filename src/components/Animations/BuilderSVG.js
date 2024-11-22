@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSpring, animated, useSpringRef, useChain } from "@react-spring/web";
 
 const Header = (props) => (
@@ -1801,6 +1801,7 @@ const Articles = (props) => (
 
 const BuilderSVG = () => {
   const [reversing, setReversing] = React.useState(false);
+  const [hideSetting, setHideSetting] = React.useState(false);
   const timeout = React.useRef(null);
   const startRef = useSpringRef();
   // Start with the entire block slide up from the bottom
@@ -1827,12 +1828,14 @@ const BuilderSVG = () => {
   const settingSprings = useSpring({
     ref: settingRef,
     from: {
-      opacity: reversing ? 1 : 0,
-      transform: reversing ? "translateY(0px)" : "translateY(20px)",
+      opacity: reversing || hideSetting ? 1 : 0,
+      transform:
+        reversing || hideSetting ? "translateY(0px)" : "translateY(20px)",
     },
     to: {
-      opacity: reversing ? 0 : 1,
-      transform: reversing ? "translateY(20px)" : "translateY(0px)",
+      opacity: reversing || hideSetting ? 0 : 1,
+      transform:
+        reversing || hideSetting ? "translateY(20px)" : "translateY(0px)",
     },
   });
 
@@ -1933,15 +1936,25 @@ const BuilderSVG = () => {
     to: { opacity: reversing ? 0 : 1 },
     config: { duration: reversing ? 0 : 500 },
     onRest: () => {
+      setHideSetting(true);
       if (timeout.current) {
         clearTimeout(timeout.current);
       }
-      timeout.current = setTimeout(() => {
-        setReversing(!reversing);
-        startRef.start();
-      }, 2500);
+      timeout.current = setTimeout(
+        () => {
+          setReversing(!reversing);
+          startRef.start();
+        },
+        reversing ? 200 : 2500
+      );
     },
   });
+
+  useEffect(() => {
+    if (!reversing) {
+      setHideSetting(false);
+    }
+  }, [reversing]);
 
   useChain([
     startRef,
@@ -1968,14 +1981,14 @@ const BuilderSVG = () => {
           <Header />
         </div>
         <animated.div
-          className={"shadow-[inset_0_0_3px_#008060]"}
+          className={"shadow-[inset_0_0_3px_#008060] bg-[#e5fff938]"}
           style={productsBorderSprings}>
           <animated.div style={productsSprings} className={"bg-white"}>
             <Products />
           </animated.div>
         </animated.div>
         <animated.div
-          className={"shadow-[inset_0_0_3px_#008060]"}
+          className={"shadow-[inset_0_0_3px_#008060] bg-[#e5fff938]"}
           style={articlesBorderSprings}>
           <animated.div style={articlesSprings} className={"bg-white"}>
             <Articles />
@@ -2069,7 +2082,7 @@ const BuilderSVG = () => {
                   style={productStatusBackgroundSprings}>
                   <animated.span
                     id="toggleIndicator"
-                    className="w-4 h-4 md:w-5 md:h-5 bg-white rounded-full absolute top-0  shadow transition-transform"
+                    className="w-4 h-4 md:w-5 md:h-5 bg-white rounded-full absolute top-0 md:top-0.5  shadow transition-transform"
                     style={productsStatusPositionSprings}></animated.span>
                 </animated.button>
               </div>
@@ -2120,7 +2133,7 @@ const BuilderSVG = () => {
                   style={articlesStatusBackgroundSprings}>
                   <animated.span
                     id="toggleIndicator"
-                    className="w-4 h-4 md:w-5 md:h-5 bg-white rounded-full absolute top-0  shadow transition-transform"
+                    className="w-4 h-4 md:w-5 md:h-5 bg-white rounded-full absolute top-0 md:top-0.5  shadow transition-transform"
                     style={articlesStatusPositionSprings}></animated.span>
                 </animated.button>
               </div>

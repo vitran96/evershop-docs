@@ -74,11 +74,11 @@ const FeatureList = [
 function Feature({ icon, title, description, readMore }) {
   return (
     <div>
-      <div className="feature__card px-4 py-5 md:p-6 box-border">
+      <div className="feature__card px-4 py-5 lg:p-6 box-border">
         <div className="dev-features-icon flex justify-center items-center">
           <img src={icon} alt={title} />
         </div>
-        <h3 className="mb-2 mt-5 text-[20px] font-semibold">{title}</h3>
+        <h3 className="mb-2 mt-5 md:mt-3 text-[20px] font-semibold">{title}</h3>
         <div className="mb-4">{description}</div>
         <Link
           to={readMore}
@@ -121,7 +121,7 @@ export default function HomepageFeatures() {
             text: "Streamline your development process with EverShop's integrated toolkits",
           }}
         />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-8">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}

@@ -68,15 +68,15 @@ function HomepageHeader() {
             </p>
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-          <div className="flex justify-center md:justify-end">
+        <div className="grid gap-5 grid-cols-2">
+          <div className="flex justify-end">
             <Link
               className="button button--secondary rounded-xl button--large"
               to="https://demo.evershop.io/">
               Explore our demo
             </Link>
           </div>
-          <div className="flex md:justify-start justify-center">
+          <div className="flex justify-start">
             <Link
               className="button button--primary rounded-xl button--large"
               to="/docs/development/getting-started/introduction">
@@ -129,13 +129,25 @@ function HomepageHeader() {
 function Logos() {
   return (
     <div className="container">
-      <div className="grid grid-cols-6 gap-14 py-10">
-        <img alt="EverShop" src="/img/company-logo.png" />
-        <img alt="EverShop" src="/img/company-logo.png" />
-        <img alt="EverShop" src="/img/company-logo.png" />
-        <img alt="EverShop" src="/img/company-logo.png" />
-        <img alt="EverShop" src="/img/company-logo.png" />
-        <img alt="EverShop" src="/img/company-logo.png" />
+      <div className="grid grid-cols-2 md:grid-cols-6 gap-5 md:gap-14 py-10">
+        <div className="flex justify-center items-center">
+          <img alt="EverShop" src="/img/company-logo.png" />
+        </div>
+        <div className="flex justify-center items-center">
+          <img alt="EverShop" src="/img/company-logo.png" />
+        </div>
+        <div className="flex justify-center items-center">
+          <img alt="EverShop" src="/img/company-logo.png" />
+        </div>
+        <div className="flex justify-center items-center">
+          <img alt="EverShop" src="/img/company-logo.png" />
+        </div>
+        <div className="flex justify-center items-center">
+          <img alt="EverShop" src="/img/company-logo.png" />
+        </div>
+        <div className="flex justify-center items-center">
+          <img alt="EverShop" src="/img/company-logo.png" />
+        </div>
       </div>
     </div>
   );
@@ -188,7 +200,7 @@ function CatalogManagement() {
         <BorderBlock backgroundColor={"#fff"}>
           <Card backgroundColor={"#F8F9FA"} className={"mb-6"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6 overflow-hidden">
-              <div className="order-2 md:order-1 flex flex-col justify-center pl-5 md:pl-12 pt-5 md:pt-9">
+              <div className="order-2 md:order-1 flex flex-col justify-center pl-5 lg:pl-12 pt-5 lg:pt-9">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -224,11 +236,11 @@ function CatalogManagement() {
               backgroundColor={
                 "radial-gradient(80% 50% at 100% 0%, #27b4874d 0%, #F8F9FAff 100%)"
               }>
-              <div className="pl-5 pt-5 pb-5 md:pl-12 md:pt-12 md:pb-12">
+              <div className="pl-5 pt-5 pb-5 lg:pl-12 lg:pt-12 lg:pb-12">
                 <div className="w-full flex justify-start rounded-2xl">
                   <Category />
                 </div>
-                <div className="flex flex-col justify-center pt-8 md:pt-12">
+                <div className="flex flex-col justify-center pt-8 lg:pt-12">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -254,11 +266,11 @@ function CatalogManagement() {
               backgroundColor={
                 "radial-gradient(80% 50% at 100% 0%, #645EE51F 0%, #F8F9FAff 100%)"
               }>
-              <div className="pl-5 md:pl-12 overflow-hidden">
-                <div className="w-full flex justify-start pt-5 md:pt-12">
+              <div className="pl-5 lg:pl-12 overflow-hidden">
+                <div className="w-full flex justify-start pt-5 lg:pt-12">
                   <Collection />
                 </div>
-                <div className="flex flex-col justify-center pt-8 md:pt-12 pb-5">
+                <div className="flex flex-col justify-center pt-8 lg:pt-12 pb-5">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -308,8 +320,8 @@ function CheckoutManagement() {
               backgroundColor={
                 "radial-gradient(80% 50% at 100% 0%, rgba(39, 180, 135, 0.3) 0%, rgb(248, 249, 250) 100%)"
               }>
-              <div className="flex flex-col justify-center p-5 md:p-12 pr-6">
-                <div className="mr-[-24px] mb-8 md:mb-12">
+              <div className="flex flex-col justify-center p-5 lg:p-12 lg:pr-6 pr-6">
+                <div className="mr-[-24px] mb-8 md:mb-6 lg:mb-12">
                   <CheckoutExperience />
                 </div>
                 <svg
@@ -348,8 +360,8 @@ function CheckoutManagement() {
               backgroundColor={
                 "radial-gradient(80% 50% at 100% 0%, rgba(100, 94, 229, 0.12) 0%, rgb(248, 249, 250) 100%)"
               }>
-              <div className="flex flex-col justify-center p-5 md:p-12 pr-6">
-                <div className="mr-[-24px] mb-8 md:mb-12">
+              <div className="flex flex-col justify-center p-5 lg:p-12 lg:pr-6 pr-6">
+                <div className="mr-[-24px] mb-8 md:mb-6 lg:mb-12">
                   <PaymentIntegration />
                 </div>
                 <svg
@@ -378,8 +390,8 @@ function CheckoutManagement() {
               backgroundColor={
                 "radial-gradient(80% 50% at 100% 0%, rgba(39, 180, 135, 0.3) 0%, rgb(248, 249, 250) 100%)"
               }>
-              <div className="flex flex-col justify-center p-5 md:p-12 pr-6">
-                <div className="mr-[-24px] mb-8 md:mb-12">
+              <div className="flex flex-col justify-center p-5 lg:p-12 lg:pr-6 pr-6">
+                <div className="mr-[-24px] mb-8 md:mb-6 lg:mb-12">
                   <OrderManagement />
                 </div>
                 <svg
@@ -526,7 +538,7 @@ function ElevateYourStore() {
 function Discord() {
   return (
     <div className="discord mt-20">
-      <div className="container flex flex-col md:flex-row md:space-y-0 justify-center p-[30px] md:p-[75px] rounded-lg relative">
+      <div className="container flex flex-col md:flex-row md:space-y-0 justify-center p-[30px] lg:p-[75px] rounded-lg relative">
         <div className="text-center">
           <img
             src="/img/avatar.png"
@@ -554,7 +566,7 @@ function Discord() {
 
 function Developer() {
   return (
-    <div className="developer overflow-hidden relative container rounded-2xl bg-Other-03 border border-[#0F8769] px-4 md:px-16 py-6 md:py-[42px] mt-16">
+    <div className="developer overflow-hidden relative container rounded-2xl bg-Other-03 border border-[#0F8769] px-4 md:p-8 lg:px-16 py-6 lg:py-[42px] mt-16">
       <div>
         <h4 className="text-white mb-2">
           Engineered for developers, designed for efficiency!
@@ -626,7 +638,7 @@ function TechStack() {
             className: "text-white",
           }}
         />
-        <div className="grid grid-cols-2 md:grid-cols-7 gap-8 md:gap-[39px] mb-8 md:mb-[69px]">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 md:gap-[39px] mb-8 md:mb-[69px]">
           <TechLogo src="/img/react-logo.svg" name="ReactJS" />
           <TechLogo src="/img/graphql-logo.svg" name="GraphQL" />
           <TechLogo src="/img/nodejs-logo.svg" name="NodeJS" />
@@ -692,7 +704,7 @@ const DynamicLayout = () => (
 function CodeShow() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-0 bg-Other-03 rounded-xl mb-8">
-      <div className="col-span-1 p-4 md:p-16">
+      <div className="col-span-1 p-4 md:p-8 lg:p-16">
         <FadeInOutSlides
           slides={[
             { content: DataFetchingDes },
@@ -714,7 +726,7 @@ function CodeShow() {
 function ThemeAndExtensionDevelop() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-1">
-      <div className="bg-Other-03 px-4 py-6 md:px-16 md:py-[60px] rounded-xl">
+      <div className="bg-Other-03 px-4 py-6 md:px-8 lg:px-16 lg:py-[60px] rounded-xl grid grid-cols-1">
         <h4 className="text-white">
           Master the art of theme customization for your online store
         </h4>
@@ -729,7 +741,7 @@ function ThemeAndExtensionDevelop() {
           Explore theme customization ->
         </a>
       </div>
-      <div className="bg-Other-03 px-4 py-6 md:px-16 md:py-[60px] rounded-xl">
+      <div className="bg-Other-03 px-4 py-6 md:px-8 lg:px-16 lg:py-[60px] rounded-xl  grid grid-cols-1">
         <h4 className="text-white">
           Build extensions to enhance and integrate your store
         </h4>
@@ -750,7 +762,7 @@ function ThemeAndExtensionDevelop() {
 
 function TestimonialCard({ name, jobTitle, content }) {
   return name ? (
-    <div className="bg-Other-01 p-5 md:p-8 rounded-xl col-span-1">
+    <div className="bg-Other-01 p-5 lg:p-8 rounded-xl col-span-1">
       <div className="text-Neutrals-04 mb-5">&quot;{content}&quot;</div>
       <div className="flex justify-start items-center">
         <div>

@@ -88,17 +88,17 @@ const Before = ({ startSlide }) => {
       </div>
 
       <div className="mt-4 border-b border-gray-200">
-        <div className="grid grid-cols-4 md:grid-cols-6 text-[11px] font-medium text-Neutrals-04 py-2">
+        <div className="grid grid-cols-4 lg:grid-cols-6 text-[11px] font-medium text-Neutrals-04 py-2">
           <div>VARIANT</div>
           <div>SIZE</div>
           <div>COLOR</div>
           <div className="text-left">PRICE</div>
-          <div className="text-left hidden md:block">STOCK</div>
-          <div className="text-right hidden md:block">ACTION</div>
+          <div className="text-left hidden lg:block">STOCK</div>
+          <div className="text-right hidden lg:block">ACTION</div>
         </div>
       </div>
       <div className="text-Neutrals-01 font-medium">
-        <div className="grid grid-cols-4 md:grid-cols-6 items-center py-2">
+        <div className="grid grid-cols-4 lg:grid-cols-6 items-center py-2">
           <div>
             <MovingBorder>
               <SlidingImage
@@ -114,10 +114,10 @@ const Before = ({ startSlide }) => {
           <div className="text-[13px]">X</div>
           <div className="text-[13px]">Red</div>
           <div className="text-left text-[13px] font-semibold">$280.00</div>
-          <div className="text-left text-[13px] font-semibold hidden md:block">
+          <div className="text-left text-[13px] font-semibold hidden lg:block">
             130
           </div>
-          <div className="text-right text-[13px] font-semibold hidden md:block">
+          <div className="text-right text-[13px] font-semibold hidden lg:block">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -141,7 +141,7 @@ const Before = ({ startSlide }) => {
             </svg>
           </div>
         </div>
-        <div className="grid grid-cols-4 md:grid-cols-6 items-center py-2">
+        <div className="grid grid-cols-4 lg:grid-cols-6 items-center py-2">
           <div>
             <MovingBorder>
               <SlidingImage
@@ -158,10 +158,10 @@ const Before = ({ startSlide }) => {
           <div className="text-[13px]">M</div>
           <div className="text-[13px]">Green</div>
           <div className="text-left text-[13px] font-semibold">$300.00</div>
-          <div className="text-left text-[13px] font-semibold hidden md:block">
+          <div className="text-left text-[13px] font-semibold hidden lg:block">
             160
           </div>
-          <div className="text-right text-[13px] font-semibold hidden md:block">
+          <div className="text-right text-[13px] font-semibold hidden lg:block">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -306,7 +306,7 @@ const After = ({ startSlide }) => {
                 </div>
                 <div className="text-2xl">+</div>
               </div>
-              <div className="hidden md:block text-right text-[#dd0003] text-[11px] font-medium leading-[18px]">
+              <div className="hidden lg:block text-right text-[#dd0003] text-[11px] font-medium leading-[18px]">
                 Only 10 items Left
               </div>
             </div>
@@ -336,7 +336,7 @@ export default function StreamLineProductControl() {
             width: "548px",
             height: "100%",
           }}
-          className="ml-auto rounded-l-2xl md:rounded-b-none md:rounded-t-2xl md:shadow-lg p-3 pl-4 md:pl-6 pt-4 md:pt-6 md:p-6 bg-white">
+          className="ml-auto rounded-l-2xl md:rounded-b-none md:rounded-t-2xl md:shadow-lg p-3 pl-4 lg:pl-6 pt-4 md:pt-6 lg:p-6 bg-white">
           <FadeInOutSlides slides={items} />
         </div>
       </div>

@@ -50,9 +50,9 @@ const Category = ({ children }) => {
                 height="112px"
                 delay={500}
               />
-              <div className="flex-col justify-start items-start gap-2 flex">
-                <div className="w-24 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
-                <div className="w-12 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
+              <div className="flex-col justify-start items-start gap-2 flex w-full">
+                <div className="w-full h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
+                <div className="w-2/3 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
               </div>
             </div>
             <div className="flex-col justify-center items-start gap-4 inline-flex">
@@ -63,9 +63,9 @@ const Category = ({ children }) => {
                 height="112px"
                 delay={800}
               />
-              <div className="flex-col justify-start items-start gap-2 flex">
-                <div className="w-24 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
-                <div className="w-12 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
+              <div className="flex-col justify-start items-start gap-2 flex w-full">
+                <div className="w-full h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
+                <div className="w-2/3 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
               </div>
             </div>
             <div className="flex-col justify-center items-start gap-4 inline-flex">
@@ -76,9 +76,9 @@ const Category = ({ children }) => {
                 height="112px"
                 delay={1200}
               />
-              <div className="flex-col justify-start items-start gap-2 flex">
-                <div className="w-24 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
-                <div className="w-12 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
+              <div className="flex-col justify-start items-start gap-2 flex w-full">
+                <div className="w-full h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
+                <div className="w-2/3 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
               </div>
             </div>
             <div className="flex-col justify-center items-start gap-4 hidden md:inline-flex">
@@ -89,9 +89,9 @@ const Category = ({ children }) => {
                 height="112px"
                 delay={1500}
               />
-              <div className="flex-col justify-start items-start gap-2 flex">
-                <div className="w-24 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
-                <div className="w-12 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
+              <div className="flex-col justify-start items-start gap-2 flex w-full">
+                <div className="w-full h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
+                <div className="w-2/3 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
               </div>
             </div>
           </div>
