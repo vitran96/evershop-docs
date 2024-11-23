@@ -133,7 +133,7 @@ function Logos() {
   return (
     <div className="container">
       <div className="grid grid-cols-2 md:grid-cols-6 gap-5 md:gap-14 py-10">
-        <div className="flex justify-center items-center h-8">
+        <div className="flex justify-center items-center h-6 md:h-8">
           <img
             alt="EverShop and Stripe"
             src="/img/stripe-logo.svg"
@@ -142,7 +142,7 @@ function Logos() {
             height={215}
           />
         </div>
-        <div className="flex justify-center items-center h-8">
+        <div className="flex justify-center items-center h-6 md:h-8">
           <img
             alt="EverShop and Paypal"
             src="/img/paypal-logo.svg"
@@ -151,7 +151,7 @@ function Logos() {
             height={217}
           />
         </div>
-        <div className="flex justify-center items-center h-8">
+        <div className="flex justify-center items-center h-6 md:h-8">
           <img
             alt="EverShop and Netlify"
             src="/img/netlify-logo.svg"
@@ -160,7 +160,7 @@ function Logos() {
             height={71}
           />
         </div>
-        <div className="flex justify-center items-center h-8">
+        <div className="flex justify-center items-center h-6 md:h-8">
           <img
             alt="EverShop and Algolia"
             src="/img/algolia-logo.svg"
@@ -169,7 +169,7 @@ function Logos() {
             height={211}
           />
         </div>
-        <div className="flex justify-center items-center h-8">
+        <div className="flex justify-center items-center h-6 md:h-8">
           <img
             alt="EverShop and Braze"
             src="/img/braze-logo.svg"
@@ -178,7 +178,7 @@ function Logos() {
             height={309}
           />
         </div>
-        <div className="flex justify-center items-center h-8">
+        <div className="flex justify-center items-center h-6 md:h-8">
           <img
             alt="EverShop and Klarna"
             src="/img/klarna-logo.svg"

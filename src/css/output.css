@@ -397,6 +397,10 @@
   height: 2.5rem;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .max-h-full {
   max-height: 100%;
 }
@@ -1528,6 +1532,10 @@
 
   .md\:h-9 {
     height: 2.25rem;
+  }
+
+  .md\:h-8 {
+    height: 2rem;
   }
 
   .md\:w-12 {
