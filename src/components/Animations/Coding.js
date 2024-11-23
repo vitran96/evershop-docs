@@ -6,8 +6,8 @@ const One = () => (
     <img
       src="/img/code_show_one.webp"
       alt="EverShop data fetching"
-      width={300}
-      height={153}
+      width={544}
+      height={278}
     />
   </div>
 );
@@ -16,8 +16,8 @@ const Two = () => (
     <img
       src="/img/code_show_two.webp"
       alt="EverShop file based middleware"
-      width={300}
-      height={153}
+      width={544}
+      height={278}
     />
   </div>
 );
@@ -26,8 +26,8 @@ const Three = () => (
     <img
       src="/img/code_show_three.webp"
       alt="EverShop dynamic layout"
-      width={300}
-      height={153}
+      width={544}
+      height={278}
     />
   </div>
 );

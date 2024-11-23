@@ -46,52 +46,52 @@ const Category = ({ children }) => {
               <SlidingImage
                 src="/img/category-one.webp"
                 alt="Category One"
-                width="112px"
-                height="112px"
+                width="112"
+                height="112"
                 delay={500}
               />
               <div className="flex-col justify-start items-start gap-2 flex w-full">
-                <div className="w-full h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
-                <div className="w-2/3 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
+                <div className="w-3/4 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
+                <div className="w-1/2 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
               </div>
             </div>
             <div className="flex-col justify-center items-start gap-4 inline-flex">
               <SlidingImage
                 src="/img/category-two.webp"
                 alt="Category Two"
-                width="112px"
-                height="112px"
+                width="112"
+                height="112"
                 delay={800}
               />
               <div className="flex-col justify-start items-start gap-2 flex w-full">
-                <div className="w-full h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
-                <div className="w-2/3 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
+                <div className="w-3/4 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
+                <div className="w-1/2 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
               </div>
             </div>
             <div className="flex-col justify-center items-start gap-4 inline-flex">
               <SlidingImage
                 src="/img/category-three.webp"
                 alt="Category Three"
-                width="112px"
-                height="112px"
+                width="112"
+                height="112"
                 delay={1200}
               />
               <div className="flex-col justify-start items-start gap-2 flex w-full">
-                <div className="w-full h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
-                <div className="w-2/3 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
+                <div className="w-3/4 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
+                <div className="w-1/2 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
               </div>
             </div>
             <div className="flex-col justify-center items-start gap-4 hidden md:inline-flex">
               <SlidingImage
                 src="/img/category-four.webp"
                 alt="Category Four"
-                width="112px"
-                height="112px"
+                width="112"
+                height="112"
                 delay={1500}
               />
               <div className="flex-col justify-start items-start gap-2 flex w-full">
-                <div className="w-full h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
-                <div className="w-2/3 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
+                <div className="w-3/4 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
+                <div className="w-1/2 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
               </div>
             </div>
           </div>

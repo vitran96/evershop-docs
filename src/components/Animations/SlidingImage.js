@@ -44,9 +44,11 @@ function SlidingImage({ src, alt, width, height, delay = 0 }) {
       ref={imageRef} // Attach the ref to the image for Intersection Observer
       src={src}
       alt={alt}
+      width={width}
+      height={height}
       style={{
         ...imageAnimation,
-        width: width,
+        width: `{width}px`,
         height: "auto !important",
       }}
     />

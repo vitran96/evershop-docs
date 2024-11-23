@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "@docusaurus/Link";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import HomepageWebDevFeatures from "@site/src/components/HomepageWebDevFeatures";
 import Separator from "../components/Separator";
@@ -17,7 +16,6 @@ import IntegrationLogos from "../components/Animations/IntegrationLogos";
 import CheckoutExperience from "../components/Animations/CheckoutExperience";
 import PaymentIntegration from "../components/Animations/PaymentIntegration";
 import OrderManagement from "../components/Animations/OrderManagement";
-import ContentBlocks from "../components/Animations/ContentBlocks";
 import ThemeExtension from "../components/Animations/ThemeExtension";
 import ThemeExtensionButtons from "../components/Animations/ThemeExtensionButtons";
 import DataFetching from "../components/Animations/Coding";
@@ -135,23 +133,59 @@ function Logos() {
   return (
     <div className="container">
       <div className="grid grid-cols-2 md:grid-cols-6 gap-5 md:gap-14 py-10">
-        <div className="flex justify-center items-center">
-          <img alt="EverShop" src="/img/company-logo.png" />
+        <div className="flex justify-center items-center h-8">
+          <img
+            alt="EverShop and Stripe"
+            src="/img/stripe-logo.svg"
+            className="max-h-full"
+            width={516}
+            height={215}
+          />
         </div>
-        <div className="flex justify-center items-center">
-          <img alt="EverShop" src="/img/company-logo.png" />
+        <div className="flex justify-center items-center h-8">
+          <img
+            alt="EverShop and Paypal"
+            src="/img/paypal-logo.svg"
+            className="max-h-full"
+            width={827}
+            height={217}
+          />
         </div>
-        <div className="flex justify-center items-center">
-          <img alt="EverShop" src="/img/company-logo.png" />
+        <div className="flex justify-center items-center h-8">
+          <img
+            alt="EverShop and Netlify"
+            src="/img/netlify-logo.svg"
+            className="max-h-full"
+            width={174}
+            height={71}
+          />
         </div>
-        <div className="flex justify-center items-center">
-          <img alt="EverShop" src="/img/company-logo.png" />
+        <div className="flex justify-center items-center h-8">
+          <img
+            alt="EverShop and Algolia"
+            src="/img/algolia-logo.svg"
+            className="max-h-full"
+            width={854}
+            height={211}
+          />
         </div>
-        <div className="flex justify-center items-center">
-          <img alt="EverShop" src="/img/company-logo.png" />
+        <div className="flex justify-center items-center h-8">
+          <img
+            alt="EverShop and Braze"
+            src="/img/braze-logo.svg"
+            className="max-h-full"
+            width={659}
+            height={309}
+          />
         </div>
-        <div className="flex justify-center items-center">
-          <img alt="EverShop" src="/img/company-logo.png" />
+        <div className="flex justify-center items-center h-8">
+          <img
+            alt="EverShop and Klarna"
+            src="/img/klarna-logo.svg"
+            className="max-h-full"
+            width={864}
+            height={209}
+          />
         </div>
       </div>
     </div>
@@ -672,8 +706,22 @@ const DataFetchingDes = () => (
     </div>
     <a
       href="/docs/development/knowledge-base/data-fetching"
-      className="text-white hover:text-white font-bold">
-      Docs ->
+      className=" hover:text-white font-semibold text-primary flex gap-1 justify-start items-center">
+      <span>Learn more about data fetching</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 20 20"
+        fill="none">
+        <path
+          d="M4 12H20M20 12L14 6M20 12L14 18"
+          stroke="#008060"
+          stroke-width="1"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
     </a>
   </>
 );
@@ -687,8 +735,22 @@ const Middleware = () => (
     </div>
     <a
       href="/docs/development/knowledge-base/middleware-system"
-      className="text-white hover:text-white font-bold">
-      Docs ->
+      className=" hover:text-white font-semibold text-primary flex gap-1 justify-start items-center">
+      <span>Learn more about middleware</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 20 20"
+        fill="none">
+        <path
+          d="M4 12H20M20 12L14 6M20 12L14 18"
+          stroke="#008060"
+          stroke-width="1"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
     </a>
   </>
 );
@@ -702,8 +764,22 @@ const DynamicLayout = () => (
     </div>
     <a
       href="/docs/development/theme/templating"
-      className="text-white hover:text-white font-bold">
-      Docs ->
+      className=" hover:text-white font-semibold text-primary flex gap-1 justify-start items-center">
+      <span>Learn more about layout system</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 20 20"
+        fill="none">
+        <path
+          d="M4 12H20M20 12L14 6M20 12L14 18"
+          stroke="#008060"
+          stroke-width="1"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
     </a>
   </>
 );
@@ -795,13 +871,13 @@ function TestimonialColumn({ testimonials }) {
 function Testimonials() {
   const columnOne = [
     {
-      name: "Glenn",
+      name: "João Doria Neto",
       jobTitle: "Solution architect",
       content:
         "Seamless integration with our existing systems and fantastic support from the EverShop team! Their open-source solution was exactly what we needed to expand our store’s capabilities.",
     },
     {
-      name: "Jeff",
+      name: "Dawn Tepper",
       jobTitle: "Developer",
       content:
         "Building custom widgets with EverShop has allowed us to stay ahead of competitors. The platform is incredibly developer-friendly, and we love the flexibility it offers for customizing our store.",
@@ -810,7 +886,7 @@ function Testimonials() {
 
   const columnTwo = [
     {
-      name: "Arthur",
+      name: "Cliff Franco",
       jobTitle: "Tech lead",
       content:
         "EverShop’s performance features have really transformed how we manage high-traffic periods. The scalability is impressive, and real-time data updates made our operations much smoother.",
@@ -825,20 +901,18 @@ function Testimonials() {
 
   const columnThree = [
     {
-      name: "Melissa",
+      name: "Francesco Cortese",
       jobTitle: "Sale manager",
       content:
         "EverShop has been a game-changer for our business. It’s incredibly easy to use and has helped us streamline our operations and improve customer satisfaction.",
     },
     {
-      name: "Michelle",
+      name: "Irena Phaedra",
       jobTitle: "Shop owner",
       content:
         "EverShop transformed our promotional campaigns with their dynamic discount features, leading to a 15% increase in sales during our latest campaign. The backend tools made setting up promotions quick and hassle-free.",
     },
   ];
-
-  // Double quote html entities
 
   return (
     <div className="container pt-20 relative">
@@ -864,7 +938,6 @@ function Testimonials() {
 }
 
 export default function Home() {
-  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
       title="Open source NodeJS ecommerce platform"

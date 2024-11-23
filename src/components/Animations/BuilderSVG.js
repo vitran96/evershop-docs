@@ -2076,17 +2076,15 @@ const BuilderSVG = () => {
                 <span className="text-Neutrals-01 font-bold text-lg">3</span>
               </div>
               <div className="flex items-center">
-                <animated.button
+                <animated.div
                   id="toggleButton"
-                  label="Status Toggle"
-                  name={"Status Toggle"}
                   className="h-4 w-8 md:h-6 md:w-12 rounded-full  relative focus:outline-none transition-colors"
                   style={productStatusBackgroundSprings}>
                   <animated.span
                     id="toggleIndicator"
                     className="w-4 h-4 md:w-5 md:h-5 bg-white rounded-full absolute top-0 md:top-0.5  shadow transition-transform"
                     style={productsStatusPositionSprings}></animated.span>
-                </animated.button>
+                </animated.div>
               </div>
             </div>
           </animated.div>
@@ -2129,17 +2127,15 @@ const BuilderSVG = () => {
                 <span className="text-Neutrals-01 font-bold text-lg">4</span>
               </div>
               <div className="flex items-center">
-                <animated.button
+                <animated.div
                   id="toggleButton"
-                  label="Status Toggle"
-                  name={"Status Toggle"}
                   className="h-4 w-8 md:h-6 md:w-12 rounded-full  relative focus:outline-none transition-colors"
                   style={articlesStatusBackgroundSprings}>
                   <animated.span
                     id="toggleIndicator"
                     className="w-4 h-4 md:w-5 md:h-5 bg-white rounded-full absolute top-0 md:top-0.5  shadow transition-transform"
                     style={articlesStatusPositionSprings}></animated.span>
-                </animated.button>
+                </animated.div>
               </div>
             </div>
           </animated.div>
