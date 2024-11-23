@@ -703,7 +703,7 @@ button.menu__caret {
     grid-row-end: 9;
     grid-column-start: 1;
     grid-column-end: 5;
-    z-index: 1000;
+    z-index: 2;
     @include mobile {
       grid-row-start: 4;
       grid-row-end: 9;
@@ -786,4 +786,16 @@ button.menu__caret {
   
   position: relative;
   
+}
+
+.contact__us {
+  > main {
+    display: flex;
+    flex: inherit;
+    flex-flow: column;
+    > header {
+      display: flex;
+      flex: inherit;
+    }
+  }
 }

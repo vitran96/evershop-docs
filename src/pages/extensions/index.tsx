@@ -203,7 +203,7 @@ function ExtensionCards() {
             )}>
             {/* <SearchBar /> */}
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredUsers.map((extension) => (
               <ExtensionCard key={extension.title} extension={extension} />
             ))}
@@ -215,7 +215,7 @@ function ExtensionCards() {
 
 export default function Extension(): JSX.Element {
   return (
-    <Layout title={TITLE} description={DESCRIPTION}>
+    <Layout title={TITLE} description={DESCRIPTION} >
       <main className="bg-green-conner bg-[#FCFCFC]">
         <ExtensionHeader />
         <ExtensionFilters />

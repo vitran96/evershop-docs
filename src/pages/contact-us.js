@@ -39,9 +39,9 @@ function ContactForm() {
   return (
     <header className="bg-green-conner bg-[#FCFCFC] py-16">
       <div className="container text-left pt-1">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[170px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-[100px] lg:gap-[170px]">
           <div className="">
-            <h2 className="mb-2 w-full md:w-[525px]">
+            <h2 className="mb-2 w-full lg:w-[525px]">
               Let Us Help You Succeed -{" "}
               <span className="text-primary">Get in Touch</span> Today!
             </h2>
@@ -50,7 +50,7 @@ function ContactForm() {
               you every step of the way!
             </p>
           </div>
-          <div className="p-10 border border-Neutrals-06 rounded-3xl relative bg-white">
+          <div className="p-5 lg:p-10 border border-Neutrals-06 rounded-3xl relative bg-white">
             <Formik
               initialValues={{ email: "", name: "", message: "" }}
               validate={(values) => {
@@ -177,7 +177,10 @@ function ContactForm() {
 export default function ContactUs() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout title="Contact Us" description="Contact Us.">
+    <Layout
+      title="Contact Us"
+      description="Contact Us."
+      wrapperClassName="contact__us">
       <main>
         <ContactForm />
       </main>
