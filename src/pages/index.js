@@ -30,8 +30,13 @@ function HomepageHeader() {
         <div className="flex justify-center">
           <div className="flex justify-center gap-3 text-primary font-medium bg-primary-02 max-w-fit p-1 pr-2 rounded-[16px] text-sm leading-5">
             <div className="flex justify-center gap-[3px] bg-white rounded-[16px] px-2 py-[2px]">
-              <div className="flex justify-center">
-                <img alt="Version" src="/img/glowing-star.png" />
+              <div className="flex justify-center items-center">
+                <img
+                  alt="Version"
+                  src="/img/glowing-star.png"
+                  width={18}
+                  height={18}
+                />
               </div>
               <span>Version 1.2</span>
             </div>
@@ -60,7 +65,7 @@ function HomepageHeader() {
           </h1>
         </div>
         <div className="flex items-center justify-center">
-          <p className="text-xl text-center text-slate-500 mb-10">
+          <p className="text-lg md:text-xl text-center text-slate-500 mb-10">
             <p className="mb-0 max-w-3xl font-normal">
               Open-source, built on NodeJS, and designed for flexibility. Easily
               scale, customize, and manage your online store with powerful
@@ -315,12 +320,12 @@ function CheckoutManagement() {
           }}
         />
         <BorderBlock backgroundColor={"#fff"}>
-          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-6">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
             <Card
               backgroundColor={
                 "radial-gradient(80% 50% at 100% 0%, rgba(39, 180, 135, 0.3) 0%, rgb(248, 249, 250) 100%)"
               }>
-              <div className="flex flex-col justify-center p-5 lg:p-12 lg:pr-6 pr-6">
+              <div className="flex flex-col justify-center p-5 pt-6 lg:p-12 lg:pr-6 pr-6">
                 <div className="mr-[-24px] mb-8 md:mb-6 lg:mb-12">
                   <CheckoutExperience />
                 </div>
@@ -429,7 +434,7 @@ function CheckoutManagement() {
 
 function Integrations() {
   return (
-    <div className="container pt-5">
+    <div className="container pt-0 md:pt-5">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-[73px]">
         <BlockHead
           label="Streamline"
@@ -464,11 +469,11 @@ function ElevateYourStore() {
             text: "Unlock the potential of your e-commerce business with powerful solutions tailored for seamless growth.",
           }}
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-[68px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-9 lg:gap-[68px]">
           <BorderBlock
             backgroundColor={"#fff"}
             bigRadius={false}
-            className="marketplace-block grid grid-flow-row md:grid-rows-[2fr_1fr] h-full">
+            className="marketplace-block grid grid-flow-row lg:grid-rows-[1.5fr_1fr] h-full">
             <div className="bg-Other-01 rounded-t-xl flex items-center flex-col justify-end pt-5 px-8">
               <div className="w-44 mb-2">
                 <ThemeExtensionButtons />
@@ -507,7 +512,7 @@ function ElevateYourStore() {
           <BorderBlock
             backgroundColor={"#fff"}
             bigRadius={false}
-            className="marketplace-block grid grid-flow-row grid-rows-[2fr_1fr] h-full">
+            className="marketplace-block grid grid-flow-row lg:grid-rows-[1.5fr_1fr] h-full">
             <div className="bg-Other-01 rounded-t-xl flex justify-center flex-col items-center pt-5 px-8">
               <img
                 src="/img/cloud.webp"
@@ -524,9 +529,9 @@ function ElevateYourStore() {
                 Coming soon! Discover optimized cloud modules designed to boost
                 performance and adapt to your unique needs.
               </div>
-              <a className="text-primary hover:underline flex items-center gap-2">
-                <span>Comming Soon</span>
-              </a>
+              <span className="text-primary flex items-center gap-2">
+                Comming Soon
+              </span>
             </div>
           </BorderBlock>
         </div>
@@ -541,10 +546,10 @@ function Discord() {
       <div className="container flex flex-col md:flex-row md:space-y-0 justify-center p-[30px] lg:p-[75px] rounded-lg relative">
         <div className="text-center">
           <img
-            src="/img/avatar.png"
+            src="/img/avatar.webp"
             width={120}
             height={56}
-            alt="EverShop discord"
+            alt="EverShop discord channel"
           />
           <h2 className="justify-center text-center text-white pt-4">
             Join the Movement. Create with Us!
@@ -566,7 +571,7 @@ function Discord() {
 
 function Developer() {
   return (
-    <div className="developer overflow-hidden relative container rounded-2xl bg-Other-03 border border-[#0F8769] px-4 md:p-8 lg:px-16 py-6 lg:py-[42px] mt-16">
+    <div className="developer overflow-hidden relative container rounded-2xl bg-Other-03 border border-[#0F8769] px-6 md:p-8 lg:px-16 py-6 lg:py-[42px] mt-16">
       <div>
         <h4 className="text-white mb-2">
           Engineered for developers, designed for efficiency!
@@ -586,7 +591,7 @@ function Developer() {
           <div className="flex justify-items-start">
             <Link
               to="https://github.com/evershopcommerce/evershop"
-              className="button button--secondary button--small text-sm md:text-base">
+              className="button button--secondary button--small text-sm md:text-base hover:underline">
               Star us on Github
             </Link>
           </div>
@@ -594,9 +599,10 @@ function Developer() {
       </div>
       <img
         src="/img/logo.svg"
-        className="absolute right-0 top-[20%] filter grayscale "
+        className="absolute right-0 top-[60%] md:top-[20%] filter grayscale hidden md:block"
         width={230}
         height={230}
+        alt="EverShop logo"
       />
     </div>
   );
@@ -704,7 +710,7 @@ const DynamicLayout = () => (
 function CodeShow() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-0 bg-Other-03 rounded-xl mb-8">
-      <div className="col-span-1 p-4 md:p-8 lg:p-16">
+      <div className="col-span-1 p-6 md:p-8 lg:p-16">
         <FadeInOutSlides
           slides={[
             { content: DataFetchingDes },
@@ -726,7 +732,7 @@ function CodeShow() {
 function ThemeAndExtensionDevelop() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-1">
-      <div className="bg-Other-03 px-4 py-6 md:px-8 lg:px-16 lg:py-[60px] rounded-xl grid grid-cols-1">
+      <div className="bg-Other-03 px-6 py-6 md:px-8 lg:px-16 lg:py-[60px] rounded-xl grid grid-cols-1">
         <h4 className="text-white">
           Master the art of theme customization for your online store
         </h4>
@@ -741,7 +747,7 @@ function ThemeAndExtensionDevelop() {
           Explore theme customization ->
         </a>
       </div>
-      <div className="bg-Other-03 px-4 py-6 md:px-8 lg:px-16 lg:py-[60px] rounded-xl  grid grid-cols-1">
+      <div className="bg-Other-03 px-6 py-6 md:px-8 lg:px-16 lg:py-[60px] rounded-xl  grid grid-cols-1">
         <h4 className="text-white">
           Build extensions to enhance and integrate your store
         </h4>
@@ -789,47 +795,46 @@ function TestimonialColumn({ testimonials }) {
 function Testimonials() {
   const columnOne = [
     {
-      name: "John Doe",
-      jobTitle: "CEO, Company",
+      name: "Glenn",
+      jobTitle: "Solution architect",
       content:
-        "Our eCommerce site’s performance has skyrocketed since we migrated to this platform. It’s incredibly responsive.",
+        "Seamless integration with our existing systems and fantastic support from the EverShop team! Their open-source solution was exactly what we needed to expand our store’s capabilities.",
     },
     {
-      name: "Jane Doe",
-      jobTitle: "CTO, Company",
+      name: "Jeff",
+      jobTitle: "Developer",
       content:
-        "EverShop has been a game-changer for our business. It’s incredibly easy to use and has helped us streamline our operations and improve customer satisfaction.",
+        "Building custom widgets with EverShop has allowed us to stay ahead of competitors. The platform is incredibly developer-friendly, and we love the flexibility it offers for customizing our store.",
     },
   ];
 
   const columnTwo = [
-    {},
     {
-      name: "John Doe",
-      jobTitle: "CEO, Company",
+      name: "Arthur",
+      jobTitle: "Tech lead",
       content:
-        "EverShop has been a game-changer for our business. It’s incredibly easy to use and has helped us streamline our operations and improve customer satisfaction.",
+        "EverShop’s performance features have really transformed how we manage high-traffic periods. The scalability is impressive, and real-time data updates made our operations much smoother.",
     },
     {
-      name: "Jane Doe",
-      jobTitle: "CTO, Company",
+      name: "Xiang Chao",
+      jobTitle: "Product owner",
       content:
-        "EverShop has been a game-changer for our business. It’s incredibly easy to use and has helped us streamline our operations and improve customer satisfaction.",
+        "Thanks to EverShop, our system performance has improved significantly. After their updates, we’ve experienced a 25% boost in speed and reliability, even during peak traffic. They delivered exactly what we needed, on time and with precision.",
     },
   ];
 
   const columnThree = [
     {
-      name: "John Doe",
-      jobTitle: "CEO, Company",
+      name: "Melissa",
+      jobTitle: "Sale manager",
       content:
         "EverShop has been a game-changer for our business. It’s incredibly easy to use and has helped us streamline our operations and improve customer satisfaction.",
     },
     {
-      name: "Jane Doe",
-      jobTitle: "CTO, Company",
+      name: "Michelle",
+      jobTitle: "Shop owner",
       content:
-        "EverShop has been a game-changer for our business. It’s incredibly easy to use and has helped us streamline our operations and improve customer satisfaction.",
+        "EverShop transformed our promotional campaigns with their dynamic discount features, leading to a 15% increase in sales during our latest campaign. The backend tools made setting up promotions quick and hassle-free.",
     },
   ];
 

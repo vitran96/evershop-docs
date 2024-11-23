@@ -73,35 +73,33 @@ const FeatureList = [
 
 function Feature({ icon, title, description, readMore }) {
   return (
-    <div>
-      <div className="feature__card px-4 py-5 lg:p-6 box-border">
-        <div className="dev-features-icon flex justify-center items-center">
-          <img src={icon} alt={title} />
-        </div>
-        <h3 className="mb-2 mt-5 md:mt-3 text-[20px] font-semibold">{title}</h3>
-        <div className="mb-4">{description}</div>
-        <Link
-          to={readMore}
-          className={"readmore flex items-center font-bold gap-3"}>
-          <span>Read more</span>
-          <span className="flex justify-center items-center content-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="12"
-              viewBox="0 0 16 12"
-              fill="none">
-              <path
-                d="M1.33301 6H14.6663M14.6663 6L9.66634 1M14.6663 6L9.66634 11"
-                stroke="#008060"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </span>
-        </Link>
+    <div className="feature__card p-5 lg:p-6 box-border">
+      <div className="dev-features-icon flex justify-center items-center">
+        <img src={icon} alt={title} width={84} height={84} />
       </div>
+      <h3 className="mb-2 mt-5 md:mt-3 text-[20px] font-semibold">{title}</h3>
+      <div className="mb-4">{description}</div>
+      <Link
+        to={readMore}
+        className={"readmore flex items-center font-bold gap-3"}>
+        <span>Read more</span>
+        <span className="flex justify-center items-center content-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="12"
+            viewBox="0 0 16 12"
+            fill="none">
+            <path
+              d="M1.33301 6H14.6663M14.6663 6L9.66634 1M14.6663 6L9.66634 11"
+              stroke="#008060"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+      </Link>
     </div>
   );
 }
@@ -121,7 +119,7 @@ export default function HomepageFeatures() {
             text: "Streamline your development process with EverShop's integrated toolkits",
           }}
         />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}

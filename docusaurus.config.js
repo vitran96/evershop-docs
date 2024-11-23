@@ -68,12 +68,14 @@ const config = {
         logo: {
           alt: "A Open-source NodeJS ecommerce platform",
           src: "img/logo.svg",
+          width: 35,
+          height: 35,
         },
         items: [
           {
             type: "html",
             value: `
-              <a class="navbar__link" href="/docs/development/getting-started/introduction"><span>Docs</span> <img src="/img/chevron-down.svg" alt="divider" class="divider" /></a> 
+              <a class="navbar__link" href="/docs/development/getting-started/introduction"><span>Docs</span> <img src="/img/chevron-down.svg" alt="divider" class="divider" width="21" height="24" /></a> 
               <div class="mega__menu__dropdown">
                       <div style="padding-left: 35px; display:flex"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="9" viewBox="0 0 18 9" fill="none">
 <path d="M9 0L17.6603 9H0.339746L9 0Z" fill="white"/>

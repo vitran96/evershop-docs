@@ -21,7 +21,7 @@ function ColumnLinkItem({item}: {item: ColumnItemType}) {
       dangerouslySetInnerHTML={{__html: item.html}}
     />
   ) : (
-    <li key={item.href ?? item.to} className="footer__item flex-[50%]">
+    <li key={item.href ?? item.to} className="footer__item flex-[50%] md:flex-auto">
       <LinkItem item={item}/>
     </li>
   );

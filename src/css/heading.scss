@@ -22,26 +22,29 @@ body {
       color: var(--heading-font-color);
       font-weight: 600;
       font-style: normal;
+      line-height: normal;
     }
   
-    h1,
-    .h1 {
-      letter-spacing: -1.2px;
-      line-height: 4.5rem;
-    }
+}
 
-    h2,
-    .h2 {
-      line-height: 52px;
-    }
+.hero__title {
+  font-size: 3.75rem;
+  line-height: 4.5rem;
+  letter-spacing: -0.075rem;
+  font-weight: 500;
+  @include mobile {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    letter-spacing: normal;
+    font-weight: 600;
+  }
+}
 
-    h3,
-    .h3 {
-      line-height: 38px;
-    }
-
-    h4,
-    .h4 {
-      line-height: 32px;
-    }
+.sub__hero__title {
+  font-size: 2.5rem;
+  line-height: 3.25rem;
+  @include mobile {
+    font-size: 1.875rem;
+    line-height: 2.375rem;
+  }
 }

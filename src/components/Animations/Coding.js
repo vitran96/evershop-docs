@@ -3,17 +3,32 @@ import { useSprings, animated, to } from "@react-spring/web";
 
 const One = () => (
   <div className="flex">
-    <img src="/img/code_show_one.webp" alt="EverShop data fetching" />
+    <img
+      src="/img/code_show_one.webp"
+      alt="EverShop data fetching"
+      width={300}
+      height={153}
+    />
   </div>
 );
 const Two = () => (
   <div className="flex">
-    <img src="/img/code_show_two.webp" alt="EverShop file based middleware" />
+    <img
+      src="/img/code_show_two.webp"
+      alt="EverShop file based middleware"
+      width={300}
+      height={153}
+    />
   </div>
 );
 const Three = () => (
   <div className="flex">
-    <img src="/img/code_show_three.webp" alt="EverShop dynamic layout" />
+    <img
+      src="/img/code_show_three.webp"
+      alt="EverShop dynamic layout"
+      width={300}
+      height={153}
+    />
   </div>
 );
 

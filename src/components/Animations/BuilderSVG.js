@@ -2078,6 +2078,8 @@ const BuilderSVG = () => {
               <div className="flex items-center">
                 <animated.button
                   id="toggleButton"
+                  label="Status Toggle"
+                  name={"Status Toggle"}
                   className="h-4 w-8 md:h-6 md:w-12 rounded-full  relative focus:outline-none transition-colors"
                   style={productStatusBackgroundSprings}>
                   <animated.span
@@ -2129,6 +2131,8 @@ const BuilderSVG = () => {
               <div className="flex items-center">
                 <animated.button
                   id="toggleButton"
+                  label="Status Toggle"
+                  name={"Status Toggle"}
                   className="h-4 w-8 md:h-6 md:w-12 rounded-full  relative focus:outline-none transition-colors"
                   style={articlesStatusBackgroundSprings}>
                   <animated.span

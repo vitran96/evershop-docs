@@ -3,7 +3,7 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
-@import url('https://fonts.googleapis.com/css?family=Inter:400,500,600&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Inter:400,500,600&display=swap');
 
 $mobile-width: 640px; 
 $tablet-width: 768px; 
@@ -198,6 +198,7 @@ div.navbar__item:hover .mega__menu__dropdown{
     font-size: 14px;
     line-height: 20px;
     padding-right: 48px;
+    color: #687082
   }
   .button, .DocSearch-Button {
     padding: 8px 12px;
@@ -388,31 +389,8 @@ body {
 
 body .hero__title {
   padding-top: 17px;
-  letter-spacing: -4.1px;
   -webkit-text-stroke-width: 1;
   -webkit-text-stroke-color: #000;
-}
-
-@media (min-width: 600px) {
-  body .hero__title {
-    font-size: 40px;
-  }
-}
-
-@media (min-width: 900px) {
-  body .hero__title {
-    font-size: 48px;
-  }
-}
-
-@media (min-width: 1200px) {
-  body .hero__title {
-    font-size: 65px;
-    line-height: 72px;
-  }
-}
-body .hero__subtitle {
-  font-size: inherit
 }
 
 body {
@@ -481,6 +459,8 @@ body .button--secondary {
   background: white;
   color: #23222a;
   border-radius: 16px;
+  display: grid;
+  grid-template-columns: 100%;
 }
 
 .feature__card:hover {
@@ -539,6 +519,9 @@ main[class*='docMainContainer'] .container {
   .footer__col{
     padding-left: 0;
     padding-right:0;
+    @include mobile {
+      margin-bottom: 20px;
+    }
   }
 
   .footer__items {
