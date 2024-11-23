@@ -132,7 +132,7 @@ function HomepageHeader() {
 function Logos() {
   return (
     <div className="container">
-      <div className="grid grid-cols-2 md:grid-cols-6 gap-5 md:gap-14 py-10">
+      <div className="grid grid-cols-3 md:grid-cols-6 gap-5 md:gap-14 py-10">
         <div className="flex justify-center items-center h-6 md:h-8">
           <img
             alt="EverShop and Stripe"
