@@ -507,8 +507,8 @@ function ElevateYourStore() {
           <BorderBlock
             backgroundColor={"#fff"}
             bigRadius={false}
-            className="marketplace-block grid grid-flow-row lg:grid-rows-[1.5fr_1fr] h-full">
-            <div className="bg-Other-01 rounded-t-xl flex items-center flex-col justify-end pt-5 px-8">
+            className="marketplace-block h-full grid grid-cols-1">
+            <div className="bg-Other-01 rounded-t-xl flex items-center flex-col justify-end pt-5 px-8 h-48 lg:h-80">
               <div className="w-44 mb-2">
                 <ThemeExtensionButtons />
               </div>
@@ -546,8 +546,8 @@ function ElevateYourStore() {
           <BorderBlock
             backgroundColor={"#fff"}
             bigRadius={false}
-            className="marketplace-block grid grid-flow-row lg:grid-rows-[1.5fr_1fr] h-full">
-            <div className="bg-Other-01 rounded-t-xl flex justify-center flex-col items-center pt-5 px-8">
+            className="marketplace-block h-full grid grid-cols-1">
+            <div className="bg-Other-01 rounded-t-xl flex justify-center flex-col items-center pt-5 px-8 h-48 lg:h-80">
               <img
                 src="/img/cloud.webp"
                 alt="EverShop cloud"
@@ -555,9 +555,9 @@ function ElevateYourStore() {
                 height={312}
               />
             </div>
-            <div className="mt-2 p-4">
+            <div className="mt-2 p-4 flex flex-col justify-items-end">
               <div className="text-xl font-semibold text-Neutrals-01">
-                Scale with Cloud Solutions
+                Scale with EverShop cloud Solutions
               </div>
               <div className="mt-3 mb-[15px]">
                 Coming soon! Discover optimized cloud modules designed to boost

@@ -3,7 +3,7 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
-//@import url('https://fonts.googleapis.com/css?family=Inter:400,500,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inter:400,500,600&display=swap');
 
 $mobile-width: 640px; 
 $tablet-width: 768px; 
@@ -80,7 +80,8 @@ $desktop-width: 1024px;
   --ifm-footer-background-color: white;
   --ifm-navbar-sidebar-width: 100%;
   --ifm-menu-color: #101828;
-  --ifm-color-emphasis-600:#101828
+  --ifm-color-emphasis-600:#101828;
+  --ifm-alert-padding-horizontal: 16px;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -563,6 +564,16 @@ main[class*='docMainContainer'] .container {
   }
 }
 
+html.docs-wrapper #__docusaurus {
+  .footer {
+    >.container {
+      padding-left: var(--ifm-navbar-padding-horizontal);
+      padding-right: var(--ifm-navbar-padding-horizontal);
+      max-width: 100%;
+    }
+  }
+}
+
 
 * {
   border-style: solid;
@@ -813,6 +824,39 @@ button.menu__caret {
     > header {
       display: flex;
       flex: inherit;
+    }
+  }
+}
+
+.list_node_modules-\@docusaurus-theme-classic-lib-theme-DocCategoryGeneratedIndexPage-styles-module {
+  article {
+    .card {
+      box-shadow: 0px 0px 0px 1px rgba(17, 24, 28, 0.08), 0px 1px 2px -1px rgba(17, 24, 28, 0.08), 0px 2px 4px 0px rgba(17, 24, 28, 0.04);
+      border-color: #e6e8ec;
+    }
+    &:nth-child(even) {
+      .card {
+        background:radial-gradient(80% 50% at 100% 0%, rgba(39, 180, 135, 0.3) 0%, rgb(248, 249, 250) 100%);
+      }
+      padding-left: 1rem;
+      @include mobile {
+        padding-left: 0;
+      }
+      @include tablet {
+        padding-left: 0;
+      }
+    }
+    &:nth-child(odd) {
+      .card {
+        background: radial-gradient(80% 50% at 100% 0%, rgba(100, 94, 229, 0.12) 0%, rgb(248, 249, 250) 100%);
+      }
+      padding-right: 1rem;
+      @include mobile {
+        padding-right: 0;
+      }
+      @include tablet {
+        padding-right: 0;
+      }
     }
   }
 }
