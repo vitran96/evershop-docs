@@ -1166,6 +1166,10 @@
   padding-top: 9px;
 }
 
+.pr-0 {
+  padding-right: 0px;
+}
+
 .text-left {
   text-align: left;
 }
