@@ -50,7 +50,7 @@ function ContactForm() {
               you every step of the way!
             </p>
           </div>
-          <div className="p-5 lg:p-10 border border-Neutrals-06 rounded-3xl relative bg-white">
+          <div className="p-5 lg:p-10 border border-Neutrals-06 rounded-3xl relative bg-white shadow-extension">
             <Formik
               initialValues={{ email: "", name: "", message: "" }}
               validate={(values) => {
@@ -159,7 +159,7 @@ function ContactForm() {
                         disabled={isSubmitting}>
                         Submit
                       </button>
-                      <p className="italic text-sm text-Neutrals-04">
+                      <p className="italic text-sm text-Neutrals-04 pt-1">
                         * Your information is secure with us.
                       </p>
                     </div>

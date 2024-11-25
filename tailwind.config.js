@@ -22,10 +22,16 @@ module.exports = {
       boxShadow: {
         extension:
           "0px 0px 0px 1px rgba(17, 24, 28, 0.08), 0px 1px 2px -1px rgba(17, 24, 28, 0.08), 0px 2px 4px 0px rgba(17, 24, 28, 0.04)",
+        button:
+          "0px 1px 0px 1px rgba(255, 255, 255, 0.12) inset, 0px 1px 2px 0px rgba(16, 24, 40, 0.16)",
       },
       backgroundImage: {
         "green-conner":
           "radial-gradient(50% 50% at 0% 100%, rgba(40, 179, 136, 0.16) 0%, rgba(255, 255, 255, 0) 100%)",
+      },
+      filter: {
+        toggle:
+          "drop-shadow(0px 1px 2px rgba(16, 24, 40, 0.06)) drop-shadow(0px 1px 3px rgba(16, 24, 40, 0.10))",
       },
     },
     container: {

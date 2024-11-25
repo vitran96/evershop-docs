@@ -1872,8 +1872,8 @@ const BuilderSVG = () => {
   const productStatusBackgroundRef = useSpringRef();
   const productStatusBackgroundSprings = useSpring({
     ref: productStatusBackgroundRef,
-    from: { backgroundColor: reversing ? "#008060" : "#969faf" },
-    to: { backgroundColor: reversing ? "#969faf" : "#008060" },
+    from: { backgroundColor: reversing ? "#008060" : "#F2F4F7" },
+    to: { backgroundColor: reversing ? "#F2F4F7" : "#008060" },
     config: { duration: reversing ? 0 : 500 },
   });
 
@@ -1888,8 +1888,8 @@ const BuilderSVG = () => {
   const articlesStatusBackgroundRef = useSpringRef();
   const articlesStatusBackgroundSprings = useSpring({
     ref: articlesStatusBackgroundRef,
-    from: { backgroundColor: reversing ? "#008060" : "#969faf" },
-    to: { backgroundColor: reversing ? "#969faf" : "#008060" },
+    from: { backgroundColor: reversing ? "#008060" : "#F2F4F7" },
+    to: { backgroundColor: reversing ? "#F2F4F7" : "#008060" },
     config: { duration: reversing ? 0 : 500 },
   });
 
@@ -2073,16 +2073,16 @@ const BuilderSVG = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <span className="text-Neutrals-01 font-bold text-lg">3</span>
+                <span className="text-Neutrals-01 font-bold text-base">3</span>
               </div>
               <div className="flex items-center">
                 <animated.div
                   id="toggleButton"
-                  className="h-4 w-8 md:h-6 md:w-12 rounded-full  relative focus:outline-none transition-colors"
+                  className="h-5 w-9 p-[2px] rounded-xl relative transition-colors"
                   style={productStatusBackgroundSprings}>
                   <animated.span
                     id="toggleIndicator"
-                    className="w-4 h-4 md:w-5 md:h-5 bg-white rounded-full absolute top-0 md:top-0.5  shadow transition-transform"
+                    className="w-4 h-4 bg-white rounded-full absolute top-0.5 filter-toggle transition-transform"
                     style={productsStatusPositionSprings}></animated.span>
                 </animated.div>
               </div>
@@ -2124,16 +2124,16 @@ const BuilderSVG = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <span className="text-Neutrals-01 font-bold text-lg">4</span>
+                <span className="text-Neutrals-01 font-bold text-base">4</span>
               </div>
               <div className="flex items-center">
                 <animated.div
                   id="toggleButton"
-                  className="h-4 w-8 md:h-6 md:w-12 rounded-full  relative focus:outline-none transition-colors"
+                  className="h-5 w-9 p-[2px] rounded-xl relative transition-colors"
                   style={articlesStatusBackgroundSprings}>
                   <animated.span
                     id="toggleIndicator"
-                    className="w-4 h-4 md:w-5 md:h-5 bg-white rounded-full absolute top-0 md:top-0.5  shadow transition-transform"
+                    className="w-4 h-4 bg-white rounded-full absolute top-0.5 filter-toggle transition-transform"
                     style={articlesStatusPositionSprings}></animated.span>
                 </animated.div>
               </div>

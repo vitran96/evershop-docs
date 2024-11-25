@@ -7,8 +7,8 @@ export default function BorderBlock({
   className = "",
 }) {
   const blockClassName = bigRadius
-    ? `rounded-[40px] ${className}`
-    : `rounded-[20px] ${className}`;
+    ? `rounded-[24px] lg:rounded-[40px] ${className}`
+    : `rounded-[16px] lg:rounded-[20px] ${className}`;
   return (
     <div
       className={`border ${blockClassName} p-2 border-Neutrals-06`}

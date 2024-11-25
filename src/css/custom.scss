@@ -3,7 +3,7 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
-// @import url('https://fonts.googleapis.com/css?family=Inter:400,500,600&display=swap');
+//@import url('https://fonts.googleapis.com/css?family=Inter:400,500,600&display=swap');
 
 $mobile-width: 640px; 
 $tablet-width: 768px; 
@@ -35,7 +35,7 @@ $desktop-width: 1024px;
   --ifm-color-primary-lightest: #00a67d;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-font-size-base: 16px;
+  --ifm-font-size-base: 1rem;
   --ifm-font-family-base: "Inter",
     -apple-system,
     BlinkMacSystemFont,
@@ -190,9 +190,15 @@ div.navbar__item:hover .mega__menu__dropdown{
 }
 
 .navbar__items--right  {
+  a.button {
+    font-weight: 600;
+  }
   .DocSearch-Button {
     gap: 2rem;
     background-color: #F4F5F6;
+    &:hover,&:active,&:focus {
+      box-shadow: none !important;
+    }
   }
   .DocSearch-Button-Placeholder {
     font-size: 14px;
@@ -497,6 +503,7 @@ main[class*='docMainContainer'] .container {
   }
   .footer__copyright{
     font-size: 14px;
+    font-weight: 500;
   }
 }
 .footer__logo {
@@ -540,6 +547,9 @@ main[class*='docMainContainer'] .container {
         }
         line-height: auto;
         font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
       }
 
       &:first-child {
@@ -569,6 +579,13 @@ img {
   height: auto;
 }
 
+textarea {
+  font-family: var(--ifm-font-family-base);
+}
+
+.text-\[12px\] {
+  font-size: 12px;
+}
 
 button.menu__caret {
   display: none;
@@ -680,7 +697,7 @@ button.menu__caret {
     bottom: 0;
     margin-left:auto;
     margin-right:auto;
-    box-shadow: 0 -10px 20px -5px rgb(2 2 2 / 75%), 10px 0 20px -5px rgb(2 2 2 / 75%);
+    box-shadow: 0 -10px 20px -5px rgb(2 2 2 / 45%), 10px 0 20px -5px rgb(2 2 2 / 45%);
     height: fit-content;
   }
 }

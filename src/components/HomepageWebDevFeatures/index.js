@@ -78,7 +78,7 @@ function Feature({ icon, title, description, readMore }) {
         <img src={icon} alt={title} width={84} height={84} />
       </div>
       <h3 className="mb-2 mt-5 md:mt-3 text-[20px] font-semibold">{title}</h3>
-      <div className="mb-4">{description}</div>
+      <div className="mb-4 text-Neutrals-04">{description}</div>
       <Link
         to={readMore}
         className={"readmore flex items-center font-bold gap-3"}>

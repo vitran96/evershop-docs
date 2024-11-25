@@ -132,59 +132,59 @@ function HomepageHeader() {
 function Logos() {
   return (
     <div className="container">
-      <div className="grid grid-cols-3 md:grid-cols-6 gap-5 md:gap-14 py-10">
-        <div className="flex justify-center items-center h-6 md:h-8">
+      <div className="grid grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-14 py-10">
+        <div className="flex justify-center items-center h-5 md:h-8">
           <img
             alt="EverShop and Stripe"
-            src="/img/stripe-logo.svg"
-            className="max-h-full"
-            width={516}
-            height={215}
+            src="/img/stripe-logo.webp"
+            className="max-h-full max-w-fit"
+            width={240}
+            height={100}
           />
         </div>
-        <div className="flex justify-center items-center h-6 md:h-8">
+        <div className="flex justify-center items-center h-5 md:h-8">
           <img
             alt="EverShop and Paypal"
-            src="/img/paypal-logo.svg"
-            className="max-h-full"
-            width={827}
-            height={217}
+            src="/img/paypal-logo.webp"
+            className="max-h-full max-w-fit"
+            width={382}
+            height={100}
           />
         </div>
-        <div className="flex justify-center items-center h-6 md:h-8">
-          <img
-            alt="EverShop and Netlify"
-            src="/img/netlify-logo.svg"
-            className="max-h-full"
-            width={174}
-            height={71}
-          />
-        </div>
-        <div className="flex justify-center items-center h-6 md:h-8">
+        <div className="flex justify-center items-center h-5 md:h-8">
           <img
             alt="EverShop and Algolia"
-            src="/img/algolia-logo.svg"
-            className="max-h-full"
-            width={854}
-            height={211}
+            src="/img/algolia-logo.webp"
+            className="max-h-full max-w-fit"
+            width={405}
+            height={100}
           />
         </div>
-        <div className="flex justify-center items-center h-6 md:h-8">
-          <img
-            alt="EverShop and Braze"
-            src="/img/braze-logo.svg"
-            className="max-h-full"
-            width={659}
-            height={309}
-          />
-        </div>
-        <div className="flex justify-center items-center h-6 md:h-8">
+        <div className="flex justify-center items-center h-5 md:h-8">
           <img
             alt="EverShop and Klarna"
-            src="/img/klarna-logo.svg"
-            className="max-h-full"
-            width={864}
-            height={209}
+            src="/img/klarna-logo.webp"
+            className="max-h-full max-w-fit"
+            width={414}
+            height={100}
+          />
+        </div>
+        <div className="flex justify-center items-center h-5 md:h-8">
+          <img
+            alt="EverShop and Netlify"
+            src="/img/netlify-logo.webp"
+            className="max-h-full max-w-fit"
+            width={246}
+            height={100}
+          />
+        </div>
+        <div className="flex justify-center items-center h-5 md:h-8">
+          <img
+            alt="EverShop and Mailchimp"
+            src="/img/mailchimp-logo.webp"
+            className="max-h-full max-w-fit"
+            width={214}
+            height={100}
           />
         </div>
       </div>
@@ -239,7 +239,7 @@ function CatalogManagement() {
         <BorderBlock backgroundColor={"#fff"}>
           <Card backgroundColor={"#F8F9FA"} className={"mb-6"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6 overflow-hidden">
-              <div className="order-2 md:order-1 flex flex-col justify-center pl-5 lg:pl-12 pt-5 lg:pt-9">
+              <div className="order-2 md:order-1 flex flex-col justify-center pl-5 pt-5 pb-5 lg:pb-0 lg:pl-12 lg:pt-9">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -279,7 +279,7 @@ function CatalogManagement() {
                 <div className="w-full flex justify-start rounded-2xl">
                   <Category />
                 </div>
-                <div className="flex flex-col justify-center pt-8 lg:pt-12">
+                <div className="flex flex-col justify-center pt-8 lg:pt-12 pr-5 lg:pr-12">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -309,7 +309,7 @@ function CatalogManagement() {
                 <div className="w-full flex justify-start pt-5 lg:pt-12">
                   <Collection />
                 </div>
-                <div className="flex flex-col justify-center pt-8 lg:pt-12 pb-5">
+                <div className="flex flex-col justify-center pt-8 lg:pt-12 pb-5 pr-5 lg:pr-12">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -515,7 +515,7 @@ function ElevateYourStore() {
               <ThemeExtension />
             </div>
             <div className="mt-2 p-4">
-              <div className="text-xl font-semibold">
+              <div className="text-xl font-semibold text-Neutrals-01">
                 Expand Your Commerce Capabilities
               </div>
               <div className="mt-3 mb-[15px]">
@@ -524,7 +524,7 @@ function ElevateYourStore() {
               </div>
               <a
                 href="/extensions"
-                className="text-primary hover:underline flex items-center gap-2">
+                className="text-primary hover:underline flex items-center gap-2 font-bold">
                 <span>Explore the Marketplace</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -556,14 +556,14 @@ function ElevateYourStore() {
               />
             </div>
             <div className="mt-2 p-4">
-              <div className="text-xl font-semibold">
+              <div className="text-xl font-semibold text-Neutrals-01">
                 Scale with Cloud Solutions
               </div>
               <div className="mt-3 mb-[15px]">
                 Coming soon! Discover optimized cloud modules designed to boost
                 performance and adapt to your unique needs.
               </div>
-              <span className="text-primary flex items-center gap-2">
+              <span className="text-primary flex items-center gap-2 font-bold">
                 Comming Soon
               </span>
             </div>
@@ -580,15 +580,15 @@ function Discord() {
       <div className="container flex flex-col md:flex-row md:space-y-0 justify-center p-[30px] lg:p-[75px] rounded-lg relative">
         <div className="text-center">
           <img
-            src="/img/avatar.webp"
+            src="/img/discord-users.webp"
             width={120}
             height={56}
             alt="EverShop discord channel"
           />
-          <h2 className="justify-center text-center text-white pt-4">
+          <h2 className="justify-center text-center text-white pt-4 text-3xl lg:text-[2.5rem]">
             Join the Movement. Create with Us!
           </h2>
-          <div className="text-white mb-6 text-xl">
+          <div className="text-white mb-6 text-base lg:text-xl">
             Be part of a collaborative, creative team on Discord, where every
             idea counts!
           </div>
@@ -605,12 +605,12 @@ function Discord() {
 
 function Developer() {
   return (
-    <div className="developer overflow-hidden relative container rounded-2xl bg-Other-03 border border-[#0F8769] px-6 md:p-8 lg:px-16 py-6 lg:py-[42px] mt-16">
+    <div className="developer overflow-hidden relative container rounded-2xl bg-Other-03 border border-[#0F8769] px-4 md:p-8 lg:px-16 py-4 lg:py-[42px] mt-16">
       <div>
-        <h4 className="text-white mb-2">
+        <h4 className="text-white mb-2 text-lg lg:text-2xl">
           Engineered for developers, designed for efficiency!
         </h4>
-        <div className="text-white max-w-2xl">
+        <div className="text-Neutrals-05 max-w-2xl">
           EverShop streamlines the tedious aspects of development, letting you
           focus on building great products with ease.
         </div>
@@ -618,14 +618,14 @@ function Developer() {
           <div className="flex justify-items-start">
             <Link
               to="https://discord.com/invite/GSzt7dt7RM"
-              className="button--primary button--small text-sm md:text-base">
+              className="button--primary button--small text-sm md:text-base shadow-button border-none">
               Join the team
             </Link>
           </div>
           <div className="flex justify-items-start">
             <Link
               to="https://github.com/evershopcommerce/evershop"
-              className="button button--secondary button--small text-sm md:text-base hover:underline">
+              className="button button--small text-sm md:text-base hover:underline bg-Other-03 shadow-button text-white border-none hover:text-white">
               Star us on Github
             </Link>
           </div>
@@ -706,22 +706,8 @@ const DataFetchingDes = () => (
     </div>
     <a
       href="/docs/development/knowledge-base/data-fetching"
-      className=" hover:text-white font-semibold text-primary flex gap-1 justify-start items-center">
-      <span>Learn more about data fetching</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 20 20"
-        fill="none">
-        <path
-          d="M4 12H20M20 12L14 6M20 12L14 18"
-          stroke="#008060"
-          stroke-width="1"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
+      className=" hover:text-white font-semibold text-primary text-lg">
+      Learn more about data fetching ->
     </a>
   </>
 );
@@ -735,22 +721,8 @@ const Middleware = () => (
     </div>
     <a
       href="/docs/development/knowledge-base/middleware-system"
-      className=" hover:text-white font-semibold text-primary flex gap-1 justify-start items-center">
-      <span>Learn more about middleware</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 20 20"
-        fill="none">
-        <path
-          d="M4 12H20M20 12L14 6M20 12L14 18"
-          stroke="#008060"
-          stroke-width="1"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
+      className=" hover:text-white font-semibold text-primary text-lg">
+      Learn more about middleware ->
     </a>
   </>
 );
@@ -764,22 +736,8 @@ const DynamicLayout = () => (
     </div>
     <a
       href="/docs/development/theme/templating"
-      className=" hover:text-white font-semibold text-primary flex gap-1 justify-start items-center">
-      <span>Learn more about layout system</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="18"
-        height="18"
-        viewBox="0 0 20 20"
-        fill="none">
-        <path
-          d="M4 12H20M20 12L14 6M20 12L14 18"
-          stroke="#008060"
-          stroke-width="1"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
+      className=" hover:text-white font-semibold text-primary text-lg">
+      Learn more about layout system ->
     </a>
   </>
 );
@@ -819,7 +777,7 @@ function ThemeAndExtensionDevelop() {
         </p>
         <a
           href="/docs/development/theme"
-          className="text-white hover:text-white text-lg">
+          className="text-primary font-semibold hover:text-white text-lg">
           Explore theme customization ->
         </a>
       </div>
@@ -834,7 +792,7 @@ function ThemeAndExtensionDevelop() {
         </p>
         <a
           href="/docs/development/module/module-overview"
-          className="text-white hover:text-white text-lg">
+          className="text-primary font-semibold hover:text-white text-lg">
           Learn about extension development ->
         </a>
       </div>
@@ -848,7 +806,7 @@ function TestimonialCard({ name, jobTitle, content }) {
       <div className="text-Neutrals-04 mb-5">&quot;{content}&quot;</div>
       <div className="flex justify-start items-center">
         <div>
-          <div className="text-Neutrals-01 mb-1">{name}</div>
+          <div className="text-Neutrals-01 mb-1 font-bold">{name}</div>
           <div className="text-Neutrals-04">{jobTitle}</div>
         </div>
       </div>
