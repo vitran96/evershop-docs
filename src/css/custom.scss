@@ -219,6 +219,14 @@ div.navbar__item:hover .mega__menu__dropdown{
   .navbar__item {
     padding-right: 0px;
   }
+  .navbar__toggle{
+    width: 24px;
+    height: 24px;
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
 }
 
 .navbar-sidebar {

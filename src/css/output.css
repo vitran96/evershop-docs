@@ -349,6 +349,10 @@
   height: 1rem;
 }
 
+.h-48 {
+  height: 12rem;
+}
+
 .h-5 {
   height: 1.25rem;
 }
@@ -391,18 +395,6 @@
 
 .h-px {
   height: 1px;
-}
-
-.h-80 {
-  height: 20rem;
-}
-
-.h-48 {
-  height: 12rem;
-}
-
-.h-\[calc\(100\%-\)\] {
-  height: calc(100% - );
 }
 
 .max-h-full {
@@ -525,10 +517,6 @@
   flex-shrink: 1;
 }
 
-.flex-grow {
-  flex-grow: 1;
-}
-
 .grow {
   flex-grow: 1;
 }
@@ -547,10 +535,6 @@
 
 .list-none {
   list-style-type: none;
-}
-
-.grid-flow-row {
-  grid-auto-flow: row;
 }
 
 .grid-cols-1 {
@@ -583,10 +567,6 @@
 
 .grid-rows-3 {
   grid-template-rows: repeat(3, minmax(0, 1fr));
-}
-
-.flex-row {
-  flex-direction: row;
 }
 
 .flex-row-reverse {
@@ -1045,6 +1025,11 @@
   padding-bottom: 0.5rem;
 }
 
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -1063,11 +1048,6 @@
 .py-\[6px\] {
   padding-top: 6px;
   padding-bottom: 6px;
-}
-
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
 }
 
 .pb-0 {
@@ -1395,6 +1375,12 @@
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-button {
+  --tw-shadow: 0px 1px 0px 1px rgba(255, 255, 255, 0.12) inset, 0px 1px 2px 0px rgba(16, 24, 40, 0.16);
+  --tw-shadow-colored: inset 0px 1px 0px 1px var(--tw-shadow-color), 0px 1px 2px 0px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .shadow-extension {
   --tw-shadow: 0px 0px 0px 1px rgba(17, 24, 28, 0.08), 0px 1px 2px -1px rgba(17, 24, 28, 0.08), 0px 2px 4px 0px rgba(17, 24, 28, 0.04);
   --tw-shadow-colored: 0px 0px 0px 1px var(--tw-shadow-color), 0px 1px 2px -1px var(--tw-shadow-color), 0px 2px 4px 0px var(--tw-shadow-color);
@@ -1410,12 +1396,6 @@
 .shadow-xl {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-button {
-  --tw-shadow: 0px 1px 0px 1px rgba(255, 255, 255, 0.12) inset, 0px 1px 2px 0px rgba(16, 24, 40, 0.16);
-  --tw-shadow-colored: inset 0px 1px 0px 1px var(--tw-shadow-color), 0px 1px 2px 0px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -1763,10 +1743,6 @@
 
   .lg\:grid-cols-7 {
     grid-template-columns: repeat(7, minmax(0, 1fr));
-  }
-
-  .lg\:grid-rows-\[1\.5fr_1fr\] {
-    grid-template-rows: 1.5fr 1fr;
   }
 
   .lg\:gap-14 {

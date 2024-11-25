@@ -18,7 +18,7 @@ const CollectionOne = (props) => (
         </div>
       </div>
       <div className="self-stretch h-36 flex-col justify-start items-start gap-5 flex">
-        <div className="self-stretch justify-start items-center gap-3 inline-flex">
+        <div className="self-stretch gap-3 grid grid-cols-3 md:grid-cols-4">
           <div className="flex-col justify-center items-start gap-4 inline-flex">
             <SlidingImage
               src="/img/category-one.webp"
@@ -58,7 +58,7 @@ const CollectionOne = (props) => (
               <div className="w-1/2 h-1.5 opacity-10 bg-[#686f82] rounded-sm" />
             </div>
           </div>
-          <div className="flex-col justify-center items-start gap-4 inline-flex">
+          <div className="flex-col justify-center items-start gap-4 hidden md:inline-flex">
             <SlidingImage
               src="/img/category-four.webp"
               alt="Category Four"
