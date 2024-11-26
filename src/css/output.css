@@ -469,6 +469,10 @@
   width: 100%;
 }
 
+.w-auto {
+  width: auto;
+}
+
 .min-w-\[90\%\] {
   min-width: 90%;
 }
@@ -1106,6 +1110,10 @@
   padding-left: 1.25rem;
 }
 
+.pr-0 {
+  padding-right: 0px;
+}
+
 .pr-1 {
   padding-right: 0.25rem;
 }
@@ -1164,10 +1172,6 @@
 
 .pt-\[9px\] {
   padding-top: 9px;
-}
-
-.pr-0 {
-  padding-right: 0px;
 }
 
 .text-left {

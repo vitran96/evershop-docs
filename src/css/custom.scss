@@ -227,6 +227,9 @@ div.navbar__item:hover .mega__menu__dropdown{
       height: 24px;
     }
   }
+  div:last-child {
+    position: static;
+  }
 }
 
 .navbar-sidebar {

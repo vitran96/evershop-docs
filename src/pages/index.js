@@ -137,7 +137,7 @@ function Logos() {
           <img
             alt="EverShop and Stripe"
             src="/img/stripe-logo.webp"
-            className="max-h-full max-w-fit"
+            className="max-h-full max-w-fit w-auto"
             width={240}
             height={100}
           />
@@ -146,7 +146,7 @@ function Logos() {
           <img
             alt="EverShop and Paypal"
             src="/img/paypal-logo.webp"
-            className="max-h-full max-w-fit"
+            className="max-h-full max-w-fit w-auto"
             width={382}
             height={100}
           />
@@ -155,7 +155,7 @@ function Logos() {
           <img
             alt="EverShop and Algolia"
             src="/img/algolia-logo.webp"
-            className="max-h-full max-w-fit"
+            className="max-h-full max-w-fit w-auto"
             width={405}
             height={100}
           />
@@ -164,7 +164,7 @@ function Logos() {
           <img
             alt="EverShop and Klarna"
             src="/img/klarna-logo.webp"
-            className="max-h-full max-w-fit"
+            className="max-h-full max-w-fit w-auto"
             width={414}
             height={100}
           />
@@ -173,7 +173,7 @@ function Logos() {
           <img
             alt="EverShop and Netlify"
             src="/img/netlify-logo.webp"
-            className="max-h-full max-w-fit"
+            className="max-h-full max-w-fit w-auto"
             width={246}
             height={100}
           />
@@ -182,7 +182,7 @@ function Logos() {
           <img
             alt="EverShop and Mailchimp"
             src="/img/mailchimp-logo.webp"
-            className="max-h-full max-w-fit"
+            className="max-h-full max-w-fit w-auto"
             width={214}
             height={100}
           />
@@ -553,6 +553,7 @@ function ElevateYourStore() {
                 alt="EverShop cloud"
                 width={558}
                 height={312}
+                className="max-h-full w-auto"
               />
             </div>
             <div className="mt-2 p-4 flex flex-col justify-items-end">
