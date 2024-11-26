@@ -8,6 +8,7 @@ const One = () => (
       alt="EverShop data fetching"
       width={544}
       height={278}
+      className="w-full h-auto"
     />
   </div>
 );
@@ -18,6 +19,7 @@ const Two = () => (
       alt="EverShop file based middleware"
       width={544}
       height={278}
+      className="w-full h-auto"
     />
   </div>
 );
@@ -28,6 +30,7 @@ const Three = () => (
       alt="EverShop dynamic layout"
       width={544}
       height={278}
+      className="w-full h-auto"
     />
   </div>
 );
