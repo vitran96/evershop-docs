@@ -842,16 +842,13 @@ button.menu__caret {
   }
 }
 
-.list_node_modules-\@docusaurus-theme-classic-lib-theme-DocCategoryGeneratedIndexPage-styles-module {
-  article {
+article.margin-top--lg > section.row {
+  > article {
     .card {
       box-shadow: 0px 0px 0px 1px rgba(17, 24, 28, 0.08), 0px 1px 2px -1px rgba(17, 24, 28, 0.08), 0px 2px 4px 0px rgba(17, 24, 28, 0.04);
       border-color: #e6e8ec;
     }
     &:nth-child(even) {
-      .card {
-        background:radial-gradient(80% 50% at 100% 0%, rgba(39, 180, 135, 0.3) 0%, rgb(248, 249, 250) 100%);
-      }
       padding-left: 1rem;
       @include mobile {
         padding-left: 0;
@@ -861,9 +858,6 @@ button.menu__caret {
       }
     }
     &:nth-child(odd) {
-      .card {
-        background: radial-gradient(80% 50% at 100% 0%, rgba(100, 94, 229, 0.12) 0%, rgb(248, 249, 250) 100%);
-      }
       padding-right: 1rem;
       @include mobile {
         padding-right: 0;
@@ -873,4 +867,14 @@ button.menu__caret {
       }
     }
   }
+}
+
+html .pagination-nav__label, html .pagination-nav__sublabel {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.pagination-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }
