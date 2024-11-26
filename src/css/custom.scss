@@ -200,6 +200,9 @@ div.navbar__item:hover .mega__menu__dropdown{
     &:hover,&:active,&:focus {
       box-shadow: none !important;
     }
+    @include mobile {
+      background-color: #fff;
+    }
   }
   .DocSearch-Button-Placeholder {
     font-size: 14px;
