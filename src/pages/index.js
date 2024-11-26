@@ -39,7 +39,12 @@ function HomepageHeader() {
               <span>Version 1.2</span>
             </div>
             <div className="flex gap-[5px] items-center justify-center">
-              <span>Check out the repo</span>
+              <a
+                href="https://github.com/evershopcommerce/evershop"
+                target="_blank"
+                rel="noopener noreferrer">
+                Check out the repo
+              </a>
               <svg
                 width="16"
                 height="16"
