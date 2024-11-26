@@ -2073,7 +2073,9 @@ const BuilderSVG = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <span className="text-Neutrals-01 font-bold text-base">3</span>
+                <span className="text-Neutrals-01 font-semibold text-base">
+                  3
+                </span>
               </div>
               <div className="flex items-center">
                 <animated.div
@@ -2124,7 +2126,9 @@ const BuilderSVG = () => {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <span className="text-Neutrals-01 font-bold text-base">4</span>
+                <span className="text-Neutrals-01 font-semibold text-base">
+                  4
+                </span>
               </div>
               <div className="flex items-center">
                 <animated.div

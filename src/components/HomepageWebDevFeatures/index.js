@@ -81,7 +81,7 @@ function Feature({ icon, title, description, readMore }) {
       <div className="mb-4 text-Neutrals-04">{description}</div>
       <Link
         to={readMore}
-        className={"readmore flex items-center font-bold gap-2"}>
+        className={"readmore flex items-center font-semibold gap-2"}>
         <span>Read more</span>
         <span className="flex justify-center items-center content-center">
           <svg

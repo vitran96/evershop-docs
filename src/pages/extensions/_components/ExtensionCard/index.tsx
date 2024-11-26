@@ -58,18 +58,18 @@ function ExtensionCard({extension}: {extension: Extension}) {
         </ul>
         <div className="mt-4">
           <div className='flex justify-between'>
-            <Heading as="h3" className='mb-1 text-xl font-bold'>
+            <Heading as="h3" className='mb-1 text-xl font-semibold'>
               <Link href={extension.npm} className="text-Neutrals-01">
                 {extension.title}
               </Link>
             </Heading>
             {extension.price && (
-              <span className="text-primary font-bold text-lg">
+              <span className="text-primary font-semibold text-lg">
                 {extension.price}$
               </span>
             )}
             {!extension.price && (
-              <span className="text-primary font-bold text-lg">Free</span>
+              <span className="text-primary font-semibold text-lg">Free</span>
             )}
           </div>
           <p className='text-Neutrals-04 mb-0'>{extension.description}</p>
@@ -79,7 +79,7 @@ function ExtensionCard({extension}: {extension: Extension}) {
             <div className='w-8 h-8 bg-primary-02 flex justify-center items-center rounded-full'><img src='/img/logo.svg' alt='EverShop' width={15} height={15} /></div>
             <span className='text-Neutrals-04 text-base'>EverShop</span>
           </div>
-          <a href={extension.npm} target='_blank' className='font-bold'>Download</a>
+          <a href={extension.npm} target='_blank' className='font-semibold'>Download</a>
         </div>
       </div>
     </div>

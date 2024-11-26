@@ -524,7 +524,7 @@ function ElevateYourStore() {
               </div>
               <a
                 href="/extensions"
-                className="text-primary hover:underline flex items-center gap-2 font-bold">
+                className="text-primary hover:underline flex items-center gap-1 font-semibold">
                 <span>Explore the Marketplace</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -564,7 +564,7 @@ function ElevateYourStore() {
                 Coming soon! Discover optimized cloud modules designed to boost
                 performance and adapt to your unique needs.
               </div>
-              <span className="text-primary flex items-center gap-2 font-bold">
+              <span className="text-primary flex items-center gap-2 font-semibold">
                 Comming Soon
               </span>
             </div>
@@ -807,7 +807,7 @@ function TestimonialCard({ name, jobTitle, content }) {
       <div className="text-Neutrals-04 mb-5">&quot;{content}&quot;</div>
       <div className="flex justify-start items-center">
         <div>
-          <div className="text-Neutrals-01 mb-1 font-bold">{name}</div>
+          <div className="text-Neutrals-01 mb-1 font-semibold">{name}</div>
           <div className="text-Neutrals-04">{jobTitle}</div>
         </div>
       </div>
