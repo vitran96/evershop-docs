@@ -49,6 +49,94 @@ function ContactForm() {
               Have questions? Need tailored support? Our team is here to guide
               you every step of the way!
             </p>
+            <div className="grid grid-cols-1 gap-3">
+              <div className="flex justify-start gap-3">
+                <div className="w-5 h-5 pt-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none">
+                    <g clip-path="url(#clip0_4348_5806)">
+                      <path
+                        d="M18.3327 9.23355V10.0002C18.3317 11.7972 17.7498 13.5458 16.6738 14.9851C15.5978 16.4244 14.0854 17.4773 12.3621 17.9868C10.6389 18.4963 8.79707 18.4351 7.11141 17.8124C5.42575 17.1896 3.98656 16.0386 3.00848 14.5311C2.0304 13.0236 1.56584 11.2403 1.68408 9.44714C1.80232 7.65402 2.49702 5.94715 3.66458 4.58111C4.83214 3.21506 6.41 2.26303 8.16284 1.867C9.91568 1.47097 11.7496 1.65216 13.391 2.38355M18.3327 3.33355L9.99935 11.6752L7.49935 9.17521"
+                        stroke="#00764A"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_4348_5806">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+                <div>
+                  Suggestions for solutions to meet your specific needs and pain
+                  points.
+                </div>
+              </div>
+              <div className="flex justify-start gap-3">
+                <div className="w-5 h-5 pt-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none">
+                    <g clip-path="url(#clip0_4348_5806)">
+                      <path
+                        d="M18.3327 9.23355V10.0002C18.3317 11.7972 17.7498 13.5458 16.6738 14.9851C15.5978 16.4244 14.0854 17.4773 12.3621 17.9868C10.6389 18.4963 8.79707 18.4351 7.11141 17.8124C5.42575 17.1896 3.98656 16.0386 3.00848 14.5311C2.0304 13.0236 1.56584 11.2403 1.68408 9.44714C1.80232 7.65402 2.49702 5.94715 3.66458 4.58111C4.83214 3.21506 6.41 2.26303 8.16284 1.867C9.91568 1.47097 11.7496 1.65216 13.391 2.38355M18.3327 3.33355L9.99935 11.6752L7.49935 9.17521"
+                        stroke="#00764A"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_4348_5806">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+                <div>
+                  Guidance on EverShop-optimized hosting and vetted extensions.
+                </div>
+              </div>
+              <div className="flex justify-start gap-3">
+                <div className="w-5 h-5 pt-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none">
+                    <g clip-path="url(#clip0_4348_5806)">
+                      <path
+                        d="M18.3327 9.23355V10.0002C18.3317 11.7972 17.7498 13.5458 16.6738 14.9851C15.5978 16.4244 14.0854 17.4773 12.3621 17.9868C10.6389 18.4963 8.79707 18.4351 7.11141 17.8124C5.42575 17.1896 3.98656 16.0386 3.00848 14.5311C2.0304 13.0236 1.56584 11.2403 1.68408 9.44714C1.80232 7.65402 2.49702 5.94715 3.66458 4.58111C4.83214 3.21506 6.41 2.26303 8.16284 1.867C9.91568 1.47097 11.7496 1.65216 13.391 2.38355M18.3327 3.33355L9.99935 11.6752L7.49935 9.17521"
+                        stroke="#00764A"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_4348_5806">
+                        <rect width="20" height="20" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+                <div>
+                  Assistance with getting started and finding the right experts
+                  to help build or upgrade your store.
+                </div>
+              </div>
+            </div>
           </div>
           <div className="p-5 lg:p-10 border border-Neutrals-06 rounded-3xl relative bg-white shadow-extension">
             <Formik
