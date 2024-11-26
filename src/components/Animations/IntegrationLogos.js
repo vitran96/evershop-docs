@@ -26,6 +26,7 @@ const IntegrationLogos = (props) => {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       fill="none"
       viewBox="0 0 593 554"
+      className="max-w-full max-h-full"
       {...props}>
       <defs>
         <path
