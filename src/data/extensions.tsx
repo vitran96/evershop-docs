@@ -68,6 +68,7 @@ const Users: Extension[] = [
     npm: 'https://npmjs.com/package/@evershop/sendgrid',
     source: 'https://github.com/evershopcommerce/evershop',
     tags: ['notification'],
+    author: "EverShop"
   },
   {
     title: 'Resend Email',
@@ -76,6 +77,7 @@ const Users: Extension[] = [
     npm: 'https://npmjs.com/package/@evershop/resend',
     source: 'https://github.com/evershopcommerce/evershop',
     tags: ['notification'],
+    author: "EverShop"
   },
   {
     title: 'Google Login',
@@ -84,6 +86,7 @@ const Users: Extension[] = [
     npm: 'https://www.npmjs.com/package/@evershop/google_login',
     source: 'https://github.com/evershopcommerce/evershop',
     tags: ['authentication'],
+    author: "EverShop"
   },
   {
     title: 'Product Reviews',
@@ -93,6 +96,7 @@ const Users: Extension[] = [
     npm: 'https://www.npmjs.com/package/@evershop/product_review',
     source: 'https://github.com/evershopcommerce/evershop',
     tags: ['mechandise'],
+    author: "EverShop"
   },
   {
     title: 'Azure Blob Storage',
@@ -102,6 +106,7 @@ const Users: Extension[] = [
     npm: 'https://www.npmjs.com/package/@evershop/azure_file_storage',
     source: 'https://github.com/evershopcommerce/evershop',
     tags: ['cms'],
+    author: "EverShop"
   },
   {
     title: 'Amazon S3 Storage',
@@ -111,6 +116,27 @@ const Users: Extension[] = [
     npm: 'https://www.npmjs.com/package/@evershop/s3_file_storage',
     source: 'https://github.com/evershopcommerce/evershop',
     tags: ['cms'],
+    author: "EverShop"
+  },
+  {
+    title: 'Tidio Chat',
+    description:
+      'A Tidio Chat extension for providing customer support via chat.',
+    preview: require('./extension/tidio.png'),
+    npm: 'https://www.npmjs.com/package/evershop_tidio_widget',
+    source: 'https://github.com/huangj1e/evershop_extended',
+    tags: ['notification'],
+    author: "huangj1e"
+  },
+  {
+    title: 'Tawk Chat',
+    description:
+      'A Tawk Chat extension for providing customer support via chat.',
+    preview: require('./extension/tawk.png'),
+    npm: 'https://www.npmjs.com/package/evershop_tawk_widget',
+    source: 'https://github.com/huangj1e/evershop_extended',
+    tags: ['notification'],
+    author: "huangj1e"
   }
 ];
 
@@ -122,6 +148,7 @@ export type Extension = {
   source: string | null;
   tags: TagType[];
   price: number | null;
+  author: string;
 };
 
 export type Tag = {

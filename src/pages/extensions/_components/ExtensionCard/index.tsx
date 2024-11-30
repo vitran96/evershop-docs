@@ -49,8 +49,8 @@ function ExtensionCardTag({tags}: {tags: TagType[]}) {
 function ExtensionCard({extension}: {extension: Extension}) {
   return (
     <div key={extension.title} className="border bg-white border-Neutrals-06 rounded-[20px] p-2 pb-6 shadow-extension">
-      <div className="bg-Other-01">
-        <Image img={extension.preview} />
+      <div>
+        <Image img={extension.preview} className="rounded-xl" />
       </div>
       <div className='p-3 pb-0'>
         <ul className="list-none pl-0 mt-5">
@@ -77,7 +77,7 @@ function ExtensionCard({extension}: {extension: Extension}) {
         <div className='flex justify-between mt-4 items-center'>
           <div className='flex justify-start gap-2 items-center'>
             <div className='w-8 h-8 bg-primary-02 flex justify-center items-center rounded-full'><img src='/img/logo.svg' alt='EverShop' width={15} height={15} /></div>
-            <span className='text-Neutrals-04 text-base'>EverShop</span>
+            <span className='text-Neutrals-04 text-base'>{extension.author}</span>
           </div>
           <a href={extension.npm} target='_blank' className='font-semibold'>Download</a>
         </div>
