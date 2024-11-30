@@ -49,8 +49,8 @@ function ExtensionCardTag({tags}: {tags: TagType[]}) {
 function ExtensionCard({extension}: {extension: Extension}) {
   return (
     <div key={extension.title} className="border bg-white border-Neutrals-06 rounded-[20px] p-2 pb-6 shadow-extension">
-      <div>
-        <Image img={extension.preview} className="rounded-xl" />
+      <div className='extension__image'>
+        <Image img={extension.preview} />
       </div>
       <div className='p-3 pb-0'>
         <ul className="list-none pl-0 mt-5">
