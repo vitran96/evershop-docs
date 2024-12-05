@@ -80,7 +80,8 @@ function HomepageHeader() {
           <div className="flex justify-end">
             <Link
               className="button button--secondary rounded-xl button--large"
-              to="https://demo.evershop.io/">
+              to="https://demo.evershop.io/"
+              rel="nofollow">
               Explore our demo
             </Link>
           </div>

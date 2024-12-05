@@ -110,7 +110,9 @@ function Feature({
         <div>
           <h3 className="mb-3">{title}</h3>
           <div className="mb-2">{description}</div>
-          <Link to={readMore}>{readMoreText}</Link>
+          <Link to={readMore} rel="nofollow">
+            {readMoreText}
+          </Link>
         </div>
       </div>
     </div>
