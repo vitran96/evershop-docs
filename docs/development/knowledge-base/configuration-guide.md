@@ -25,7 +25,7 @@ Configurations are JSON files stored in configuration files within a directory n
 
 Let’s take a look at an example
 
-```bash
+```json
 {
     "shop" : {
         "currency": "USD",
@@ -74,7 +74,7 @@ For example, you can overwrite the configuration for your production store by be
 - Create a new configuration file named `production.json` in the `config` directory.
 - Add your configuration for production
 
-```bash
+```json
 {
     "shop" : {
         "currency": "USD",
@@ -118,7 +118,7 @@ For example, you can overwrite the configuration for your production store by be
 
 Let's take a look at the below code:
 
-```bash
+```js
 const config = require('config');
 //...
 const language = config.get('shop.language');
@@ -135,7 +135,7 @@ The above example shows us how to get the configurable variables from the config
 
 You also can use the below method to get the configuration and provide a default value in case the configuration does not exist:
 
-```bash
+```js
 const {
   getConfig
 } = require('@evershop/evershop/lib/util/getConfig');
@@ -153,6 +153,7 @@ The high-level overview of the configuration file can be categorized into:
 - Extension configuration
 - Catalog configuration
 - Pricing configuration
+- Order status configuration
 - Theming configuration
 - Customer address schema
 
@@ -160,7 +161,7 @@ The high-level overview of the configuration file can be categorized into:
 
 The shop configuration contains the information about the shop. This information is used to display on the storefront.
 
-```bash
+```json
 {
     "shop" : {
         "currency": "USD",
@@ -175,7 +176,7 @@ The shop configuration contains the information about the shop. This information
 
 The extension configuration contains the list of extensions that are enabled for the application. The extension configuration is used to enable/disable the extension and set the priority for the extension.
 
-```bash
+```json
 {
   "system": {
     "extensions": [
@@ -194,7 +195,7 @@ The extension configuration contains the list of extensions that are enabled for
 
 The catalog configuration contains the configuration for the catalog module. You can configure the image size for the product image, the product listing behavior, and the placeholder image for the product.
 
-```bash
+```json
 {
     "catalog": {
         "product": {
@@ -235,7 +236,7 @@ The pricing configuration contains the configuration for the pricing calculation
 
 The tax calculation configuration contains the configuration for the tax calculation. You can configure the rounding behavior and the precision for the tax calculation.
 
-```bash
+```json
 {
     "pricing": {
         "tax": {
@@ -248,11 +249,137 @@ The tax calculation configuration contains the configuration for the tax calcula
 }
 ```
 
+### Order status configuration
+
+The order status configuration contains the configuration for the order status, payment status, and shipment status. Below is the default configuration for the order status.
+
+```json
+{
+    "order": {
+        {
+            "new": { // The object key is the status code
+                "name": "New",
+                "badge": "default", // This will be used for displaying the badge on the order list. Possible values are new, info, success, attention, warning, critical
+                "progress": "incomplete", // Possible values are incomplete, complete, partiallycomplete
+                "isDefault": true, // Indicate that this is the default status, This status will be used for the new order
+                "next": [ // This will be used to determine the next status for the order when either the payment or shipment is updated
+                    "processing",
+                    "canceled"
+                ]
+            },
+            "processing": {
+                "name": "Processing",
+                "badge": "default",
+                "progress": "incomplete",
+                "next": [
+                    "completed",
+                    "canceled"
+                ]
+            },
+            "completed": {
+                "name": "Completed",
+                "badge": "success",
+                "progress": "complete",
+                "next": [
+                    "closed"
+                ]
+            },
+            "canceled": {
+                "name": "Canceled",
+                "badge": "critical",
+                "progress": "complete",
+                "next": []
+            },
+            "closed": {
+                "name": "Closed",
+                "badge": "default",
+                "progress": "complete",
+                "next": []
+            }
+        }
+    }
+}
+```
+
+Example of shipment status configuration:
+
+```json
+{
+    "order": {
+        "shipmentStatus": {
+            "pending": {
+                "name": "Pending",
+                "badge": "default",
+                "progress": "incomplete",
+                "isDefault": true // Indicate that this is the default shipment status, This status will be used for the new order
+            },
+            "processing": {
+                "name": "Processing",
+                "badge": "default",
+                "progress": "incomplete",
+                "isDefault": false
+            },
+            "shipped": {
+                "name": "Shipped",
+                "badge": "attention",
+                "progress": "complete"
+            },
+            "delivered": {
+                "name": "Delivered",
+                "badge": "success",
+                "progress": "complete",
+                "isCancelable": false // Indicate that if the shipment has this status, the order cannot be canceled
+            },
+            "canceled": {
+                "name": "Canceled",
+                "badge": "critical",
+                "progress": "complete",
+                "isCancelable": false
+            }
+        }
+    }
+}
+```
+
+Example of payment status configuration:
+
+```json
+{
+    "order": {
+        "paymentStatus": {
+            "pending": {
+                "name": "Pending",
+                "badge": "default",
+                "progress": "incomplete",
+                "isDefault": true // Indicate that this is the default payment status, This status will be used for the new order
+            },
+            "processing": {
+                "name": "Processing",
+                "badge": "default",
+                "progress": "incomplete",
+                "isCancelable": false, // Indicate that if the payment has this status, the order cannot be canceled
+                "isDefault": false
+            },
+            "paid": {
+                "name": "Paid",
+                "badge": "success",
+                "progress": "complete"
+            },
+            "failed": {
+                "name": "Failed",
+                "badge": "critical",
+                "progress": "complete"
+            }
+        }
+    }
+}
+```
+
 ### Theming configuration
 
 Theming configuration contains the configuration for the theme. You can configure the logo, favicon, and the meta tag for the storefront.
 
-```bash
+```json
 {
     "themeConfig": {
         "logo": {
@@ -283,7 +410,7 @@ In above example, the logo is located at `public/logo.png`
 
 To add your custom favicon, you can use the `themeConfig` and add a `link` tag for the favicon.
 
-```bash
+```json
 {
     "themeConfig": {
         "headTags": {
@@ -304,7 +431,7 @@ You can use this method to add social banners, social icons, and other meta tags
 
 To add your custom CSS and Javascript, you can use the `themeConfig` and add a `script` tag for the CSS and JS.
 
-```bash
+```json
 {
     "themeConfig": {
         "headTags": {
@@ -329,7 +456,7 @@ To add your custom CSS and Javascript, you can use the `themeConfig` and add a `
 
 The customer address schema contains the configuration for the customer address. You can configure the address fields for the customer address 
 
-```bash
+```json
 {
     ..., #Other configuration
     "customer": {

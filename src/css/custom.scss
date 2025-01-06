@@ -881,3 +881,8 @@ html .pagination-nav__label, html .pagination-nav__sublabel {
 .extension__image img {
   border-radius: 12px;
 }
+
+.container > .row > .col {
+  padding-left: 1rem;
+  padding-right: 1rem
+}
