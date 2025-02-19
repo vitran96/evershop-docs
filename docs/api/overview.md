@@ -28,7 +28,7 @@ EverShop uses the [JSON](https://www.json.org/json-en.html) format for all the A
 
 ## Authentication
 
-For now, EverShop only supports the [JWT](https://jwt.io/) authentication. You can get the JWT token by calling the [admin login](/docs/api/user) API. This token will be used for all the subsequent API calls.
+For now, EverShop supports the cookie based authentication. You can get the cookie by calling the [admin login](/docs/api/user) API. This cookie will be used for all the subsequent API calls.
 
 Some API endpoints do not require authentication. If the `access` property is set to `public` in the `route.json` file, the API endpoint will be treated as a public API endpoint. Public API endpoints can be accessed by anyone.
 
