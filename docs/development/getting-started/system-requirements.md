@@ -18,7 +18,7 @@ EverShop can run on Windows, Linux or Mac-OS.
 
 ## Node.js
 
-To install EverShop, you must have [Node.js](https://nodejs.org/en/) version 14 or above.
+To install EverShop, you must have [Node.js](https://nodejs.org/en/) version 18.17.0 or above.
 
 ## NPM
 
