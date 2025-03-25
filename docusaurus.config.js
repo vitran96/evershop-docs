@@ -304,6 +304,11 @@ const config = {
             position: "left",
             label: "Marketplace",
           },
+          // {
+          //   href: "/pricing",
+          //   position: "left",
+          //   label: "Pricing",
+          // },
           {
             href: "/contact-us",
             position: "left",
@@ -336,6 +341,14 @@ const config = {
               {
                 label: "License",
                 to: "https://github.com/evershopcommerce/evershop/blob/main/LICENSE",
+              },
+              {
+                label: "Privacy",
+                to: "/privacy",
+              },
+              {
+                label: "Terms",
+                to: "/tos",
               },
               {
                 label: "Code of Conduct",
