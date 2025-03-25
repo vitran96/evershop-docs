@@ -183,10 +183,15 @@ function Pricing() {
               <p>Perfect for startups and growing online stores.</p>
 
               <Price plan="personal" selected={selected} />
-              <a
+              {/* <a
                 className="button button--primary w-full p-3 text-base"
                 href={`http://localhost:3000?plan=personal&billing=${selected}`}>
                 Get Personal
+              </a> */}
+              <a
+                className="button button--primary w-full p-3 text-base"
+                href={`#`}>
+                Coming soon
               </a>
             </div>
             <div className="mt-4">
@@ -215,10 +220,15 @@ function Pricing() {
               <h2 className="text-2xl font-bold">Professional</h2>
               <p>Advanced features and support for scaling businesses.</p>
               <Price plan="professional" selected={selected} />
-              <a
+              {/* <a
                 className="button button--primary w-full p-3 text-base"
                 href={`http://localhost:3000?plan=professional&billing=${selected}`}>
                 Get Professional
+              </a> */}
+              <a
+                className="button button--primary w-full p-3 text-base"
+                href={`#`}>
+                Coming soon
               </a>
             </div>
             <div className="mt-4">
@@ -271,23 +281,18 @@ const faqs = [
       "Yes, you can use your own domain. You might need to configure a A record for your domain to point to your server.",
   },
   {
-    question: "What is the difference between the plans?",
-    answer:
-      "The difference between the plans is the number of products you can have.",
-  },
-  {
     question: "How do I pay for the plan?",
-    answer: "You can pay for the plan using a credit card or PayPal.",
+    answer: "You can pay for the plan using a credit card.",
   },
   {
     question: "How do I cancel my plan?",
     answer:
-      "You can cancel your plan at any time. You will not be charged after your current billing period.",
+      "You can cancel your plan at any time, but you must cancel at least 24 hours before the next billing cycle occurs. You will not be charged after your current billing period.",
   },
   {
-    question: "What is your refund policy?",
+    question: "Can I upgrade or downgrade my plan?",
     answer:
-      "You can cancel your plan at any time. You will not be charged after your current billing period.",
+      "Yes, you can upgrade or downgrade your plan at any time. Your remaining billing will be applied as a discount.",
   },
 ];
 
