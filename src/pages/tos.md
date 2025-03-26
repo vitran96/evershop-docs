@@ -13,9 +13,9 @@ By using EverShop services ("Service"), including EverShop Cloud Hosting and the
 
 ### 3. Description of Service
 
-EverShop provides both cloud-based hosting solutions for users deploying EverShop-powered eCommerce websites and a marketplace offering extensions, themes, and other digital products. Hosting services include server resources, automated updates, and support. 
+EverShop primarily offers cloud-based hosting services where users can purchase subscription plans for their EverShop-powered eCommerce websites. When you purchase a hosting plan, we provide the complete infrastructure necessary to run your online store, including server resources, database management, security monitoring, automated updates, and technical support. Our team handles all server maintenance and optimization so you can focus on your business.
 
-The Marketplace enables users to purchase and sell extensions, themes, and other compatible tools.
+Additionally, EverShop operates a Marketplace offering extensions, themes, and other digital products that enhance your eCommerce website. The Marketplace enables users to purchase and sell extensions, themes, and other compatible tools to customize their stores.
 
 ### 4. Account Registration & Security
 
