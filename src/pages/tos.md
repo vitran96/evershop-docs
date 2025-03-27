@@ -4,8 +4,8 @@ Thank you for choosing EverShop! These Terms of Service ("Terms") govern your us
 
 ### 1. Who’s Who
 
-- 'EverShop,' 'We,' 'Us,' 'Our' shall collectively refer to EverShop Inc.
-- 'You,' 'Your,' 'User' refers to any individual or entity accessing or using the services provided by EverShop Inc. and agreeing to these Terms."
+- 'EverShop,' 'We,' 'Us,' 'Our' shall collectively refer to EverShop Technology Limited.
+- 'You,' 'Your,' 'User' refers to any individual or entity accessing or using the services provided by EverShop Technology Limited and agreeing to these Terms."
 
 ### 2. Acceptance of Terms
 
