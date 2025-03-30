@@ -144,7 +144,7 @@ function Pricing() {
             <FakeSelect selected={selected} setSelected={setSelected} />
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 border border-gray-200 rounded-md divide-y md:divide-y-0 md:divide-x divide-gray-200 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 border border-gray-200 rounded-md divide-y md:divide-y-0 md:divide-x divide-gray-200 mt-16 max-w-5xl mx-auto">
           <div className="p-8 grid grid-cols-1 grid-rows-2 gap-4">
             <div className="flex flex-col justify-between">
               <div>
@@ -250,22 +250,6 @@ function Pricing() {
                   Deploy from GitHub
                 </li>
               </ul>
-            </div>
-          </div>
-          <div className="p-8 grid grid-cols-1 grid-rows-2 gap-4">
-            <div className="flex flex-col justify-between">
-              <div>
-                <h2 className="text-2xl font-bold">Enterprise</h2>
-                <p>
-                  Custom solutions with dedicated support for high-volume
-                  businesses.
-                </p>
-              </div>
-              <a
-                className="button button--primary w-full p-3 text-base"
-                href="/contact-us">
-                Contact Us
-              </a>
             </div>
           </div>
         </div>
