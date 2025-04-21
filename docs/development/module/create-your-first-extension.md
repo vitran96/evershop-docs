@@ -200,15 +200,15 @@ const { execute } = require('@evershop/postgres-query-builder');
 
 // eslint-disable-next-line no-multi-assign
 module.exports = exports = async (connection) => {
-  await execute(connection, `CREATE TABLE \`product_comment\` (
-  \`comment_id\` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  \`product_id\` int(10) unsigned NOT NULL,
-  \`user_name\` varchar(255) NOT NULL,
-  \`comment\` text DEFAULT NULL,
-  \`created_at\` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (\`comment_id\`),
-  CONSTRAINT \`FK_PRODUCT_COMMENT\` FOREIGN KEY (\`product_id\`) REFERENCES \`product\` (\`product_id\`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  await execute(connection, `CREATE TABLE product_comment (
+  comment_id SERIAL,
+  product_id INT4 NOT NULL,
+  user_name VARCHAR(255) NOT NULL,
+  comment TEXT DEFAULT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT pk_product_id PRIMARY KEY (comment_id),
+  CONSTRAINT fk_product_comment FOREIGN KEY (product_id) REFERENCES incidents (id) ON DELETE CASCADE
+);
 `);
 };
 ```
